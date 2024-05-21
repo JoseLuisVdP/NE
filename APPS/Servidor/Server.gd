@@ -1,6 +1,6 @@
-extends Node
+class_name Server extends Node
 ## Main class for server functionality
-class_name Server
+
 @onready var player_verification: Node = %PlayerVerification
 
 var server
@@ -13,6 +13,10 @@ var max_players = 5
 @onready var repositories: Repository = %Repositories
 
 @export var default_img : CompressedTexture2D
+@onready var token_expiration: Timer = %TokenExpiration
+
+var expected_tokens : Array[String] = []
+const TOKEN_EXPIRATION_TIME : int = 30
 
 ## Starts all timers
 func _ready():
@@ -38,6 +42,16 @@ func _on_player_disconnected(player_id):
 	# AQUI HABRIA QUE GUARDAR LOS DATOS
 	get_node(str(player_id)).queue_free()
 
+@rpc("any_peer","reliable")
+func fetch_token(player_id:int) -> void:
+	rpc_id(player_id, "fetch_token", player_id)
+
+
+@rpc("any_peer","reliable")
+func return_token(token:String) -> void:
+	var player_id = multiplayer.get_remote_sender_id()
+	player_verification.verify(player_id, token)
+
 
 @rpc("any_peer", "reliable")
 func get_data():
@@ -48,3 +62,19 @@ func get_data():
 @rpc("any_peer", "reliable")
 func _on_data_retrieved(_data:Dictionary):
 	pass
+
+func _on_token_expiration_timeout() -> void:
+	if expected_tokens.size() == 0:
+		return
+	
+	var cur_time : int = int(Time.get_unix_time_from_system())
+	var token_time : int
+	for i in range(expected_tokens.size() -1, -1, -1):
+		token_time = int(expected_tokens[i].right(64))
+		if cur_time - token_time >= TOKEN_EXPIRATION_TIME:
+			expected_tokens.erase(i)
+	print(expected_tokens)
+
+@rpc("any_peer", "reliable")
+func return_token_verification_result(player_id:int, token_verification:bool) -> void:
+	rpc_id(player_id, "return_token_verification_result", player_id, token_verification)

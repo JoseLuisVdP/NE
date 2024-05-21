@@ -99,10 +99,4 @@ layout_mode = 2
 theme = ExtResource("2_e3wbr")
 text = "Register"
 
-[node name="LoginTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 5.0
-one_shot = true
-
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxContainer2/LoginBtn" to="." method="_on_login_btn_pressed"]
-[connection signal="timeout" from="LoginTimer" to="." method="_on_timer_timeout"]

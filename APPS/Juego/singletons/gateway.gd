@@ -42,16 +42,19 @@ func login_request(email, password):
 	pass
 
 @rpc("any_peer", "reliable", "call_local")
-func return_login_request(result:bool, player_id):
+func return_login_request(result:bool, player_id, token):
 	print("Results received")
-	rpc_id(1, "disconnect_player", player_id)
 	if result:
-		login_success.emit()
 		print("Login ok")
 		printerr("POPUP AL USUARIO PLZ")
+		Server.token = token
 		Server.connect_to_server()
 	else:
 		print("Correo o contraseña incorrecto")
+		get_node("/root/Login").login_btn.disabled = false
+	
+	# No estoy seguro de que esta llamada vaya aquí, testea
+	rpc_id(1, "disconnect_player", player_id)
 	
 	multiplayer.connection_failed.disconnect(_on_connection_failed)
 	multiplayer.connected_to_server.disconnect(_on_connected_to_server)

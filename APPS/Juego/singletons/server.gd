@@ -2,6 +2,8 @@ extends Node
 
 var client
 
+var token
+
 var ip = "127.0.0.1"
 var port = 1909
 
@@ -44,3 +46,22 @@ func _on_data_retrieved(_data:Dictionary):
 	var game : GAME = get_node("/root/Game")
 	game.data = _data
 	game.data_retrieved.emit()
+
+@rpc("any_peer","reliable")
+func fetch_token(player_id:int) -> void:
+	rpc_id(1, "return_token", token)
+
+@rpc("any_peer","reliable")
+func return_token(token:String) -> void:
+	pass
+
+@rpc("any_peer", "reliable")
+func return_token_verification_result(player_id:int, token_verification:bool) -> void:
+	var login : Control = get_node("/root/Login")
+	if token_verification:
+		print("Token verificado")
+		login.queue_free()
+		Scenes.load_scene("game")
+	else:
+		print("Login fallido (token malo)")
+		login.login_btn.disabled = false

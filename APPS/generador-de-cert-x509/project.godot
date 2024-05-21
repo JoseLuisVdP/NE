@@ -10,20 +10,9 @@ config_version=5
 
 [application]
 
-config/name="AuthenticationServer"
-run/main_scene="res://authentication_server.tscn"
-config/use_custom_user_dir=true
-config/custom_user_dir_name="AuthServer"
+config/name="Generador de cert X509"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-GameServer="*res://game_servers.gd"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
 [rendering]
 

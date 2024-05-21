@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://disqfemuyckyq"]
+[gd_scene load_steps=9 format=3 uid="uid://disqfemuyckyq"]
 
 [ext_resource type="Script" path="res://Server.gd" id="1_x3ycw"]
 [ext_resource type="Script" path="res://Timers/Timers.gd" id="2_im10o"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Repository/Clima/ClimaRepository.gd" id="5_odlyn"]
 [ext_resource type="Script" path="res://Repository/Clima/DAO/MongoDBClimaDAO.gd" id="6_ppqw1"]
 [ext_resource type="Script" path="res://player_verification.gd" id="7_1wlgu"]
+[ext_resource type="PackedScene" uid="uid://3b520eys0cim" path="res://player_container.tscn" id="8_e5sab"]
 
 [node name="Server" type="Node"]
 script = ExtResource("1_x3ycw")
@@ -38,6 +39,18 @@ script = ExtResource("6_ppqw1")
 [node name="PlayerVerification" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("7_1wlgu")
+player_container_scene = ExtResource("8_e5sab")
+
+[node name="VerificationExpiration" type="Timer" parent="PlayerVerification"]
+wait_time = 10.0
+autostart = true
+
+[node name="TokenExpiration" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+autostart = true
 
 [connection signal="fill_es_clima_api_timer_timeout" from="Timers" to="." method="fill_es_clima_api"]
 [connection signal="timeout" from="Timers/FillESClimaAPITimer" to="Timers/FillESClimaAPITimer" method="fill_clima_api"]
+[connection signal="timeout" from="PlayerVerification/VerificationExpiration" to="PlayerVerification" method="_on_verification_expiration_timeout"]
+[connection signal="timeout" from="TokenExpiration" to="." method="_on_token_expiration_timeout"]

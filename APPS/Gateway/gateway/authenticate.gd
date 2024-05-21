@@ -25,6 +25,6 @@ func authenticate_player(email:String, password:String, player_id:int):
 	rpc_id(1, "authenticate_player", email, password, player_id)
 
 @rpc("any_peer","reliable")
-func authentication_results(result:bool, player_id) -> void:
+func authentication_results(result:bool, player_id, token) -> void:
 	print("Resultado de la autenticación recibido, enviando al jugador...")
-	Gateway.return_login_request(result, player_id)
+	Gateway.return_login_request(result, player_id, token)

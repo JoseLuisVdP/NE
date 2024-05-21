@@ -21,6 +21,7 @@ MongoClient="*res://addons/MongoDB/MongoClient/_MongoClient.cs"
 MongoDatabase="*res://addons/MongoDB/MongoDatabase/_MongoDatabase.cs"
 MongoCollection="*res://addons/MongoDB/MongoCollection/_MongoCollection.cs"
 ServerData="*res://server_data.gd"
+HubConnection="*res://hub_connection.gd"
 
 [dotnet]
 
