@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cubjeswol8724"
+path="res://.godot/imported/crops_cornStageB.obj-95bbaa11d65b00a6d6b2af0be2ad0356.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crops_cornStageB.obj-95bbaa11d65b00a6d6b2af0be2ad0356.mesh"]
+
+source_file="res://models/crops_old/crops_cornStageB.obj"
+dest_files=["res://.godot/imported/crops_cornStageB.obj-95bbaa11d65b00a6d6b2af0be2ad0356.mesh", "res://.godot/imported/crops_cornStageB.obj-95bbaa11d65b00a6d6b2af0be2ad0356.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

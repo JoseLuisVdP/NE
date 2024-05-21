@@ -1,0 +1,17 @@
+{
+	"blacklist": [
+		"addons",
+		"animated_icons",
+		"assets",
+		"enemies",
+		"export",
+		"player",
+		"models",
+		"UI",
+		"saver_loader",
+		"shaders",
+		"scripts",
+		"props"
+	],
+	"disabled":"1"
+}

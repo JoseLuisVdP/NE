@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8gpwww74r0ew"]
+
+[ext_resource type="Script" path="res://Timers/Timers.gd" id="1_ldghx"]
+[ext_resource type="Script" path="res://Timers/FillClimaAPITimer.gd" id="2_y3as8"]
+
+[node name="Timers" type="Node"]
+script = ExtResource("1_ldghx")
+
+[node name="FillESClimaAPITimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+script = ExtResource("2_y3as8")
+
+[connection signal="timeout" from="FillESClimaAPITimer" to="." method="_on_fill_es_clima_api_timer_timeout"]

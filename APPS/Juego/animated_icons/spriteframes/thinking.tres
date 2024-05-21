@@ -1,0 +1,134 @@
+[gd_resource type="SpriteFrames" load_steps=32 format=3 uid="uid://damkejs0xw3f1"]
+
+[ext_resource type="Texture2D" uid="uid://xov8mmys6ebd" path="res://animated_icons/assets/thinking/name_00000.png" id="1_n8hv6"]
+[ext_resource type="Texture2D" uid="uid://br2mi3pqd02vk" path="res://animated_icons/assets/thinking/name_00002.png" id="3_7swll"]
+[ext_resource type="Texture2D" uid="uid://bnih0fp0g3ljm" path="res://animated_icons/assets/thinking/name_00004.png" id="5_cii00"]
+[ext_resource type="Texture2D" uid="uid://cs58uci6jmbgn" path="res://animated_icons/assets/thinking/name_00006.png" id="7_2wtik"]
+[ext_resource type="Texture2D" uid="uid://c3i8bhdb74tpp" path="res://animated_icons/assets/thinking/name_00008.png" id="9_bel38"]
+[ext_resource type="Texture2D" uid="uid://dqos23iogabv5" path="res://animated_icons/assets/thinking/name_00010.png" id="11_wlelj"]
+[ext_resource type="Texture2D" uid="uid://c8e1ph2hd412f" path="res://animated_icons/assets/thinking/name_00012.png" id="13_jvvre"]
+[ext_resource type="Texture2D" uid="uid://cbaqsuyed0y2t" path="res://animated_icons/assets/thinking/name_00014.png" id="15_my1xf"]
+[ext_resource type="Texture2D" uid="uid://cdspoftff7mey" path="res://animated_icons/assets/thinking/name_00016.png" id="17_4cy2f"]
+[ext_resource type="Texture2D" uid="uid://cd23rx0mfryhc" path="res://animated_icons/assets/thinking/name_00018.png" id="19_dlj4k"]
+[ext_resource type="Texture2D" uid="uid://b7mhau2rc0lnf" path="res://animated_icons/assets/thinking/name_00024.png" id="25_rell0"]
+[ext_resource type="Texture2D" uid="uid://bmp3s0comuao5" path="res://animated_icons/assets/thinking/name_00026.png" id="27_u6ue5"]
+[ext_resource type="Texture2D" uid="uid://bw3i0ejskcdox" path="res://animated_icons/assets/thinking/name_00028.png" id="29_63woi"]
+[ext_resource type="Texture2D" uid="uid://hsgfvhbmbgl7" path="res://animated_icons/assets/thinking/name_00030.png" id="31_v28fb"]
+[ext_resource type="Texture2D" uid="uid://cyv3a8yr45j0g" path="res://animated_icons/assets/thinking/name_00036.png" id="37_4yhc1"]
+[ext_resource type="Texture2D" uid="uid://cjfhy4meo1ep4" path="res://animated_icons/assets/thinking/name_00038.png" id="39_a4k1e"]
+[ext_resource type="Texture2D" uid="uid://bka8n8u2vibq3" path="res://animated_icons/assets/thinking/name_00040.png" id="41_unlm2"]
+[ext_resource type="Texture2D" uid="uid://bprd0x10wcgo8" path="res://animated_icons/assets/thinking/name_00046.png" id="47_bm55f"]
+[ext_resource type="Texture2D" uid="uid://dr7hleh3154b3" path="res://animated_icons/assets/thinking/name_00048.png" id="49_ryud2"]
+[ext_resource type="Texture2D" uid="uid://bbbyx6rn347x6" path="res://animated_icons/assets/thinking/name_00054.png" id="55_opl33"]
+[ext_resource type="Texture2D" uid="uid://c4u1qxwxoog3m" path="res://animated_icons/assets/thinking/name_00060.png" id="61_dupa6"]
+[ext_resource type="Texture2D" uid="uid://dql40knqqub3n" path="res://animated_icons/assets/thinking/name_00066.png" id="67_7v2c3"]
+[ext_resource type="Texture2D" uid="uid://cgo3f3t3nlrv5" path="res://animated_icons/assets/thinking/name_00072.png" id="73_5m2xk"]
+[ext_resource type="Texture2D" uid="uid://bg37tvli3s5dp" path="res://animated_icons/assets/thinking/name_00078.png" id="79_ep1i1"]
+[ext_resource type="Texture2D" uid="uid://cne55m5rivm7l" path="res://animated_icons/assets/thinking/name_00084.png" id="85_1rdmc"]
+[ext_resource type="Texture2D" uid="uid://dvtqfcxqf8i7p" path="res://animated_icons/assets/thinking/name_00090.png" id="91_x4tnk"]
+[ext_resource type="Texture2D" uid="uid://cs81cnh72qylk" path="res://animated_icons/assets/thinking/name_00096.png" id="97_hwc2w"]
+[ext_resource type="Texture2D" uid="uid://d3ccxwbo0fieu" path="res://animated_icons/assets/thinking/name_00102.png" id="103_b4g06"]
+[ext_resource type="Texture2D" uid="uid://bop38e7mcnvo8" path="res://animated_icons/assets/thinking/name_00104.png" id="105_atlnj"]
+[ext_resource type="Texture2D" uid="uid://cblgb0e00q5ec" path="res://animated_icons/assets/thinking/name_00106.png" id="107_m6dbx"]
+[ext_resource type="Texture2D" uid="uid://bs08fgr8tob3l" path="res://animated_icons/assets/thinking/name_00108.png" id="109_che76"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_n8hv6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_7swll")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_cii00")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_2wtik")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_bel38")
+}, {
+"duration": 2.0,
+"texture": ExtResource("11_wlelj")
+}, {
+"duration": 2.0,
+"texture": ExtResource("13_jvvre")
+}, {
+"duration": 2.0,
+"texture": ExtResource("15_my1xf")
+}, {
+"duration": 2.0,
+"texture": ExtResource("17_4cy2f")
+}, {
+"duration": 6.0,
+"texture": ExtResource("19_dlj4k")
+}, {
+"duration": 2.0,
+"texture": ExtResource("25_rell0")
+}, {
+"duration": 2.0,
+"texture": ExtResource("27_u6ue5")
+}, {
+"duration": 2.0,
+"texture": ExtResource("29_63woi")
+}, {
+"duration": 6.0,
+"texture": ExtResource("31_v28fb")
+}, {
+"duration": 2.0,
+"texture": ExtResource("37_4yhc1")
+}, {
+"duration": 2.0,
+"texture": ExtResource("39_a4k1e")
+}, {
+"duration": 6.0,
+"texture": ExtResource("41_unlm2")
+}, {
+"duration": 2.0,
+"texture": ExtResource("47_bm55f")
+}, {
+"duration": 6.0,
+"texture": ExtResource("49_ryud2")
+}, {
+"duration": 6.0,
+"texture": ExtResource("55_opl33")
+}, {
+"duration": 6.0,
+"texture": ExtResource("61_dupa6")
+}, {
+"duration": 6.0,
+"texture": ExtResource("67_7v2c3")
+}, {
+"duration": 6.0,
+"texture": ExtResource("73_5m2xk")
+}, {
+"duration": 6.0,
+"texture": ExtResource("79_ep1i1")
+}, {
+"duration": 6.0,
+"texture": ExtResource("85_1rdmc")
+}, {
+"duration": 6.0,
+"texture": ExtResource("91_x4tnk")
+}, {
+"duration": 6.0,
+"texture": ExtResource("97_hwc2w")
+}, {
+"duration": 2.0,
+"texture": ExtResource("103_b4g06")
+}, {
+"duration": 2.0,
+"texture": ExtResource("105_atlnj")
+}, {
+"duration": 2.0,
+"texture": ExtResource("107_m6dbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_che76")
+}],
+"loop": true,
+"name": &"thinking",
+"speed": 30.0
+}]

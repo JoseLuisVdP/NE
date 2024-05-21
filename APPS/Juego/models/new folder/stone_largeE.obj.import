@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpeuskpk2rlsp"
+path="res://.godot/imported/stone_largeE.obj-fd7d1422e9978819ad734111eff8191e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stone_largeE.obj-fd7d1422e9978819ad734111eff8191e.mesh"]
+
+source_file="res://models/new folder/stone_largeE.obj"
+dest_files=["res://.godot/imported/stone_largeE.obj-fd7d1422e9978819ad734111eff8191e.mesh", "res://.godot/imported/stone_largeE.obj-fd7d1422e9978819ad734111eff8191e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

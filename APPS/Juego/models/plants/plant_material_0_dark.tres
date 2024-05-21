@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://fqud7vvegd2g"]
+
+[ext_resource type="Texture2D" uid="uid://cnn6oukyth3nb" path="res://models/plants/plant_leaf_dark.png" id="1_gra2m"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_gra2m")

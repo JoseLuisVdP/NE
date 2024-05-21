@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://disqfemuyckyq"]
+
+[ext_resource type="Script" path="res://Server.gd" id="1_x3ycw"]
+[ext_resource type="Script" path="res://Timers/Timers.gd" id="2_im10o"]
+[ext_resource type="PackedScene" uid="uid://b7l3t438wbuga" path="res://fill_clima_api_timer.tscn" id="3_fmcli"]
+[ext_resource type="Script" path="res://Repository/Repository.gd" id="4_c0mm2"]
+[ext_resource type="Script" path="res://Repository/Clima/ClimaRepository.gd" id="5_odlyn"]
+[ext_resource type="Script" path="res://Repository/Clima/DAO/MongoDBClimaDAO.gd" id="6_ppqw1"]
+[ext_resource type="Script" path="res://player_verification.gd" id="7_1wlgu"]
+
+[node name="Server" type="Node"]
+script = ExtResource("1_x3ycw")
+
+[node name="Timers" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_im10o")
+
+[node name="FillESClimaAPITimer" parent="Timers" instance=ExtResource("3_fmcli")]
+unique_name_in_owner = true
+wait_time = 30.0
+
+[node name="OnceADay" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 86400.0
+
+[node name="Repositories" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_c0mm2")
+
+[node name="ClimaRepository" type="Node" parent="Repositories"]
+unique_name_in_owner = true
+script = ExtResource("5_odlyn")
+
+[node name="MongoDBClimaDAO" type="Node" parent="Repositories/ClimaRepository"]
+unique_name_in_owner = true
+script = ExtResource("6_ppqw1")
+
+[node name="PlayerVerification" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_1wlgu")
+
+[connection signal="fill_es_clima_api_timer_timeout" from="Timers" to="." method="fill_es_clima_api"]
+[connection signal="timeout" from="Timers/FillESClimaAPITimer" to="Timers/FillESClimaAPITimer" method="fill_clima_api"]

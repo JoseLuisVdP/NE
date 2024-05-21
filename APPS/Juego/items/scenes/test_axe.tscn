@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn0075c43un5j"]
+
+[ext_resource type="ArrayMesh" uid="uid://cpu43g1uw85hk" path="res://items/meshes/test_axe.obj" id="1_qaks5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nbvnl"]
+height = 0.701694
+radius = 0.0576766
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kxn50"]
+height = 0.21365
+radius = 0.0307075
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ysp4e"]
+height = 0.191922
+radius = 0.0397649
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6mlue"]
+size = Vector3(0.248291, 0.250244, 0.0957108)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yomfi"]
+size = Vector3(0.458191, 0.864746, 0.12146)
+
+[node name="TestAxe" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.851653, -0.169027, 0.496102, 0.262501, 0.95685, -0.124623, -0.453631, 0.236363, 0.859274, 0, 0.55, 0)
+mesh = ExtResource("1_qaks5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.321579, 0)
+shape = SubResource("CylinderShape3D_nbvnl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.68428, 0.729219, 0, -0.729219, 0.68428, 0, 0, 0, 1, 0.0679359, 0.690002, 0)
+shape = SubResource("CylinderShape3D_kxn50")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.799171, -0.601104, 0, 0.601104, 0.799171, 0, 0, 0, 1, -0.0751276, 0.649353, 0)
+shape = SubResource("CylinderShape3D_ysp4e")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142212, 0.546265, -1.90735e-05)
+shape = SubResource("BoxShape3D_6mlue")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705872, 0.37915, 0.00274658)
+shape = SubResource("BoxShape3D_yomfi")

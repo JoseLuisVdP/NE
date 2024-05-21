@@ -1,0 +1,271 @@
+[gd_scene load_steps=29 format=3 uid="uid://ccjphh7g0mi4u"]
+
+[ext_resource type="PackedScene" uid="uid://ekqort30etdn" path="res://player/scenes/player.tscn" id="1_heepr"]
+[ext_resource type="Script" path="res://game.gd" id="1_hunv4"]
+[ext_resource type="PackedScene" uid="uid://chuemm706vkhg" path="res://props/plant0.tscn" id="2_aabnv"]
+[ext_resource type="Resource" uid="uid://ctfn4ox6n37lx" path="res://items/global/all_recipies.tres" id="2_vfojm"]
+[ext_resource type="Resource" uid="uid://dmhxlvwagompy" path="res://items/global/all_items.tres" id="3_p2yaa"]
+[ext_resource type="PackedScene" uid="uid://bvd8qp1us0gi3" path="res://props/plant1.tscn" id="3_uo2pt"]
+[ext_resource type="Shader" path="res://shaders/sky_improved.gdshader" id="4_ivjjg"]
+[ext_resource type="PackedScene" uid="uid://c1j5euwpsk1wf" path="res://props/plant2.tscn" id="4_ul2l7"]
+[ext_resource type="PackedScene" uid="uid://bwo60wwu0mejl" path="res://UI/UI.tscn" id="5_g5unb"]
+[ext_resource type="Texture2D" uid="uid://b8o0ijxaev86n" path="res://shaders/textures/stars.png" id="5_ih4x5"]
+[ext_resource type="Resource" uid="uid://ctcltb7n0q56r" path="res://items/items/test_stick.tres" id="7_vmuqs"]
+[ext_resource type="Script" path="res://items/global/pickup_scene.gd" id="8_do68a"]
+[ext_resource type="Resource" uid="uid://cvm2f7loxo26l" path="res://items/items/test_axe.tres" id="10_gmjmf"]
+[ext_resource type="Resource" uid="uid://boiab13xxa0va" path="res://items/items/test_stone.tres" id="11_vwmnj"]
+[ext_resource type="PackedScene" uid="uid://21571wtspmwm" path="res://clima_particles.tscn" id="14_mgvbu"]
+[ext_resource type="PackedScene" uid="uid://cfyjxurc0ivue" path="res://models/map/map.tscn" id="15_qjefe"]
+[ext_resource type="Shader" path="res://shaders/water_shader.gdshader" id="16_cd60u"]
+[ext_resource type="Script" path="res://day_night_cycle.gd" id="16_yi31b"]
+[ext_resource type="Script" path="res://saver_loader/saver_loader.gd" id="19_4qdy3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jh1tq"]
+shader = ExtResource("4_ivjjg")
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0.4, 0.7, 0.8, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.25
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.3
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.5
+shader_parameter/stars_speed = 1.0
+shader_parameter/stars_texture = ExtResource("5_ih4x5")
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_g7hug"]
+sky_material = SubResource("ShaderMaterial_jh1tq")
+
+[sub_resource type="Environment" id="Environment_lhpnn"]
+background_mode = 2
+sky = SubResource("Sky_g7hug")
+ambient_light_source = 1
+ssao_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+fog_enabled = true
+fog_mode = 1
+fog_density = 0.4167
+fog_aerial_perspective = 1.0
+fog_depth_curve = 20.0
+fog_depth_end = 80.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_sky_affect = 0.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ycvu"]
+size = Vector3(1, 200, 800)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5o1po"]
+noise_type = 3
+frequency = 0.03
+fractal_octaves = 8
+fractal_gain = 0.3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5vhsc"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_5o1po")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ghdfo"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_5o1po")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qjwh"]
+render_priority = 0
+shader = ExtResource("16_cd60u")
+shader_parameter/albedo = Color(0.192157, 0.843137, 1, 0.466667)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/refraction = 0.05
+shader_parameter/refraction_texture_channel = null
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.1, 0.1, 0.1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_ghdfo")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_5vhsc")
+
+[sub_resource type="BoxMesh" id="BoxMesh_3eq3q"]
+material = SubResource("ShaderMaterial_5qjwh")
+size = Vector3(800, 80, 800)
+
+[node name="Game" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, 0)
+script = ExtResource("1_hunv4")
+_all_recipes_rg = ExtResource("2_vfojm")
+_all_items_rg = ExtResource("3_p2yaa")
+
+[node name="3D" type="Node3D" parent="."]
+
+[node name="Lights" type="Node3D" parent="3D"]
+
+[node name="Sunlight" type="DirectionalLight3D" parent="3D/Lights"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 6.92111, 0)
+shadow_enabled = true
+
+[node name="Moonlight" type="DirectionalLight3D" parent="3D/Lights"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 6.92111, 0)
+light_color = Color(0.866667, 0.878431, 1, 1)
+light_energy = 0.1
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="3D"]
+environment = SubResource("Environment_lhpnn")
+
+[node name="Vegetacion" type="Node3D" parent="3D"]
+
+[node name="Plant" parent="3D/Vegetacion" instance=ExtResource("2_aabnv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24008, -2.49789, 0.00532818)
+
+[node name="Plant2" parent="3D/Vegetacion" instance=ExtResource("3_uo2pt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.90612, -3.43112, 2.6758)
+
+[node name="Plant3" parent="3D/Vegetacion" instance=ExtResource("4_ul2l7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50277, -3.42252, 1.8892)
+
+[node name="Plant4" parent="3D/Vegetacion" instance=ExtResource("2_aabnv")]
+transform = Transform3D(-0.922538, 0, 0.385906, 0, 1, 0, -0.385906, 0, -0.922538, 9.83153, -2.74341, 0.853832)
+
+[node name="Plant5" parent="3D/Vegetacion" instance=ExtResource("3_uo2pt")]
+transform = Transform3D(-0.922538, 0, 0.385906, 0, 1, 0, -0.385906, 0, -0.922538, 8.44533, -3.06525, 1.46683)
+
+[node name="Plant6" parent="3D/Vegetacion" instance=ExtResource("4_ul2l7")]
+transform = Transform3D(-0.922538, 0, 0.385906, 0, 1, 0, -0.385906, 0, -0.922538, 6.19553, -2.68152, 0)
+
+[node name="Player" parent="3D" instance=ExtResource("1_heepr")]
+
+[node name="ClimaParticles" parent="3D" instance=ExtResource("14_mgvbu")]
+
+[node name="Pickups" type="Node3D" parent="3D"]
+
+[node name="PickupScene2" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.37597, 0.987823, 0)
+script = ExtResource("8_do68a")
+item = ExtResource("10_gmjmf")
+
+[node name="PickupScene3" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.69253, 1.53754, 0)
+script = ExtResource("8_do68a")
+item = ExtResource("10_gmjmf")
+
+[node name="PickupScene4" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93899, 1.66339, 0)
+script = ExtResource("8_do68a")
+item = ExtResource("10_gmjmf")
+
+[node name="PickupScene5" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50502, 1.39627, -0.633683)
+script = ExtResource("8_do68a")
+item = ExtResource("10_gmjmf")
+
+[node name="PickupScene6" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39655, 0.406433, 1.63013)
+script = ExtResource("8_do68a")
+item = ExtResource("7_vmuqs")
+
+[node name="PickupScene7" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05112, 1.59888, 1.25907)
+script = ExtResource("8_do68a")
+item = ExtResource("7_vmuqs")
+
+[node name="PickupScene8" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63656, 1.26053, 2.59367)
+script = ExtResource("8_do68a")
+item = ExtResource("7_vmuqs")
+
+[node name="PickupScene9" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.79097, 0.383698, 0.716442)
+script = ExtResource("8_do68a")
+item = ExtResource("7_vmuqs")
+
+[node name="PickupScene10" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73061, 0.841919, 1.51894)
+script = ExtResource("8_do68a")
+item = ExtResource("11_vwmnj")
+
+[node name="PickupScene11" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94246, 0.693054, 2.39216)
+script = ExtResource("8_do68a")
+item = ExtResource("11_vwmnj")
+
+[node name="PickupScene12" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72179, 0.529419, 0)
+script = ExtResource("8_do68a")
+item = ExtResource("11_vwmnj")
+
+[node name="PickupScene13" type="Node3D" parent="3D/Pickups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49597, 0.381744, 0)
+script = ExtResource("8_do68a")
+item = ExtResource("11_vwmnj")
+
+[node name="World" type="Node3D" parent="3D"]
+
+[node name="map" parent="3D/World" instance=ExtResource("15_qjefe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+
+[node name="Limit" type="StaticBody3D" parent="3D/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3D/World/Limit"]
+shape = SubResource("BoxShape3D_7ycvu")
+
+[node name="Limit3" type="StaticBody3D" parent="3D/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -400, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3D/World/Limit3"]
+shape = SubResource("BoxShape3D_7ycvu")
+
+[node name="Limit2" type="StaticBody3D" parent="3D/World"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 400)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3D/World/Limit2"]
+shape = SubResource("BoxShape3D_7ycvu")
+
+[node name="Limit4" type="StaticBody3D" parent="3D/World"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -400)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3D/World/Limit4"]
+shape = SubResource("BoxShape3D_7ycvu")
+
+[node name="Water" type="Node3D" parent="3D/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -46.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D/World/Water"]
+mesh = SubResource("BoxMesh_3eq3q")
+
+[node name="UI" parent="." instance=ExtResource("5_g5unb")]
+
+[node name="Time" type="Node" parent="."]
+script = ExtResource("16_yi31b")
+
+[node name="Clima" type="Node" parent="."]
+
+[node name="SaverLoader" type="Node" parent="."]
+script = ExtResource("19_4qdy3")

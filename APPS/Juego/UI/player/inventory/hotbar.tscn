@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://dslac3a3ddyoo"]
+
+[ext_resource type="Script" path="res://UI/player/inventory/ordered_items_grid.gd" id="1_c1nb3"]
+[ext_resource type="Script" path="res://UI/player/inventory/hotbar.gd" id="1_l4pds"]
+[ext_resource type="PackedScene" uid="uid://p2fuew7akfjn" path="res://UI/player/inventory/ItemSlot.tscn" id="2_d41os"]
+
+[node name="Hotbar" type="Control"]
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_l4pds")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -8.0
+offset_right = 36.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ColorRect" type="ColorRect" parent="Margin"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.192157)
+
+[node name="Content" type="GridContainer" parent="Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
+columns = 8
+script = ExtResource("1_c1nb3")
+_item_slot_size = 40
+
+[node name="ItemSlot" parent="Margin/Content" instance=ExtResource("2_d41os")]
+layout_mode = 2
+
+[node name="ItemSlot2" parent="Margin/Content" instance=ExtResource("2_d41os")]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="ItemSlot3" parent="Margin/Content" instance=ExtResource("2_d41os")]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="ItemSlot4" parent="Margin/Content" instance=ExtResource("2_d41os")]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="ItemSlot5" parent="Margin/Content" instance=ExtResource("2_d41os")]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="ItemSlot6" parent="Margin/Content" instance=ExtResource("2_d41os")]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="ItemSlot7" parent="Margin/Content" instance=ExtResource("2_d41os")]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="ItemSlot8" parent="Margin/Content" instance=ExtResource("2_d41os")]
+auto_translate_mode = 1
+layout_mode = 2

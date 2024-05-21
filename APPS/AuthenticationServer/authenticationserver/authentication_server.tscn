@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbhffjdwocf73"]
+
+[ext_resource type="Script" path="res://authentication_server.gd" id="1_sfixt"]
+[ext_resource type="Script" path="res://save_and_load.gd" id="2_4d7je"]
+[ext_resource type="Script" path="res://Repository.gd" id="3_h16da"]
+[ext_resource type="Script" path="res://game_repository.gd" id="3_mmnkh"]
+[ext_resource type="Script" path="res://sqlite_game_dao.gd" id="4_rcdj2"]
+
+[node name="Authenticate" type="Node"]
+script = ExtResource("1_sfixt")
+
+[node name="Repository" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_h16da")
+
+[node name="GameRepository" type="Node" parent="Repository"]
+unique_name_in_owner = true
+script = ExtResource("3_mmnkh")
+
+[node name="SQLiteGameDAO" type="Node" parent="Repository/GameRepository"]
+unique_name_in_owner = true
+script = ExtResource("4_rcdj2")
+
+[node name="SaveAndLoad" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_4d7je")

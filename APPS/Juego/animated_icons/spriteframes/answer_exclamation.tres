@@ -1,0 +1,90 @@
+[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://cs5mjl3iflg4k"]
+
+[ext_resource type="Texture2D" uid="uid://bttierdt2t2f1" path="res://animated_icons/assets/answer_exclamation/name_00000.png" id="1_ljkdy"]
+[ext_resource type="Texture2D" uid="uid://doxv7156sycvk" path="res://animated_icons/assets/answer_exclamation/name_00001.png" id="2_aehn7"]
+[ext_resource type="Texture2D" uid="uid://dvxgut1sqfsbg" path="res://animated_icons/assets/answer_exclamation/name_00002.png" id="3_ckxsv"]
+[ext_resource type="Texture2D" uid="uid://djsvcm6ca2sww" path="res://animated_icons/assets/answer_exclamation/name_00003.png" id="4_3xg2x"]
+[ext_resource type="Texture2D" uid="uid://d0xaq3pclhheg" path="res://animated_icons/assets/answer_exclamation/name_00004.png" id="5_skjkd"]
+[ext_resource type="Texture2D" uid="uid://cjmwiyfsppir6" path="res://animated_icons/assets/answer_exclamation/name_00005.png" id="6_elqo7"]
+[ext_resource type="Texture2D" uid="uid://bba7rbc0joebb" path="res://animated_icons/assets/answer_exclamation/name_00006.png" id="7_3ynx3"]
+[ext_resource type="Texture2D" uid="uid://c2rc6s7y5dqpg" path="res://animated_icons/assets/answer_exclamation/name_00007.png" id="8_kcrs1"]
+[ext_resource type="Texture2D" uid="uid://b2yniu6aq2d2p" path="res://animated_icons/assets/answer_exclamation/name_00008.png" id="9_jupd7"]
+[ext_resource type="Texture2D" uid="uid://bmevco2mk0kki" path="res://animated_icons/assets/answer_exclamation/name_00012.png" id="13_po2gl"]
+[ext_resource type="Texture2D" uid="uid://bl725w4117o6d" path="res://animated_icons/assets/answer_exclamation/name_00018.png" id="19_sid8r"]
+[ext_resource type="Texture2D" uid="uid://c5h0a27allnco" path="res://animated_icons/assets/answer_exclamation/name_00030.png" id="31_ksc4w"]
+[ext_resource type="Texture2D" uid="uid://csaeahnd5xxj5" path="res://animated_icons/assets/answer_exclamation/name_00036.png" id="37_dmog3"]
+[ext_resource type="Texture2D" uid="uid://da4bcl48bf1e0" path="res://animated_icons/assets/answer_exclamation/name_00048.png" id="49_o4hlb"]
+[ext_resource type="Texture2D" uid="uid://dsvcxfmjqw3y6" path="res://animated_icons/assets/answer_exclamation/name_00078.png" id="79_824un"]
+[ext_resource type="Texture2D" uid="uid://lqlioiem576n" path="res://animated_icons/assets/answer_exclamation/name_00084.png" id="85_11i3n"]
+[ext_resource type="Texture2D" uid="uid://c0u16mvfug7ya" path="res://animated_icons/assets/answer_exclamation/name_00100.png" id="101_8mjbb"]
+[ext_resource type="Texture2D" uid="uid://ci2fjxja5w1ke" path="res://animated_icons/assets/answer_exclamation/name_00101.png" id="102_13seh"]
+[ext_resource type="Texture2D" uid="uid://ucgqbkbojn8m" path="res://animated_icons/assets/answer_exclamation/name_00102.png" id="103_3td6i"]
+[ext_resource type="Texture2D" uid="uid://cd63icbymju8y" path="res://animated_icons/assets/answer_exclamation/name_00103.png" id="104_ipugd"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ljkdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aehn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ckxsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3xg2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_skjkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_elqo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3ynx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kcrs1")
+}, {
+"duration": 3.0,
+"texture": ExtResource("9_jupd7")
+}, {
+"duration": 4.5,
+"texture": ExtResource("13_po2gl")
+}, {
+"duration": 9.0,
+"texture": ExtResource("19_sid8r")
+}, {
+"duration": 4.5,
+"texture": ExtResource("31_ksc4w")
+}, {
+"duration": 9.0,
+"texture": ExtResource("37_dmog3")
+}, {
+"duration": 22.5,
+"texture": ExtResource("49_o4hlb")
+}, {
+"duration": 4.5,
+"texture": ExtResource("79_824un")
+}, {
+"duration": 12.0,
+"texture": ExtResource("85_11i3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_8mjbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_13seh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_3td6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_ipugd")
+}],
+"loop": true,
+"name": &"answer_exclamation",
+"speed": 30.0
+}]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://jk2y717oy0od"
+path="res://.godot/imported/crop_turnip.obj-3b870848dc79005b18df05b768f769bb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crop_turnip.obj-3b870848dc79005b18df05b768f769bb.mesh"]
+
+source_file="res://models/crops_old/crop_turnip.obj"
+dest_files=["res://.godot/imported/crop_turnip.obj-3b870848dc79005b18df05b768f769bb.mesh", "res://.godot/imported/crop_turnip.obj-3b870848dc79005b18df05b768f769bb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

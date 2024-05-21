@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://disqfemuyckyq"]
+
+[ext_resource type="Script" path="res://Server.gd" id="1_x3ycw"]
+[ext_resource type="PackedScene" uid="uid://b0ax1ij34q7a4" path="res://API/api.tscn" id="2_dn2p3"]
+[ext_resource type="PackedScene" uid="uid://c8gpwww74r0ew" path="res://Timers/timers.tscn" id="3_2md8u"]
+[ext_resource type="PackedScene" uid="uid://ddww3e0oksh1b" path="res://Repository/repository.tscn" id="4_u2fxf"]
+
+[node name="Server" type="Node"]
+script = ExtResource("1_x3ycw")
+
+[node name="API" parent="." instance=ExtResource("2_dn2p3")]
+unique_name_in_owner = true
+
+[node name="Timers" parent="." instance=ExtResource("3_2md8u")]
+unique_name_in_owner = true
+
+[node name="Repository" parent="." instance=ExtResource("4_u2fxf")]
+unique_name_in_owner = true
+
+[connection signal="fill_es_clima_api_timer_timeout" from="Timers" to="." method="fill_es_clima_api"]

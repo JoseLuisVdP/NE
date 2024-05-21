@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://por5orf4546n"]
+
+[ext_resource type="Script" path="res://addons/quest_system/quest_resource.gd" id="1_xvj6s"]
+
+[resource]
+script = ExtResource("1_xvj6s")
+id = 0
+quest_name = "axe_quest"
+quest_description = "axe_quest_description"
+quest_objective = "axe_quest_objective"

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dx1ti86ao4hav"
+path="res://.godot/imported/flower_yellowB.obj-8b302d2a9c8c056fe8bec2bc38f5317a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/flower_yellowB.obj-8b302d2a9c8c056fe8bec2bc38f5317a.mesh"]
+
+source_file="res://models/flowers/flower_yellowB.obj"
+dest_files=["res://.godot/imported/flower_yellowB.obj-8b302d2a9c8c056fe8bec2bc38f5317a.mesh", "res://.godot/imported/flower_yellowB.obj-8b302d2a9c8c056fe8bec2bc38f5317a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

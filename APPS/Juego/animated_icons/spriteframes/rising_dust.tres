@@ -1,0 +1,58 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://bwr62wost3k0y"]
+
+[ext_resource type="Texture2D" uid="uid://d2r1jv61uyd22" path="res://animated_icons/assets/rising_dust/name_00000.png" id="1_khume"]
+[ext_resource type="Texture2D" uid="uid://ce1saq12fjx2l" path="res://animated_icons/assets/rising_dust/name_00002.png" id="3_l2ddl"]
+[ext_resource type="Texture2D" uid="uid://btx084663nq8p" path="res://animated_icons/assets/rising_dust/name_00004.png" id="5_lu1jy"]
+[ext_resource type="Texture2D" uid="uid://bw5svsic7ppuh" path="res://animated_icons/assets/rising_dust/name_00006.png" id="7_vmdmb"]
+[ext_resource type="Texture2D" uid="uid://b8p182xd8of1i" path="res://animated_icons/assets/rising_dust/name_00008.png" id="9_pyjo6"]
+[ext_resource type="Texture2D" uid="uid://3gynyh64g7n2" path="res://animated_icons/assets/rising_dust/name_00010.png" id="11_loswo"]
+[ext_resource type="Texture2D" uid="uid://rkmdobky05n1" path="res://animated_icons/assets/rising_dust/name_00012.png" id="13_u612b"]
+[ext_resource type="Texture2D" uid="uid://b0yk1h2gi0om1" path="res://animated_icons/assets/rising_dust/name_00014.png" id="15_iqw3j"]
+[ext_resource type="Texture2D" uid="uid://b8aha20q23e3n" path="res://animated_icons/assets/rising_dust/name_00016.png" id="17_np1tj"]
+[ext_resource type="Texture2D" uid="uid://chl3nwsw5p7t2" path="res://animated_icons/assets/rising_dust/name_00018.png" id="19_b5qbl"]
+[ext_resource type="Texture2D" uid="uid://cs0i58o5uxaue" path="res://animated_icons/assets/rising_dust/name_00020.png" id="21_0m23v"]
+[ext_resource type="Texture2D" uid="uid://botpy08ykvgxv" path="res://animated_icons/assets/rising_dust/name_00022.png" id="23_l7fpq"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_khume")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_l2ddl")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_lu1jy")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_vmdmb")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_pyjo6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("11_loswo")
+}, {
+"duration": 2.0,
+"texture": ExtResource("13_u612b")
+}, {
+"duration": 2.0,
+"texture": ExtResource("15_iqw3j")
+}, {
+"duration": 2.0,
+"texture": ExtResource("17_np1tj")
+}, {
+"duration": 2.0,
+"texture": ExtResource("19_b5qbl")
+}, {
+"duration": 2.0,
+"texture": ExtResource("21_0m23v")
+}, {
+"duration": 2.0,
+"texture": ExtResource("23_l7fpq")
+}],
+"loop": true,
+"name": &"rising_dust",
+"speed": 30.0
+}]

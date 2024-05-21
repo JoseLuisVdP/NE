@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cjguujtn3sfeg"]
+
+[ext_resource type="FontFile" uid="uid://7hqhpammf0hp" path="res://assets/fonts/nord/Nord Regular.otf" id="1_0hrtr"]
+[ext_resource type="FontFile" uid="uid://dxf41d5c55der" path="res://assets/fonts/nord/Nord Bold.otf" id="1_rkeei"]
+
+[resource]
+Button/fonts/font = ExtResource("1_rkeei")
+Label/fonts/font = ExtResource("1_0hrtr")
+TabBar/fonts/font = ExtResource("1_0hrtr")

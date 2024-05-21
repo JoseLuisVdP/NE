@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Servidor"
+run/main_scene="res://server.tscn"
+config/features=PackedStringArray("4.3", "C#", "Mobile")
+
+[autoload]
+
+MongoAPI="*res://addons/MongoDB/MongoAPI.cs"
+MongoClient="*res://addons/MongoDB/MongoClient/_MongoClient.cs"
+MongoDatabase="*res://addons/MongoDB/MongoDatabase/_MongoDatabase.cs"
+MongoCollection="*res://addons/MongoDB/MongoCollection/_MongoCollection.cs"
+ServerData="*res://server_data.gd"
+
+[dotnet]
+
+project/assembly_name="Servidor"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/MongoDB/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

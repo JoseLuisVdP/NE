@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://21571wtspmwm"]
+
+[ext_resource type="Texture2D" uid="uid://gm3lmyktqd6x" path="res://shaders/textures/rain_texture.png" id="1_vonuf"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0me5u"]
+emission_shape_offset = Vector3(0, 10, 0)
+emission_shape_scale = Vector3(1, 0, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 30.0
+emission_ring_radius = 15.0
+emission_ring_inner_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 1.0
+initial_velocity_min = 60.0
+initial_velocity_max = 80.0
+
+[sub_resource type="Curve" id="Curve_k566r"]
+_data = [Vector2(0, 0.116575), 0.0, 0.0, 0, 0, Vector2(0.184136, 0), 0.0, 0.0, 0, 0, Vector2(0.614731, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ownn"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.901961, 0.901961, 1, 0.298039)
+albedo_texture = ExtResource("1_vonuf")
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_6th24"]
+material = SubResource("StandardMaterial3D_1ownn")
+size = 0.2
+curve = SubResource("Curve_k566r")
+
+[node name="Rain" type="GPUParticles3D"]
+amount = 10000
+lifetime = 5.0
+trail_enabled = true
+trail_lifetime = 0.05
+process_material = SubResource("ParticleProcessMaterial_0me5u")
+draw_pass_1 = SubResource("RibbonTrailMesh_6th24")

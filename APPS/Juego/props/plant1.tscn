@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvd8qp1us0gi3"]
+
+[ext_resource type="Material" uid="uid://jvs6502fi16h" path="res://models/plants/plant_material_0.tres" id="1_r3p33"]
+[ext_resource type="ArrayMesh" uid="uid://77fdw22iiqyd" path="res://models/plants/plant1/plant1_LOD0.obj" id="2_mq2j5"]
+[ext_resource type="ArrayMesh" uid="uid://caj1ug5omo1e" path="res://models/plants/plant1/plant1_LOD1.obj" id="3_m0thx"]
+[ext_resource type="ArrayMesh" uid="uid://dw22vyg2ly01m" path="res://models/plants/plant1/plant1_LOD2.obj" id="4_juxqe"]
+[ext_resource type="ArrayMesh" uid="uid://50qt01j4kemh" path="res://models/plants/plant1/plant1_LOD3.obj" id="5_pq36g"]
+[ext_resource type="ArrayMesh" uid="uid://ojqmil3gpyjr" path="res://models/plants/plant1/plant1_LOD4.obj" id="6_kayxr"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q6vhb"]
+height = 0.65
+radius = 0.6
+
+[node name="Plant" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="LOD0" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_r3p33")
+mesh = ExtResource("2_mq2j5")
+skeleton = NodePath("../..")
+
+[node name="LOD1" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_r3p33")
+mesh = ExtResource("3_m0thx")
+skeleton = NodePath("../..")
+
+[node name="LOD2" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_r3p33")
+mesh = ExtResource("4_juxqe")
+skeleton = NodePath("../..")
+
+[node name="LOD3" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_r3p33")
+mesh = ExtResource("5_pq36g")
+skeleton = NodePath("../..")
+
+[node name="LOD4" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_r3p33")
+mesh = ExtResource("6_kayxr")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00164795, 0.32054, 0.0393066)
+shape = SubResource("CylinderShape3D_q6vhb")

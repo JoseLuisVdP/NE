@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dotkvong7lq4x"
+path="res://.godot/imported/my_island_forest_border.obj-58a6800257ec43936580156d86b69197.mesh"
+
+[deps]
+
+files=["res://.godot/imported/my_island_forest_border.obj-58a6800257ec43936580156d86b69197.mesh"]
+
+source_file="res://models/map/my_island_forest_border.obj"
+dest_files=["res://.godot/imported/my_island_forest_border.obj-58a6800257ec43936580156d86b69197.mesh", "res://.godot/imported/my_island_forest_border.obj-58a6800257ec43936580156d86b69197.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

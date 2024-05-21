@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://cguqlvse0g2x3"]
+
+[ext_resource type="Script" path="res://addons/Panel3D/examples/Node2DExample.gd" id="1_88ypm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghs81"]
+size = Vector2(100, 50)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gr11o"]
+radius = 25.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_wtpg4"]
+radius = 25.0
+height = 50.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yc858"]
+normal = Vector2(-1, 0)
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2DExample" type="Node2D" parent="."]
+script = ExtResource("1_88ypm")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Node2DExample"]
+continuous_cd = 2
+max_contacts_reported = 4
+contact_monitor = true
+can_sleep = false
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2DExample/RigidBody2D"]
+shape = SubResource("RectangleShape2D_ghs81")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2DExample/RigidBody2D"]
+position = Vector2(-50, -25)
+polygon = PackedVector2Array(100, 0, 100, 50, 0, 50, 0, 0)
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="Node2DExample"]
+position = Vector2(646, 151)
+gravity_scale = 0.0
+continuous_cd = 2
+max_contacts_reported = 4
+contact_monitor = true
+can_sleep = false
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2DExample/RigidBody2D2"]
+shape = SubResource("CircleShape2D_gr11o")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2DExample/RigidBody2D2"]
+self_modulate = Color(0.6, 0.466667, 1, 1)
+mesh = SubResource("SphereMesh_wtpg4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.9
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Control"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_yc858")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.1
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Control2"]
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control2/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_yc858")
+
+[node name="Control3" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+grow_horizontal = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Control3"]
+rotation = 4.71238
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control3/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_yc858")
+
+[node name="Control4" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Control4"]
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control4/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_yc858")

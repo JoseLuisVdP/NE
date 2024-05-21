@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddww3e0oksh1b"]
+
+[ext_resource type="Script" path="res://Repository/Repository.gd" id="1_rb6qw"]
+[ext_resource type="Script" path="res://Repository/Clima/ClimaRepository.gd" id="2_kbnjl"]
+[ext_resource type="Script" path="res://Repository/Clima/DAO/MongoDBClimaDAO.gd" id="3_iienh"]
+
+[node name="Repository" type="Node"]
+script = ExtResource("1_rb6qw")
+
+[node name="ClimaRepository" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_kbnjl")
+
+[node name="MongoDBClimaDAO" type="Node" parent="ClimaRepository"]
+unique_name_in_owner = true
+script = ExtResource("3_iienh")

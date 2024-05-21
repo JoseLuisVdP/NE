@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dromhp6jlhqdf"]
+
+[ext_resource type="Script" path="res://old_game_repository.gd" id="1_rffhf"]
+[ext_resource type="Script" path="res://sqlite_game_dao.gd" id="2_wkpfx"]
+
+[node name="GameRepository" type="Node"]
+script = ExtResource("1_rffhf")
+
+[node name="SQLiteGameDAO" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_wkpfx")

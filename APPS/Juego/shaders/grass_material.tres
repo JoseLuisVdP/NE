@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://yybjevogyt1u"]
+
+[ext_resource type="Shader" path="res://shaders/grass.gdshader" id="1_0c3tp"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5rwwf"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0c3tp")
+shader_parameter/color = Color(0, 0.556863, 0, 1)
+shader_parameter/color2 = Color(0, 0.890196, 0, 1)
+shader_parameter/noiseScale = 20.0
+shader_parameter/noise = SubResource("NoiseTexture2D_5rwwf")

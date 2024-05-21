@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1j5euwpsk1wf"]
+
+[ext_resource type="Material" uid="uid://jvs6502fi16h" path="res://models/plants/plant_material_0.tres" id="1_wgsn1"]
+[ext_resource type="ArrayMesh" uid="uid://cmd6w4ehnua8q" path="res://models/plants/plant2/plant2_LOD0.obj" id="2_1pd3x"]
+[ext_resource type="ArrayMesh" uid="uid://culs1bjky505j" path="res://models/plants/plant2/plant2_LOD1.obj" id="3_5uux0"]
+[ext_resource type="ArrayMesh" uid="uid://jms7ls5bq133" path="res://models/plants/plant2/plant2_LOD2.obj" id="4_w0nbi"]
+[ext_resource type="ArrayMesh" uid="uid://bpv4yl8iawu1v" path="res://models/plants/plant2/plant2_LOD3.obj" id="5_j573h"]
+[ext_resource type="ArrayMesh" uid="uid://dk3wy1vrxigey" path="res://models/plants/plant2/plant2_LOD4.obj" id="6_dfdga"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qseoy"]
+height = 0.7
+radius = 1.0
+
+[node name="Plant" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="LOD0" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_wgsn1")
+mesh = ExtResource("2_1pd3x")
+skeleton = NodePath("../..")
+
+[node name="LOD1" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_wgsn1")
+mesh = ExtResource("3_5uux0")
+skeleton = NodePath("../..")
+
+[node name="LOD2" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_wgsn1")
+mesh = ExtResource("4_w0nbi")
+skeleton = NodePath("../..")
+
+[node name="LOD3" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_wgsn1")
+mesh = ExtResource("5_j573h")
+skeleton = NodePath("../..")
+
+[node name="LOD4" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_wgsn1")
+mesh = ExtResource("6_dfdga")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00164795, 0.339691, 0.0393066)
+shape = SubResource("CylinderShape3D_qseoy")

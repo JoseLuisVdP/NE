@@ -1,0 +1,117 @@
+{
+	"categories": [
+		{
+			"uuid": "841a9f41-d769-426e-8f6c-adcadf0bc6db",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "0d31e97b-d65e-4927-9143-1233c5177d5a",
+			"title": "Todo",
+			"tasks": [
+				"ae1d47fe-02a9-4303-b73d-1315ce3b7ded",
+				"599a9314-f54e-430b-8e7c-c3c4eaef15aa",
+				"8d4ed2f2-ca22-44c8-8814-9429ee299aad"
+			]
+		},
+		{
+			"uuid": "e0e6a9c4-0c9c-4f02-a514-998ae919b0ff",
+			"title": "Doing",
+			"tasks": [
+				"6594f691-3e44-4941-8e6c-351425ce65ac"
+			]
+		},
+		{
+			"uuid": "282ab5af-d1ab-44e0-8fd8-4e6dbbf971ec",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "ae1d47fe-02a9-4303-b73d-1315ce3b7ded",
+			"title": "ASEGURAR API_KEY",
+			"description": "APIClimaRead",
+			"category": "841a9f41-d769-426e-8f6c-adcadf0bc6db",
+			"steps": [
+				{
+					"details": "Busca en google diferentes opciones",
+					"done": false
+				},
+				{
+					"details": "Aplica la mejor",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "6594f691-3e44-4941-8e6c-351425ce65ac",
+			"title": "AÑADIR QUE EL DIA DEL QUE SE TOMAN LOS DATOS SE ACTUALICE SOLO",
+			"description": "El día cambia solo, race condition en variable date?",
+			"category": "841a9f41-d769-426e-8f6c-adcadf0bc6db",
+			"steps": [
+				{
+					"details": "La variable fecha se inicializa con la fecha actual en _ready()",
+					"done": true
+				},
+				{
+					"details": "Cuando se hace una nueva entrada de datos climatológicos, se usa como nombre de documento la fecha almacenada menos 1",
+					"done": false
+				},
+				{
+					"details": "Al guardar datos, se guarda la fecha en un historial de fechas ordenado (array?)",
+					"done": false
+				},
+				{
+					"details": "Si la fecha que se está utilizando ya está guardada, pasamos a la última fecha de la lista, y seguimos por la siguiente",
+					"done": false
+				},
+				{
+					"details": "Añadir temporizador que compruebe la fecha cada x tiempo",
+					"done": false
+				},
+				{
+					"details": "Al fin del temporizador, si la fecha es distinta, la guarda de forma threadsafe en su variable",
+					"done": false
+				},
+				{
+					"details": "Si la fecha anterior y la siguiente son distintas, pasamos a la fecha actual -1 para que se actualicen los datos más recientes",
+					"done": false
+				},
+				{
+					"details": "Si la fecha llega a un máximo, el proceso no se ejecutará más hasta el día siguiente",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "599a9314-f54e-430b-8e7c-c3c4eaef15aa",
+			"title": "REFACTORIZAR FUNCION QUE COMPRUEBA LA FECHA EN API CLIMA ES",
+			"description": "Moverla al timer que se encargue de comprobar a diario esto. \nArchivo: servidor",
+			"category": "841a9f41-d769-426e-8f6c-adcadf0bc6db",
+			"steps": []
+		},
+		{
+			"uuid": "8d4ed2f2-ca22-44c8-8814-9429ee299aad",
+			"title": "SEPARA OBTENCIÓN DE DATOS Y DEL ENLACE EN API CLIMA ES",
+			"description": "MIRA EL TODO DEL SCRIPT",
+			"category": "841a9f41-d769-426e-8f6c-adcadf0bc6db",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"0d31e97b-d65e-4927-9143-1233c5177d5a"
+			],
+			[
+				"e0e6a9c4-0c9c-4f02-a514-998ae919b0ff"
+			],
+			[
+				"282ab5af-d1ab-44e0-8fd8-4e6dbbf971ec"
+			]
+		]
+	}
+}

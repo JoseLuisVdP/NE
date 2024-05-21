@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7yxjmfmi3njq"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_i7hff"]
+[ext_resource type="PackedScene" uid="uid://hdi1hd7i5qm3" path="res://items/global/pickup.tscn" id="4_tfnyc"]
+
+[node name="Enemy" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999639, -0.0268748, 0, 0.0268748, 0.999639, 0, 0, 0)
+script = ExtResource("1_i7hff")
+item_scene = ExtResource("4_tfnyc")

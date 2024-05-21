@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7l3t438wbuga"]
+
+[ext_resource type="Script" path="res://Timers/FillClimaAPITimer.gd" id="1_w52lk"]
+[ext_resource type="Script" path="res://Clima/ClimaScrapper.gd" id="2_be0m3"]
+
+[node name="FillClimaAPITimer" type="Timer"]
+wait_time = 5.0
+script = ExtResource("1_w52lk")
+collection = "es"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+max_redirects = 20
+timeout = 1.0
+script = ExtResource("2_be0m3")
+
+[node name="Cooldown" type="Timer" parent="HTTPRequest"]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="." to="." method="fill_es_clima_api"]
+[connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_request_completed"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwo60wwu0mejl"]
+
+[ext_resource type="Script" path="res://UI/scripts/UI.gd" id="1_6i1en"]
+[ext_resource type="PackedScene" uid="uid://dln6olp76eqyc" path="res://UI/PickableItems.tscn" id="2_3ghm4"]
+[ext_resource type="PackedScene" uid="uid://bidvnf66c1udv" path="res://UI/player/inventory/InventoryDialog.tscn" id="3_vbw87"]
+[ext_resource type="PackedScene" uid="uid://btlcbf61u2m5k" path="res://UI/player/inventory/CraftingDialog.tscn" id="4_l51nt"]
+[ext_resource type="Script" path="res://UI/ui_controller.gd" id="5_citmn"]
+[ext_resource type="PackedScene" uid="uid://dslac3a3ddyoo" path="res://UI/player/inventory/hotbar.tscn" id="6_l0lfg"]
+[ext_resource type="PackedScene" uid="uid://8ey71yiinm4b" path="res://UI/player/inventory/toolbar.tscn" id="7_gsmag"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_6i1en")
+
+[node name="Controller" type="Node" parent="."]
+script = ExtResource("5_citmn")
+
+[node name="Closeable" type="Node" parent="."]
+
+[node name="Inventory" parent="Closeable" instance=ExtResource("3_vbw87")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Crafting" parent="Closeable" instance=ExtResource("4_l51nt")]
+unique_name_in_owner = true
+visible = false
+
+[node name="NonCloseable" type="Node" parent="."]
+
+[node name="PickableItems" parent="NonCloseable" instance=ExtResource("2_3ghm4")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Hotbar" parent="NonCloseable" instance=ExtResource("6_l0lfg")]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Toolbar" parent="NonCloseable" instance=ExtResource("7_gsmag")]
+unique_name_in_owner = true

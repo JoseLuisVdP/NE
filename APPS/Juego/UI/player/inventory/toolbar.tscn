@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://8ey71yiinm4b"]
+
+[ext_resource type="Script" path="res://UI/player/inventory/ordered_items_grid.gd" id="1_0lfvp"]
+[ext_resource type="Script" path="res://UI/player/inventory/toolbar.gd" id="1_fawjh"]
+[ext_resource type="PackedScene" uid="uid://p2fuew7akfjn" path="res://UI/player/inventory/ItemSlot.tscn" id="2_jxnc2"]
+[ext_resource type="FontFile" uid="uid://7hqhpammf0hp" path="res://assets/fonts/nord/Nord Regular.otf" id="2_k3e7s"]
+
+[node name="Toolbar" type="Control"]
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("1_fawjh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -84.0
+offset_right = 168.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+
+[node name="ActiveItem" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("2_k3e7s")
+theme_override_font_sizes/normal_font_size = 24
+text = "sample text"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Margin"]
+auto_translate_mode = 1
+layout_mode = 2
+color = Color(0, 0, 0, 0.192157)
+
+[node name="Content" type="GridContainer" parent="VBoxContainer/Margin"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/h_separation = 8
+columns = 8
+script = ExtResource("1_0lfvp")
+_item_slot_size = 40
+
+[node name="ItemSlot" parent="VBoxContainer/Margin/Content" instance=ExtResource("2_jxnc2")]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="ItemSlot2" parent="VBoxContainer/Margin/Content" instance=ExtResource("2_jxnc2")]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="ItemSlot3" parent="VBoxContainer/Margin/Content" instance=ExtResource("2_jxnc2")]
+auto_translate_mode = 1
+layout_mode = 2

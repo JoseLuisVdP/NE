@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://chuemm706vkhg"]
+
+[ext_resource type="Material" uid="uid://jvs6502fi16h" path="res://models/plants/plant_material_0.tres" id="1_7fvws"]
+[ext_resource type="ArrayMesh" uid="uid://icw4aq16jik" path="res://models/plants/plant0/plant0_LOD0.obj" id="1_ep2g2"]
+[ext_resource type="ArrayMesh" uid="uid://c1ul61lx6nkpm" path="res://models/plants/plant0/plant0_LOD1.obj" id="2_xip4c"]
+[ext_resource type="ArrayMesh" uid="uid://53281ompjwe0" path="res://models/plants/plant0/plant0_LOD2.obj" id="3_toik2"]
+[ext_resource type="ArrayMesh" uid="uid://doeaw05qdrgx3" path="res://models/plants/plant0/plant0_LOD3.obj" id="4_p7s67"]
+[ext_resource type="ArrayMesh" uid="uid://w7yoofep1fwg" path="res://models/plants/plant0/plant0_LOD4.obj" id="5_0nxn8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dcwb5"]
+height = 0.4
+radius = 0.7
+
+[node name="Plant" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="LOD0" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_7fvws")
+mesh = ExtResource("1_ep2g2")
+skeleton = NodePath("../..")
+
+[node name="LOD1" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_7fvws")
+mesh = ExtResource("2_xip4c")
+skeleton = NodePath("../..")
+
+[node name="LOD2" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_7fvws")
+mesh = ExtResource("3_toik2")
+skeleton = NodePath("../..")
+
+[node name="LOD3" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_7fvws")
+mesh = ExtResource("4_p7s67")
+skeleton = NodePath("../..")
+
+[node name="LOD4" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_7fvws")
+mesh = ExtResource("5_0nxn8")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.04)
+shape = SubResource("CylinderShape3D_dcwb5")

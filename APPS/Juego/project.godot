@@ -1,0 +1,410 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[addons]
+
+ControlsRemap/action_list=Array[StringName]([&"ui_up", &"ui_down", &"ui_left", &"ui_right", &"ui_accept", &"ui_cancel"])
+resources_spreadsheet_view/array_color_tint=100.0
+resources_spreadsheet_view/color_rows=true
+resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/resource_preview_size=32.0
+resources_spreadsheet_view/clip_headers=false
+resources_spreadsheet_view/dupe_arrays=true
+resources_spreadsheet_view/context_menu_on_leftclick=false
+
+[application]
+
+config/name="NowEarth"
+run/main_scene="res://scenes/main_menu.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+QuestSystem="*res://addons/quest_system/quest_manager.gd"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+QuestMio="*res://singletons/my_quest_manager.gd"
+Scenes="*res://singletons/scenes.gd"
+Server="*res://singletons/server.gd"
+Gateway="*res://singletons/gateway.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[dotnet]
+
+project/assembly_name="NowEarth"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GodotDraw3D/plugin.cfg", "res://addons/Panel3D/plugin.cfg", "res://addons/SimpleTODO/plugin.cfg", "res://addons/SliderLabel/plugin.cfg", "res://addons/SmoothScroll/plugin.cfg", "res://addons/awesome_input_icons/plugin.cfg", "res://addons/curvemesh3d/plugin.cfg", "res://addons/customizableCrosshair/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/draggablesprite2d/plugin.cfg", "res://addons/filtered_edits/plugin.cfg", "res://addons/gaea/plugin.cfg", "res://addons/godot_conventions_cheat_sheet/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/progress_bar_3d/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/radial_progress/plugin.cfg", "res://addons/remote_container/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/sound_manager/plugin.cfg", "res://addons/spanning_table/plugin.cfg", "res://addons/spin_button/plugin.cfg", "res://addons/tablepager/plugin.cfg")
+
+[input]
+
+up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
+}
+down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
+}
+right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+]
+}
+left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+]
+}
+jump={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+exit={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+run={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+zoomin={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(208, 18),"global_position":Vector2(212, 59),"factor":1.0,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+zoomout={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(201, 7),"global_position":Vector2(205, 48),"factor":1.0,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+pick_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
+]
+}
+inventory={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+close_window={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+crafting={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"key_label":0,"unicode":99,"location":0,"echo":false,"script":null)
+]
+}
+remove_from_hand={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+]
+}
+select={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(175, 20),"global_position":Vector2(179, 61),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+camera_toggle={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194328,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+mine={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(84, 13),"global_position":Vector2(88, 54),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+build={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(184, 13),"global_position":Vector2(188, 54),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+atack={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(112, 19),"global_position":Vector2(116, 60),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+build_placeholder={
+"deadzone": 0.5,
+"events": []
+}
+clear_cursor={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+]
+}
+rotate={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
+]
+}
+reverse_rotate={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":82,"location":0,"echo":false,"script":null)
+]
+}
+flip_horizontal={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+flip_vertical={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+drop={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"key_label":0,"unicode":122,"location":0,"echo":false,"script":null)
+]
+}
+quick_tool_change={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+enter_or_leave={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+toggle_chat={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":84,"key_label":0,"unicode":116,"location":0,"echo":false,"script":null)
+]
+}
+copy={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+cut={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+paste={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":86,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+drag={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(287, 20),"global_position":Vector2(291, 61),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+pin={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"button_mask":1,"position":Vector2(434, 22),"global_position":Vector2(438, 63),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+remove_pin={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"button_mask":2,"position":Vector2(424, 20),"global_position":Vector2(428, 61),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+craft={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(381, 14),"global_position":Vector2(385, 55),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+craft_multiple={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(403, 5),"global_position":Vector2(407, 46),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+craft_all={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(429, 18),"global_position":Vector2(433, 59),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+cancel_craft={
+"deadzone": 0.5,
+"events": []
+}
+cancel_multiple_crafts={
+"deadzone": 0.5,
+"events": []
+}
+cancel_all_crafts={
+"deadzone": 0.5,
+"events": []
+}
+stack_transfer={
+"deadzone": 0.5,
+"events": []
+}
+inventory_transfer={
+"deadzone": 0.5,
+"events": []
+}
+fast_entity_transfer={
+"deadzone": 0.5,
+"events": []
+}
+place_single_item={
+"deadzone": 0.5,
+"events": []
+}
+divide_stack={
+"deadzone": 0.5,
+"events": []
+}
+place_all_items={
+"deadzone": 0.5,
+"events": []
+}
+fast_entity_transfer_half={
+"deadzone": 0.5,
+"events": []
+}
+toggle_filter_slot={
+"deadzone": 0.5,
+"events": []
+}
+rotate_toolbar={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+shortcut10={
+"deadzone": 0.5,
+"events": []
+}
+shortcut1={
+"deadzone": 0.5,
+"events": []
+}
+shortcut2={
+"deadzone": 0.5,
+"events": []
+}
+shortcut3={
+"deadzone": 0.5,
+"events": []
+}
+shortcut4={
+"deadzone": 0.5,
+"events": []
+}
+shortcut5={
+"deadzone": 0.5,
+"events": []
+}
+shortcut6={
+"deadzone": 0.5,
+"events": []
+}
+shortcut7={
+"deadzone": 0.5,
+"events": []
+}
+shortcut8={
+"deadzone": 0.5,
+"events": []
+}
+shortcut9={
+"deadzone": 0.5,
+"events": []
+}
+quickbar1={
+"deadzone": 0.5,
+"events": []
+}
+quickbar2={
+"deadzone": 0.5,
+"events": []
+}
+quickbar3={
+"deadzone": 0.5,
+"events": []
+}
+quickbar4={
+"deadzone": 0.5,
+"events": []
+}
+quickbar5={
+"deadzone": 0.5,
+"events": []
+}
+quickbar6={
+"deadzone": 0.5,
+"events": []
+}
+quickbar7={
+"deadzone": 0.5,
+"events": []
+}
+quickbar8={
+"deadzone": 0.5,
+"events": []
+}
+quickbar9={
+"deadzone": 0.5,
+"events": []
+}
+quickbar10={
+"deadzone": 0.5,
+"events": []
+}
+undo={
+"deadzone": 0.5,
+"events": []
+}
+make_blueprint={
+"deadzone": 0.5,
+"events": []
+}
+mark_for_removing={
+"deadzone": 0.5,
+"events": []
+}
+toggle_equipment={
+"deadzone": 0.5,
+"events": []
+}
+pause={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+confirm={
+"deadzone": 0.5,
+"events": []
+}
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogues/test_dialogue.dialogue", "res://dialogues/quest0.dialogue")
+
+[layer_names]
+
+3d_physics/layer_1="main"
+3d_physics/layer_2="vegetacion"
+3d_physics/layer_3="suelo"
+
+[rendering]
+
+anti_aliasing/quality/screen_space_aa=1

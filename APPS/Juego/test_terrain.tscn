@@ -1,0 +1,134 @@
+[gd_scene load_steps=6 format=3 uid="uid://coaqe7yurjn4p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f8cn6"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ab1xv"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8xa03"]
+size = Vector2(4, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3urs4"]
+size = Vector3(4, 10, 0.149536)
+
+[sub_resource type="QuadMesh" id="QuadMesh_syxs6"]
+size = Vector2(200, 20)
+
+[node name="Land" type="Node3D"]
+visible = false
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.387, 0, -0.439)
+mesh = SubResource("BoxMesh_f8cn6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_ab1xv")
+
+[node name="slopes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44415, 0, 4.71198)
+
+[node name="Slope" type="StaticBody3D" parent="slopes"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 1.2051, -11.8425)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="slopes/Slope"]
+mesh = SubResource("QuadMesh_8xa03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slopes/Slope"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 1.49012e-08, 0, -1.49012e-08, 0.999997, 0, 0, -0.0749825)
+shape = SubResource("BoxShape3D_3urs4")
+
+[node name="Slope2" type="StaticBody3D" parent="slopes"]
+transform = Transform3D(1, 0, 0, 0, 0.382683, 0.92388, 0, -0.92388, 0.382683, 4, 1.205, -11.842)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="slopes/Slope2"]
+mesh = SubResource("QuadMesh_8xa03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slopes/Slope2"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 1.49012e-08, 0, -1.49012e-08, 0.999997, 0, 0, -0.0749825)
+shape = SubResource("BoxShape3D_3urs4")
+
+[node name="Slope3" type="StaticBody3D" parent="slopes"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 8, 1.205, -11.842)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="slopes/Slope3"]
+mesh = SubResource("QuadMesh_8xa03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slopes/Slope3"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 1.49012e-08, 0, -1.49012e-08, 0.999997, 0, 0, -0.0749825)
+shape = SubResource("BoxShape3D_3urs4")
+
+[node name="Slope4" type="StaticBody3D" parent="slopes"]
+transform = Transform3D(1, 0, 0, 0, 0.608761, 0.793353, 0, -0.793353, 0.608761, 12, 1.205, -11.842)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="slopes/Slope4"]
+mesh = SubResource("QuadMesh_8xa03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slopes/Slope4"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 1.49012e-08, 0, -1.49012e-08, 0.999997, 0, 0, -0.0749825)
+shape = SubResource("BoxShape3D_3urs4")
+
+[node name="Slope5" type="StaticBody3D" parent="slopes"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 16, 1.205, -11.842)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="slopes/Slope5"]
+mesh = SubResource("QuadMesh_8xa03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slopes/Slope5"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 1.49012e-08, 0, -1.49012e-08, 0.999997, 0, 0, -0.0749825)
+shape = SubResource("BoxShape3D_3urs4")
+
+[node name="Slope6" type="StaticBody3D" parent="slopes"]
+transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 20, 1.205, -11.842)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="slopes/Slope6"]
+mesh = SubResource("QuadMesh_8xa03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slopes/Slope6"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 1.49012e-08, 0, -1.49012e-08, 0.999997, 0, 0, -0.0749825)
+shape = SubResource("BoxShape3D_3urs4")
+
+[node name="Slope7" type="StaticBody3D" parent="slopes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 1.205, -11.842)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="slopes/Slope7"]
+mesh = SubResource("QuadMesh_8xa03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="slopes/Slope7"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 1.49012e-08, 0, -1.49012e-08, 0.999997, 0, 0, -0.0749825)
+shape = SubResource("BoxShape3D_3urs4")
+
+[node name="wall" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 10, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(1.00254, 0, 0, 0, 1.00254, 0, 0, 0, 1.00254, 0, 0, 0)
+mesh = SubResource("QuadMesh_syxs6")
+
+[node name="wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -100)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall2"]
+transform = Transform3D(1.00254, 0, 0, 0, 1.00254, 0, 0, 0, 1.00254, 0, 0, 0)
+mesh = SubResource("QuadMesh_syxs6")
+
+[node name="wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -100, 10, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall3"]
+transform = Transform3D(1.00254, 0, 0, 0, 1.00254, 0, 0, 0, 1.00254, 0, 0, 0)
+mesh = SubResource("QuadMesh_syxs6")
+
+[node name="wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 10, 100)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall4"]
+transform = Transform3D(1.00254, 0, 0, 0, 1.00254, 0, 0, 0, 1.00254, 0, 0, 0)
+mesh = SubResource("QuadMesh_syxs6")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://gd8i3tfao8fp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_txb2i"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_47h8g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4ibm"]
+size = Vector3(2, 2, 2)
+
+[node name="TestNpc" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_txb2i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_47h8g")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_v4ibm")

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dcxcfq0brsmvh"
+path="res://.godot/imported/rock_smallC.obj-2f797e66e1334f2f896c92e39b4e28cf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rock_smallC.obj-2f797e66e1334f2f896c92e39b4e28cf.mesh"]
+
+source_file="res://models/rocks/rock_smallC.obj"
+dest_files=["res://.godot/imported/rock_smallC.obj-2f797e66e1334f2f896c92e39b4e28cf.mesh", "res://.godot/imported/rock_smallC.obj-2f797e66e1334f2f896c92e39b4e28cf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

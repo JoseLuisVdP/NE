@@ -1,0 +1,199 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjp1c6kxtny3f"]
+
+[ext_resource type="Script" path="res://player/player_state_machine.gd" id="1_0twh5"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="2_6aasw"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_k1oxy"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_4qmev"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_wf8gk"]
+
+[node name="StateChart" type="Node"]
+script = ExtResource("1_0twh5")
+
+[node name="Root" type="Node" parent="."]
+script = ExtResource("2_6aasw")
+
+[node name="MovementState" type="Node" parent="Root"]
+script = ExtResource("3_k1oxy")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="Root/MovementState"]
+script = ExtResource("4_4qmev")
+
+[node name="ToWalking" type="Node" parent="Root/MovementState/Idle"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Walking")
+event = &"walking"
+
+[node name="ToJumping" type="Node" parent="Root/MovementState/Idle"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Jumping")
+event = &"jumping"
+
+[node name="Walking" type="Node" parent="Root/MovementState"]
+script = ExtResource("4_4qmev")
+
+[node name="ToRunning" type="Node" parent="Root/MovementState/Walking"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Running")
+event = &"running"
+
+[node name="ToIdle" type="Node" parent="Root/MovementState/Walking"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Idle")
+event = &"idle"
+
+[node name="ToJumping" type="Node" parent="Root/MovementState/Walking"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Jumping")
+event = &"jumping"
+
+[node name="Running" type="Node" parent="Root/MovementState"]
+script = ExtResource("4_4qmev")
+
+[node name="ToWalking" type="Node" parent="Root/MovementState/Running"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Walking")
+event = &"walking"
+
+[node name="ToIdle" type="Node" parent="Root/MovementState/Running"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Idle")
+event = &"idle"
+
+[node name="ToJumping" type="Node" parent="Root/MovementState/Running"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Jumping")
+event = &"jumping"
+
+[node name="Jumping" type="Node" parent="Root/MovementState"]
+script = ExtResource("4_4qmev")
+
+[node name="ToIdle" type="Node" parent="Root/MovementState/Jumping"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Idle")
+delay_seconds = 0.8
+
+[node name="InteractState" type="Node" parent="Root"]
+script = ExtResource("3_k1oxy")
+initial_state = NodePath("PickingUpAnItem")
+
+[node name="PickingUpAnItem" type="Node" parent="Root/InteractState"]
+script = ExtResource("4_4qmev")
+
+[node name="ToNotInteracting" type="Node" parent="Root/InteractState/PickingUpAnItem"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../NotInteracting")
+delay_seconds = 1.0
+
+[node name="NotInteracting" type="Node" parent="Root/InteractState"]
+script = ExtResource("4_4qmev")
+
+[node name="ToPickingUpAnItem" type="Node" parent="Root/InteractState/NotInteracting"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../PickingUpAnItem")
+event = &"pickingUpAnItem"
+
+[node name="ToChatting" type="Node" parent="Root/InteractState/NotInteracting"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Chatting")
+event = &"chatting"
+
+[node name="Chatting" type="Node" parent="Root/InteractState"]
+script = ExtResource("4_4qmev")
+
+[node name="ToNotInteracting" type="Node" parent="Root/InteractState/Chatting"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../NotInteracting")
+event = &"not_interacting"
+
+[node name="AtackingState" type="Node" parent="Root"]
+script = ExtResource("3_k1oxy")
+initial_state = NodePath("Not Atacking")
+
+[node name="Not Atacking" type="Node" parent="Root/AtackingState"]
+script = ExtResource("4_4qmev")
+
+[node name="To Aiming" type="Node" parent="Root/AtackingState/Not Atacking"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Aming")
+event = &"a"
+
+[node name="To Shooting" type="Node" parent="Root/AtackingState/Not Atacking"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Shooting")
+event = &"a"
+
+[node name="To Hitting" type="Node" parent="Root/AtackingState/Not Atacking"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Hitting")
+event = &"hitting"
+
+[node name="To Reloading" type="Node" parent="Root/AtackingState/Not Atacking"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Reloading")
+event = &"a"
+
+[node name="Aming" type="Node" parent="Root/AtackingState"]
+script = ExtResource("4_4qmev")
+
+[node name="To Not Atacking" type="Node" parent="Root/AtackingState/Aming"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Not Atacking")
+
+[node name="To Shooting" type="Node" parent="Root/AtackingState/Aming"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Shooting")
+
+[node name="Shooting" type="Node" parent="Root/AtackingState"]
+script = ExtResource("4_4qmev")
+
+[node name="To Not Atacking" type="Node" parent="Root/AtackingState/Shooting"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Not Atacking")
+
+[node name="To Aiming" type="Node" parent="Root/AtackingState/Shooting"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Aming")
+
+[node name="To Reloading" type="Node" parent="Root/AtackingState/Shooting"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Reloading")
+
+[node name="Hitting" type="Node" parent="Root/AtackingState"]
+script = ExtResource("4_4qmev")
+
+[node name="To Not Atacking" type="Node" parent="Root/AtackingState/Hitting"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Not Atacking")
+delay_seconds = 1.0
+
+[node name="Reloading" type="Node" parent="Root/AtackingState"]
+script = ExtResource("4_4qmev")
+
+[node name="To Aiming" type="Node" parent="Root/AtackingState/Reloading"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Aming")
+
+[node name="To Shooting" type="Node" parent="Root/AtackingState/Reloading"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Shooting")
+
+[node name="To Not Atacking" type="Node" parent="Root/AtackingState/Reloading"]
+script = ExtResource("5_wf8gk")
+to = NodePath("../../Not Atacking")
+
+[connection signal="state_physics_processing" from="Root/MovementState/Idle" to="." method="_while_idle"]
+[connection signal="state_physics_processing" from="Root/MovementState/Walking" to="." method="_while_walking"]
+[connection signal="state_entered" from="Root/MovementState/Running" to="." method="_on_start_running"]
+[connection signal="state_exited" from="Root/MovementState/Running" to="." method="_on_stop_running"]
+[connection signal="state_physics_processing" from="Root/MovementState/Running" to="." method="_while_running"]
+[connection signal="state_physics_processing" from="Root/MovementState/Jumping" to="." method="_while_jumping"]
+[connection signal="state_entered" from="Root/InteractState/PickingUpAnItem" to="." method="_on_picking_up_an_item"]
+[connection signal="state_exited" from="Root/InteractState/PickingUpAnItem" to="." method="_on_item_picked"]
+[connection signal="state_physics_processing" from="Root/InteractState/PickingUpAnItem" to="." method="_while_picking_up_an_item"]
+[connection signal="state_entered" from="Root/InteractState/Chatting" to="." method="_on_start_chatting"]
+[connection signal="state_exited" from="Root/InteractState/Chatting" to="." method="_on_stop_chatting"]
+[connection signal="state_physics_processing" from="Root/InteractState/Chatting" to="." method="_while_chatting"]
+[connection signal="state_entered" from="Root/AtackingState/Hitting" to="." method="_on_hitting"]
+[connection signal="state_exited" from="Root/AtackingState/Hitting" to="." method="_on_stop_hitting"]
+[connection signal="state_physics_processing" from="Root/AtackingState/Hitting" to="." method="_while_hitting"]

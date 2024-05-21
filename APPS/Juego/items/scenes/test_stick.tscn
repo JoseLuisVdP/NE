@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl3simuhyvark"]
+
+[ext_resource type="ArrayMesh" uid="uid://db2yid1va7vax" path="res://items/meshes/test_stick.obj" id="1_j4r5a"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_50da3"]
+height = 0.487566
+radius = 0.0368546
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lsrx1"]
+height = 0.146765
+radius = 0.0349232
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dc0wy"]
+height = 0.229268
+radius = 0.028024
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4knm7"]
+size = Vector3(0.366211, 0.715881, 0.0913086)
+
+[node name="TestStick" type="RigidBody3D"]
+transform = Transform3D(0.867201, 0, 0.497958, 0, 1, 0, -0.497958, 0, 0.867201, 0, 0, 0)
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.976296, -0.21644, 0, 0.213775, 0.964276, -0.156434, 0.0338586, 0.152726, 0.987688, 0.02, 0.4, 0.015)
+mesh = ExtResource("1_j4r5a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00800788, 0.24235, 0)
+shape = SubResource("CylinderShape3D_50da3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.831065, -0.547651, -0.097005, 0.547651, 0.775364, 0.314468, -0.097005, -0.314468, 0.944299, -0.045599, 0.521301, -0.0261835)
+shape = SubResource("CylinderShape3D_lsrx1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.784676, 0.607451, -0.123642, -0.607451, 0.713678, -0.348806, -0.123642, 0.348806, 0.929004, 0.0896859, 0.551468, 0.0564866)
+shape = SubResource("CylinderShape3D_dc0wy")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.864864, 0, -0.502007, 0, 1, 0, 0.502007, 0, 0.864864, 0.0300785, 0.318939, 0.021129)
+shape = SubResource("BoxShape3D_4knm7")

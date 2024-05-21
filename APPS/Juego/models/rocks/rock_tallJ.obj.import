@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dckkaxr0qvse8"
+path="res://.godot/imported/rock_tallJ.obj-a1f2ad6915a396494a7490e537fe5ffe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rock_tallJ.obj-a1f2ad6915a396494a7490e537fe5ffe.mesh"]
+
+source_file="res://models/rocks/rock_tallJ.obj"
+dest_files=["res://.godot/imported/rock_tallJ.obj-a1f2ad6915a396494a7490e537fe5ffe.mesh", "res://.godot/imported/rock_tallJ.obj-a1f2ad6915a396494a7490e537fe5ffe.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

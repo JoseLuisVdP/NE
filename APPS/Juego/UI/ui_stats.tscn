@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnqjv6pu1vmb1"]
+
+[ext_resource type="Script" path="res://UI/ui_stats.gd" id="1_hrxvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1h4k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0tdw"]
+bg_color = Color(1, 0.481242, 0.430881, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlmpj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj781"]
+bg_color = Color(0, 0.784314, 0.490196, 1)
+
+[node name="UIStats" type="Control"]
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hrxvr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 74.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_t1h4k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_h0tdw")
+rounded = true
+
+[node name="StaminaBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_wlmpj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tj781")
+rounded = true
