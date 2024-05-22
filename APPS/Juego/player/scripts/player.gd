@@ -39,6 +39,8 @@ signal not_in_area(item:Pickup)
 var _should_move : bool = false
 var can_jump : bool = true
 
+var email : String
+
 @export_category("Características")
 @export var SPEED : float = 6.0
 @export var RUN_MULTIPLIER : float = 1.7
@@ -99,6 +101,8 @@ func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_end)
 	
 	QuestMio.player = self
+	
+	email = get_node("/root/Game").get_player_email()
 
 func start_conversation():
 	chatting_npc = npcs.filter(func (i): return i is NPCScene)[0]
@@ -286,7 +290,27 @@ func _on_jump_timer_timeout() -> void:
 	can_jump = true
 
 func savedata(data:Dictionary) -> Dictionary:
+	data["Players"]["mail"] = email
+	# Ahora mismo, solo un archivo por jugador, identificado con su correo
+	data["SaveFiles"]["name"] = email
+	data["SaveFiles"]["date"] = Time.get_datetime_string_from_system(true)
+	data["SaveFiles"]["money"] = money
+	data["SaveFiles"]["exp"] = xp
+	data["SaveFiles"]["level"] = level
+	data["SaveFiles"]["health"] = cur_health
+	data["SaveFiles"]["max_health"] = max_health
+	data["SaveFiles"]["max_stamina"] = max_stamina
 	return data
 
 func loaddata(data:Dictionary) -> Dictionary:
+	email = data["Players"]["mail"]
+	# Ahora mismo, solo un archivo de guardado por jugador, identificado con su correo ("name temporal")
+	#email = data["SaveFiles"]["name"]		#OMITIMOS NOMBRE DEL ARCHIVO DE GUARDADO
+	#OMITIMOS LA HORA Y FECHA
+	money = data["SaveFiles"]["money"]
+	xp = data["SaveFiles"]["exp"]
+	level = data["SaveFiles"]["level"]
+	cur_health = data["SaveFiles"]["health"]
+	max_health = data["SaveFiles"]["max_health"]
+	max_stamina = data["SaveFiles"]["max_stamina"]
 	return data

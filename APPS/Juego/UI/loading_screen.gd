@@ -26,6 +26,8 @@ func _physics_process(delta: float) -> void:
 		if not wait_to_finish:
 			hide()
 		if scene.has_method("pre_load") and scene.has_signal("loaded"):
+			if scene.has_signal("is_data_loaded"):
+				await scene.is_data_loaded
 			scene.loaded.connect(_on_loaded)
 			scene.pre_load()
 		else:

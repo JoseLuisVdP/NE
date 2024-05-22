@@ -56,14 +56,10 @@ func return_token(token:String) -> void:
 
 
 @rpc("any_peer", "reliable")
-func get_data():
+func get_data(savefile:String):
 	var player_id : int = multiplayer.get_remote_sender_id()
-	var data : Dictionary = get_node(str(player_id)).data
-	rpc_id(player_id,"_on_data_retrieved", data)
-
-@rpc("any_peer", "reliable")
-func _on_data_retrieved(_data:Dictionary):
-	pass
+	var server_id : int = multiplayer.get_unique_id()
+	HubConnection.get_player_savefile(savefile, player_id, server_id)
 
 func _on_token_expiration_timeout() -> void:
 	if expected_tokens.size() == 0:
@@ -81,3 +77,16 @@ func _on_token_expiration_timeout() -> void:
 func return_token_verification_result(player_id:int, token_verification:bool) -> void:
 	print("Devolviendo resultado de la verificación del token")
 	rpc_id(player_id, "return_token_verification_result", player_id, token_verification)
+
+
+@rpc("any_peer", "reliable")
+func save_data(data:Dictionary, player_id:int = 1) -> void:
+	HubConnection.save_game_data(data, player_id)
+
+@rpc("any_peer", "reliable")
+func data_saved(result:bool, player_id:int = 1) -> void:
+	rpc_id(player_id, "data_saved", result)
+
+@rpc("any_peer", "reliable")
+func return_savefile(savefile_data:Dictionary, player_id:int, exito:bool) -> void:
+	rpc_id(player_id, "return_savefile", savefile_data, player_id, exito)

@@ -54,7 +54,7 @@ func _on_verification_expiration_timeout() -> void:
 		start_time = awaiting_verification[i]["timestamp"]
 		if cur_time - start_time >= server.TOKEN_EXPIRATION_TIME:
 			awaiting_verification.erase(i)
-			var connected_peers : Array[int] = Array(server.multiplayer.get_peers())
+			var connected_peers : Array = Array(server.multiplayer.get_peers())
 			if connected_peers.has(i):
 				server.return_token_verification_result(i, false)
-				server.server.disconnect_peer(i)
+			server.server.disconnect_peer(i)

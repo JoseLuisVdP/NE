@@ -31,3 +31,24 @@ func _on_connection_failed():
 @rpc("any_peer", "reliable")
 func receive_login_token(token:String) -> void:
 	game_server.expected_tokens.append(token)
+
+
+@rpc("any_peer", "reliable")
+func save_game_data(data:Dictionary, player_id:int, server_id:int = 1) -> void:
+	server_id = multiplayer.get_unique_id()
+	rpc_id(1,"save_game_data", data, player_id, server_id)
+
+
+@rpc("any_peer", "reliable")
+func game_data_saved(result:bool, player_id: int, server_id:int = 1) -> void:
+	game_server.data_saved(result, player_id)
+
+
+@rpc("any_peer", "reliable")
+func get_player_savefile(savefile:String, player_id:int, server_id:int) -> void:
+	rpc_id(1, "get_player_savefile", savefile, player_id, server_id)
+
+@rpc("any_peer", "reliable")
+func return_player_savefile(savefile_data:Dictionary, player_id:int, server_id:int, exito:bool) -> void:
+	game_server.return_savefile(savefile_data, player_id, exito)
+

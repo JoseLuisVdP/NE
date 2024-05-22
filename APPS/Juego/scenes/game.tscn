@@ -21,9 +21,9 @@
 [ext_resource type="Script" path="res://day_night_cycle.gd" id="16_yi31b"]
 [ext_resource type="PackedScene" uid="uid://cfyjxurc0ivue" path="res://models/map/map.tscn" id="17_waklr"]
 [ext_resource type="PackedScene" uid="uid://bpuu0kfmq0shv" path="res://models/map/sandy.tscn" id="18_8y4qg"]
-[ext_resource type="Script" path="res://saver_loader/saver_loader.gd" id="19_4qdy3"]
 [ext_resource type="PackedScene" uid="uid://d1b2iwglru5t5" path="res://NPCs/npc.tscn" id="19_43oac"]
 [ext_resource type="Resource" uid="uid://irlg4fnxqtje" path="res://NPCs/npcs/test_npc.tres" id="20_t85iw"]
+[ext_resource type="Script" path="res://scenes/auto_save.gd" id="24_aaemr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jh1tq"]
 shader = ExtResource("4_ivjjg")
@@ -291,5 +291,12 @@ script = ExtResource("16_yi31b")
 
 [node name="Clima" type="Node" parent="."]
 
-[node name="SaverLoader" type="Node" parent="."]
-script = ExtResource("19_4qdy3")
+[node name="AutoSave" type="Timer" parent="."]
+unique_name_in_owner = true
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+wait_time = 30.0
+script = ExtResource("24_aaemr")
+
+[connection signal="timeout" from="AutoSave" to="AutoSave" method="_on_timeout"]

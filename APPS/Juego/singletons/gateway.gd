@@ -48,13 +48,13 @@ func _on_connected_to_server():
 
 func request_login():
 	print("Requesting login")
-	rpc_id(1, "login_request", email, password)
+	rpc_id(1, "login_request", email, password.sha256_text())
 	email = ""
 	password = ""
 
 func request_create_account():
 	print("Requesting register")
-	rpc_id(1, "create_account_request", email, password)
+	rpc_id(1, "create_account_request", email, password.sha256_text())
 	email = ""
 	password = ""
 

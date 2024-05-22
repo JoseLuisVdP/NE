@@ -3,18 +3,32 @@ class_name SaveAndLoad extends Node
 @onready var repositories: Repository = %Repository
 @export var default_img : CompressedTexture2D
 
-# ESTO ES TODO DE PRUEBA, NADA DE ESTO ESTÁ EN FUNCIONAMIENTO
-
-@rpc("any_peer", "reliable")
-func save_game(player_name:String, save_file:Dictionary):
-	var player : int = repositories.GAME_REPOSITORY.get_player_id(player_name)
-	if player == -1:
+func save_game(data:Dictionary, player_id:int, server_id:int) -> void:
+	var player_db_id : int = repositories.GAME_REPOSITORY.get_player_id(data["Players"]["email"])
+	var exito : bool = true
+	if player_db_id == -1:
 		printerr("Ha fallado el guardado de los datos: no existe el jugador")
-		return
-	var temp = repositories.GAME_REPOSITORY.save_savefile(str(player), save_file)
-	if temp.size() == 0:
-		printerr("Ha fallado el guardado de los datos")
+		exito = false
+	else:
+		var savefile_data : Dictionary = data["SaveFiles"]
+		var temp = repositories.GAME_REPOSITORY.save_savefile(str(player_db_id), savefile_data)
+		if temp.size() == 0:
+			printerr("Ha fallado el guardado de los datos")
+			exito = false
+	GameServer.game_data_saved(exito, player_id, server_id)
 
+func load_game(savefile:String, player_id:int, server_id:int) -> void:
+	var exito = true
+	#SAVEFILE ES EL MAIL DEL PLAYER POR AHORA
+	var savefile_data : Dictionary = repositories.GAME_REPOSITORY.get_savefile_by_email(savefile, savefile)
+	if savefile_data.size() == 0:
+		printerr("Ha fallado el guardado por email, requiere revisar DB")
+		exito = false
+	GameServer.return_player_savefile(savefile_data, player_id, server_id, exito)
+
+
+# A PARTIR DE AQUÍ ES TODO DE PRUEBA, NADA DE ESTO ESTÁ EN FUNCIONAMIENTO #
+# NO HACER CASO #
 @rpc("any_peer", "reliable")
 func save_log(player_name:String, save_file_name:String, log:Dictionary):
 	var player_id : int = repositories.GAME_REPOSITORY.get_player_id(player_name)

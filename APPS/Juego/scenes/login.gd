@@ -12,6 +12,8 @@ class_name LoginScreen extends Control
 @onready var new_password_input: LineEdit = %NewPasswordInput
 @onready var repeat_new_password_input: LineEdit = %RepeatNewPasswordInput
 
+var email : String
+
 func _ready() -> void:
 	register.hide()
 	login.show()
@@ -26,6 +28,7 @@ func _on_login_btn_pressed() -> void:
 		register_btn.disabled = true
 		print("Attempting to login")
 		Gateway.connect_to_server(email_input.text, password_input.text)
+		email = email_input.text
 
 
 func _on_back_btn_pressed() -> void:
@@ -51,3 +54,4 @@ func _on_confirm_btn_pressed() -> void:
 		confirm_btn.disabled = true
 		back_btn.disabled = true
 		Gateway.connect_to_server(new_email_input.text, new_password_input.text, true)
+		email = new_email_input.text

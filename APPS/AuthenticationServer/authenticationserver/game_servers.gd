@@ -36,3 +36,22 @@ func distribute_login_token(token:String, game_server:String) -> void:
 @rpc("any_peer", "reliable")
 func receive_login_token(token:String) -> void:
 	pass
+
+
+@rpc("any_peer", "reliable")
+func save_game_data(data:Dictionary, player_id:int, server_id:int = 1) -> void:
+	get_node("/root/Authenticate").save_and_load.save_game(data, player_id, server_id)
+
+
+@rpc("any_peer", "reliable")
+func game_data_saved(result:bool, player_id : int, server_id:int = 1) -> void:
+	rpc_id(server_id, "game_data_saved", result, player_id)
+
+
+@rpc("any_peer", "reliable")
+func get_player_savefile(savefile:String, player_id:int, server_id:int) -> void:
+	get_node("/root/Authenticate").save_and_load.load_game(savefile, player_id, server_id)
+
+@rpc("any_peer", "reliable")
+func return_player_savefile(savefile_data:Dictionary, player_id:int, server_id:int, exito:bool) -> void:
+	rpc_id(server_id, "return_player_savefile", savefile_data, player_id, server_id, exito)
