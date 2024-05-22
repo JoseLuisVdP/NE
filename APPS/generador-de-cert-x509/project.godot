@@ -11,6 +11,9 @@ config_version=5
 [application]
 
 config/name="Generador de cert X509"
+run/main_scene="res://X509_generator.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="NE"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 

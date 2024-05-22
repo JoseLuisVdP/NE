@@ -29,15 +29,6 @@ func _on_connection_failed():
 	print("Falló la conexión al servidor")
 
 @rpc("any_peer", "reliable")
-func test_connection():
-	test_connection.rpc_id(1)
-	print("Cliente OK")
-
-@rpc("any_peer", "reliable")
-func save_game(json:Dictionary):
-	save_game.rpc_id(1, "prueba", json)
-
-@rpc("any_peer", "reliable")
 func get_data():
 	rpc_id(1, "get_data")
 
@@ -57,6 +48,7 @@ func return_token(token:String) -> void:
 
 @rpc("any_peer", "reliable")
 func return_token_verification_result(player_id:int, token_verification:bool) -> void:
+	print("Resultado de la verificación del token:")
 	var login : Control = get_node("/root/Login")
 	if token_verification:
 		print("Token verificado")
@@ -65,3 +57,4 @@ func return_token_verification_result(player_id:int, token_verification:bool) ->
 	else:
 		print("Login fallido (token malo)")
 		login.login_btn.disabled = false
+		login.register_btn.disabled = false

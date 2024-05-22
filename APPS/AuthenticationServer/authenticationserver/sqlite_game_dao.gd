@@ -4,7 +4,7 @@ var DB
 
 func _ready():
 	DB = SQLite.new()
-	DB.path = "user://now_earth.db"
+	DB.path = "res://now_earth.db"
 	DB.open_db()
 
 func create(data:Dictionary, table:String, id:String = "-1") -> Dictionary:

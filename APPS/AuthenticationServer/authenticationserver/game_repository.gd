@@ -39,6 +39,8 @@ func player_email_exists(player_email:String) -> bool:
 
 func player_password_is_correct(player_email:String, password:String) -> bool:
 	var player : Dictionary = get_email_player(player_email)
+	if player.size() == 0:
+		return false
 	return player["password"] == password
 
 func get_save_files(player_name:String) -> Array[Dictionary]:

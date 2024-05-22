@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbhffjdwocf73"]
+[gd_scene load_steps=7 format=3 uid="uid://bbhffjdwocf73"]
 
 [ext_resource type="Script" path="res://authentication_server.gd" id="1_sfixt"]
 [ext_resource type="Script" path="res://save_and_load.gd" id="2_4d7je"]
+[ext_resource type="Texture2D" uid="uid://c1laovwuxuk7a" path="res://icon.svg" id="2_deqyb"]
 [ext_resource type="Script" path="res://Repository.gd" id="3_h16da"]
 [ext_resource type="Script" path="res://game_repository.gd" id="3_mmnkh"]
 [ext_resource type="Script" path="res://sqlite_game_dao.gd" id="4_rcdj2"]
 
 [node name="Authenticate" type="Node"]
 script = ExtResource("1_sfixt")
+default_img = ExtResource("2_deqyb")
 
 [node name="Repository" type="Node" parent="."]
 unique_name_in_owner = true

@@ -1,6 +1,7 @@
 extends Node
 
 @onready var repository: Repository = %Repository
+@export var default_img : CompressedTexture2D
 
 var server
 
@@ -22,6 +23,37 @@ func _on_gateway_connected(gateway_id):
 
 func _on_gateway_disconnected(gateway_id):
 	print("Gateway " + str(gateway_id) + " disconnected")
+
+
+@rpc("any_peer","reliable")
+func create_account(email:String, password:String, player_id:int) -> void:
+	print("Crear cuenta para usuario " + str(player_id))
+	var gateway_id : int = multiplayer.get_remote_sender_id()
+	var result : bool = true
+	var message : int
+	
+	if repository.GAME_REPOSITORY.player_email_exists(email):
+		printerr("El jugador ya existe")
+		message = 2
+		result = false
+		
+	else:
+		var image = default_img.get_image().save_png_to_buffer()
+		var name = null	# WIP
+		
+		var temp = repository.GAME_REPOSITORY.save_player({"name":name, "mail":email, "password":password, "img":image})
+		if temp.size() == 0:
+			printerr("Ha fallado el guardado en la base de datos")
+			message = 4
+		else:
+			print("Jugador guardado")
+			message = 3
+	
+	rpc_id(gateway_id, "create_account_results", result, player_id, message)
+
+@rpc("any_peer", "reliable")
+func create_account_results (result:bool, player_id:int, message:int) -> void:
+	pass
 
 
 @rpc("any_peer", "reliable")

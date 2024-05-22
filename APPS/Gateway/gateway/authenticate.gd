@@ -28,3 +28,14 @@ func authenticate_player(email:String, password:String, player_id:int):
 func authentication_results(result:bool, player_id, token) -> void:
 	print("Resultado de la autenticación recibido, enviando al jugador...")
 	Gateway.return_login_request(result, player_id, token)
+
+
+@rpc("any_peer","reliable")
+func create_account(email:String, password:String, player_id:int) -> void:
+	print("Enviando create account request")
+	rpc_id(1, "create_account", email, password, player_id)
+
+@rpc("any_peer", "reliable")
+func create_account_results (result:bool, player_id:int, message:int) -> void:
+	print("Enviando resultado de create account request al jugador " + str(player_id))
+	Gateway.return_create_account_request(result, player_id, message)

@@ -6,22 +6,25 @@ extends Node
 var awaiting_verification = {}
 
 func start(player_id:int):
-	"""Verificacion con token WIP"""
-	#
 	awaiting_verification[player_id] = {"timestamp":int(Time.get_unix_time_from_system())}
 	server.fetch_token(player_id)
 
 func verify(player_id:int, token:String):
 	var v : bool = false
-	var t = token.right(64)
+	var t = token.right(-64)
+	print(t)
+	print(int(Time.get_unix_time_from_system()))
+	print(int(Time.get_unix_time_from_system()) - int(t))
 	while int(Time.get_unix_time_from_system()) - int(t) <= 30:
 		if server.expected_tokens.has(token):
+			print("El token se encuentra en los esperados por el servidor")
 			v = true
 			create_player_container(player_id)
 			awaiting_verification.erase(player_id)
 			server.expected_tokens.erase(token)
 			break
 		else:
+			print("El token NO se encuentra en los esperados por el servidor. Reintentando")
 			await get_tree().create_timer(2).timeout
 	server.return_token_verification_result(player_id, v)
 	

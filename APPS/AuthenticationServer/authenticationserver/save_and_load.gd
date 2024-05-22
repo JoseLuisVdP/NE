@@ -3,6 +3,8 @@ class_name SaveAndLoad extends Node
 @onready var repositories: Repository = %Repository
 @export var default_img : CompressedTexture2D
 
+# ESTO ES TODO DE PRUEBA, NADA DE ESTO ESTÁ EN FUNCIONAMIENTO
+
 @rpc("any_peer", "reliable")
 func save_game(player_name:String, save_file:Dictionary):
 	var player : int = repositories.GAME_REPOSITORY.get_player_id(player_name)
@@ -30,15 +32,10 @@ func save_log(player_name:String, save_file_name:String, log:Dictionary):
 		printerr("Ha fallado el guardado de los datos")
 
 @rpc("any_peer", "reliable")
+# NOT TESTED WIP
 func save_player(name:String, mail:String, password:String, img:PackedByteArray = PackedByteArray()):
 	if repositories.GAME_REPOSITORY.player_exists(name):
 		printerr("El jugador ya existe")
-		return
-	
-	var regex : RegEx = RegEx.new()
-	regex.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")
-	if not regex.search(mail):
-		printerr("Correo inválido")
 		return
 	
 	if repositories.GAME_REPOSITORY.player_mail_exists(mail):
@@ -49,6 +46,6 @@ func save_player(name:String, mail:String, password:String, img:PackedByteArray 
 	if image.size() == 0:
 		image = default_img.get_image().save_png_to_buffer()
 	
-	var temp = repositories.GAME_REPOSITORY.save_player({"name":name, "mail":mail, "password":password, "img":img})
+	var temp = repositories.GAME_REPOSITORY.save_player({"name":name, "mail":mail, "password":password, "img":image})
 	if temp.size() == 0:
 		printerr("Ha fallado el guardado de los datos")

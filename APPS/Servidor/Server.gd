@@ -39,8 +39,10 @@ func _on_player_connected(player_id):
 
 func _on_player_disconnected(player_id):
 	print("Player " + str(player_id) + " disconnected")
-	# AQUI HABRIA QUE GUARDAR LOS DATOS
-	get_node(str(player_id)).queue_free()
+	# AQUI HABRIA QUE GUARDAR LOS DATOS?
+	var node = get_node(str(player_id))
+	if node != null:
+		node.queue_free()
 
 @rpc("any_peer","reliable")
 func fetch_token(player_id:int) -> void:
@@ -77,4 +79,5 @@ func _on_token_expiration_timeout() -> void:
 
 @rpc("any_peer", "reliable")
 func return_token_verification_result(player_id:int, token_verification:bool) -> void:
+	print("Devolviendo resultado de la verificación del token")
 	rpc_id(player_id, "return_token_verification_result", player_id, token_verification)
