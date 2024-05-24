@@ -49,6 +49,10 @@ project/assembly_name="NowEarth"
 
 enabled=PackedStringArray("res://addons/GodotDraw3D/plugin.cfg", "res://addons/Panel3D/plugin.cfg", "res://addons/SimpleTODO/plugin.cfg", "res://addons/SliderLabel/plugin.cfg", "res://addons/SmoothScroll/plugin.cfg", "res://addons/awesome_input_icons/plugin.cfg", "res://addons/curvemesh3d/plugin.cfg", "res://addons/customizableCrosshair/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/draggablesprite2d/plugin.cfg", "res://addons/filtered_edits/plugin.cfg", "res://addons/gaea/plugin.cfg", "res://addons/godot_conventions_cheat_sheet/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/progress_bar_3d/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/radial_progress/plugin.cfg", "res://addons/remote_container/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/sound_manager/plugin.cfg", "res://addons/spanning_table/plugin.cfg", "res://addons/spin_button/plugin.cfg", "res://addons/tablepager/plugin.cfg")
 
+[global_group]
+
+save_and_load="Nodos que participan en el guardado y cargado de datos"
+
 [input]
 
 up={

@@ -12,11 +12,14 @@ class_name LoginScreen extends Control
 @onready var new_password_input: LineEdit = %NewPasswordInput
 @onready var repeat_new_password_input: LineEdit = %RepeatNewPasswordInput
 
+@export var auto_save : PackedScene
+
 var email : String
 
 func _ready() -> void:
 	register.hide()
 	login.show()
+	Server.auto_save_scene = auto_save
 
 func _on_login_btn_pressed() -> void:
 	if email_input.text == "" or password_input.text == "":
@@ -55,3 +58,9 @@ func _on_confirm_btn_pressed() -> void:
 		back_btn.disabled = true
 		Gateway.connect_to_server(new_email_input.text, new_password_input.text, true)
 		email = new_email_input.text
+
+
+func _on_test_login_pressed() -> void:
+	email_input.text = "a@a.com"
+	password_input.text = "aaaaaaaa"
+	_on_login_btn_pressed()

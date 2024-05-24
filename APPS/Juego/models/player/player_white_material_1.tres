@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://lftm6ycf5psx"]
+
+[ext_resource type="Texture2D" uid="uid://dosh3ec0lhxrl" path="res://models/player/ClothedLightSkin.png" id="1_v3cca"]
+
+[resource]
+albedo_texture = ExtResource("1_v3cca")

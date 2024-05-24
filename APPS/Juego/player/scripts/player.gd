@@ -102,7 +102,7 @@ func _ready():
 	
 	QuestMio.player = self
 	
-	email = get_node("/root/Game").get_player_email()
+	email = Server.player_email
 
 func start_conversation():
 	chatting_npc = npcs.filter(func (i): return i is NPCScene)[0]
@@ -290,8 +290,12 @@ func _on_jump_timer_timeout() -> void:
 	can_jump = true
 
 func savedata(data:Dictionary) -> Dictionary:
+	if not data.keys().has("Players"):
+		data["Players"] = {}
 	data["Players"]["mail"] = email
 	# Ahora mismo, solo un archivo por jugador, identificado con su correo
+	if not data.keys().has("SaveFiles"):
+		data["SaveFiles"] = {}
 	data["SaveFiles"]["name"] = email
 	data["SaveFiles"]["date"] = Time.get_datetime_string_from_system(true)
 	data["SaveFiles"]["money"] = money

@@ -45,10 +45,13 @@ func game_data_saved(result:bool, player_id: int, server_id:int = 1) -> void:
 
 
 @rpc("any_peer", "reliable")
-func get_player_savefile(savefile:String, player_id:int, server_id:int) -> void:
+func get_player_savefile(savefile:String, player_id:int, server_id:int = 1) -> void:
+	print("Obteniendo save file")
+	server_id = multiplayer.get_unique_id()
 	rpc_id(1, "get_player_savefile", savefile, player_id, server_id)
 
 @rpc("any_peer", "reliable")
 func return_player_savefile(savefile_data:Dictionary, player_id:int, server_id:int, exito:bool) -> void:
+	print("Recibido savefile de la base de datos")
 	game_server.return_savefile(savefile_data, player_id, exito)
 

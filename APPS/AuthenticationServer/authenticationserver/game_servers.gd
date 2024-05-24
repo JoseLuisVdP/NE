@@ -40,7 +40,7 @@ func receive_login_token(token:String) -> void:
 
 @rpc("any_peer", "reliable")
 func save_game_data(data:Dictionary, player_id:int, server_id:int = 1) -> void:
-	get_node("/root/Authenticate").save_and_load.save_game(data, player_id, server_id)
+	get_node("/root/Authenticate/SaveAndLoad").save_game(data, player_id, server_id)
 
 
 @rpc("any_peer", "reliable")
@@ -50,8 +50,10 @@ func game_data_saved(result:bool, player_id : int, server_id:int = 1) -> void:
 
 @rpc("any_peer", "reliable")
 func get_player_savefile(savefile:String, player_id:int, server_id:int) -> void:
-	get_node("/root/Authenticate").save_and_load.load_game(savefile, player_id, server_id)
+	print("Recibida petición de savefile")
+	get_node("/root/Authenticate/SaveAndLoad").load_game(savefile, player_id, server_id)
 
 @rpc("any_peer", "reliable")
 func return_player_savefile(savefile_data:Dictionary, player_id:int, server_id:int, exito:bool) -> void:
+	print("Devolviendo savefile a " + str(server_id))
 	rpc_id(server_id, "return_player_savefile", savefile_data, player_id, server_id, exito)

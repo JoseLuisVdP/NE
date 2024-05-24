@@ -4,7 +4,7 @@ class_name SaveAndLoad extends Node
 @export var default_img : CompressedTexture2D
 
 func save_game(data:Dictionary, player_id:int, server_id:int) -> void:
-	var player_db_id : int = repositories.GAME_REPOSITORY.get_player_id(data["Players"]["email"])
+	var player_db_id : int = repositories.GAME_REPOSITORY.get_email_player_id(data["Players"]["mail"])
 	var exito : bool = true
 	if player_db_id == -1:
 		printerr("Ha fallado el guardado de los datos: no existe el jugador")
@@ -18,6 +18,7 @@ func save_game(data:Dictionary, player_id:int, server_id:int) -> void:
 	GameServer.game_data_saved(exito, player_id, server_id)
 
 func load_game(savefile:String, player_id:int, server_id:int) -> void:
+	print("Loading game")
 	var exito = true
 	#SAVEFILE ES EL MAIL DEL PLAYER POR AHORA
 	var savefile_data : Dictionary = repositories.GAME_REPOSITORY.get_savefile_by_email(savefile, savefile)

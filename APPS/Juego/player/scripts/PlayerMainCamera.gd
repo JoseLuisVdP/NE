@@ -23,9 +23,9 @@ func _ready() -> void:
 func _input(event):
 	if event.is_action("zoomin") && _camera.fov > min_fov:
 		_camera.fov -= 2
-		position.y -= 0.1
+		position.y -= 0.05
 	if event.is_action("zoomout") && _camera.fov < max_fov:
-		position.y += 0.1
+		position.y += 0.05
 		_camera.fov += 2
 
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED && event is InputEventMouseMotion:

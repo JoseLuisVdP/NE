@@ -8,39 +8,50 @@ var ip = "127.0.0.1"
 var port = 1909
 
 signal is_data_saved
+signal data_retrieved
+
+var data_loaded : bool
+var data : Dictionary
+var auto_save_scene : PackedScene
+var auto_save
+
+signal is_data_loaded
 
 var player_email : String
 
 func _ready() -> void:
 	pass
 
-func connect_to_server():
-	multiplayer.peer_connected.connect(_on_player_connected)
-	multiplayer.peer_disconnected.connect(_on_player_disconnected)
+func connect_to_server():	
+	multiplayer.connected_to_server.connect(_on_connected)
 	multiplayer.connection_failed.connect(_on_connection_failed)
 	
 	client = ENetMultiplayerPeer.new()
 	client.create_client(ip, port)
 	multiplayer.multiplayer_peer = client
 
-func _on_player_connected(player_id):
-	print("Player " + str(player_id) + " connected to server")
-
-func _on_player_disconnected(player_id):
-	print("Player " + str(player_id) + " disconnected from server")
+func _on_connected():
+	print("Conectado al servidor")
 
 func _on_connection_failed():
 	print("Falló la conexión al servidor")
+	if auto_save != null:
+		remove_child(auto_save)
+		auto_save.queue_free()
+		auto_save = null
 
 @rpc("any_peer", "reliable")
 func _on_data_retrieved(_data:Dictionary):
-	var game : GAME = get_node("/root/Game")
-	game.data = _data
-	game.data_retrieved.emit()
+	data_retrieved.emit()
 
 @rpc("any_peer","reliable")
-func fetch_token(player_id:int) -> void:
+func give_token() -> void:
+	print("Requesting token, sending")
 	rpc_id(1, "return_token", token)
+
+@rpc("any_peer","reliable")
+func fetch_token(player_id:int = 1) -> void:
+	pass
 
 @rpc("any_peer","reliable")
 func return_token(token:String) -> void:
@@ -55,6 +66,10 @@ func return_token_verification_result(player_id:int, token_verification:bool) ->
 		player_email = login.email
 		login.queue_free()
 		Scenes.load_scene("game")
+		auto_save = auto_save_scene.instantiate()
+		add_child(auto_save)
+		auto_save.start()
+		auto_save.process_thread_group = Node.PROCESS_THREAD_GROUP_SUB_THREAD
 	else:
 		print("Login fallido (token malo)")
 		login.login_btn.disabled = false
@@ -68,22 +83,20 @@ func save_data(data:Dictionary, player_id : int = 1) -> void:
 
 @rpc("any_peer", "reliable")
 func data_saved(result:bool, player_id:int = 1) -> void:
-	var game : GAME = get_node("/root/Game")
-	if game == null:
-		print("Solucionar esto")
-	else:
-		game.auto_save.saved = result
+	auto_save.saved = result
 	is_data_saved.emit()
 	#Manejar el resultado WIP
 
 
 @rpc("any_peer", "reliable")
-func get_data(savefile:String):
-	rpc_id(1, "get_data", savefile)
+func _get_data(savefile:String):
+	print("Getting data")
+	rpc_id(1, "_get_data", savefile)
 
 @rpc("any_peer", "reliable")
 func return_savefile(savefile_data:Dictionary, player_id:int, exito:bool) -> void:
-	get_node("/root/Game").data_loaded = exito
-	get_node("/root/Game").data = savefile_data
-	get_node("/root/Game").is_data_loaded.emit()
-	
+	print("Savefile received")
+	data_loaded = exito
+	data["SaveFiles"] = savefile_data
+	data["Players"] = {"mail":player_email}
+	is_data_loaded.emit()

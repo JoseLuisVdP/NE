@@ -11,6 +11,7 @@ var mdt : MeshDataTool
 func generate():
 	forest.add_forest()
 	grass.add_grass()
+	pass
 """
 # Called when the node enters the scene tree for the first time.
 func __ready() -> void:

@@ -1,4 +1,4 @@
-@tool
+
 class_name PickupScene extends Node3D
 
 @export var item:Pickup

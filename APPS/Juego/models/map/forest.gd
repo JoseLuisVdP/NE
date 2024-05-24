@@ -5,6 +5,7 @@ class_name ProceduralForest extends ProceduralGenerator
 @export var instance_properties:Enemy
 @export var enemy_scene : PackedScene
 @export var tree_scene : PackedScene
+@export var item_scene : PackedScene
 @export var margin : int = 50
 
 func get_tri_area(tri:Array) -> float:
@@ -74,6 +75,7 @@ func add_tree_batch(tri:Array, real_density:int) -> void:
 			var inst : EnemyScene = enemy_scene.instantiate()
 			inst.instance_properties = instance_properties.duplicate()
 			inst.scene = tree_scene
+			inst.item_scene = item_scene
 			inst.position = randpos
 			inst.rotation = Vector3.ZERO
 			add_child(inst)

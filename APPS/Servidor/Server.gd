@@ -44,22 +44,31 @@ func _on_player_disconnected(player_id):
 	if node != null:
 		node.queue_free()
 
+@rpc("any_peer", "reliable")
+func _on_data_retrieved(_data:Dictionary):
+	pass
+
 @rpc("any_peer","reliable")
 func fetch_token(player_id:int) -> void:
-	rpc_id(player_id, "fetch_token", player_id)
-
+	print("Fetching token from " + str(player_id))
+	rpc_id(player_id, "give_token")
+	
+@rpc("any_peer","reliable")
+func give_token() -> void:
+	pass
 
 @rpc("any_peer","reliable")
 func return_token(token:String) -> void:
+	print("Token received")
 	var player_id = multiplayer.get_remote_sender_id()
 	player_verification.verify(player_id, token)
 
 
 @rpc("any_peer", "reliable")
-func get_data(savefile:String):
+func _get_data(savefile:String):
+	print("Recibida peticion de datos")
 	var player_id : int = multiplayer.get_remote_sender_id()
-	var server_id : int = multiplayer.get_unique_id()
-	HubConnection.get_player_savefile(savefile, player_id, server_id)
+	HubConnection.get_player_savefile(savefile, player_id)
 
 func _on_token_expiration_timeout() -> void:
 	if expected_tokens.size() == 0:
@@ -68,9 +77,9 @@ func _on_token_expiration_timeout() -> void:
 	var cur_time : int = int(Time.get_unix_time_from_system())
 	var token_time : int
 	for i in range(expected_tokens.size() -1, -1, -1):
-		token_time = int(expected_tokens[i].right(64))
+		token_time = int(expected_tokens[i].right(-64))
 		if cur_time - token_time >= TOKEN_EXPIRATION_TIME:
-			expected_tokens.erase(i)
+			expected_tokens.erase(expected_tokens[i])
 	print(expected_tokens)
 
 @rpc("any_peer", "reliable")
@@ -89,4 +98,5 @@ func data_saved(result:bool, player_id:int = 1) -> void:
 
 @rpc("any_peer", "reliable")
 func return_savefile(savefile_data:Dictionary, player_id:int, exito:bool) -> void:
+	print("Enviando savefile a " + str(player_id))
 	rpc_id(player_id, "return_savefile", savefile_data, player_id, exito)

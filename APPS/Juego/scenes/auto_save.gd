@@ -1,17 +1,14 @@
 extends Timer
 
-@onready var game: GAME = $".."
-
 var saved : bool = false
-"""
+
 func save():
+	print("Saving game")
 	stop()
-	for i in get_tree().get_children():
-		if (i as Node).has_method("savedata"):
-			game.data = i.savedata(game.data)
-		await get_tree().process_frame
+	await save_recursively(get_tree().get_nodes_in_group("save_and_load"), Server.data)
 	#Guardado local vendría bien WIP
-	Server.save_data(game.data)
+	print("Data collected: " + str(Server.data))
+	Server.save_data(Server.data)
 	await Server.is_data_saved
 	print("¡Datos guardados ("+ str(saved) +")!")
 	saved = false
@@ -19,4 +16,12 @@ func save():
 
 func _on_timeout() -> void:
 	save()
-"""
+
+func save_recursively(children:Array, data:Dictionary):
+	for i in children:
+		if (i as Node).has_method("savedata"):
+			print("Saving " + str(i))
+			data = i.savedata(data)
+		await get_tree().process_frame
+		if i.get_children().size() > 0:
+			save_recursively(i.get_children(), data)

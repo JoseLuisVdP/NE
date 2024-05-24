@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ccjphh7g0mi4u"]
+[gd_scene load_steps=33 format=3 uid="uid://ccjphh7g0mi4u"]
 
 [ext_resource type="PackedScene" uid="uid://ekqort30etdn" path="res://player/scenes/player.tscn" id="1_heepr"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hunv4"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://bpuu0kfmq0shv" path="res://models/map/sandy.tscn" id="18_8y4qg"]
 [ext_resource type="PackedScene" uid="uid://d1b2iwglru5t5" path="res://NPCs/npc.tscn" id="19_43oac"]
 [ext_resource type="Resource" uid="uid://irlg4fnxqtje" path="res://NPCs/npcs/test_npc.tres" id="20_t85iw"]
-[ext_resource type="Script" path="res://scenes/auto_save.gd" id="24_aaemr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jh1tq"]
 shader = ExtResource("4_ivjjg")
@@ -64,12 +63,8 @@ sky_material = SubResource("ShaderMaterial_jh1tq")
 background_mode = 2
 sky = SubResource("Sky_g7hug")
 reflected_light_source = 2
-ssao_enabled = true
 ssao_detail = 1.25
-ssil_enabled = true
-sdfgi_enabled = true
 sdfgi_use_occlusion = true
-glow_enabled = true
 fog_sky_affect = 0.0
 fog_depth_curve = 20.0
 fog_depth_end = 80.0
@@ -121,6 +116,9 @@ material = SubResource("ShaderMaterial_5qjwh")
 size = Vector3(3000, 80, 3000)
 
 [node name="Game" type="Node3D"]
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, 0)
 script = ExtResource("1_hunv4")
 _all_recipes_rg = ExtResource("2_vfojm")
@@ -165,7 +163,7 @@ transform = Transform3D(-0.922538, 0, 0.385906, 0, 1, 0, -0.385906, 0, -0.922538
 [node name="Plant6" parent="3D/Vegetacion" instance=ExtResource("4_ul2l7")]
 transform = Transform3D(-0.922538, 0, 0.385906, 0, 1, 0, -0.385906, 0, -0.922538, 6.19553, -2.68152, 0)
 
-[node name="Player" parent="3D" instance=ExtResource("1_heepr")]
+[node name="Player" parent="3D" groups=["save_and_load"] instance=ExtResource("1_heepr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -700, 58, 240)
 RUN_MULTIPLIER = 20.0
 
@@ -290,13 +288,3 @@ npc = ExtResource("20_t85iw")
 script = ExtResource("16_yi31b")
 
 [node name="Clima" type="Node" parent="."]
-
-[node name="AutoSave" type="Timer" parent="."]
-unique_name_in_owner = true
-process_thread_group = 2
-process_thread_group_order = 0
-process_thread_messages = 0
-wait_time = 30.0
-script = ExtResource("24_aaemr")
-
-[connection signal="timeout" from="AutoSave" to="AutoSave" method="_on_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwo60wwu0mejl"]
+[gd_scene load_steps=11 format=3 uid="uid://bwo60wwu0mejl"]
 
 [ext_resource type="Script" path="res://UI/scripts/UI.gd" id="1_6i1en"]
 [ext_resource type="PackedScene" uid="uid://dln6olp76eqyc" path="res://UI/PickableItems.tscn" id="2_3ghm4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://8ey71yiinm4b" path="res://UI/player/inventory/toolbar.tscn" id="7_gsmag"]
 [ext_resource type="PackedScene" uid="uid://dnqjv6pu1vmb1" path="res://UI/ui_stats.tscn" id="8_okq0i"]
 [ext_resource type="PackedScene" uid="uid://dyrcqut4wgdxo" path="res://UI/quests.tscn" id="9_lxf1x"]
+[ext_resource type="Script" path="res://UI/test_save.gd" id="10_s1xqo"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_6i1en")
@@ -65,3 +66,18 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_right = 0.0
 grow_horizontal = 0
+
+[node name="TestSave" type="Button" parent="NonCloseable"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "TestSave"
+script = ExtResource("10_s1xqo")
+
+[connection signal="pressed" from="NonCloseable/TestSave" to="NonCloseable/TestSave" method="_on_pressed"]

@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://hdi1hd7i5qm3" path="res://items/global/pickup.tscn" id="4_tfnyc"]
 
 [node name="Enemy" type="Node3D"]
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
 transform = Transform3D(1, 0, 0, 0, 0.999639, -0.0268748, 0, 0.0268748, 0.999639, 0, 0, 0)
 script = ExtResource("1_i7hff")
 item_scene = ExtResource("4_tfnyc")

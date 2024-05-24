@@ -24,15 +24,15 @@ func die():
 	animation_player.play("fall")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	drop_items()
-	get_parent().remove_child(self)
+	call_deferred("drop_items")
+	get_parent().call_deferred("remove_child", self)
 	queue_free()
 
 func drop_items():
 	var acc : float = 0
 	for i in instance_properties.drops:
 		acc += 0.2
-		var item_scene = item_scene.instantiate()
-		item_scene.item = i
-		game.add_child(item_scene)
-		item_scene.global_position = global_position + Vector3.UP * (2+acc)
+		var pickup = item_scene.instantiate()
+		pickup.item = i
+		game.add_child(pickup)
+		pickup.global_position = global_position + Vector3.UP * (2+acc)

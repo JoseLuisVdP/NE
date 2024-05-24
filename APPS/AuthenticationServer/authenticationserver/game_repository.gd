@@ -12,7 +12,14 @@ func save_player(player_data:Dictionary) -> Dictionary:
 
 func save_savefile(player_id:String, savefile_data:Dictionary) -> Dictionary:
 	savefile_data["id_player"] = player_id
-	return _DAO.create(savefile_data, "SaveFiles")
+	var temp : Dictionary = get_savefile(player_id, savefile_data["name"])
+	if temp.size() != 0:
+		return _DAO.update(savefile_data, "SaveFiles", str(temp["id"]))
+	else:
+		return _DAO.create(savefile_data, "SaveFiles")
+
+func savefile_exists(save_name:String, player_id:String) -> bool:
+	return get_savefile(player_id,save_name).size() != 0
 
 func get_player(player_name:String) -> Dictionary:
 	var player_id : int = get_player_id(player_name)
@@ -20,32 +27,35 @@ func get_player(player_name:String) -> Dictionary:
 		return {}
 	return _DAO.read("Players", str(player_id))
 
+func get_player_by_id(player_id:String) -> Dictionary:
+	return _DAO.read("Players", player_id)
+
 func get_email_player(player_email:String) -> Dictionary:
 	var player_id : int = get_email_player_id(player_email)
 	if player_id == -1:
 		return {}
 	return _DAO.read("Players", str(player_id))
 
-func get_savefile(player_name:String, savefile_name:String) -> Dictionary:
-	var player_id : int = get_player_id(player_name)
-	if player_id == -1:
-		return {}
-	var res : Dictionary = _DAO.read_all("SaveFiles", "id_player = '" + str(player_id) + "' AND name = '" + savefile_name + "'")[0]
+func get_savefile(player_id:String, savefile_name:String) -> Dictionary:
+	var res : Array[Dictionary] = _DAO.read_all("SaveFiles", "name = '" + savefile_name + "' AND id_player = '" + player_id + "'")
 	if res.size()==0:
 		return {}
-	return res
+	return res[0]
 
 func get_savefile_by_email(player_mail:String, savefile_name:String) -> Dictionary:
 	var player_id : int = get_email_player_id(player_mail)
 	if player_id == -1:
 		return {}
-	var res : Dictionary = _DAO.read_all("SaveFiles", "id_player = '" + str(player_id) + "' AND name = '" + savefile_name + "'")[0]
+	var res = _DAO.read_all("SaveFiles", "id_player = '" + str(player_id) + "' AND name = '" + savefile_name + "'")
 	if res.size()==0:
 		return {}
-	return res
+	return res[0]
 
 func player_exists(player_name:String) -> bool:
 	return get_player(player_name).size() != 0
+
+func player_exists_by_id(player_id:String) -> bool:
+	return get_player_by_id(player_id).size() != 0
 
 func player_email_exists(player_email:String) -> bool:
 	var a = _DAO.read_all("Players", "mail = '" + player_email + "'")
@@ -62,16 +72,16 @@ func get_save_files(player_name:String) -> Array[Dictionary]:
 	return _DAO.read_all("SaveFiles", "id_player = '" + str(player_id) + "'")
 
 func get_player_id(player_name:String) -> int:
-	var temp : Dictionary = _DAO.read_all("Players", "name = '" + player_name + "'", ["id"])[0]
+	var temp : Array[Dictionary] = _DAO.read_all("Players", "name = '" + player_name + "'", ["id"])
 	if temp.size() == 0:
 		return -1
-	return temp["id"]
+	return temp[0]["id"]
 
 func get_email_player_id(player_email:String) -> int:
-	var temp : Dictionary = _DAO.read_all("Players", "mail = '" + player_email + "'", ["id"])[0]
+	var temp : Array[Dictionary] = _DAO.read_all("Players", "mail = '" + player_email + "'", ["id"])
 	if temp.size() == 0:
 		return -1
-	return temp["id"]
+	return temp[0]["id"]
 
 func get_savefile_id(player_id:String, savefile_name:String) -> int:
 	var temp : Array[Dictionary] = _DAO.read_all("SaveFiles", "id_player = '" + player_id + "' AND name = '" + savefile_name + "'", ["id"])
