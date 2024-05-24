@@ -6,7 +6,7 @@ class_name Server extends Node
 var server
 
 var port = 1909
-var max_players = 5
+var max_players = 50
 
 ## Timers
 @onready var timers : Timers = %Timers

@@ -8,6 +8,7 @@ var ITEMS : Array[Pickup] = []
 var QUESTS : Array[Quest] = []
 @onready var player: Player
 @onready var my_island: MyIsland = $"3D/World/my_island"
+@onready var paths: Node3D = %Paths
 
 signal loaded
 

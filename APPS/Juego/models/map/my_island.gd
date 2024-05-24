@@ -3,15 +3,26 @@ class_name MyIsland extends StaticBody3D
 @onready var icosphere: MeshInstance3D = $Icosphere
 @onready var forest: Marker3D = $Forest
 @onready var grass: ProceduralGrass = $Grass
+@onready var bass_paths: Node3D = %BassPaths
 
+@export var bass_scene : PackedScene
 @export var grass_model : ArrayMesh
 
 var mdt : MeshDataTool
 
 func generate():
+	add_bass()
 	forest.add_forest()
 	grass.add_grass()
-	pass
+
+func add_bass():
+	for i in bass_paths.get_children():
+		for j in i.get_children():
+			var inst = bass_scene.instantiate()
+			inst.path_follow = j
+			add_child(inst)
+			await get_tree().process_frame
+
 """
 # Called when the node enters the scene tree for the first time.
 func __ready() -> void:
