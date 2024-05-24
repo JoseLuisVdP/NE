@@ -7,6 +7,8 @@ class_name MyIsland extends StaticBody3D
 
 @export var bass_scene : PackedScene
 @export var grass_model : ArrayMesh
+@export var enemy_scene : PackedScene
+@export var bass_properties : Enemy
 
 var mdt : MeshDataTool
 
@@ -18,9 +20,12 @@ func generate():
 func add_bass():
 	for i in bass_paths.get_children():
 		for j in i.get_children():
-			var inst = bass_scene.instantiate()
-			inst.path_follow = j
-			add_child(inst)
+			var enemy_inst : EnemyScene = enemy_scene.instantiate()
+			enemy_inst.scene = bass_scene
+			add_child(enemy_inst)
+			enemy_inst.instance_properties = bass_properties
+			enemy_inst.get_child(0).path_follow = j
+			enemy_inst.get_child(0)._ready()
 			await get_tree().process_frame
 
 """

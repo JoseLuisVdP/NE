@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3 uid="uid://ckhe2fm7qrjx"]
 
 [ext_resource type="Script" path="res://items/global/pickup.gd" id="1_shl0w"]
-[ext_resource type="Resource" uid="uid://ctcltb7n0q56r" path="res://items/items/test_stick.tres" id="2_ima2l"]
+[ext_resource type="Resource" uid="uid://ctcltb7n0q56r" path="res://items/items/stick.tres" id="2_ima2l"]
 [ext_resource type="Script" path="res://scripts/enemy_properties.gd" id="3_6m60m"]
 
 [resource]

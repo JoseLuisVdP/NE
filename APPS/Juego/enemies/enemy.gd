@@ -18,15 +18,22 @@ func _ready() -> void:
 func take_damage(dmg:int):
 	instance_properties.live_points -= dmg
 	if instance_properties.live_points <= 0:
+		print("Dying")
+		if get_child(0).has_method("die"):
+			get_child(0).die()
 		die()
 
 func die():
-	animation_player.play("fall")
+	if animation_player.has_animation("death"):
+		animation_player.play("death")
+	else:
+		printerr("El enemigo no tiene animacion death")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	call_deferred("drop_items")
-	get_parent().call_deferred("remove_child", self)
-	queue_free()
+	if anim_name == "death":
+		call_deferred("drop_items")
+		get_parent().call_deferred("remove_child", self)
+		queue_free()
 
 func drop_items():
 	var acc : float = 0

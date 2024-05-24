@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl3simuhyvark"]
+
+[ext_resource type="ArrayMesh" uid="uid://b0ayl7cw5ebpk" path="res://items/meshes/stick.mesh" id="1_ehx3v"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_epp8e"]
+height = 1.42177
+radius = 0.277608
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mg5mn"]
+height = 1.13981
+radius = 0.0747481
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8en4q"]
+height = 0.194683
+radius = 0.0410668
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sqv1g"]
+height = 0.221656
+radius = 0.0367653
+
+[node name="TestStick" type="RigidBody3D"]
+transform = Transform3D(0.867201, 0, 0.497958, 0, 1, 0, -0.497958, 0, 0.867201, 0, 0, 0)
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.870804, 0.00258581, -0.491623, 0.00128813, 0.999971, 0.00754186, 0.491629, -0.00720085, 0.870775, 0.0125618, 0.539609, -0.00390611)
+mesh = ExtResource("1_ehx3v")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.864864, 0, -0.502007, 0, 1, 0, 0.502007, 0, 0.864864, 0.0209477, 0.581802, 0.0309475)
+shape = SubResource("CylinderShape3D_epp8e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.571162, 0)
+shape = SubResource("CylinderShape3D_mg5mn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.65841, -0.726653, -0.196146, 0.726652, 0.54578, 0.417253, -0.196146, -0.417253, 0.887371, -0.050544, 0.79369, -0.029023)
+shape = SubResource("CylinderShape3D_8en4q")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.646893, 0.735132, -0.202759, -0.735131, 0.530467, -0.422122, -0.202758, 0.422122, 0.883574, 0.0921683, 0.529698, 0.0529242)
+shape = SubResource("CylinderShape3D_sqv1g")

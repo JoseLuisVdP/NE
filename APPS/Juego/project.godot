@@ -408,6 +408,7 @@ locale/translations_pot_files=PackedStringArray("res://dialogues/test_dialogue.d
 3d_physics/layer_1="main"
 3d_physics/layer_2="vegetacion"
 3d_physics/layer_3="suelo"
+3d_physics/layer_4="hit"
 
 [rendering]
 

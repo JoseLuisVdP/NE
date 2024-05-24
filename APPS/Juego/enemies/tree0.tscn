@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw6w1midkyp0n"]
+[gd_scene load_steps=6 format=3 uid="uid://dw6w1midkyp0n"]
 
 [ext_resource type="ArrayMesh" uid="uid://bleu211uepqmh" path="res://models/trees/tree_pineSmallD.obj" id="1_gdvlg"]
 
@@ -17,8 +17,11 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.4329, 1, 0.173648, 0, 0, 
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tnk13"]
 _data = {
-"fall": SubResource("Animation_5x22b")
+"death": SubResource("Animation_5x22b")
 }
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pnsyr"]
+points = PackedVector3Array(0, 5, 0, 1.25, 0, 1.25, 1.25, 0, -1.25, -1.25, 0, -1.5, -1.25, 0, 1.25)
 
 [node name="Tree0" type="StaticBody3D"]
 
@@ -36,3 +39,8 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_tnk13")
 }
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("ConvexPolygonShape3D_pnsyr")

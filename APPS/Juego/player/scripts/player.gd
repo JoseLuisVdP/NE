@@ -199,10 +199,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	print(anim_name + " finished")
 
 func hit():
-	if hit_area.has_overlapping_bodies():
-		for i in hit_area.get_overlapping_bodies():
-			print(i.name)
-			var enemy = i.get_parent()
+	if hit_area.has_overlapping_areas():
+		for i in hit_area.get_overlapping_areas():
+			var enemy = i.get_parent().get_parent()
 			if enemy.has_method("take_damage"):
 				var damage : int = 1
 				if tools_attatchment.get_child(0) != null:
@@ -290,6 +289,7 @@ func _on_jump_timer_timeout() -> void:
 	can_jump = true
 
 func savedata(data:Dictionary) -> Dictionary:
+	print("Player save function")
 	if not data.keys().has("Players"):
 		data["Players"] = {}
 	data["Players"]["mail"] = email

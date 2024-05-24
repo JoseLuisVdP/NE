@@ -4,3 +4,9 @@
 
 [node name="Item" type="Node3D"]
 script = ExtResource("1_slsbg")
+
+[node name="Despawn" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]

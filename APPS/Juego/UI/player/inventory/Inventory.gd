@@ -2,7 +2,7 @@ class_name Inventory
 
 # slot_index: [pickup, qty]
 var _content:Dictionary = {
-	1: [load("res://items/items/test_axe.tres"), 1]
+	1: [load("res://items/items/axe.tres"), 1]
 }
 var _max_size : int = 48
 var active_slot : int = -1
