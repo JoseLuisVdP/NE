@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6t2waxautm8j"]
+
+[ext_resource type="Texture2D" uid="uid://b6v4k45lkliqg" path="res://models/animals/textures/bass.png" id="1_hw783"]
+[ext_resource type="ArrayMesh" uid="uid://da5bxow4gtguc" path="res://models/animals/bass.mesh" id="2_k0wkk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddcxt"]
+albedo_texture = ExtResource("1_hw783")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nnflq"]
+size = Vector3(5.93454, 3.08392, 0.898315)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qw8on"]
+size = Vector3(8.2583, 4.97937, 1.565)
+
+[node name="BassPickup" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.868044)
+material_override = SubResource("StandardMaterial3D_ddcxt")
+mesh = ExtResource("2_k0wkk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00334167, 0.00772095, -0.0508423)
+shape = SubResource("BoxShape3D_nnflq")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0578613, 0.0678101, -0.0265198)
+shape = SubResource("BoxShape3D_qw8on")

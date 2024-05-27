@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://txbpqoj3vjnf"
-path="res://.godot/imported/stick.png-f89ab88cef443f61fe7713ee6f61b29e.ctex"
+uid="uid://bhjedc1v5xscu"
+path="res://.godot/imported/Fish.png-8efc2a44c646b195c99d00a0040a48f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/icons/stick.png"
-dest_files=["res://.godot/imported/stick.png-f89ab88cef443f61fe7713ee6f61b29e.ctex"]
+source_file="res://models/animals/textures/Fish.png"
+dest_files=["res://.godot/imported/Fish.png-8efc2a44c646b195c99d00a0040a48f7.ctex"]
 
 [params]
 
