@@ -304,6 +304,7 @@ func savedata(data:Dictionary) -> Dictionary:
 	data["SaveFiles"]["health"] = cur_health
 	data["SaveFiles"]["max_health"] = max_health
 	data["SaveFiles"]["max_stamina"] = max_stamina
+	data["SaveFiles"]["inventory"] = var_to_bytes_with_objects(get_player_full_inventory())
 	return data
 
 func loaddata(data:Dictionary) -> Dictionary:
@@ -317,4 +318,47 @@ func loaddata(data:Dictionary) -> Dictionary:
 	cur_health = data["SaveFiles"]["health"]
 	max_health = data["SaveFiles"]["max_health"]
 	max_stamina = data["SaveFiles"]["max_stamina"]
+	if data["SaveFiles"].keys().has("inventory") and data["SaveFiles"]["inventory"] != null:
+		set_player_full_inventory(bytes_to_var_with_objects(data["SaveFiles"]["inventory"]))
+		print(inventory)
+		print(hotbar)
+		print(toolbar)
 	return data
+
+func get_player_full_inventory() -> Dictionary:
+	var data : Dictionary = {}
+	data["inventory"] = inventory.get_content()
+	data["hotbar"] = hotbar.get_content()
+	data["toolbar"] = toolbar.get_content()
+	return data
+
+func set_player_full_inventory(data:Dictionary) -> void:
+	#var changes : bool = inventory._content != data["inventory"] || hotbar._content != data["hotbar"] || toolbar._content != data["toolbar"]
+	inventory._content = data["inventory"]
+	hotbar._content = data["hotbar"]
+	toolbar._content = data["toolbar"]
+	#if changes:
+	ui._ready()
+	
+	"""
+	inventory.remove_all()
+	for i in data["inventory"]:
+		var slot : int = i
+		var item : Pickup = data["inventory"][i][0]
+		var qty : int = data["inventory"][i][1]
+		inventory.store_item(item, qty, slot)
+	
+	hotbar.remove_all()
+	for i in data["hotbar"]:
+		var slot : int = i
+		var item : Pickup = data["hotbar"][i][0]
+		var qty : int = data["hotbar"][i][1]
+		hotbar.store_item(item, qty, slot)
+	
+	toolbar.remove_all()
+	for i in data["toolbar"]:
+		var slot : int = i
+		var item : Pickup = data["toolbar"][i][0]
+		var qty : int = data["toolbar"][i][1]
+		toolbar.store_item(item, qty, slot)
+	"""

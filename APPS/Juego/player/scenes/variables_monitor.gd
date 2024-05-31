@@ -14,8 +14,6 @@ func set_monitor_values():
 	toBeMonitored["CollidingBodies (floor)"] = _player.floor_collider.any(func (i): return i.is_colliding())
 	toBeMonitored["Raycast (floor)"] = _player.floor_angle.is_colliding()
 	
-	toBeMonitored["data"] = str(Server.data)
-	
 	text = ""
 	
 	for i in toBeMonitored:

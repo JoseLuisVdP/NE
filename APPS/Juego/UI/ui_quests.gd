@@ -1,6 +1,6 @@
 class_name UIQuests extends Control
 
-@onready var v_box_container: VBoxContainer = $MarginContainer/VBoxContainer
+@onready var v_box_container: VBoxContainer = %VBoxContainer
 
 var content : Dictionary
 

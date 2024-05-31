@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://qape7yijpgtb"]
+
+[ext_resource type="Shader" path="res://scenes/title.gdshader" id="1_u2gwf"]
+
+[resource]
+shader = ExtResource("1_u2gwf")
+shader_parameter/blurSize = 6

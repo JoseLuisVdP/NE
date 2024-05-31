@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8g0medlls7q3"]
 
-[ext_resource type="ArrayMesh" uid="uid://bk5jnrtr675vg" path="res://items/meshes/test_stone.obj" id="1_is5j2"]
+[ext_resource type="ArrayMesh" uid="uid://bk5jnrtr675vg" path="res://items/meshes/stone.obj" id="1_1sins"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uet6f"]
 rough = true
@@ -15,7 +15,7 @@ size = Vector3(1.2, 1.2, 1.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_c5lmw"]
 size = Vector3(0.3, 0.3, 0.25)
 
-[node name="TestStone" type="RigidBody3D"]
+[node name="Stone" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_uet6f")
@@ -23,7 +23,7 @@ lock_rotation = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0615673, 0.124849, 0.0294424)
-mesh = ExtResource("1_is5j2")
+mesh = ExtResource("1_1sins")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0615673, 0.124849, 0.0294424)

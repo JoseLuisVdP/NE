@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://6fgapeprhusk"]
+
+[ext_resource type="Texture2D" uid="uid://bq5obp5du78f8" path="res://items/icons/gardi.png" id="1_87xlg"]
+[ext_resource type="PackedScene" uid="uid://dokw2e2ge5qjy" path="res://items/scenes/gardi_pickup.tscn" id="2_5rtjf"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="3_t6rci"]
+
+[resource]
+script = ExtResource("3_t6rci")
+name = "Gardi"
+scene = ExtResource("2_5rtjf")
+icon = ExtResource("1_87xlg")
+stack_size = 10
+description = "Un pesado corriente. Si lo equipas y lo comes, recuperarás vida."
+type = "tool"
+damage = 0

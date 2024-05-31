@@ -1,8 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://ucq0q01w0j7g"]
+[gd_scene load_steps=11 format=3 uid="uid://ucq0q01w0j7g"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_rl4y1"]
 [ext_resource type="PackedScene" uid="uid://runwpsrl2d0l" path="res://UI/loading_screen.tscn" id="2_sidb5"]
 [ext_resource type="Resource" uid="uid://ej5lr02jesgq" path="res://scenes/game_scenes.tres" id="3_ydq08"]
+[ext_resource type="Resource" uid="uid://pstbl4c6svrt" path="res://assets/sounds/sounds_rg.tres" id="4_pjwy0"]
+[ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="5_70e15"]
+[ext_resource type="Texture2D" uid="uid://cu4ww2b3rgw3x" path="res://icon.svg" id="5_ju1hb"]
+[ext_resource type="Material" uid="uid://qape7yijpgtb" path="res://blur.tres" id="7_sm41k"]
+
+[sub_resource type="Gradient" id="Gradient_ymjhh"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q81b3"]
+gradient = SubResource("Gradient_ymjhh")
+width = 32
+height = 32
+fill_from = Vector2(0.487179, 0.119658)
+fill_to = Vector2(0.487179, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k2dsm"]
+texture = SubResource("GradientTexture2D_q81b3")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,43 +32,80 @@ grow_vertical = 2
 script = ExtResource("1_rl4y1")
 loading_scene = ExtResource("2_sidb5")
 game_scenes_rg = ExtResource("3_ydq08")
+sounds_rg = ExtResource("4_pjwy0")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -58.5
-offset_right = 48.0
-offset_bottom = 58.5
-grow_horizontal = 2
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 432.0
 grow_vertical = 2
+theme_override_constants/margin_left = 228
+theme_override_constants/margin_top = 64
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 96
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer3"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+texture = ExtResource("5_ju1hb")
+expand_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 224
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("5_70e15")
+theme_override_constants/separation = 32
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Jugar"
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Opciones"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Salir"
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 280
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Panel" type="PanelContainer" parent="MarginContainer/MarginContainer2"]
+material = ExtResource("7_sm41k")
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_k2dsm")
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer2/Panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_70e15")
+theme_override_font_sizes/font_size = 128
+text = "NoEarth"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

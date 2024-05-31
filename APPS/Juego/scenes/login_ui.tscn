@@ -1,0 +1,188 @@
+[gd_scene load_steps=7 format=3 uid="uid://bomawm6k6w5i1"]
+
+[ext_resource type="Script" path="res://scenes/login.gd" id="1_tef04"]
+[ext_resource type="PackedScene" uid="uid://bc5pkfq1u1jud" path="res://saver_loader/auto_save.tscn" id="2_0jbpj"]
+[ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="2_e3wbr"]
+[ext_resource type="FontFile" uid="uid://dxf41d5c55der" path="res://assets/fonts/nord/Nord Bold.otf" id="3_8jj6q"]
+[ext_resource type="FontFile" uid="uid://7hqhpammf0hp" path="res://assets/fonts/nord/Nord Regular.otf" id="4_vngcu"]
+
+[sub_resource type="Theme" id="Theme_n2k6p"]
+default_font_size = 48
+Button/fonts/font = ExtResource("3_8jj6q")
+Label/fonts/font = ExtResource("4_vngcu")
+TabBar/fonts/font = ExtResource("4_vngcu")
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tef04")
+auto_save = ExtResource("2_0jbpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 432.0
+grow_vertical = 2
+theme_override_constants/margin_left = 228
+theme_override_constants/margin_top = 64
+
+[node name="Login" type="MarginContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Login"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Login/MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_e3wbr")
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="MarginContainer/Login/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_n2k6p")
+text = "INICIO DE SESIÓN"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Login/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+text = "Email"
+
+[node name="EmailInput" type="LineEdit" parent="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+placeholder_text = "test@test.com"
+
+[node name="Label2" type="Label" parent="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+text = "Contraseña"
+
+[node name="PasswordInput" type="LineEdit" parent="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+secret = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Login/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+
+[node name="LoginBtn" type="Button" parent="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+text = "Inicia sesión"
+
+[node name="RegisterBtn" type="Button" parent="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+text = "Regístrate"
+
+[node name="TestLogin" type="Button" parent="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Register" type="MarginContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Register"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Register/MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_e3wbr")
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="MarginContainer/Register/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_n2k6p")
+text = "CREA UNA CUENTA"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Register/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+
+[node name="Label" type="Label" parent="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+text = "Email"
+
+[node name="NewEmailInput" type="LineEdit" parent="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+placeholder_text = "test@test.com"
+
+[node name="Label2" type="Label" parent="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+text = "Contraseña"
+
+[node name="NewPasswordInput" type="LineEdit" parent="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+secret = true
+
+[node name="Label3" type="Label" parent="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+text = "Repite la contraseña"
+
+[node name="RepeatNewPasswordInput" type="LineEdit" parent="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+secret = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Register/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+
+[node name="ConfirmBtn" type="Button" parent="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+text = "Crear cuenta"
+
+[node name="BackBtn" type="Button" parent="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_e3wbr")
+text = "Atrás"
+
+[connection signal="pressed" from="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer2/LoginBtn" to="." method="_on_login_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer2/RegisterBtn" to="." method="_on_register_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer2/TestLogin" to="." method="_on_test_login_pressed"]
+[connection signal="pressed" from="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer2/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer2/BackBtn" to="." method="_on_back_btn_pressed"]

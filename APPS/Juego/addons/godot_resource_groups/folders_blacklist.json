@@ -2,7 +2,6 @@
 	"blacklist": [
 		"addons",
 		"animated_icons",
-		"assets",
 		"enemies",
 		"export",
 		"player",

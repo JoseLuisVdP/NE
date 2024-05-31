@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dokw2e2ge5qjy"]
+
+[ext_resource type="Texture2D" uid="uid://bhjedc1v5xscu" path="res://models/animals/textures/Fish.png" id="1_in54c"]
+[ext_resource type="ArrayMesh" uid="uid://dw66c4x4bx21o" path="res://models/animals/gardi.mesh" id="2_0cf7k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddcxt"]
+albedo_texture = ExtResource("1_in54c")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nnflq"]
+size = Vector3(0.6, 0.3, 0.09)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qw8on"]
+size = Vector3(0.83, 0.5, 0.186445)
+
+[node name="Gardi" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 0, 0, 0.000947438)
+material_override = SubResource("StandardMaterial3D_ddcxt")
+mesh = ExtResource("2_0cf7k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00334167, 0.00772095, 0.000328079)
+shape = SubResource("BoxShape3D_nnflq")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0143666, 0.00046356, 0.00119385)
+shape = SubResource("BoxShape3D_qw8on")

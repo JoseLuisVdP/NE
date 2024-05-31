@@ -1,7 +1,9 @@
 class_name ProceduralGenerator extends Marker3D
 
+
 @export var radius : int = 150
 @export var density : float = 1
+
 
 func get_valid_verts(mesh:ArrayMesh):
 	var mdt = MeshDataTool.new()
@@ -16,8 +18,10 @@ func get_valid_verts(mesh:ArrayMesh):
 		var apos = mdt.get_vertex(a)
 		var bpos = mdt.get_vertex(b)
 		var cpos = mdt.get_vertex(c)
-		verts.append([apos,bpos,cpos])
+		if apos.distance_to(position) <= radius || bpos.distance_to(position) <= radius || cpos.distance_to(position) <= radius:
+			verts.append([apos,bpos,cpos])
 	return verts
+
 
 func get_random_point_inside(vertices:Array) -> Vector3:
 	var a
@@ -29,6 +33,7 @@ func get_random_point_inside(vertices:Array) -> Vector3:
 		a = b
 		b = temp
 	return vertices[0] * a + vertices[1] * (b - a) + vertices[2] * (1.0 - b)
+
 
 func get_tri_area(tri:Array) -> float:
 	var res : float
@@ -44,6 +49,7 @@ func get_tri_area(tri:Array) -> float:
 		pow(cross_prod.z, 2)
 	) / 2
 	return res
+
 
 func get_real_density(tri:Array, density:float) -> int:
 	var area : float = get_tri_area(tri)

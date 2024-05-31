@@ -13,6 +13,8 @@ var email : String
 var password : String
 var new_account : bool
 
+var login_node : LoginScreen
+
 signal login_success
 
 func connect_to_server(_email:String, _password:String, _new_account:bool = false) -> void:
@@ -32,7 +34,7 @@ func connect_to_server(_email:String, _password:String, _new_account:bool = fals
 func _on_connection_failed():
 	print("Ha fallado la conexión al servidor")
 	printerr("POPUP DE QUE EL SERVER ESTA CAIDO")
-	var login : LoginScreen = get_node("/root/Login")
+	var login : LoginScreen = login_node
 	login.login_btn.disabled = false
 	login.register_btn.disabled = false
 	login.confirm_btn.disabled = false
@@ -65,7 +67,7 @@ func return_create_account_request(result:bool, message:int) -> void:
 	if result:
 		print("La cuenta se ha creado correctamente, haz login")
 		printerr("POPUP AL USUARIO PLZ")
-		get_node("/root/Login")._on_back_btn_pressed()
+		login_node._on_back_btn_pressed()
 	else:
 		match message:
 			1:
@@ -77,8 +79,8 @@ func return_create_account_request(result:bool, message:int) -> void:
 			4:
 				print("Ha ocurrido un error en la base de datos, inténtalo de nuevo")
 		
-		get_node("/root/Login").confirm_btn.disabled = false
-		get_node("/root/Login").back_btn.disabled = false
+		login_node.confirm_btn.disabled = false
+		login_node.back_btn.disabled = false
 	
 	multiplayer.connection_failed.disconnect(_on_connection_failed)
 	multiplayer.connected_to_server.disconnect(_on_connected_to_server)
@@ -102,8 +104,8 @@ func return_login_request(result:bool, player_id, token):
 		Server.connect_to_server()
 	else:
 		print("Correo o contraseña incorrecto")
-		get_node("/root/Login").login_btn.disabled = false
-		get_node("/root/Login").register_btn.disabled = false
+		login_node.login_btn.disabled = false
+		login_node.register_btn.disabled = false
 	
 	rpc_id(1, "disconnect_player", player_id)
 	

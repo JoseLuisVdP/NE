@@ -13,7 +13,7 @@ func _ready() -> void:
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta: float) -> void:
 	if not is_dying:
-		$AnimationPlayer.play("Armature|Armature|ArmatureAction")
+		$AnimationPlayer.play("walk")
 		if path_follow != null:
 			path_follow.progress += parent.instance_properties.velocity_points
 			parent.position = path_follow.position

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://bml3d8cumktl7"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_k4wpa"]
+[ext_resource type="Script" path="res://scripts/enemy_properties.gd" id="2_vvoqd"]
+
+[resource]
+script = ExtResource("2_vvoqd")
+live_points = 1000
+atack_points = 30.0
+velocity_points = 1.0
+drops = Array[ExtResource("1_k4wpa")]([])

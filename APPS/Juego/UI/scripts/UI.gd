@@ -23,7 +23,7 @@ func _ready() -> void:
 	
 	_inventory.content.set_active_slot(player.inventory.active_slot)
 	hotbar.content.set_active_slot(player.hotbar.active_slot)
-	toolbar.content.set_active_slot(0)
+	toolbar.content.set_active_slot(1)
 	toolbar.update_active_item_lbl()
 	
 	hotbar.open(player.hotbar)

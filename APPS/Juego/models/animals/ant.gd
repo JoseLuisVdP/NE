@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends CharacterBody3D
 
 var path_follow : PathFollow3D
 var parent : EnemyScene
@@ -15,7 +15,6 @@ func _ready() -> void:
 		prev_pos = path_follow.position
 		print("Progress: " + str(path_follow.progress))
 	parent = get_parent()
-
 
 func die():
 	is_dying = true

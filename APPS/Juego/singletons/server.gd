@@ -22,7 +22,7 @@ var player_email : String
 func _ready() -> void:
 	pass
 
-func connect_to_server():	
+func connect_to_server():
 	multiplayer.connected_to_server.connect(_on_connected)
 	multiplayer.connection_failed.connect(_on_connection_failed)
 	
@@ -60,11 +60,11 @@ func return_token(token:String) -> void:
 @rpc("any_peer", "reliable")
 func return_token_verification_result(player_id:int, token_verification:bool) -> void:
 	print("Resultado de la verificación del token:")
-	var login : LoginScreen = get_node("/root/Login")
+	var login : LoginScreen = Gateway.login_node
 	if token_verification:
 		print("Token verificado")
 		player_email = login.email
-		login.queue_free()
+		login.get_parent().queue_free()
 		Scenes.load_scene("game")
 		auto_save = auto_save_scene.instantiate()
 		add_child(auto_save)

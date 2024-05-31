@@ -22,11 +22,16 @@ func add_item(item) -> void:
 	if item is NPC:
 		item_label.add_theme_color_override("font_color", Color(0.3,1,0.3))
 	content.add_child(item_label)
+	content.add_child(HSeparator.new())
 
 func remove_item(item) -> void:
 	var labels = content.get_children()
-	var lbl = labels.filter(func(label:Label): return label.text == item.name).pop_front()
-	content.remove_child(lbl)
+	var lbl = labels.filter(func (i): if i is Label: return i).filter(func(label:Label): return label.text == item.name).pop_front()
+	var idx = labels.find(lbl)
+	if idx != -1:
+		content.remove_child(lbl)
+		if labels.size() > idx+1:
+			content.remove_child(labels[idx+1])
 
 func close():
 	print("close inventory")

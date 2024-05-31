@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Pickup" load_steps=3 format=3 uid="uid://bg5c401fhrac3"]
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://bg5c401fhrac3"]
 
-[ext_resource type="PackedScene" uid="uid://b6t2waxautm8j" path="res://models/animals/bass_pickup.tscn" id="1_ijja4"]
+[ext_resource type="PackedScene" uid="uid://b6t2waxautm8j" path="res://items/scenes/bass_pickup.tscn" id="1_ijja4"]
+[ext_resource type="Texture2D" uid="uid://d1l0cdfhedvuq" path="res://items/icons/bass.png" id="1_pcfc1"]
 [ext_resource type="Script" path="res://items/global/pickup.gd" id="2_ncvye"]
 
 [resource]
 script = ExtResource("2_ncvye")
 name = "Lubina"
 scene = ExtResource("1_ijja4")
+icon = ExtResource("1_pcfc1")
 stack_size = 10
 description = "Un pesado corriente. Si lo equipas y lo comes, recuperarás vida."
 type = "tool"

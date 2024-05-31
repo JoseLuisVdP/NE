@@ -1,6 +1,8 @@
 shader_type spatial;
 
 varying vec3 worldPos;
+uniform sampler2D noise;
+uniform float noiseScale = 2000.0;
 
 group_uniforms Soil;
 	uniform vec4 green : source_color;
@@ -17,10 +19,15 @@ void fragment() {
 	vec3 up = vec3(0,1,0);
 	vec3 normal = (vec4(NORMAL,1.0) * VIEW_MATRIX).xyz;
 	float dotProd = dot(normal, up);
-
-	finalColor = smoothstep(0.7, 1, dotProd) * green + smoothstep(1, 0.2, dotProd) * brown + smoothstep(0.95, 1, dotProd) * snow * snow.a;
-
-	finalColor = finalColor;
+	
+	vec3 noiseLevel = texture(noise, abs(worldPos.xz) / noiseScale).rgb;
+	
+	vec4 g = mix(green, grass, noiseLevel.r);
+	g = smoothstep(0.6, 1, dotProd) * g;
+	vec4 br = dotProd * brown;
+	//vec4 s = smoothstep(0.95, 1, dotProd) * snow;
+	
+	finalColor = mix(g, br, 0.5);
 
 	/*
 	if (dotProd < 0.9) {

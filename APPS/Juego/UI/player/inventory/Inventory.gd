@@ -69,3 +69,6 @@ func set_max_size(size:int) -> void:
 
 func merge_items():
 	return null
+
+func remove_all():
+	_content = {}

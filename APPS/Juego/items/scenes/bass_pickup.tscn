@@ -7,24 +7,24 @@
 albedo_texture = ExtResource("1_hw783")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nnflq"]
-size = Vector3(5.93454, 3.08392, 0.898315)
+size = Vector3(0.6, 0.3, 0.09)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qw8on"]
-size = Vector3(8.2583, 4.97937, 1.565)
+size = Vector3(0.83, 0.5, 0.186445)
 
 [node name="BassPickup" type="RigidBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.868044)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.0851359)
 material_override = SubResource("StandardMaterial3D_ddcxt")
 mesh = ExtResource("2_k0wkk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00334167, 0.00772095, -0.0508423)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00334167, 0.00772095, 0.000328079)
 shape = SubResource("BoxShape3D_nnflq")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0578613, 0.0678101, -0.0265198)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0143666, 0.00046356, 0.00119385)
 shape = SubResource("BoxShape3D_qw8on")

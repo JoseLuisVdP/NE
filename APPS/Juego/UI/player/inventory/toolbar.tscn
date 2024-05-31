@@ -41,36 +41,29 @@ text = "sample text"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Margin" type="MarginContainer" parent="VBoxContainer"]
-auto_translate_mode = 1
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Margin"]
-auto_translate_mode = 1
-layout_mode = 2
-color = Color(0, 0, 0, 0.192157)
-
-[node name="Content" type="GridContainer" parent="VBoxContainer/Margin"]
+[node name="Content" type="GridContainer" parent="VBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/h_separation = 8
 columns = 8
 script = ExtResource("1_0lfvp")
 _item_slot_size = 40
 
-[node name="ItemSlot" parent="VBoxContainer/Margin/Content" instance=ExtResource("2_jxnc2")]
+[node name="ItemSlot" parent="VBoxContainer/MarginContainer2/Content" instance=ExtResource("2_jxnc2")]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ItemSlot2" parent="VBoxContainer/Margin/Content" instance=ExtResource("2_jxnc2")]
+[node name="ItemSlot2" parent="VBoxContainer/MarginContainer2/Content" instance=ExtResource("2_jxnc2")]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ItemSlot3" parent="VBoxContainer/Margin/Content" instance=ExtResource("2_jxnc2")]
+[node name="ItemSlot3" parent="VBoxContainer/MarginContainer2/Content" instance=ExtResource("2_jxnc2")]
 auto_translate_mode = 1
 layout_mode = 2

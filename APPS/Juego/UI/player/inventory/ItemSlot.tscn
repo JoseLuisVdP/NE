@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://UI/player/inventory/ItemSlot.gd" id="1_bpmyv"]
 [ext_resource type="PackedScene" uid="uid://d1jv6n3omnwt8" path="res://UI/player/inventory/item.tscn" id="3_jg7vn"]
 
-[node name="ItemSlot" type="ColorRect"]
+[node name="ItemSlot" type="ReferenceRect"]
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
 script = ExtResource("1_bpmyv")
 item_scene = ExtResource("3_jg7vn")
 
@@ -23,5 +23,26 @@ theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.82776, 0.631852, 0.50429, 1)
+border_width = 4.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.605274, 0.605274, 0.605274, 1)
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

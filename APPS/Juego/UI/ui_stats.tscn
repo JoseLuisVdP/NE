@@ -1,51 +1,111 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnqjv6pu1vmb1"]
+[gd_scene load_steps=7 format=3 uid="uid://dnqjv6pu1vmb1"]
 
 [ext_resource type="Script" path="res://UI/ui_stats.gd" id="1_hrxvr"]
+[ext_resource type="Script" path="res://addons/radial_progress/RadialProgress.gd" id="2_hkrfk"]
+[ext_resource type="Texture2D" uid="uid://glurfepsn88p" path="res://assets/player_face.png" id="3_hcomi"]
+[ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="4_g3id7"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1h4k"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srej2"]
+bg_color = Color(0.17642, 0.176419, 0.176419, 0.65098)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0tdw"]
-bg_color = Color(1, 0.481242, 0.430881, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlmpj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj781"]
-bg_color = Color(0, 0.784314, 0.490196, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5xl6"]
 
 [node name="UIStats" type="Control"]
 auto_translate_mode = 1
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
 script = ExtResource("1_hrxvr")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -256.0
+offset_right = 175.0
+grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_bottom = 128
+
+[node name="Control" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_srej2")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -150.0
-offset_right = 150.0
-offset_bottom = 74.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
-theme_override_constants/margin_top = 24
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/MarginContainer"]
+custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_hcomi")
+expand_mode = 2
 
-[node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="HealthBar" type="Control" parent="MarginContainer/Control"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_t1h4k")
-theme_override_styles/fill = SubResource("StyleBoxFlat_h0tdw")
-rounded = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hkrfk")
+radius = 50.0
+progress = 50.0
+thickness = 8.0
+bg_color = Color(0.334475, 0.51, 0.3315, 1)
+bar_color = Color(0.1826, 0.83, 0.1826, 1)
+ring = true
 
-[node name="StaminaBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="StaminaBar" type="Control" parent="MarginContainer/Control"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hkrfk")
+radius = 60.0
+progress = 50.0
+thickness = 8.0
+bg_color = Color(0.2208, 0.4368, 0.48, 1)
+bar_color = Color(0.1204, 0.736733, 0.86, 1)
+ring = true
+
+[node name="Health" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_wlmpj")
-theme_override_styles/fill = SubResource("StyleBoxFlat_tj781")
-rounded = true
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("4_g3id7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l5xl6")
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 2

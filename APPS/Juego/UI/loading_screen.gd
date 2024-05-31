@@ -5,7 +5,7 @@ var progress : Array
 var is_process_running : bool = false
 var process_count : int = 0
 
-@onready var radial_progress: RadialProgress = $MarginContainer/VBoxContainer/RadialProgress
+@onready var radial_progress: RadialProgress = %RadialProgress
 @export var wait_to_finish : bool = false
 
 func _ready():
@@ -22,12 +22,12 @@ func _physics_process(delta: float) -> void:
 		var scene = packed_scene.instantiate()
 
 		get_tree().root.add_child(scene)
-			
+		
+		SoundManager.install_sounds(get_tree().root)
+		
 		if not wait_to_finish:
 			hide()
 		if scene.has_method("pre_load") and scene.has_signal("loaded"):
-			if scene.has_signal("is_data_loaded"):
-				await scene.is_data_loaded
 			scene.loaded.connect(_on_loaded)
 			scene.pre_load()
 		else:
@@ -35,4 +35,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_loaded():
+	get_parent().remove_child(self)
 	queue_free()

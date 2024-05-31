@@ -22,19 +22,19 @@ resources_spreadsheet_view/context_menu_on_leftclick=false
 [application]
 
 config/name="NowEarth"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 QuestSystem="*res://addons/quest_system/quest_manager.gd"
-SoundManager="*res://addons/sound_manager/sound_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 QuestMio="*res://singletons/my_quest_manager.gd"
 Scenes="*res://singletons/scenes.gd"
 Server="*res://singletons/server.gd"
 Gateway="*res://singletons/gateway.gd"
+SoundManager="*res://sound_manager.gd"
 
 [display]
 
@@ -47,7 +47,7 @@ project/assembly_name="NowEarth"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GodotDraw3D/plugin.cfg", "res://addons/Panel3D/plugin.cfg", "res://addons/SimpleTODO/plugin.cfg", "res://addons/SliderLabel/plugin.cfg", "res://addons/SmoothScroll/plugin.cfg", "res://addons/awesome_input_icons/plugin.cfg", "res://addons/curvemesh3d/plugin.cfg", "res://addons/customizableCrosshair/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/draggablesprite2d/plugin.cfg", "res://addons/filtered_edits/plugin.cfg", "res://addons/gaea/plugin.cfg", "res://addons/godot_conventions_cheat_sheet/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/progress_bar_3d/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/radial_progress/plugin.cfg", "res://addons/remote_container/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/sound_manager/plugin.cfg", "res://addons/spanning_table/plugin.cfg", "res://addons/spin_button/plugin.cfg", "res://addons/tablepager/plugin.cfg")
+enabled=PackedStringArray("res://addons/GodotDraw3D/plugin.cfg", "res://addons/Panel3D/plugin.cfg", "res://addons/SimpleTODO/plugin.cfg", "res://addons/SliderLabel/plugin.cfg", "res://addons/SmoothScroll/plugin.cfg", "res://addons/awesome_input_icons/plugin.cfg", "res://addons/curvemesh3d/plugin.cfg", "res://addons/customizableCrosshair/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/draggablesprite2d/plugin.cfg", "res://addons/filtered_edits/plugin.cfg", "res://addons/gaea/plugin.cfg", "res://addons/godot_conventions_cheat_sheet/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/progress_bar_3d/plugin.cfg", "res://addons/quest_system/plugin.cfg", "res://addons/radial_progress/plugin.cfg", "res://addons/remote_container/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/spanning_table/plugin.cfg", "res://addons/spin_button/plugin.cfg", "res://addons/tablepager/plugin.cfg")
 
 [global_group]
 

@@ -1,10 +1,11 @@
-class_name ItemSlot extends ColorRect
+class_name ItemSlot extends ReferenceRect
 
 var _item : Item
 var inventory
 @onready var margin_container = %IconContainer
 @onready var icon_container = %IconContainer
 @onready var grid: OrderedItemsGrid = $".."
+@onready var reference_rect: ReferenceRect = %ReferenceRect
 
 @export var item_scene:PackedScene
 
@@ -22,17 +23,14 @@ func _ready():
 
 func display(item:Pickup, qty:int = 1) -> void:
 	if is_active:
-		color = Color.hex(0x003333ff)
+		reference_rect.show()
 	else:
-		color = Color.hex(0x000000ff)
-	if item == null:
-		color.a = 0.6
-	else:
+		reference_rect.hide()
+	if item != null:
 		if _item == null:
 			var scene : Item = item_scene.instantiate()
 			icon_container.add_child(scene)
 			_item = scene
-		color.a = 1
 		_item.set_item(item, qty)
 		#_item.set_position(Vector2.ZERO)
 

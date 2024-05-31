@@ -20,6 +20,7 @@ func _ready() -> void:
 	register.hide()
 	login.show()
 	Server.auto_save_scene = auto_save
+	Gateway.login_node = self
 
 func _on_login_btn_pressed() -> void:
 	if email_input.text == "" or password_input.text == "":

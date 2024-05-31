@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ccjphh7g0mi4u"]
+[gd_scene load_steps=38 format=3 uid="uid://ccjphh7g0mi4u"]
 
 [ext_resource type="PackedScene" uid="uid://ekqort30etdn" path="res://player/scenes/player.tscn" id="1_heepr"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hunv4"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://b2hjptlfsaqcn" path="res://models/animals/mouse.tscn" id="22_whmyh"]
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="24_d62gs"]
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="24_xrpke"]
+[ext_resource type="Script" path="res://scenes/clima.gd" id="25_ht0na"]
+[ext_resource type="Script" path="res://UI/save.gd" id="27_8ofdk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jh1tq"]
 shader = ExtResource("4_ivjjg")
@@ -59,12 +61,12 @@ shader_parameter/stars_speed = 1.0
 shader_parameter/stars_texture = ExtResource("5_ih4x5")
 shader_parameter/overwritten_time = 0.0
 
-[sub_resource type="Sky" id="Sky_g7hug"]
+[sub_resource type="Sky" id="Sky_q4mq1"]
 sky_material = SubResource("ShaderMaterial_jh1tq")
 
 [sub_resource type="Environment" id="Environment_lhpnn"]
 background_mode = 2
-sky = SubResource("Sky_g7hug")
+sky = SubResource("Sky_q4mq1")
 reflected_light_source = 2
 ssao_detail = 1.25
 sdfgi_use_occlusion = true
@@ -294,6 +296,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -458.947, 74.2325, 146.646)
 script = ExtResource("16_yi31b")
 
 [node name="Clima" type="Node" parent="."]
+script = ExtResource("25_ht0na")
 
 [node name="Pause" type="CanvasLayer" parent="."]
 
@@ -348,7 +351,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Opciones"
 
+[node name="Save" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Guardar"
+script = ExtResource("27_8ofdk")
+
 [node name="Exit" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Salir"
+
+[connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/Save" to="Pause/PauseMenu/VBoxContainer/Save" method="_on_pressed"]
