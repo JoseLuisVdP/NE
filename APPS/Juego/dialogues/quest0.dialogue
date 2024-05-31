@@ -38,6 +38,5 @@ do MyQuestManager.complete()
 => END
 
 ~ post_quest
-
-Nathan: Nos vamos viendo, joven
+Nathan: Nos [vamos viendo|vemos], joven
 => END
