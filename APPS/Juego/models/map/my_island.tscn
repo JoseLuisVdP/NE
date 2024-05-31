@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://n5ueuwthm41b"]
+[gd_scene load_steps=70 format=3 uid="uid://n5ueuwthm41b"]
 
 [ext_resource type="ArrayMesh" uid="uid://b6tixahhd4bnb" path="res://models/map/my_island.obj" id="1_3jmvf"]
 [ext_resource type="Shader" path="res://models/map/my_island.gdshader" id="1_7xosk"]
@@ -9,7 +9,6 @@
 [ext_resource type="Material" uid="uid://jvs6502fi16h" path="res://models/plants/plant_material_0.tres" id="5_8rfvw"]
 [ext_resource type="Resource" uid="uid://dwqchec6j35pe" path="res://enemies/bass.tres" id="5_ecd08"]
 [ext_resource type="ArrayMesh" uid="uid://doeaw05qdrgx3" path="res://models/plants/plant0/plant0_LOD3.obj" id="6_33jqm"]
-[ext_resource type="ArrayMesh" uid="uid://c30qn06vs2ttr" path="res://models/trees/tree_palmTall.obj" id="6_n4jap"]
 [ext_resource type="Shader" path="res://shaders/grass.gdshader" id="8_cuv4n"]
 [ext_resource type="ArrayMesh" uid="uid://50qt01j4kemh" path="res://models/plants/plant1/plant1_LOD3.obj" id="8_emsde"]
 [ext_resource type="ArrayMesh" uid="uid://bpv4yl8iawu1v" path="res://models/plants/plant2/plant2_LOD3.obj" id="9_6v0l3"]
@@ -34,18 +33,19 @@
 [ext_resource type="PackedScene" uid="uid://hdi1hd7i5qm3" path="res://items/global/pickup.tscn" id="31_ttqwo"]
 [ext_resource type="PackedScene" uid="uid://bosn3nwqrgn5w" path="res://models/FantasyVillage/Landscape/Mountain_06.fbx" id="32_teghb"]
 [ext_resource type="PackedScene" uid="uid://c58s1u4tgjgl7" path="res://models/FantasyVillage/Landscape/Mountain_05.fbx" id="33_58lfp"]
+[ext_resource type="PackedScene" uid="uid://dxugd6q1qsvdj" path="res://props/mill.tscn" id="34_mmte2"]
 [ext_resource type="PackedScene" uid="uid://cdgu05d6fxhtl" path="res://models/FantasyVillage/Landscape/Mountain_02.fbx" id="34_tunq6"]
 [ext_resource type="PackedScene" uid="uid://dns1x46t6e8ix" path="res://models/FantasyVillage/Landscape/Mountain_01.fbx" id="35_c21r1"]
-[ext_resource type="PackedScene" uid="uid://brrskc6ovtkhr" path="res://models/FantasyVillage/Houses/House_07.fbx" id="37_8m2v3"]
-[ext_resource type="PackedScene" uid="uid://crrihbqx5xmb0" path="res://models/FantasyVillage/Houses/House_06.fbx" id="38_3uqmg"]
-[ext_resource type="PackedScene" uid="uid://cvksqn4cvbkig" path="res://models/FantasyVillage/Houses/House_05.fbx" id="39_wdivw"]
-[ext_resource type="PackedScene" uid="uid://dhiwwmprat2m8" path="res://models/FantasyVillage/Houses/House_04.fbx" id="40_dkq7g"]
-[ext_resource type="PackedScene" uid="uid://dy185t4amuuvx" path="res://models/FantasyVillage/Houses/House_03.fbx" id="41_asmnn"]
-[ext_resource type="PackedScene" uid="uid://b4y24io4vab86" path="res://models/FantasyVillage/Houses/House_02.fbx" id="42_ph5p3"]
-[ext_resource type="PackedScene" uid="uid://j47klbd6ymdi" path="res://models/FantasyVillage/Houses/House_01.fbx" id="43_qwhti"]
+[ext_resource type="PackedScene" uid="uid://b41qd288sx0y0" path="res://props/house_01.tscn" id="40_jsf10"]
+[ext_resource type="PackedScene" uid="uid://cfls2i2q4lt4a" path="res://props/house_02.tscn" id="41_piulf"]
+[ext_resource type="PackedScene" uid="uid://c65po2tfkkxrs" path="res://props/house_03.tscn" id="42_yyche"]
+[ext_resource type="PackedScene" uid="uid://4ojdaa53ggn4" path="res://props/house_04.tscn" id="43_a1nj2"]
+[ext_resource type="PackedScene" uid="uid://cxskb2s3gbld4" path="res://props/house_05.tscn" id="44_ds0ss"]
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="45_lt1rr"]
 [ext_resource type="PackedScene" uid="uid://1dp8mstr1rl5" path="res://models/animals/ant.tscn" id="45_xkmtj"]
+[ext_resource type="PackedScene" uid="uid://bl6gv752t5te5" path="res://props/house_06.tscn" id="45_xmkt2"]
 [ext_resource type="Resource" uid="uid://bml3d8cumktl7" path="res://enemies/ant_boss.tres" id="46_3dbli"]
+[ext_resource type="PackedScene" uid="uid://bwhjecu10qm15" path="res://props/house_07.tscn" id="46_w1gc5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_evqgs"]
 noise_type = 0
@@ -79,13 +79,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 31
-
-[sub_resource type="Curve3D" id="Curve3D_5y0yf"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 153, 80, 0, 0, 0, 0, 0, 0, 0, 153, 80),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
 
 [sub_resource type="MultiMesh" id="MultiMesh_5ir4d"]
 transform_format = 1
@@ -191,7 +184,6 @@ process_thread_messages = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 script = ExtResource("1_32e31")
 bass_scene = ExtResource("2_ml0k1")
-grass_model = ExtResource("6_n4jap")
 enemy_scene = ExtResource("16_hm08e")
 bass_properties = ExtResource("5_ecd08")
 
@@ -225,6 +217,7 @@ script = ExtResource("18_cre2o")
 grass_mesh = ExtResource("18_2drfm")
 grass_material = ExtResource("19_ax3un")
 radius = 180
+density = 0.5
 
 [node name="BassPaths" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -296,12 +289,6 @@ transform = Transform3D(-0.398868, 0.0782395, -0.913662, -7.45057e-09, 0.99635, 
 
 [node name="BassPathFollow10" type="PathFollow3D" parent="BassPaths/BassPath1"]
 transform = Transform3D(-0.398868, 0.0782395, -0.913662, -7.45057e-09, 0.99635, 0.0853205, 0.917007, 0.0340316, -0.397413, -169.342, 110.671, -519.931)
-
-[node name="Path3D" type="Path3D" parent="BassPaths"]
-curve = SubResource("Curve3D_5y0yf")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="BassPaths/Path3D"]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 153, 80)
 
 [node name="Decoration" type="Node3D" parent="."]
 
@@ -390,26 +377,8 @@ transform = Transform3D(0.73418, 0, 0.678955, 0, 1, 0, -0.678955, 0, 0.73418, 29
 
 [node name="Houses" type="Node3D" parent="Decoration"]
 
-[node name="House_07" parent="Decoration/Houses" instance=ExtResource("37_8m2v3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5903, 152.302, 90.0675)
-
-[node name="House_06" parent="Decoration/Houses" instance=ExtResource("38_3uqmg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45293, 150.67, 104.448)
-
-[node name="House_05" parent="Decoration/Houses" instance=ExtResource("39_wdivw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.951, 150.905, 92.139)
-
-[node name="House_04" parent="Decoration/Houses" instance=ExtResource("40_dkq7g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5479, 151.531, 71.9319)
-
-[node name="House_03" parent="Decoration/Houses" instance=ExtResource("41_asmnn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7073, 154.523, 72.9632)
-
-[node name="House_02" parent="Decoration/Houses" instance=ExtResource("42_ph5p3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2742, 153.548, 66.1622)
-
-[node name="House_01" parent="Decoration/Houses" instance=ExtResource("43_qwhti")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57099, 152.996, 52.88)
+[node name="Mill" parent="Decoration/Houses" instance=ExtResource("34_mmte2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49218, 151.198, 99.6984)
 
 [node name="Crops" type="Node3D" parent="Decoration"]
 
@@ -530,3 +499,24 @@ script = ExtResource("45_lt1rr")
 instance_properties = ExtResource("46_3dbli")
 scene = ExtResource("45_xkmtj")
 item_scene = ExtResource("31_ttqwo")
+
+[node name="House_01" parent="." instance=ExtResource("40_jsf10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6311, 153.366, 90.1989)
+
+[node name="House_02" parent="House_01" instance=ExtResource("41_piulf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.964, -1.54526, -11.3135)
+
+[node name="House_03" parent="House_01/House_02" instance=ExtResource("42_yyche")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9715, 0.852051, 11.3276)
+
+[node name="House_04" parent="House_01/House_02/House_03" instance=ExtResource("43_a1nj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.453, -1.62257, -6.74963)
+
+[node name="House_05" parent="House_01/House_02/House_03/House_04" instance=ExtResource("44_ds0ss")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -34.6934, 0.638809, 19.0012)
+
+[node name="House_06" parent="House_01/House_02/House_03/House_04/House_05" instance=ExtResource("45_xmkt2")]
+transform = Transform3D(-0.771269, 0, 0.636509, 0, 1, 0, -0.636509, 0, -0.771269, -24.5578, -1.2196, 18.7297)
+
+[node name="House_07" parent="." instance=ExtResource("46_w1gc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6179, 154.108, 78.3168)

@@ -6,7 +6,6 @@ class_name MyIsland extends StaticBody3D
 @onready var bass_paths: Node3D = %BassPaths
 
 @export var bass_scene : PackedScene
-@export var grass_model : ArrayMesh
 @export var enemy_scene : PackedScene
 @export var bass_properties : Enemy
 

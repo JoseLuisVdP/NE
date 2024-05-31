@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfls2i2q4lt4a"]
+
+[ext_resource type="PackedScene" uid="uid://b4y24io4vab86" path="res://models/FantasyVillage/Houses/House_02.fbx" id="1_b02bl"]
+[ext_resource type="PackedScene" uid="uid://fplhluovbqvs" path="res://models/FantasyVillage/HouseParts/Door2_02.fbx" id="2_ghikt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ggjb5"]
+size = Vector3(5.27838, 5.52643, 6.27039)
+
+[node name="House_02" type="StaticBody3D"]
+
+[node name="House_02" parent="." instance=ExtResource("1_b02bl")]
+
+[node name="Door2_02" parent="." instance=ExtResource("2_ghikt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30778, 0, 2.95786)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171814, 2.73502, 0.0325317)
+shape = SubResource("BoxShape3D_ggjb5")
+
+[editable path="House_02"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxugd6q1qsvdj"]
+
+[ext_resource type="PackedScene" uid="uid://fplhluovbqvs" path="res://models/FantasyVillage/HouseParts/Door2_02.fbx" id="1_5gv0b"]
+[ext_resource type="Script" path="res://props/mill.gd" id="1_8nr55"]
+[ext_resource type="PackedScene" uid="uid://bi4obt1jy33tf" path="res://models/FantasyVillage/HouseParts/MillPart_01.fbx" id="2_o8bky"]
+[ext_resource type="PackedScene" uid="uid://cne3ir4gh62i5" path="res://models/FantasyVillage/HouseParts/MillPart_02.fbx" id="3_o2p1o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ggjb5"]
+size = Vector3(3.64894, 5.52643, 3.68387)
+
+[node name="Mill" type="StaticBody3D"]
+script = ExtResource("1_8nr55")
+
+[node name="Door2_02" parent="." instance=ExtResource("1_5gv0b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 1.6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0152817, 2.73502, 0.0198204)
+shape = SubResource("BoxShape3D_ggjb5")
+
+[node name="MillPart_01" parent="." instance=ExtResource("2_o8bky")]
+
+[node name="MillPart_02" parent="." instance=ExtResource("3_o2p1o")]
+transform = Transform3D(0.998453, -0.0555954, 0, 0.0555954, 0.998453, 0, 0, 0, 1, -0.000766993, 6.22615, 0.915724)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bl6gv752t5te5"]
+
+[ext_resource type="PackedScene" uid="uid://fplhluovbqvs" path="res://models/FantasyVillage/HouseParts/Door2_02.fbx" id="1_mdcay"]
+[ext_resource type="PackedScene" uid="uid://crrihbqx5xmb0" path="res://models/FantasyVillage/Houses/House_06.fbx" id="2_1fibl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ggjb5"]
+size = Vector3(5.27838, 5.52643, 6.27039)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vhsv4"]
+size = Vector3(3.09875, 4.11401, 3.80176)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tn07r"]
+size = Vector3(1.11969, 5.28583, 0.390991)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nmjpm"]
+size = Vector3(1.40576, 0.676819, 1.14932)
+
+[node name="House_06" type="StaticBody3D"]
+
+[node name="Door2_02" parent="." instance=ExtResource("1_mdcay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30778, 0, 2.95786)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171814, 2.73502, 0.0325317)
+shape = SubResource("BoxShape3D_ggjb5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15106, 2.06067, 0.0366211)
+shape = SubResource("BoxShape3D_vhsv4")
+
+[node name="House_06" parent="." instance=ExtResource("2_1fibl")]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29086, 2.67233, -3.23102)
+shape = SubResource("BoxShape3D_tn07r")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.90356, 0.394135, 2.30702)
+shape = SubResource("BoxShape3D_nmjpm")
