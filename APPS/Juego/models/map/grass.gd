@@ -1,13 +1,12 @@
 class_name ProceduralGrass extends ProceduralGenerator
 
-@onready var icosphere: MeshInstance3D = $"../Icosphere"
-
 @export var grass_mesh : Mesh
 @export var grass_material : ShaderMaterial
 @export var margin : int = 50
 
+
 func generate() -> void:
-	var tris : Array = get_valid_verts(icosphere.mesh)
+	var tris : Array = get_valid_verts(mesh_instance.mesh)
 	add_grass(tris)
 	#add_grass_old(tri)
 	await get_tree().process_frame
@@ -51,9 +50,6 @@ func calculate_grass_position(tris:Array) -> Array[Vector3]:
 				if diff <= margin:
 					if r - diff/margin > 0:
 						points.append(randpos)
-						print("r si")
-					else:
-						print("r nope")
 				else:
 					points.append(randpos)
 	return points

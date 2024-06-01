@@ -18,3 +18,4 @@ spring_length = 15.0
 [node name="Camera" type="Camera3D" parent="horizontalRotation/SpringArm"]
 fov = 40.0
 size = 17.265
+far = 500.0

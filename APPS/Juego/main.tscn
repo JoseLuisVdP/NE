@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6iaicmre07tj"]
+[gd_scene load_steps=25 format=3 uid="uid://b6iaicmre07tj"]
 
 [ext_resource type="Material" uid="uid://yybjevogyt1u" path="res://shaders/grass_material.tres" id="1_6nuf5"]
 [ext_resource type="Shader" path="res://shaders/sky_improved.gdshader" id="2_gqobh"]
@@ -7,6 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://ucq0q01w0j7g" path="res://scenes/main_menu.tscn" id="5_6ws5j"]
 [ext_resource type="Script" path="res://player_model_idle.gd" id="5_n0gyr"]
 [ext_resource type="ArrayMesh" uid="uid://2vm8hq3p77s0" path="res://models/grass/grass.mesh" id="7_xywuh"]
+[ext_resource type="ArrayMesh" uid="uid://dm8avswccemlt" path="res://models/trees/tree_plateau.obj" id="8_q5qap"]
+[ext_resource type="Material" uid="uid://jvs6502fi16h" path="res://models/plants/plant_material_0.tres" id="9_kcvx3"]
+[ext_resource type="ArrayMesh" uid="uid://c1ul61lx6nkpm" path="res://models/plants/plant0/plant0_LOD1.obj" id="10_ham3m"]
+[ext_resource type="ArrayMesh" uid="uid://77fdw22iiqyd" path="res://models/plants/plant1/plant1_LOD0.obj" id="11_v70xa"]
+[ext_resource type="ArrayMesh" uid="uid://cmd6w4ehnua8q" path="res://models/plants/plant2/plant2_LOD0.obj" id="12_xog7t"]
+[ext_resource type="ArrayMesh" uid="uid://bb78l1oxxit02" path="res://models/plants/plant_bushTriangle.obj" id="13_ugs7g"]
+[ext_resource type="ArrayMesh" uid="uid://vj6v4mp1qibi" path="res://models/plants/plant_bushSmall.obj" id="14_4xevv"]
+[ext_resource type="ArrayMesh" uid="uid://b427sspvpuaja" path="res://models/plants/plant_bushLarge.obj" id="15_ddlrp"]
+[ext_resource type="PackedScene" uid="uid://chqus6rl1y5wj" path="res://models/FantasyVillage/Nature/Flower_04.fbx" id="16_55kh0"]
+[ext_resource type="PackedScene" uid="uid://b4ust3a7ks78y" path="res://models/FantasyVillage/Nature/Flower_03.fbx" id="17_x2h32"]
+[ext_resource type="ArrayMesh" uid="uid://iww3l2yw41q6" path="res://models/FantasyVillage/Nature/Flower_03.mesh" id="18_effu6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3mukj"]
 size = Vector2(200, 200)
@@ -102,3 +113,51 @@ multimesh = SubResource("MultiMesh_h7lt6")
 
 [node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="."]
 multimesh = SubResource("MultiMesh_ldgm8")
+
+[node name="TreePlateau" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 2.98023e-08, 0, -2.98023e-08, 5, 0, -2.38419e-07, 0, 5, -1.44494, -2.08616e-07, 4.66996)
+mesh = ExtResource("8_q5qap")
+skeleton = NodePath("../Camera3D")
+
+[node name="Plant0Lod1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.667, 0, 5.97)
+material_override = ExtResource("9_kcvx3")
+mesh = ExtResource("10_ham3m")
+
+[node name="Plant1Lod0" type="MeshInstance3D" parent="Plant0Lod1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99542, 0, -1.08267)
+material_override = ExtResource("9_kcvx3")
+mesh = ExtResource("11_v70xa")
+
+[node name="Plant2Lod0" type="MeshInstance3D" parent="Plant0Lod1/Plant1Lod0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7076, 0, -1.38268)
+material_override = ExtResource("9_kcvx3")
+mesh = ExtResource("12_xog7t")
+
+[node name="PlantBushTriangle" type="MeshInstance3D" parent="Plant0Lod1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.08838, 0, -3.87291)
+mesh = ExtResource("13_ugs7g")
+
+[node name="PlantBushSmall" type="MeshInstance3D" parent="Plant0Lod1/PlantBushTriangle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.412318, 0, -0.0959446)
+mesh = ExtResource("14_4xevv")
+
+[node name="PlantBushLarge" type="MeshInstance3D" parent="Plant0Lod1/PlantBushTriangle/PlantBushSmall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.341962, 0, 0.662447)
+mesh = ExtResource("15_ddlrp")
+
+[node name="Flower_05" parent="." instance=ExtResource("16_55kh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06006, 0, 1.38166)
+
+[node name="Flower_05" parent="Flower_05" instance=ExtResource("16_55kh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.478824, 0, -0.370722)
+
+[node name="Flower_04" parent="." instance=ExtResource("16_55kh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6734, 0, 1.64746)
+
+[node name="Flower_03" parent="." instance=ExtResource("17_x2h32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30279, 0, 1.40368)
+
+[node name="Flower03" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74918, 0, 0.675316)
+mesh = ExtResource("18_effu6")

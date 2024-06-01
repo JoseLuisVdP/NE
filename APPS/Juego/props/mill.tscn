@@ -21,4 +21,4 @@ shape = SubResource("BoxShape3D_ggjb5")
 [node name="MillPart_01" parent="." instance=ExtResource("2_o8bky")]
 
 [node name="MillPart_02" parent="." instance=ExtResource("3_o2p1o")]
-transform = Transform3D(0.998453, -0.0555954, 0, 0.0555954, 0.998453, 0, 0, 0, 1, -0.000766993, 6.22615, 0.915724)
+transform = Transform3D(0.0870568, 0.996203, 0, -0.996203, 0.0870568, 0, 0, 0, 1, -0.000766993, 6.22615, 0.915724)

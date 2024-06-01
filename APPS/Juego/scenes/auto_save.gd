@@ -1,4 +1,4 @@
-extends Timer
+class_name AUTO_SAVE extends Timer
 
 var saved : bool = false
 

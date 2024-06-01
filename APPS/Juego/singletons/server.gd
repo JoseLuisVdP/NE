@@ -68,7 +68,7 @@ func return_token_verification_result(player_id:int, token_verification:bool) ->
 		Scenes.load_scene("game")
 		auto_save = auto_save_scene.instantiate()
 		add_child(auto_save)
-		auto_save.start()
+		#auto_save.start()
 		auto_save.process_thread_group = Node.PROCESS_THREAD_GROUP_SUB_THREAD
 	else:
 		print("Login fallido (token malo)")

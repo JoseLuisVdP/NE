@@ -1,11 +1,22 @@
 class_name ProceduralGenerator extends Marker3D
 
-
+@export var mesh_instance: MeshInstance3D
 @export var radius : int = 150
 @export var density : float = 1
+@export var auto_generate : bool = false
+@export var max_angle : float = -1
 
 
-func get_valid_verts(mesh:ArrayMesh):
+func _ready():
+	if auto_generate:
+		generate()
+
+
+func generate():
+	pass
+
+
+func get_valid_verts(mesh:Mesh):
 	var mdt = MeshDataTool.new()
 	mdt.create_from_surface(mesh,0)
 	var verts : Array = []
@@ -18,9 +29,26 @@ func get_valid_verts(mesh:ArrayMesh):
 		var apos = mdt.get_vertex(a)
 		var bpos = mdt.get_vertex(b)
 		var cpos = mdt.get_vertex(c)
-		if apos.distance_to(position) <= radius || bpos.distance_to(position) <= radius || cpos.distance_to(position) <= radius:
+		if is_inside_radius(apos, bpos, cpos) && is_not_slope(apos, bpos, cpos):
 			verts.append([apos,bpos,cpos])
 	return verts
+
+
+func is_inside_radius(apos : Vector3, bpos : Vector3, cpos : Vector3) -> bool:
+	return apos.distance_to(position) <= radius || bpos.distance_to(position) <= radius || cpos.distance_to(position) <= radius
+
+
+func is_not_slope(apos : Vector3, bpos : Vector3, cpos : Vector3) -> bool:
+	if max_angle == -1:
+		return true
+	#Obtenemos dos puntos del plano, y con ellos la normal del mismo
+	var x : Vector3 = bpos - apos
+	var y : Vector3 = cpos - apos
+	var n : Vector3 = x.cross(y).normalized() * -1
+	
+	# Devolvemos si la normal no supera el ángulo permitido
+	print(rad_to_deg(n.angle_to(Vector3.UP)))
+	return abs(rad_to_deg(n.angle_to(Vector3.UP))) < max_angle
 
 
 func get_random_point_inside(vertices:Array) -> Vector3:

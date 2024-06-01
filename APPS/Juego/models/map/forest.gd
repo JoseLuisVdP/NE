@@ -1,6 +1,5 @@
 class_name ProceduralForest extends ProceduralGenerator
 
-@onready var icosphere: MeshInstance3D = $"../Icosphere"
 
 @export var instance_properties:Enemy
 @export var enemy_scene : PackedScene
@@ -9,7 +8,7 @@ class_name ProceduralForest extends ProceduralGenerator
 @export var margin : int = 50
 
 func generate() -> void:
-	var tris : Array = get_valid_verts(icosphere.mesh)
+	var tris : Array = get_valid_verts(mesh_instance.mesh)
 	add_trees(tris)
 
 

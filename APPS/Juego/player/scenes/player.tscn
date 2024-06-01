@@ -2306,6 +2306,7 @@ states/Working/position = Vector2(854, 175)
 transitions = ["Idle", "Death", SubResource("AnimationNodeStateMachineTransition_opm8q"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_lcnms"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_rkhek"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_cnyg2"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_10rvb"), "Walk", "Death", SubResource("AnimationNodeStateMachineTransition_nu4ng"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_m3t8i"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_lhkqg"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_j3eo3"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_unpwx"), "Idle", "Punch", SubResource("AnimationNodeStateMachineTransition_7gfc8"), "Punch", "Idle", SubResource("AnimationNodeStateMachineTransition_dlach"), "Walk", "Punch", SubResource("AnimationNodeStateMachineTransition_863t8"), "Run", "Punch", SubResource("AnimationNodeStateMachineTransition_djroj"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_wg8w5"), "Punch", "Death", SubResource("AnimationNodeStateMachineTransition_v4i1t"), "Jump", "Death", SubResource("AnimationNodeStateMachineTransition_suiye"), "Idle", "Working", SubResource("AnimationNodeStateMachineTransition_s7cbm"), "Working", "Idle", SubResource("AnimationNodeStateMachineTransition_xcqu7"), "Working", "Death", SubResource("AnimationNodeStateMachineTransition_8e806")]
 
 [node name="Player" type="RigidBody3D"]
+visibility_parent = NodePath("AnimatedHuman/Human Armature/Skeleton3D/Human_Mesh")
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -2615,12 +2616,13 @@ bones/40/rotation = Quaternion(-3.48955e-08, -3.02607e-08, 1.52875e-07, 1)
 bones/40/scale = Vector3(1, 1, 1)
 
 [node name="Human_Mesh" type="MeshInstance3D" parent="AnimatedHuman/Human Armature/Skeleton3D"]
+layers = 524288
 mesh = SubResource("ArrayMesh_00ulo")
 skin = SubResource("Skin_ksrdx")
 
 [node name="ToolsAttatchment" type="BoneAttachment3D" parent="AnimatedHuman/Human Armature/Skeleton3D"]
 unique_name_in_owner = true
-transform = Transform3D(0.50117, -0.0994449, -0.859615, -0.681026, 0.567544, -0.462706, 0.533883, 0.817316, 0.216712, 1.13258, 0.648722, -2.57091)
+transform = Transform3D(0.50117, -0.0994447, -0.859615, -0.681026, 0.567544, -0.462706, 0.533883, 0.817316, 0.216712, 1.13258, 0.648722, -2.57091)
 bone_name = "LeftHand"
 bone_idx = 10
 

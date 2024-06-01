@@ -13,8 +13,6 @@ var mdt : MeshDataTool
 
 func generate():
 	add_bass()
-	forest.generate()
-	grass.generate()
 
 func add_bass():
 	for i in bass_paths.get_children():
