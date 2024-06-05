@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck6nqp5mcdia3"]
+
+[ext_resource type="PackedScene" uid="uid://6jjqtshpngq4" path="res://models/FantasyVillage/Food/Carrot.fbx" id="1_0xtbp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ep7wx"]
+size = Vector3(0.0494385, 0.358765, 0.0572205)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k2247"]
+radius = 0.1
+height = 0.5
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="Carrot" parent="." instance=ExtResource("1_0xtbp")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.244356, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00115967, 0.180671, 0.00550842)
+shape = SubResource("BoxShape3D_ep7wx")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
+shape = SubResource("CapsuleShape3D_k2247")

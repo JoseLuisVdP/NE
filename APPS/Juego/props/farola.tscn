@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjvr3to5kpcwj"]
+
+[ext_resource type="PackedScene" uid="uid://bpuyri4uk5nqm" path="res://models/FantasyVillage/Props/Lantern_02.fbx" id="1_6brch"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lsulw"]
+size = Vector3(0.52832, 2.30609, 0.526978)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_560nu"]
+size = Vector3(0.374756, 0.901733, 0.364502)
+
+[node name="Farola" type="StaticBody3D" groups=["citylights"]]
+
+[node name="Lantern_02" parent="." instance=ExtResource("1_6brch")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.912264, 1.50127, 0)
+light_color = Color(1, 0.890196, 0.811765, 1)
+light_energy = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00439453, 1.16226, -0.0153198)
+shape = SubResource("BoxShape3D_lsulw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.912046, 1.86027, 0.0098877)
+shape = SubResource("BoxShape3D_560nu")

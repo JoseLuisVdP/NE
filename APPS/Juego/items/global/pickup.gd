@@ -5,7 +5,7 @@ class_name Pickup extends Resource
 @export var icon : Texture2D
 @export var stack_size : int
 @export var description : String
-@export_enum("tool", "material", "other") var type : String
+@export_enum("tool", "material", "food", "other") var type : String
 @export var damage:int = 0
 
 func is_tool():

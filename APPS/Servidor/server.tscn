@@ -18,7 +18,7 @@ script = ExtResource("2_im10o")
 
 [node name="FillESClimaAPITimer" parent="Timers" instance=ExtResource("3_fmcli")]
 unique_name_in_owner = true
-wait_time = 600.0
+wait_time = 60000.0
 
 [node name="OnceADay" type="Timer" parent="Timers"]
 unique_name_in_owner = true

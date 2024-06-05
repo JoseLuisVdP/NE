@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://x5qyetlglong"]
+
+[ext_resource type="PackedScene" uid="uid://86h5m8tq8u54" path="res://models/FantasyVillage/Props/Well.fbx" id="1_7ach2"]
+[ext_resource type="Material" uid="uid://b5a8k5lby0eu3" path="res://shaders/water_shader.tres" id="2_c6kt3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0a8gg"]
+radius = 0.687123
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4hglh"]
+size = Vector3(1.82654, 2.30969, 0.47937)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n6oxx"]
+material = ExtResource("2_c6kt3")
+height = 0.5
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="Well" parent="." instance=ExtResource("1_7ach2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01715, 0)
+shape = SubResource("CylinderShape3D_0a8gg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00823975, 1.14655, 0.00384521)
+shape = SubResource("BoxShape3D_4hglh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.270628, 0)
+mesh = SubResource("CylinderMesh_n6oxx")

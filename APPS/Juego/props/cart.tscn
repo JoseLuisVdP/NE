@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx23nlt1hs5ty"]
+
+[ext_resource type="PackedScene" uid="uid://dkvbp6ronmnuj" path="res://models/FantasyVillage/Props/Cart_01.fbx" id="1_30eay"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uatj4"]
+size = Vector3(3.03601, 0.910583, 1.42114)
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="Cart_01" parent="." instance=ExtResource("1_30eay")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4776, 0.445953, 0.0411377)
+shape = SubResource("BoxShape3D_uatj4")

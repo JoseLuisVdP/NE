@@ -14,6 +14,8 @@ func save():
 			Server.data = i.savedata(Server.data)
 		await get_tree().process_frame
 	#Guardado local vendría bien WIP
+	Server.data["SaveFiles"]["time"] = GlobalTime.time
+	Server.data = MyQuestManager.savedata(Server.data)
 	Server.save_data(Server.data)
 	await Server.is_data_saved
 	print("¡Datos guardados ("+ str(saved) +")!")

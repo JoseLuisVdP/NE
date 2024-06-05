@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ccjphh7g0mi4u"]
+[gd_scene load_steps=34 format=3 uid="uid://ccjphh7g0mi4u"]
 
 [ext_resource type="PackedScene" uid="uid://ekqort30etdn" path="res://player/scenes/player.tscn" id="1_heepr"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hunv4"]
@@ -18,16 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://21571wtspmwm" path="res://clima_particles.tscn" id="14_mgvbu"]
 [ext_resource type="PackedScene" uid="uid://n5ueuwthm41b" path="res://models/map/my_island.tscn" id="15_slwqk"]
 [ext_resource type="Shader" path="res://shaders/water_shader.gdshader" id="16_cd60u"]
-[ext_resource type="Script" path="res://day_night_cycle.gd" id="16_yi31b"]
 [ext_resource type="PackedScene" uid="uid://cfyjxurc0ivue" path="res://models/map/map.tscn" id="17_waklr"]
 [ext_resource type="PackedScene" uid="uid://bpuu0kfmq0shv" path="res://models/map/sandy.tscn" id="18_8y4qg"]
 [ext_resource type="PackedScene" uid="uid://d1b2iwglru5t5" path="res://NPCs/npc.tscn" id="19_43oac"]
 [ext_resource type="Resource" uid="uid://irlg4fnxqtje" path="res://NPCs/npcs/test_npc.tres" id="20_t85iw"]
 [ext_resource type="PackedScene" uid="uid://b2hjptlfsaqcn" path="res://models/animals/mouse.tscn" id="22_whmyh"]
-[ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="24_d62gs"]
-[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="24_xrpke"]
-[ext_resource type="Script" path="res://scenes/clima.gd" id="25_ht0na"]
-[ext_resource type="Script" path="res://UI/save.gd" id="27_8ofdk"]
+[ext_resource type="PackedScene" uid="uid://du670kym6je6s" path="res://scenes/pause.tscn" id="24_0duiu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jh1tq"]
 shader = ExtResource("4_ivjjg")
@@ -44,7 +40,7 @@ shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
 shader_parameter/sun_size = 0.2
 shader_parameter/sun_blur = 10.0
 shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
-shader_parameter/moon_size = 0.06
+shader_parameter/moon_size = 0.03
 shader_parameter/moon_blur = 0.1
 shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
 shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
@@ -121,9 +117,6 @@ material = SubResource("ShaderMaterial_5qjwh")
 size = Vector3(5000, 80, 5000)
 
 [node name="Game" type="Node3D"]
-process_thread_group = 1
-process_thread_group_order = 0
-process_thread_messages = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, 0)
 script = ExtResource("1_hunv4")
 _all_recipes_rg = ExtResource("2_vfojm")
@@ -135,11 +128,11 @@ _all_quests_rg = ExtResource("4_211pj")
 [node name="Lights" type="Node3D" parent="3D"]
 
 [node name="Sunlight" type="DirectionalLight3D" parent="3D/Lights"]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 6.92111, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.92111, 0)
 shadow_enabled = true
 
 [node name="Moonlight" type="DirectionalLight3D" parent="3D/Lights"]
-transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 6.92111, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 6.92111, 0)
 light_color = Color(0.866667, 0.878431, 1, 1)
 light_energy = 0.1
 shadow_enabled = true
@@ -275,11 +268,9 @@ mesh = SubResource("BoxMesh_3eq3q")
 
 [node name="map" parent="3D/World" instance=ExtResource("17_waklr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 623.29, -14.603, 0)
-visible = false
 
 [node name="sandy" parent="3D/World" instance=ExtResource("18_8y4qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.3857, -774.079)
-visible = false
 
 [node name="NPCs" type="Node3D" parent="3D"]
 
@@ -292,73 +283,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -458.947, 74.2325, 146.646)
 
 [node name="UI" parent="." instance=ExtResource("5_g5unb")]
 
-[node name="Time" type="Node" parent="."]
-script = ExtResource("16_yi31b")
-
-[node name="Clima" type="Node" parent="."]
-script = ExtResource("25_ht0na")
-
-[node name="Pause" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" type="Control" parent="Pause"]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("24_xrpke")
-
-[node name="ColorRect" type="ColorRect" parent="Pause/PauseMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.243137)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause/PauseMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("24_d62gs")
-theme_override_constants/separation = 16
-
-[node name="Label" type="Label" parent="Pause/PauseMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Pausa"
-
-[node name="Continue" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Continuar"
-
-[node name="Options" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Opciones"
-
-[node name="Save" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
-layout_mode = 2
-text = "Guardar"
-script = ExtResource("27_8ofdk")
-
-[node name="Exit" type="Button" parent="Pause/PauseMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Salir"
-
-[connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/Save" to="Pause/PauseMenu/VBoxContainer/Save" method="_on_pressed"]
+[node name="Pause" parent="." instance=ExtResource("24_0duiu")]

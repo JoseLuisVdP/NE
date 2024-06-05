@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bcnoomtuocvr1"
+path="res://.godot/imported/path_woodEnd.obj-93f2ad4de0700c4d20ace6a0b22418ab.mesh"
+
+[deps]
+
+files=["res://.godot/imported/path_woodEnd.obj-93f2ad4de0700c4d20ace6a0b22418ab.mesh"]
+
+source_file="res://models/OBJ format/path_woodEnd.obj"
+dest_files=["res://.godot/imported/path_woodEnd.obj-93f2ad4de0700c4d20ace6a0b22418ab.mesh", "res://.godot/imported/path_woodEnd.obj-93f2ad4de0700c4d20ace6a0b22418ab.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,26 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://runwpsrl2d0l"]
+[gd_scene load_steps=7 format=3 uid="uid://runwpsrl2d0l"]
 
 [ext_resource type="Script" path="res://UI/loading_screen.gd" id="1_xy1qa"]
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="2_hhujq"]
 [ext_resource type="Script" path="res://addons/radial_progress/RadialProgress.gd" id="3_jp1cx"]
 [ext_resource type="Texture2D" uid="uid://cu4ww2b3rgw3x" path="res://icon.svg" id="4_o20km"]
+[ext_resource type="SpriteFrames" uid="uid://b61toqfimwj3n" path="res://animated_icons/spriteframes/sleeping_0_R.tres" id="5_3g3i0"]
+[ext_resource type="Texture2D" uid="uid://dgbehw8hf543x" path="res://assets/asleep.png" id="5_36fjb"]
 
-[node name="LoadingScreen" type="Control"]
-layout_mode = 3
+[node name="LoadingScreen" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_xy1qa")
+wait_to_finish = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("1_xy1qa")
+color = Color(0.226707, 0.226707, 0.226707, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 200
@@ -29,19 +31,28 @@ theme_override_constants/margin_right = 200
 theme_override_constants/margin_bottom = 200
 
 [node name="Label" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource("2_hhujq")
 text = "Cargando..."
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
-alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="RadialProgress" type="Control" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("3_jp1cx")
@@ -65,3 +76,32 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_o20km")
 expand_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(288, 64)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("5_36fjb")
+expand_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer2"]
+unique_name_in_owner = true
+position = Vector2(-900.08, -603.555)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("5_3g3i0")
+animation = &"sleeping_0_R"
+frame_progress = 0.93829
+centered = false
+offset = Vector2(1750, 810)

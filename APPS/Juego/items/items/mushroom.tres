@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://n7gbaidt5jh7"]
+
+[ext_resource type="Texture2D" uid="uid://cele5kn11mlgy" path="res://items/icons/mushroom.png" id="1_rls4u"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_ud1cw"]
+[ext_resource type="PackedScene" uid="uid://cme6jflsm748o" path="res://items/scenes/mushroom.tscn" id="2_2ev2i"]
+
+[resource]
+script = ExtResource("1_ud1cw")
+name = "Seta"
+scene = ExtResource("2_2ev2i")
+icon = ExtResource("1_rls4u")
+stack_size = 10
+description = "Seta corriente. Puedes comerla, pero están más buenas cocinadas"
+type = "food"
+damage = -10

@@ -37,3 +37,4 @@ func update_text():
 			var quest : Quest = QuestSystem.get_children().filter(func (i): return i.name.to_lower() == pool)[0].get_quest_from_id(i)
 			lbl.text += "  "+quest.quest_name + " - " + str(quest.objective_completed) + "\n"
 			lbl.text += "    -" + quest.quest_objective
+			lbl.text += "\n"

@@ -7,7 +7,6 @@ var is_dying : bool = false
 func _ready() -> void:
 	if path_follow != null:
 		path_follow.progress_ratio = randf()
-		print("Progress: " + str(path_follow.progress))
 	parent = get_parent()
 
 # Called when the node enters the scene tree for the first time.

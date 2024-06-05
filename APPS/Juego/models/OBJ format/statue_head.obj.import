@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b3rn0vy1i413e"
+path="res://.godot/imported/statue_head.obj-f4f16ad74687a3cfb8588d4d3236c50e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/statue_head.obj-f4f16ad74687a3cfb8588d4d3236c50e.mesh"]
+
+source_file="res://models/OBJ format/statue_head.obj"
+dest_files=["res://.godot/imported/statue_head.obj-f4f16ad74687a3cfb8588d4d3236c50e.mesh", "res://.godot/imported/statue_head.obj-f4f16ad74687a3cfb8588d4d3236c50e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

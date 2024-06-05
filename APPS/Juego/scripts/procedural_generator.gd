@@ -2,12 +2,14 @@ class_name ProceduralGenerator extends Marker3D
 
 @export var mesh_instance: MeshInstance3D
 @export var radius : int = 150
-@export var density : float = 1
+@export var generation_density : float
+var density : float
 @export var auto_generate : bool = false
 @export var max_angle : float = -1
 
 
 func _ready():
+	density = generation_density
 	if auto_generate:
 		generate()
 
@@ -15,6 +17,8 @@ func _ready():
 func generate():
 	pass
 
+func generate_in_real_time():
+	pass
 
 func get_valid_verts(mesh:Mesh):
 	var mdt = MeshDataTool.new()
@@ -47,7 +51,6 @@ func is_not_slope(apos : Vector3, bpos : Vector3, cpos : Vector3) -> bool:
 	var n : Vector3 = x.cross(y).normalized() * -1
 	
 	# Devolvemos si la normal no supera el ángulo permitido
-	print(rad_to_deg(n.angle_to(Vector3.UP)))
 	return abs(rad_to_deg(n.angle_to(Vector3.UP))) < max_angle
 
 
@@ -81,4 +84,4 @@ func get_tri_area(tri:Array) -> float:
 
 func get_real_density(tri:Array, density:float) -> int:
 	var area : float = get_tri_area(tri)
-	return int(density * area)
+	return int(density / 50 * area)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://ccb0qs67q3nv4"]
+
+[ext_resource type="Texture2D" uid="uid://dyi7bcmpijg6a" path="res://items/icons/sopa-de-champinones.png" id="1_45fdy"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_gwe2j"]
+[ext_resource type="PackedScene" uid="uid://taoreffp1cot" path="res://items/scenes/mushroom_soup.tscn" id="2_kq1p4"]
+
+[resource]
+script = ExtResource("1_gwe2j")
+name = "Sopa de seta"
+scene = ExtResource("2_kq1p4")
+icon = ExtResource("1_45fdy")
+stack_size = 1
+description = "Siempre sienta bien"
+type = "food"
+damage = -25

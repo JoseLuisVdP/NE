@@ -30,11 +30,13 @@ func _on_connection_failed():
 
 @rpc("any_peer", "reliable")
 func receive_login_token(token:String) -> void:
+	print("Token recibido, añadiendo...")
 	game_server.expected_tokens.append(token)
 
 
 @rpc("any_peer", "reliable")
 func save_game_data(data:Dictionary, player_id:int, server_id:int = 1) -> void:
+	print("Guardando partida de " + str(player_id))
 	server_id = multiplayer.get_unique_id()
 	rpc_id(1,"save_game_data", data, player_id, server_id)
 

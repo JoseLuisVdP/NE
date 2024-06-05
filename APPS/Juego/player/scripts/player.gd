@@ -1,12 +1,9 @@
 class_name Player extends RigidBody3D
 
-#https://catlikecoding.com/unity/tutorials/movement/physics/#3
-#slopes
-
 var id
 
 @onready var mesh : Node3D = %AnimatedHuman
-@onready var tools_attatchment: BoneAttachment3D = %ToolsAttatchment
+@onready var tools_attatchment: BoneAttachment3D = $"AnimatedHuman/Human Armature/Skeleton3D/ToolsAttatchment"
 @onready var monitor : Label = %Monitor
 @onready var camera: Node3D = %Camera
 @onready var floor_angle: RayCast3D = %FloorAngle
@@ -64,16 +61,19 @@ var RUN_SPEED : float
 var cur_speed : float = SPEED
 var chatting_npc : NPCScene
 
-var _pid := Pid3D.new(12 * mass, .03 * mass, 0.3 * mass)
+var _pid := Pid3D.new(12 * mass, .001 * mass, 0.1 * mass)
 
 func chat():
 	if npcs.size() <= 0:
 		return
 	
-	var npc : NPC = npcs[0].npc
+	var npc_scene : NPCScene = npcs[0]
+	var npc : NPC = npc_scene.npc
 	
 	if npc.dialogue == null:
 		return
+	
+	npc_scene.talk(mesh)
 	
 	if npc.quest == null:
 		DialogueManager.show_example_dialogue_balloon(npc.dialogue)
@@ -100,7 +100,7 @@ func _ready():
 	
 	DialogueManager.dialogue_ended.connect(_on_dialogue_end)
 	
-	QuestMio.player = self
+	MyQuestManager.player = self
 	
 	email = Server.player_email
 
@@ -113,7 +113,7 @@ func end_conversation():
 func _physics_process(delta):
 	if _should_move: move(delta)
 	# DEBUG
-	var tool : Array[Node] = %ToolsAttatchment.get_children()
+	var tool : Array[Node] = tools_attatchment.get_children()
 	if not tool.is_empty():
 		tool[0].position = Vector3.ZERO
 		tool[0].collision_layer = 0
@@ -314,7 +314,7 @@ func loaddata(data:Dictionary) -> Dictionary:
 	#OMITIMOS LA HORA Y FECHA
 	money = data["SaveFiles"]["money"]
 	xp = data["SaveFiles"]["exp"]
-	level = data["SaveFiles"]["level"]
+	level = int(data["SaveFiles"]["level"])
 	cur_health = data["SaveFiles"]["health"]
 	max_health = data["SaveFiles"]["max_health"]
 	max_stamina = data["SaveFiles"]["max_stamina"]

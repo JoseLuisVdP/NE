@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://c5i7w654f311c"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_4svis"]
+[ext_resource type="Texture2D" uid="uid://e5q7ork1frm7" path="res://items/icons/apple.png" id="1_i0m44"]
+[ext_resource type="PackedScene" uid="uid://bbutc5y6jw112" path="res://items/scenes/apple.tscn" id="2_mynqt"]
+
+[resource]
+script = ExtResource("1_4svis")
+name = "Manzana"
+scene = ExtResource("2_mynqt")
+icon = ExtResource("1_i0m44")
+stack_size = 20
+description = "¿No era verde?"
+type = ""
+damage = -15

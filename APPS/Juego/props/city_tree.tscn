@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://0nqq2jinl81b"]
+
+[ext_resource type="PackedScene" uid="uid://cswtdx6j74ru8" path="res://models/FantasyVillage/Nature/Tree_01.fbx" id="1_c7a8n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4ceb"]
+size = Vector3(0.345703, 2.44629, 0.313538)
+
+[node name="CityTree" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25835, 0)
+shape = SubResource("BoxShape3D_v4ceb")
+
+[node name="Tree_01" parent="." instance=ExtResource("1_c7a8n")]

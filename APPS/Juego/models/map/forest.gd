@@ -9,8 +9,11 @@ class_name ProceduralForest extends ProceduralGenerator
 
 func generate() -> void:
 	var tris : Array = get_valid_verts(mesh_instance.mesh)
-	add_trees(tris)
+	await add_trees(tris)
 
+func generate_in_real_time() -> void:
+	var tris : Array = get_valid_verts(mesh_instance.mesh)
+	add_trees(tris)
 
 func add_trees(tris:Array) -> void:
 	for tri in tris:

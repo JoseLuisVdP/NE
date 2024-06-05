@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpoooyn54tumw"]
+
+[ext_resource type="PackedScene" uid="uid://eg04236qe587" path="res://models/FantasyVillage/Nature/Mushroom_02.fbx" id="1_8xty8"]
+[ext_resource type="PackedScene" uid="uid://mxpkeggi25qm" path="res://models/FantasyVillage/Nature/Mushroom_01.fbx" id="2_g1fjq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ubhov"]
+
+[node name="SuspiciousMushroom" type="Node3D"]
+
+[node name="Mushroom_02" parent="." instance=ExtResource("1_8xty8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120537, 0, 0.0544254)
+
+[node name="Mushroom_01" parent="." instance=ExtResource("2_g1fjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0862048, 0, -0.067889)
+
+[node name="Mushroom_03" parent="." instance=ExtResource("1_8xty8")]
+transform = Transform3D(0.532953, 0, 0, 0, 0.368114, 0, 0, 0, 0.581369, 0.00106072, 0, 0.032941)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0953668, 0)
+shape = SubResource("BoxShape3D_ubhov")

@@ -27,11 +27,11 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -256.0
+offset_top = -128.0
 offset_right = 175.0
 grow_vertical = 0
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_bottom = 128
+theme_override_constants/margin_bottom = 0
 
 [node name="Control" type="Panel" parent="MarginContainer"]
 custom_minimum_size = Vector2(128, 128)

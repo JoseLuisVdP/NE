@@ -13,6 +13,8 @@ func set_monitor_values():
 	toBeMonitored["Angle"] = str(_player.floor_angle.get_collision_normal().angle_to(Vector3.UP)) + "(" + str(_player.ground_dot_product) + ")"
 	toBeMonitored["CollidingBodies (floor)"] = _player.floor_collider.any(func (i): return i.is_colliding())
 	toBeMonitored["Raycast (floor)"] = _player.floor_angle.is_colliding()
+	toBeMonitored["Time"] = GlobalTime.time
+	toBeMonitored["Day Time"] = GlobalTime.day_time
 	
 	text = ""
 	

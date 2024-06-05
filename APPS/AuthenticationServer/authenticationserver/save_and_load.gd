@@ -10,6 +10,9 @@ func save_game(data:Dictionary, player_id:int, server_id:int) -> void:
 		printerr("Ha fallado el guardado de los datos: no existe el jugador")
 		exito = false
 	else:
+		data["SaveFiles"]["NPCs"] = JSON.stringify(data["SaveFiles"]["NPCs"])
+		print(data["SaveFiles"]["NPCs"])
+		print()
 		var savefile_data : Dictionary = data["SaveFiles"]
 		var temp = repositories.GAME_REPOSITORY.save_savefile(str(player_db_id), savefile_data)
 		if temp.size() == 0:
@@ -22,9 +25,14 @@ func load_game(savefile:String, player_id:int, server_id:int) -> void:
 	var exito = true
 	#SAVEFILE ES EL MAIL DEL PLAYER POR AHORA
 	var savefile_data : Dictionary = repositories.GAME_REPOSITORY.get_savefile_by_email(savefile, savefile)
+	
 	if savefile_data.size() == 0:
 		printerr("Ha fallado el guardado por email, requiere revisar DB")
 		exito = false
+	
+	if savefile_data["NPCs"] != null and not savefile_data["NPCs"].is_empty():
+		savefile_data["NPCs"] = JSON.parse_string(savefile_data["NPCs"])
+	
 	GameServer.return_player_savefile(savefile_data, player_id, server_id, exito)
 
 

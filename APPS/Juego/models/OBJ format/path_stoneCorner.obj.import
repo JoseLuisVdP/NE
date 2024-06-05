@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dx3hvjnyst3wl"
+path="res://.godot/imported/path_stoneCorner.obj-d2e4cd147e6af9aa208344c674e2c63b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/path_stoneCorner.obj-d2e4cd147e6af9aa208344c674e2c63b.mesh"]
+
+source_file="res://models/OBJ format/path_stoneCorner.obj"
+dest_files=["res://.godot/imported/path_stoneCorner.obj-d2e4cd147e6af9aa208344c674e2c63b.mesh", "res://.godot/imported/path_stoneCorner.obj-d2e4cd147e6af9aa208344c674e2c63b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

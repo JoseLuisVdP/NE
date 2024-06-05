@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6jadn71g7qo6"
+path="res://.godot/imported/crops_wheatStageA.obj-c90831c0dbc789e4a59404adcd0a1385.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crops_wheatStageA.obj-c90831c0dbc789e4a59404adcd0a1385.mesh"]
+
+source_file="res://models/OBJ format/crops_wheatStageA.obj"
+dest_files=["res://.godot/imported/crops_wheatStageA.obj-c90831c0dbc789e4a59404adcd0a1385.mesh", "res://.godot/imported/crops_wheatStageA.obj-c90831c0dbc789e4a59404adcd0a1385.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

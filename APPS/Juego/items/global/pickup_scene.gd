@@ -4,6 +4,7 @@ class_name PickupScene extends Node3D
 @export var item:Pickup
 @onready var despawn: Timer = $Despawn
 
+
 func _ready():
 	if item != null:
 		var instance = item.scene.instantiate()

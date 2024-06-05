@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu2vmvvqv6pp2"]
+
+[ext_resource type="ArrayMesh" uid="uid://kr5x2kmoc4jq" path="res://items/meshes/sword.obj" id="1_3yl35"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j783e"]
+size = Vector3(0.341949, 1.28625, 0.192627)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y18fp"]
+size = Vector3(1.06964, 2.35602, 1)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="Sword" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.079242, -0.226181, 0)
+mesh = ExtResource("1_3yl35")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105133, 0.640586, -0.00012207)
+shape = SubResource("BoxShape3D_j783e")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00521851, 0.678009, 0)
+shape = SubResource("BoxShape3D_y18fp")

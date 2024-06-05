@@ -29,7 +29,7 @@ project/assembly_name="Servidor"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/MongoDB/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
+enabled=PackedStringArray("res://addons/MongoDB/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
 
 [rendering]
 

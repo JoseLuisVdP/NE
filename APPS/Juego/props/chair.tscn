@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://l5dwi0e8cl6h"]
+
+[ext_resource type="PackedScene" uid="uid://dx6f8l775aj0b" path="res://models/FantasyVillage/Props/Chair.fbx" id="1_kdy34"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ma1f2"]
+size = Vector3(0.522705, 0.804688, 0.45813)
+
+[node name="Chair" type="StaticBody3D"]
+
+[node name="Chair" parent="." instance=ExtResource("1_kdy34")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00891113, 0.396484, -0.00579834)
+shape = SubResource("BoxShape3D_ma1f2")

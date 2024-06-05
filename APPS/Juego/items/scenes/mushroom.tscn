@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cme6jflsm748o"]
+
+[ext_resource type="PackedScene" uid="uid://cb2l5ogx5vyn2" path="res://models/FantasyVillage/Nature/Mushroom_04.fbx" id="1_t64og"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qb7q1"]
+size = Vector3(0.607208, 0.791924, 0.634216)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ppe1"]
+size = Vector3(0.26532, 0.354584, 0.262268)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000686646, 0.189281, 0.000152588)
+shape = SubResource("BoxShape3D_qb7q1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00320435, 0.178299, -0.00308228)
+shape = SubResource("BoxShape3D_1ppe1")
+
+[node name="Mushroom_04" parent="." instance=ExtResource("1_t64og")]

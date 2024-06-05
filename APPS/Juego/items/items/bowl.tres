@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://wuuu4gmqqev1"]
+
+[ext_resource type="PackedScene" uid="uid://83kmi0b7t0l3" path="res://items/scenes/bowl.tscn" id="1_2wfk7"]
+[ext_resource type="Texture2D" uid="uid://b1t53qela6rsp" path="res://items/icons/bowl.png" id="1_cw80n"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_gkwrr"]
+
+[resource]
+script = ExtResource("1_gkwrr")
+name = "Bol"
+scene = ExtResource("1_2wfk7")
+icon = ExtResource("1_cw80n")
+stack_size = 10
+description = "Cuenco de madera, prueba a hacer sopa"
+type = "material"
+damage = 0

@@ -24,7 +24,7 @@ func _input(event: InputEvent) -> void:
 	if ui.picked_item != null:
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			ui.picked_item.set_global_position(get_viewport().get_mouse_position() - ui.picked_item.size/2)
-			ui.picked_item.z_index = 999
+			ui.picked_item.z_index = 4096
 		else:
 			if ui.item_slot.icon_container.get_children().is_empty():
 				ui.item_slot.putItem()

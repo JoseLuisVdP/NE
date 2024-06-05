@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://taoreffp1cot"]
+
+[ext_resource type="ArrayMesh" uid="uid://bvl0mg4latcyy" path="res://items/meshes/bowl.obj" id="1_hnacy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bt4tl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2b21b"]
+width = 256
+height = 256
+normalize = false
+noise = SubResource("FastNoiseLite_bt4tl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtpqr"]
+albedo_color = Color(0.629166, 0.378738, 0.246548, 1)
+albedo_texture = SubResource("NoiseTexture2D_2b21b")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u1sfu"]
+material = SubResource("StandardMaterial3D_xtpqr")
+top_radius = 0.6
+height = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qktvq"]
+size = Vector3(1.27307, 0.480408, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wkwjn"]
+size = Vector3(1, 1.54126, 2.13959)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="Bowl" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_hnacy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.133301, 0)
+mesh = SubResource("CylinderMesh_u1sfu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00616455, -0.00302124, 0)
+shape = SubResource("BoxShape3D_qktvq")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00939941, 0.0155334)
+shape = SubResource("BoxShape3D_wkwjn")

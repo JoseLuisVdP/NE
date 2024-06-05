@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxntdgua64qx1"]
+
+[ext_resource type="PackedScene" uid="uid://dtl1no0771xi7" path="res://models/FantasyVillage/Props/Bench_02.fbx" id="1_rn8e5"]
+[ext_resource type="PackedScene" uid="uid://xhh1l8w2tosj" path="res://models/FantasyVillage/Props/Table_01.fbx" id="2_r1y5u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_enj4r"]
+size = Vector3(2.40208, 0.845764, 2.56042)
+
+[node name="Mesa0" type="StaticBody3D"]
+
+[node name="Bench_03" parent="." instance=ExtResource("1_rn8e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.03483)
+
+[node name="Bench_02" parent="." instance=ExtResource("1_rn8e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.10707)
+
+[node name="Table_03" parent="." instance=ExtResource("2_r1y5u")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00339508, 0.428864, -0.0298462)
+shape = SubResource("BoxShape3D_enj4r")

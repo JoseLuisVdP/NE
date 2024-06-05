@@ -1,0 +1,105 @@
+[gd_scene load_steps=19 format=3 uid="uid://cpedfgnu75ycn"]
+
+[ext_resource type="PackedScene" uid="uid://b6d7bfmmgll1h" path="res://models/FantasyVillage/Houses/Church.fbx" id="1_ue2ka"]
+[ext_resource type="PackedScene" uid="uid://brt7rsnehsqqr" path="res://models/FantasyVillage/HouseParts/ChurchBell_02.fbx" id="2_rcc6i"]
+[ext_resource type="AudioStream" uid="uid://dliawpgcs7su2" path="res://assets/sounds/church_bells.wav" id="3_o88ud"]
+[ext_resource type="ArrayMesh" uid="uid://b4qlpfuqqn67" path="res://models/new folder/statue_block.obj" id="3_to65n"]
+[ext_resource type="ArrayMesh" uid="uid://b3aqyfbnw3dob" path="res://models/new folder/statue_obelisk.obj" id="4_1axar"]
+[ext_resource type="PackedScene" uid="uid://dhxd3aaqpiqmt" path="res://models/FantasyVillage/Props/Market_Table_02.fbx" id="5_mbndw"]
+[ext_resource type="PackedScene" uid="uid://d200um2bsurlf" path="res://models/FantasyVillage/Props/Candle_02.fbx" id="6_418ba"]
+[ext_resource type="PackedScene" uid="uid://bltsfecwwrnw3" path="res://models/FantasyVillage/Props/Candle_03.fbx" id="7_x81mk"]
+[ext_resource type="PackedScene" uid="uid://84hel05j0v5e" path="res://models/FantasyVillage/Props/Book_03.fbx" id="8_srv7f"]
+[ext_resource type="PackedScene" uid="uid://cmlr30vssx1wd" path="res://models/FantasyVillage/Props/Candle_01.fbx" id="9_k3i3b"]
+[ext_resource type="Shader" path="res://shaders/grass.gdshader" id="11_lg46o"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g6luc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5rwwf"]
+noise = SubResource("FastNoiseLite_g6luc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcluk"]
+render_priority = 0
+shader = ExtResource("11_lg46o")
+shader_parameter/color = Color(0.593134, 0.593134, 0.593134, 1)
+shader_parameter/color2 = Color(0.347817, 0.347817, 0.347817, 1)
+shader_parameter/noiseScale = 20.0
+shader_parameter/noise = SubResource("NoiseTexture2D_5rwwf")
+
+[sub_resource type="BoxMesh" id="BoxMesh_uaw4m"]
+material = SubResource("ShaderMaterial_bcluk")
+size = Vector3(6.3, 2, 9.86)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hm6ex"]
+size = Vector3(6.3, 1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_as37n"]
+size = Vector3(6.28372, 11.5126, 11.1269)
+
+[sub_resource type="BoxMesh" id="BoxMesh_abou3"]
+material = SubResource("ShaderMaterial_bcluk")
+size = Vector3(1, 2, 2)
+
+[node name="Church" type="StaticBody3D"]
+
+[node name="Church" parent="." instance=ExtResource("1_ue2ka")]
+
+[node name="ChurchBell_02" parent="." instance=ExtResource("2_rcc6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0241931, 7.79826, 3.55044)
+
+[node name="audio" type="AudioStreamPlayer3D" parent="ChurchBell_02" groups=["sounds_at_0"]]
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+stream = ExtResource("3_o88ud")
+volume_db = 6.0
+max_db = 0.0
+max_distance = 600.0
+
+[node name="StatueBlock" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0564103, 0, -2.41195)
+mesh = ExtResource("3_to65n")
+
+[node name="StatueBlock2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0564103, 0.349082, -2.41195)
+mesh = ExtResource("3_to65n")
+
+[node name="StatueObelisk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0550455, 0.748415, -2.40916)
+mesh = ExtResource("4_1axar")
+
+[node name="Market_Table_02" parent="." instance=ExtResource("5_mbndw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0801637, 0, -1.05644)
+
+[node name="Candle_02" parent="Market_Table_02" instance=ExtResource("6_418ba")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.752942, 0.930692, 0.119508)
+
+[node name="Candle_03" parent="Market_Table_02" instance=ExtResource("7_x81mk")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.653174, 0.918307, 0.0819507)
+
+[node name="Book_03" parent="Market_Table_02/Candle_03" instance=ExtResource("8_srv7f")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.64566, 0.0135137, -0.000977039)
+
+[node name="Candle_01" parent="Market_Table_02" instance=ExtResource("9_k3i3b")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.687105, 0.931351, -0.0822809)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00795269, -1, 0.476822)
+mesh = SubResource("BoxMesh_uaw4m")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0.00795269, -1.17164, 6.4598)
+mesh = SubResource("BoxMesh_hm6ex")
+surface_material_override/0 = SubResource("ShaderMaterial_bcluk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0164032, 5.25629, 1.17762)
+shape = SubResource("BoxShape3D_as37n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, -1, 6)
+mesh = SubResource("BoxMesh_abou3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, -1, 6)
+mesh = SubResource("BoxMesh_abou3")

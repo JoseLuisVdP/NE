@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://d2cybs13svf62"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_cs3ou"]
+[ext_resource type="Texture2D" uid="uid://dqp1pild1foj1" path="res://items/icons/trigo.png" id="1_d3krj"]
+[ext_resource type="PackedScene" uid="uid://qa1phjf0rem5" path="res://items/scenes/wheat.tscn" id="2_aygrb"]
+
+[resource]
+script = ExtResource("1_cs3ou")
+name = "Trigo"
+scene = ExtResource("2_aygrb")
+icon = ExtResource("1_d3krj")
+stack_size = 20
+description = "Prueba a hacer harina"
+type = "material"
+damage = 0

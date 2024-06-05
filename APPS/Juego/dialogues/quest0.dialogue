@@ -7,6 +7,7 @@ Nathan: [[Hey|Hola|Buenas]], ¿qué tal estás desde que despertaste? ¿Vas reco
 	Nathan: Entiendo...
 - Adiós
 	Nathan: Vaya, pareces que no estas muy animado[speed=0.1]...[/speed] Bueno, ya hablaremos
+	do ConversationManager.end_chat()
 	=> END
 Nathan: Bueno, como sea, tengo un encargo que pedirte
 Nathan: Resulta que perdí mi hacha en el bosque, y me gustaría que la recuperases
@@ -17,6 +18,7 @@ Nathan: Resulta que perdí mi hacha en el bosque, y me gustaría que la recupera
 Nathan: Tengo que asegurarme de que ese hacha no se pierda, pero tengo que estar en reposo absoluto desde la última vez que me lesioné. [speed=0.8]Ya sabes, la edad...[/speed]
 Nathan: En fin, creo que puedo confiar en tí entonces. Si no puedes ahora, cuando puedas, solo asegúrate de traerla, ¿vale?
 do MyQuestManager.accept()
+do ConversationManager.end_chat()
 => END
 
 ~ during_quest
@@ -25,6 +27,7 @@ Nathan: [[Hey|Hola|Buenas]], ¿qué tal va esa búsqueda?
 - Aún nada
 	Nathan: Qué pena...
 	Nathan: En fin, a ver si para la próxima hay suerte. ¡Ánimo!
+	do ConversationManager.end_chat()
 	=> END
 - ¡La encontré!
 	Nathan: ¡Hombre, que alegría!
@@ -35,8 +38,10 @@ Nathan: [[Hey|Hola|Buenas]], ¿qué tal va esa búsqueda?
 	Nathan: Esta no es mi hacha[speed=0.5]...[/speed] ¿Tenías una de reserva y me la has querido regalar, eh?
 	Nathan: Bueno, no te preocupes, me sirve esta por ahora. ¡Ya buscaré la mía cuando me recupere!
 do MyQuestManager.complete()
+do ConversationManager.end_chat()
 => END
 
 ~ post_quest
 Nathan: Nos [vamos viendo|vemos], joven
+do ConversationManager.end_chat()
 => END

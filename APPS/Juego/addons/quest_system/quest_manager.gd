@@ -66,11 +66,15 @@ func mark_quest_as_available(quest: Quest) -> void:
 	new_available_quest.emit(quest)
 
 
+# MIS MODIFICACIONES
 func get_available_quests() -> Array[Quest]:
 	return available.quests
 
 func get_active_quests() -> Array[Quest]:
 	return active.quests
+
+func get_completed_quests() -> Array[Quest]:
+	return completed.quests
 
 
 func is_quest_available(quest: Quest) -> bool:
@@ -78,15 +82,18 @@ func is_quest_available(quest: Quest) -> bool:
 		return true
 	return false
 
+
 func is_quest_active(quest: Quest) -> bool:
 	if active.is_quest_inside(quest):
 		return true
 	return false
 
+
 func is_quest_completed(quest: Quest) -> bool:
 	if completed.is_quest_inside(quest):
 		return true
 	return false
+
 
 func is_quest_in_pool(quest: Quest, pool_name: String) -> bool:
 	if pool_name.is_empty():

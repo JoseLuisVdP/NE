@@ -1,12 +1,12 @@
-[gd_scene load_steps=7 format=4 uid="uid://b41qd288sx0y0"]
+[gd_scene load_steps=8 format=4 uid="uid://b41qd288sx0y0"]
 
 [ext_resource type="Texture2D" uid="uid://cpjqqfq45k4jf" path="res://models/FantasyVillage/Texture_01.png" id="1_ni7ip"]
 [ext_resource type="PackedScene" uid="uid://fplhluovbqvs" path="res://models/FantasyVillage/HouseParts/Door2_02.fbx" id="2_yqulj"]
+[ext_resource type="PackedScene" uid="uid://cnolirp5tprxm" path="res://props/farola2.tscn" id="3_4uex6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwsvu"]
 resource_name = "Material_01"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_ni7ip")
 roughness = 0.8
 emission_enabled = true
@@ -58,3 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30778, 0, 2.95786)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171814, 2.73502, 0.0325317)
 shape = SubResource("BoxShape3D_ggjb5")
+
+[node name="Farola" parent="." instance=ExtResource("3_4uex6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80713, 1.33335, 3.08968)

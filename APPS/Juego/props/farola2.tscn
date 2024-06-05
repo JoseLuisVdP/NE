@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnolirp5tprxm"]
+
+[ext_resource type="PackedScene" uid="uid://01bn1sk5i1e6" path="res://models/FantasyVillage/Props/Lantern_01.fbx" id="1_8awo5"]
+
+[node name="Farola" type="Node3D" groups=["citylights"]]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.889167, 0.81, 1)
+light_energy = 0.5
+
+[node name="Lantern_01" parent="." instance=ExtResource("1_8awo5")]

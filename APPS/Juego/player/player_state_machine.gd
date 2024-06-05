@@ -72,6 +72,7 @@ func _on_start_chatting() -> void:
 	is_chatting = true
 	_player.enable_movement(false)
 	_player.chat()
+	
 
 func _while_chatting(delta: float) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

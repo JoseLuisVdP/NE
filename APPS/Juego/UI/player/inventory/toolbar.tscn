@@ -2,17 +2,18 @@
 
 [ext_resource type="Script" path="res://UI/player/inventory/ordered_items_grid.gd" id="1_0lfvp"]
 [ext_resource type="Script" path="res://UI/player/inventory/toolbar.gd" id="1_fawjh"]
-[ext_resource type="PackedScene" uid="uid://p2fuew7akfjn" path="res://UI/player/inventory/ItemSlot.tscn" id="2_jxnc2"]
+[ext_resource type="PackedScene" uid="uid://p2fuew7akfjn" path="res://UI/player/inventory/item_slot.tscn" id="2_jxnc2"]
 [ext_resource type="FontFile" uid="uid://7hqhpammf0hp" path="res://assets/fonts/nord/Nord Regular.otf" id="2_k3e7s"]
 
 [node name="Toolbar" type="Control"]
 auto_translate_mode = 1
+z_index = 1
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
+offset_top = -91.0
+offset_right = 302.0
 grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -58,12 +59,15 @@ _item_slot_size = 40
 
 [node name="ItemSlot" parent="VBoxContainer/MarginContainer2/Content" instance=ExtResource("2_jxnc2")]
 auto_translate_mode = 1
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
 [node name="ItemSlot2" parent="VBoxContainer/MarginContainer2/Content" instance=ExtResource("2_jxnc2")]
 auto_translate_mode = 1
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
 [node name="ItemSlot3" parent="VBoxContainer/MarginContainer2/Content" instance=ExtResource("2_jxnc2")]
 auto_translate_mode = 1
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2

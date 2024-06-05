@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://udsb1t77laau"]
+
+[ext_resource type="PackedScene" uid="uid://b1rpi18s4on8f" path="res://models/FantasyVillage/Nature/Tree_02.fbx" id="1_x3up2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_03m7v"]
+height = 2.5
+radius = 1.03115
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="Tree_02" parent="." instance=ExtResource("1_x3up2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CylinderShape3D_03m7v")

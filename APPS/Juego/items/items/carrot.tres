@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://bj6in0advpma5"]
+
+[ext_resource type="Texture2D" uid="uid://jinu52ust6fw" path="res://items/icons/carrot.png" id="1_66qfu"]
+[ext_resource type="PackedScene" uid="uid://ck6nqp5mcdia3" path="res://items/scenes/carrot.tscn" id="1_oh1g0"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_tqria"]
+
+[resource]
+script = ExtResource("1_tqria")
+name = "Zanahoria"
+scene = ExtResource("1_oh1g0")
+icon = ExtResource("1_66qfu")
+stack_size = 20
+description = "Cómetela o algo"
+type = "food"
+damage = -10

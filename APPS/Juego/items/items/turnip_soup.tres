@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://dc643h51htoy4"]
+
+[ext_resource type="Texture2D" uid="uid://mw8p2vh8bk35" path="res://items/icons/turnip_soup.png" id="1_4o74j"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_356nj"]
+[ext_resource type="PackedScene" uid="uid://csb53aycea4aw" path="res://items/scenes/turnip_soup.tscn" id="2_mrgyq"]
+
+[resource]
+script = ExtResource("1_356nj")
+name = "Sopa de rábano"
+scene = ExtResource("2_mrgyq")
+icon = ExtResource("1_4o74j")
+stack_size = 1
+description = "Reconfortante"
+type = "food"
+damage = -30

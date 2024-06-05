@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt2mgdu7bnaoq"]
+
+[ext_resource type="PackedScene" uid="uid://c6ngbedmo30ay" path="res://models/FantasyVillage/Props/Logs.fbx" id="1_qqa13"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nek5q"]
+points = PackedVector3Array(1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, -1, 2, 0, 1, 2, 0)
+
+[node name="Logs" type="StaticBody3D"]
+
+[node name="Logs" parent="." instance=ExtResource("1_qqa13")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00587273, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_nek5q")

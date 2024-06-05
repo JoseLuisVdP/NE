@@ -1,7 +1,6 @@
-class_name ItemSlot extends ReferenceRect
+class_name ItemSlot extends PanelContainer
 
 var _item : Item
-var inventory
 @onready var margin_container = %IconContainer
 @onready var icon_container = %IconContainer
 @onready var grid: OrderedItemsGrid = $".."
@@ -16,16 +15,26 @@ var size_icon : int = -1
 var index : int
 
 var is_active : bool = false
+var active_stylebox : StyleBoxFlat
+var default_stylebox : StyleBoxFlat
 
 func _ready():
+	"""
+	default_stylebox = get_theme_stylebox("normal")
+	default_stylebox.border_color = Color(0.6,0.6,0.6)
+	default_stylebox.set_border_width_all(1)
+	active_stylebox = default_stylebox.duplicate()
+	active_stylebox.border_color = Color.WHITE
+	"""
 	ui = find_parent("UI")
-	inventory = grid.inventory
 
 func display(item:Pickup, qty:int = 1) -> void:
+	"""
 	if is_active:
-		reference_rect.show()
+		add_theme_stylebox_override("normal", active_stylebox)
 	else:
-		reference_rect.hide()
+		add_theme_stylebox_override("normal", default_stylebox)
+	"""
 	if item != null:
 		if _item == null:
 			var scene : Item = item_scene.instantiate()
@@ -91,6 +100,7 @@ func interchange_item():
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.pressed:
+		print("CLICK")
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if ui.picked_item != null:
 				if _item == null:

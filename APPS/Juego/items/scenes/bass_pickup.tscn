@@ -7,15 +7,16 @@
 albedo_texture = ExtResource("1_hw783")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nnflq"]
-size = Vector3(0.6, 0.3, 0.09)
+size = Vector3(6, 3, 0.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qw8on"]
-size = Vector3(0.83, 0.5, 0.186445)
+size = Vector3(8.3, 5, 1.8)
 
 [node name="BassPickup" type="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.0851359)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.859178)
 material_override = SubResource("StandardMaterial3D_ddcxt")
 mesh = ExtResource("2_k0wkk")
 

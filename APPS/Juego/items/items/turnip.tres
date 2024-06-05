@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://cmxj5rlotmc48"]
+
+[ext_resource type="Texture2D" uid="uid://c5yojchj07qhj" path="res://items/icons/nabo.png" id="1_210ie"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_mj0lb"]
+[ext_resource type="PackedScene" uid="uid://ctx8yjy1ldwo" path="res://items/scenes/turnip.tscn" id="2_gi00w"]
+
+[resource]
+script = ExtResource("1_mj0lb")
+name = "Rábano"
+scene = ExtResource("2_gi00w")
+icon = ExtResource("1_210ie")
+stack_size = 20
+description = "Puedes comerlo. O cocinarlo. O no."
+type = "food"
+damage = -15

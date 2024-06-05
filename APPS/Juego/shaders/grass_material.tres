@@ -10,7 +10,7 @@ noise = SubResource("FastNoiseLite_g6luc")
 [resource]
 render_priority = 0
 shader = ExtResource("1_0c3tp")
-shader_parameter/color = Color(1.06369e-05, 0.734862, 9.62615e-07, 1)
-shader_parameter/color2 = Color(0, 0.890196, 0, 1)
+shader_parameter/color = Color(0.069, 0.69, 0, 1)
+shader_parameter/color2 = Color(0.1548, 0.86, 0.166553, 1)
 shader_parameter/noiseScale = 20.0
 shader_parameter/noise = SubResource("NoiseTexture2D_5rwwf")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyyid1sq6mk7j"]
+
+[ext_resource type="PackedScene" uid="uid://dx6f8l775aj0b" path="res://models/FantasyVillage/Props/Chair.fbx" id="1_qqf2o"]
+[ext_resource type="PackedScene" uid="uid://xhh1l8w2tosj" path="res://models/FantasyVillage/Props/Table_01.fbx" id="2_oncnx"]
+[ext_resource type="PackedScene" uid="uid://dtl1no0771xi7" path="res://models/FantasyVillage/Props/Bench_02.fbx" id="3_g2qno"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qbk1y"]
+size = Vector3(2.67426, 1.36536, 2.39282)
+
+[node name="Mesa1" type="StaticBody3D"]
+
+[node name="Chair5" parent="." instance=ExtResource("1_qqf2o")]
+transform = Transform3D(-0.148724, 0, -0.988879, 0, 1, 0, 0.988879, 0, -0.148724, 1.24536, 0, 0.0698285)
+
+[node name="Table_04" parent="." instance=ExtResource("2_oncnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Bench_06" parent="." instance=ExtResource("3_g2qno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0354)
+
+[node name="Bench_07" parent="." instance=ExtResource("3_g2qno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.05416)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0885315, 0.182678, -0.0924072)
+shape = SubResource("BoxShape3D_qbk1y")

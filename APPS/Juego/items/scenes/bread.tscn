@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://byow05g88rm6o"]
+
+[ext_resource type="ArrayMesh" uid="uid://l5jls2qdl4dl" path="res://items/meshes/bread.obj" id="1_4xpty"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xc1qe"]
+size = Vector3(8.76428, 4.37134, 8.76807)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sa2b2"]
+size = Vector3(12.8229, 9.26167, 1)
+
+[node name="Node3D" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0022583, 2.24255, -0.366455)
+shape = SubResource("BoxShape3D_xc1qe")
+
+[node name="Bread" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -45, 0, -5.37)
+mesh = ExtResource("1_4xpty")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0160065, 2.21679, 0)
+shape = SubResource("BoxShape3D_sa2b2")

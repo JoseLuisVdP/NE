@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://8ovxfx63aeso"]
+
+[ext_resource type="ArrayMesh" uid="uid://crqdovcpyqsqm" path="res://models/crops/crops_dirtRow.obj" id="1_0lllr"]
+[ext_resource type="ArrayMesh" uid="uid://c84lvtv0f3u7m" path="res://models/crops/crops_dirtRowCorner.obj" id="2_boeye"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8no0f"]
+resource_name = "dirt"
+albedo_color = Color(0.886275, 0.513726, 0.341177, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4bkwd"]
+material = SubResource("StandardMaterial3D_8no0f")
+size = Vector3(4.7, 1, 2.9)
+
+[node name="SmallCrops" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035637, 0, 0)
+mesh = SubResource("BoxMesh_4bkwd")
+
+[node name="CropsDirtRow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 0.454849, -0.5, -1.5)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRow2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, -0.537239, -0.5, -1.5)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRow3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, -1.52414, -0.5, -1.5)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRow5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 20, 0, -1, 0, -4.37114e-08, -2.51027, -0.5, -0.508427)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRow6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 20, 0, -1, 0, -4.37114e-08, -2.51027, -0.5, 0.487273)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRow4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 1.42403, -0.5, -1.5)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRow7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -4.76837e-07, 5.3896e-15, -5.96046e-08, 20, -8.74228e-08, 1.71583e-15, -1.74846e-06, -1, -0.546099, -0.5, 1.47957)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRow8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -4.76837e-07, 5.3896e-15, -5.96046e-08, 20, -8.74228e-08, 1.71583e-15, -1.74846e-06, -1, 0.445988, -0.5, 1.47957)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRow9" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -4.76837e-07, 5.3896e-15, -5.96046e-08, 20, -8.74228e-08, 1.71583e-15, -1.74846e-06, -1, 1.43289, -0.5, 1.47957)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRow10" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -4.76837e-07, 5.3896e-15, -5.96046e-08, 20, -8.74228e-08, 1.71583e-15, -1.74846e-06, -1, -1.51528, -0.5, 1.47957)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRowCorner" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, -2.51316, -0.5, -1.5)
+mesh = ExtResource("2_boeye")
+
+[node name="CropsDirtRowCorner2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 20, 0, -3.55271e-15, 0, 1, -2.51316, -0.5, 1.48343)
+mesh = ExtResource("2_boeye")
+
+[node name="CropsDirtRow11" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.37114e-08, -1.74846e-06, -1, -8.74228e-08, 20, -8.74228e-08, 1, 1.74846e-06, 4.37114e-08, 2.41778, -0.5, 0.489565)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRow12" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.37114e-08, -1.74846e-06, -1, -8.74228e-08, 20, -8.74228e-08, 1, 1.74846e-06, 4.37114e-08, 2.41778, -0.5, -0.506135)
+mesh = ExtResource("1_0lllr")
+
+[node name="CropsDirtRowCorner3" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.37114e-08, -1.74846e-06, 1, 8.74228e-08, 20, 8.74228e-08, -1, 1.74846e-06, 4.37114e-08, 2.41778, -0.5, 1.48114)
+mesh = ExtResource("2_boeye")
+
+[node name="CropsDirtRowCorner4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -1.74846e-06, -3.55271e-15, -8.74228e-08, 20, 8.74228e-08, -4.09003e-15, 1.74846e-06, -1, 2.41778, -0.5, -1.50229)
+mesh = ExtResource("2_boeye")

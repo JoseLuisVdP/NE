@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://cd0qq76w68wg4"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_040i0"]
+[ext_resource type="Texture2D" uid="uid://c67wic1o48dr5" path="res://items/icons/espada.png" id="1_kbdf8"]
+[ext_resource type="PackedScene" uid="uid://bu2vmvvqv6pp2" path="res://items/scenes/sword.tscn" id="2_1xqdf"]
+
+[resource]
+script = ExtResource("1_040i0")
+name = "Espada"
+scene = ExtResource("2_1xqdf")
+icon = ExtResource("1_kbdf8")
+stack_size = 1
+description = "Cuidao"
+type = "tool"
+damage = 60

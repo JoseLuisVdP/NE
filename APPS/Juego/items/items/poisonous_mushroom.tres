@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://88ytfh7qbl0e"]
+
+[ext_resource type="Texture2D" uid="uid://bru3nrqjx53yw" path="res://items/icons/suspicious_mushroom.png" id="1_bf1rh"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_e5gls"]
+[ext_resource type="PackedScene" uid="uid://bwyx2e30exn55" path="res://items/scenes/suspicious_mushroom.tscn" id="2_o8mn7"]
+
+[resource]
+script = ExtResource("1_e5gls")
+name = "Seta sospechosa"
+scene = ExtResource("2_o8mn7")
+icon = ExtResource("1_bf1rh")
+stack_size = 20
+description = "Es una seta, pero algo anda mal..."
+type = "food"
+damage = 20

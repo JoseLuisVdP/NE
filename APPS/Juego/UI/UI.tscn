@@ -47,10 +47,18 @@ grow_vertical = 0
 
 [node name="Toolbar" parent="NonCloseable" instance=ExtResource("7_gsmag")]
 unique_name_in_owner = true
+offset_top = 0.0
+offset_right = 0.0
 
 [node name="Stats" parent="NonCloseable" instance=ExtResource("8_okq0i")]
 unique_name_in_owner = true
-offset_right = 40.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 410.0
+offset_bottom = 410.0
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Quests" parent="NonCloseable" instance=ExtResource("9_lxf1x")]
 unique_name_in_owner = true

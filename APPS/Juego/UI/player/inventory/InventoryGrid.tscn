@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8u4jrpaltv85"]
 
-[ext_resource type="PackedScene" uid="uid://p2fuew7akfjn" path="res://UI/player/inventory/ItemSlot.tscn" id="1_4setr"]
+[ext_resource type="PackedScene" uid="uid://p2fuew7akfjn" path="res://UI/player/inventory/item_slot.tscn" id="1_4setr"]
 [ext_resource type="Script" path="res://UI/player/inventory/ordered_items_grid.gd" id="1_mrmn7"]
 
 [node name="InventoryGrid" type="GridContainer"]

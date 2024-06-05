@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwhjecu10qm15"]
+[gd_scene load_steps=6 format=3 uid="uid://bwhjecu10qm15"]
 
 [ext_resource type="PackedScene" uid="uid://fplhluovbqvs" path="res://models/FantasyVillage/HouseParts/Door2_02.fbx" id="1_3gsf3"]
 [ext_resource type="PackedScene" uid="uid://brrskc6ovtkhr" path="res://models/FantasyVillage/Houses/House_07.fbx" id="2_1ajko"]
+[ext_resource type="PackedScene" uid="uid://cnolirp5tprxm" path="res://props/farola2.tscn" id="3_u3bjf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ggjb5"]
 size = Vector3(5.27838, 5.52643, 6.27039)
@@ -23,3 +24,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29086, 2.67233, -3.23102)
 shape = SubResource("BoxShape3D_tn07r")
 
 [node name="House_07" parent="." instance=ExtResource("2_1ajko")]
+
+[node name="Farola" parent="." instance=ExtResource("3_u3bjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80713, 1.33335, 3.08968)

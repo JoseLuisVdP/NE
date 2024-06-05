@@ -6,8 +6,8 @@ var sounds_array : Array[AudioStream]
 var sounds : Dictionary
 
 func load_sounds() -> void:
-	assign_sound(&"ui_btn_click", sounds_array[0])
-	assign_sound(&"ui_btn_hover", sounds_array[1])
+	assign_sound(&"ui_btn_click", sounds_array[2])
+	assign_sound(&"ui_btn_hover", sounds_array[3])
 	
 	print(sounds_array)
 	

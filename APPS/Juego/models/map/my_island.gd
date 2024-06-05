@@ -1,18 +1,29 @@
 class_name MyIsland extends StaticBody3D
 
 @onready var icosphere: MeshInstance3D = $Icosphere
-@onready var forest: Marker3D = $Forest
+@onready var forest: ProceduralForest = $Forest
 @onready var grass: ProceduralGrass = $Grass
 @onready var bass_paths: Node3D = %BassPaths
+@onready var general_grass: ProceduralGrass = %GeneralGrass
 
 @export var bass_scene : PackedScene
 @export var enemy_scene : PackedScene
 @export var bass_properties : Enemy
+@onready var grass_2: ProceduralGrass = $Grass2
 
 var mdt : MeshDataTool
 
 func generate():
 	add_bass()
+	Scenes.update_loading_sreen_title("Generando bosques...")
+	Scenes.update_loading_sreen_progress(0.1)
+	await forest.generate()
+	Scenes.update_loading_sreen_title("Generando detalles...")
+	Scenes.update_loading_sreen_progress(0.5)
+	await grass.generate()
+	Scenes.update_loading_sreen_title("Unos retoques finales...")	
+	Scenes.update_loading_sreen_progress(0.7)
+	await general_grass.generate()
 
 func add_bass():
 	for i in bass_paths.get_children():

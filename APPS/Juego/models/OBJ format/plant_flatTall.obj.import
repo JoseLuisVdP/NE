@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://duab3i1thsd5u"
+path="res://.godot/imported/plant_flatTall.obj-7c80b1118cbadf2c649a3ac4b8c49dfa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plant_flatTall.obj-7c80b1118cbadf2c649a3ac4b8c49dfa.mesh"]
+
+source_file="res://models/OBJ format/plant_flatTall.obj"
+dest_files=["res://.godot/imported/plant_flatTall.obj-7c80b1118cbadf2c649a3ac4b8c49dfa.mesh", "res://.godot/imported/plant_flatTall.obj-7c80b1118cbadf2c649a3ac4b8c49dfa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

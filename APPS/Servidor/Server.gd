@@ -80,7 +80,7 @@ func _on_token_expiration_timeout() -> void:
 		token_time = int(expected_tokens[i].right(-64))
 		if cur_time - token_time >= TOKEN_EXPIRATION_TIME:
 			expected_tokens.erase(expected_tokens[i])
-	print(expected_tokens)
+	print("Expected: " + str(expected_tokens))
 
 @rpc("any_peer", "reliable")
 func return_token_verification_result(player_id:int, token_verification:bool) -> void:
@@ -94,6 +94,7 @@ func save_data(data:Dictionary, player_id:int = 1) -> void:
 
 @rpc("any_peer", "reliable")
 func data_saved(result:bool, player_id:int = 1) -> void:
+	print("Se ha guardado la partida de " + str(player_id) + ", devolviendo resultado")
 	rpc_id(player_id, "data_saved", result)
 
 @rpc("any_peer", "reliable")

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cx6g6tguniwa4"
+path="res://.godot/imported/ground_riverStraight.obj-354babd5062200f18338c1b212d1c43e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ground_riverStraight.obj-354babd5062200f18338c1b212d1c43e.mesh"]
+
+source_file="res://models/OBJ format/ground_riverStraight.obj"
+dest_files=["res://.godot/imported/ground_riverStraight.obj-354babd5062200f18338c1b212d1c43e.mesh", "res://.godot/imported/ground_riverStraight.obj-354babd5062200f18338c1b212d1c43e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

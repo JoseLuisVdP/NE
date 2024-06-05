@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://pstbl4c6svrt" path="res://assets/sounds/sounds_rg.tres" id="4_pjwy0"]
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="5_70e15"]
 [ext_resource type="Texture2D" uid="uid://cu4ww2b3rgw3x" path="res://icon.svg" id="5_ju1hb"]
-[ext_resource type="Material" uid="uid://qape7yijpgtb" path="res://blur.tres" id="7_sm41k"]
+[ext_resource type="Material" uid="uid://qape7yijpgtb" path="res://shaders/blur.tres" id="7_sm41k"]
 
 [sub_resource type="Gradient" id="Gradient_ymjhh"]
 interpolation_mode = 2

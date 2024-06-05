@@ -10,6 +10,6 @@ name = "Hacha"
 scene = ExtResource("2_axcaa")
 icon = ExtResource("1_kgf2t")
 stack_size = 1
-description = "Hacha de prueba"
+description = "Un hacha simple, hace bastante daño, ¡prueba a talar algo!"
 type = "tool"
 damage = 40
