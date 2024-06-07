@@ -4,6 +4,8 @@ class_name ManNPC extends CharacterBody3D
 @export var colors : Array[Material]
 var skin_id : int = -1
 
+@onready var animated_human: Node3D = $AnimatedHuman
+
 
 """
 const SPEED = 5.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://ekqort30etdn"]
+[gd_scene load_steps=55 format=4 uid="uid://ekqort30etdn"]
 
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_b4x0r"]
 [ext_resource type="Script" path="res://player/scenes/player_controller.gd" id="1_lk6x6"]
@@ -6,11 +6,17 @@
 [ext_resource type="Script" path="res://player/scenes/player_interaction_area.gd" id="4_ou26r"]
 [ext_resource type="Script" path="res://player/scenes/variables_monitor.gd" id="5_kavyw"]
 [ext_resource type="PackedScene" uid="uid://bjp1c6kxtny3f" path="res://UI/player/scenes/PlayerStateMachine.tscn" id="7_s6dhs"]
+[ext_resource type="PackedScene" uid="uid://21571wtspmwm" path="res://clima_particles.tscn" id="8_anhci"]
 [ext_resource type="PackedScene" uid="uid://bdoqphvadbbhr" path="res://UI/player/scenes/PlayerCamera.tscn" id="8_huuwi"]
+[ext_resource type="Script" path="res://player/scenes/steps_stream.gd" id="9_0tylo"]
+[ext_resource type="AudioStream" uid="uid://c045fyyla8rqp" path="res://assets/sounds/step_0.wav" id="10_uc6mt"]
+[ext_resource type="AudioStream" uid="uid://c4ua12e4s6yyo" path="res://assets/sounds/step_1.wav" id="11_8s3xa"]
+[ext_resource type="AudioStream" uid="uid://cqr1oytvpq4ar" path="res://assets/sounds/step_2.wav" id="12_scnu1"]
+[ext_resource type="AudioStream" uid="uid://cfqoadpdysm70" path="res://assets/sounds/step_3.wav" id="13_ews8c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oi76l"]
 radius = 0.3
-height = 1.53444
+height = 1.13637
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_00ulo"]
 resource_name = "Animated Human_Human_CylinderMesh_003"
@@ -2204,7 +2210,7 @@ _data = {
 size = Vector3(0.5, 0.8, 0.5)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4bfyk"]
-height = 1.6
+height = 1.4253
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_klikb"]
 animation = &"Death"
@@ -2317,7 +2323,7 @@ unique_name_in_owner = true
 script = ExtResource("1_lk6x6")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.763, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.559932, 0)
 shape = SubResource("CapsuleShape3D_oi76l")
 
 [node name="AnimatedHuman" type="Node3D" parent="."]
@@ -2646,6 +2652,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 script = ExtResource("4_ou26r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.138259, 0)
 shape = SubResource("CylinderShape3D_4bfyk")
 
 [node name="Monitor" type="Label" parent="."]
@@ -2728,6 +2735,20 @@ collision_mask = 5
 [node name="StateChart" parent="." instance=ExtResource("7_s6dhs")]
 unique_name_in_owner = true
 
+[node name="ClimaParticles" parent="." instance=ExtResource("8_anhci")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="StepsStream" type="AudioStreamPlayer" parent="."]
+script = ExtResource("9_0tylo")
+step_sounds = Array[AudioStreamWAV]([ExtResource("10_uc6mt"), ExtResource("11_8s3xa"), ExtResource("12_scnu1"), ExtResource("13_ews8c")])
+
+[node name="Timer" type="Timer" parent="StepsStream"]
+
 [connection signal="area_entered" from="InteractionArea" to="InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="InteractionArea" method="_on_area_exited"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="update_clima"]
+[connection signal="timeout" from="StepsStream/Timer" to="StepsStream" method="_on_timer_timeout"]

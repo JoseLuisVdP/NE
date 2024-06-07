@@ -37,6 +37,8 @@ var _should_move : bool = false
 var can_jump : bool = true
 
 var email : String
+var location : String = "pradollano"
+var temperature : float = -99
 
 @export_category("Características")
 @export var SPEED : float = 6.0
@@ -63,6 +65,7 @@ var chatting_npc : NPCScene
 
 var _pid := Pid3D.new(12 * mass, .001 * mass, 0.1 * mass)
 
+
 func chat():
 	if npcs.size() <= 0:
 		return
@@ -85,8 +88,10 @@ func chat():
 		else:
 			DialogueManager.show_example_dialogue_balloon(npc.dialogue, "before_quest")
 
+
 func _on_dialogue_end(dialogue:DialogueResource):
 	change_state("not_interacting")
+
 
 func _ready():
 	RUN_SPEED = SPEED * RUN_MULTIPLIER
@@ -104,11 +109,14 @@ func _ready():
 	
 	email = Server.player_email
 
+
 func start_conversation():
 	chatting_npc = npcs.filter(func (i): return i is NPCScene)[0]
 
+
 func end_conversation():
 	chatting_npc = null
+
 
 func _physics_process(delta):
 	if _should_move: move(delta)
@@ -120,6 +128,7 @@ func _physics_process(delta):
 		tool[0].collision_mask = 0
 		
 	monitor.set_monitor_values()
+
 
 func move(delta):
 	input = Input.get_vector("left", "right", "up", "down").normalized()
@@ -147,21 +156,27 @@ func move(delta):
 	if _should_move: apply_central_force(correction_force)
 	if linear_velocity.length() < 0.1: linear_velocity = Vector3.ZERO
 
+
 func change_direction():
 	meshRotation = camera.get_rotation_y() + (PI if input.y > 0 else 0) + asin(-input.x) * sign(-input.y+0.5)
 	mesh.rotation.y = lerp_angle(mesh.rotation.y, meshRotation, ease(0.5, -2))
 
+
 func change_state(evnt:String) -> void:
 	state_machine.send_event(evnt)
+
 
 func is_on_floor() -> bool:
 	return floor_collider.any(func (i): return i.is_colliding()) and floor_angle.is_colliding() and floor_angle.get_collision_normal().angle_to(Vector3.UP) < ground_dot_product
 
+
 func enable_movement(enabled:bool = true) -> void:
 	_should_move = enabled
 
+
 func is_jumping():
 	return !can_jump
+
 
 #revisar
 func pickup_item():
@@ -192,11 +207,14 @@ func get_rotated_gravity() -> Vector3:
 		return get_gravity()
 """
 
+
 func _on_animation_player_animation_started(anim_name: StringName) -> void:
 	print(anim_name)
 
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	print(anim_name + " finished")
+
 
 func hit():
 	if hit_area.has_overlapping_areas():
@@ -209,8 +227,10 @@ func hit():
 				print(damage)
 				enemy.take_damage(damage)
 
+
 func equip_tool(tool:Pickup):
 	equiped_tool = tool
+
 
 func add_item(item:Pickup, qty:int):
 	var node = ui.toolbar
@@ -229,6 +249,7 @@ func add_item(item:Pickup, qty:int):
 	if index == -1: return
 	node.content.get_child(index).display(item, content.get_content()[index][1])
 	ui._crafting.refresh_crafting()
+
 
 # SOLO LLEGAMOS A REMOVE SI SABEMOS QUE LO TENEMOS
 func remove_item(item:Pickup, qty:int):
@@ -261,32 +282,44 @@ func remove_item(item:Pickup, qty:int):
 			slot._item = null
 			slot.display(null)
 
+
 func has_all_items(items:Array[Pickup]):
+	# ARREGLAR TODO
 	var hotbar_array = hotbar._content.values()
 	var inventory_array = inventory._content.values()
-	print(hotbar_array)
+
 	var array : Array = hotbar_array + inventory_array
 	var inventory_dict : Dictionary = array_of_pairs_to_dict(array)
 	# {item:qty,item:qty...}
 	var items_dict : Dictionary = array_of_pairs_to_dict(items.map(func (i): return [i, 1]))
 	
 	for i in items_dict:
-		if inventory_dict.keys().has(i):
-			items_dict[i] -= inventory_dict[i]
+		if inventory_dict.keys().filter(func (j): return j.name == i.name).size() > 0:
+			var inventory_idx = inventory_dict.keys().filter(func (j): return j.name == i.name)
+			if inventory_idx.is_empty():
+				return false
+			items_dict[i] -= 1
+			inventory_dict[inventory_idx[0]] -= 1
+			if inventory_dict[i] == 0:
+				inventory_dict.erase(i)
 	
 	return items_dict.values().filter(func (i): return i > 0).is_empty()
 
+
 func array_of_pairs_to_dict(array:Array) -> Dictionary:
+	# AQUI ESTAN LOS PROBLEMA
 	var result : Dictionary
 	for i in array:
-		if result.has(i[0]):
-			result[i[0]] += i[1]
+		if result.has(i[0].name):
+			result[i[0].name] += i[1]
 		else:
-			result[i[0]] = i[1]
+			result[i[0].name] = i[1]
 	return result
+
 
 func _on_jump_timer_timeout() -> void:
 	can_jump = true
+
 
 func savedata(data:Dictionary) -> Dictionary:
 	print("Player save function")
@@ -307,6 +340,7 @@ func savedata(data:Dictionary) -> Dictionary:
 	data["SaveFiles"]["inventory"] = var_to_bytes_with_objects(get_player_full_inventory())
 	return data
 
+
 func loaddata(data:Dictionary) -> Dictionary:
 	email = data["Players"]["mail"]
 	# Ahora mismo, solo un archivo de guardado por jugador, identificado con su correo ("name temporal")
@@ -325,12 +359,14 @@ func loaddata(data:Dictionary) -> Dictionary:
 		print(toolbar)
 	return data
 
+
 func get_player_full_inventory() -> Dictionary:
 	var data : Dictionary = {}
 	data["inventory"] = inventory.get_content()
 	data["hotbar"] = hotbar.get_content()
 	data["toolbar"] = toolbar.get_content()
 	return data
+
 
 func set_player_full_inventory(data:Dictionary) -> void:
 	#var changes : bool = inventory._content != data["inventory"] || hotbar._content != data["hotbar"] || toolbar._content != data["toolbar"]
@@ -362,3 +398,52 @@ func set_player_full_inventory(data:Dictionary) -> void:
 		var qty : int = data["toolbar"][i][1]
 		toolbar.store_item(item, qty, slot)
 	"""
+
+
+# Calcula el clima, y devuelve la temperatura
+func update_clima():
+	if Server.clima_data.is_empty():
+		print("Aun no hay datos")
+		return
+	
+	var data = Server.clima_data[location][0]["ALMERIA"]["CABO DE GATA"]
+	var time : int = GlobalTime.day_time
+	
+	var hora_max = data["hora_max"].split(":")
+	hora_max = int(hora_max[0]) * 60 + int(hora_max[1])
+	hora_max *= 60
+	
+	var hora_min = data["hora_min"].split(":")
+	hora_min = int(hora_min[0]) * 60 + int(hora_min[1])
+	hora_min *= 60
+	
+	var hora_avg = hora_min + (hora_max - hora_min/2)
+	
+	var temp_max : float = float(data["temp_max"])
+	var temp_min : float = float(data["temp_min"])
+	var temp_avg : float = float(data["temp_avg"])
+	
+	var hora_avg_end_in_s = hora_max - 180 * 60
+	var hora_min_end_in_s = hora_min - 180 * 60
+	var hora_media = hora_min + (hora_max - hora_min)/2
+	
+	if GlobalTime.is_between(hora_avg_end_in_s, hora_media):
+		temperature = temp_avg
+	elif GlobalTime.is_between(hora_min_end_in_s, hora_min):
+		temperature = temp_min
+	elif GlobalTime.is_between(hora_min_end_in_s, hora_max):
+		temperature = calculate_temp(hora_min_end_in_s, hora_max, temp_min, temp_max)
+	elif GlobalTime.is_between(hora_max, hora_media):
+		temperature = calculate_temp(hora_max, hora_media, temp_max, temp_avg)
+	elif GlobalTime.is_between(hora_avg_end_in_s, hora_min):
+		temperature = calculate_temp(hora_avg_end_in_s, hora_min, temp_avg, temp_min)
+	
+	ui.update_temp(temperature)
+
+
+func calculate_temp(begin, end, temp_min, temp_max):
+	var progress = end - GlobalTime.time
+	var total = end - begin
+	progress = progress/total
+	var temp_diff = temp_max - temp_min
+	return end - temp_diff * progress

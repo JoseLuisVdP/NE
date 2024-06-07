@@ -1,24 +1,62 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cjguujtn3sfeg"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cjguujtn3sfeg"]
 
 [ext_resource type="FontFile" uid="uid://7hqhpammf0hp" path="res://assets/fonts/nord/Nord Regular.otf" id="1_0hrtr"]
-[ext_resource type="FontFile" uid="uid://dxf41d5c55der" path="res://assets/fonts/nord/Nord Bold.otf" id="1_rkeei"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8imu7"]
 bg_color = Color(0.533333, 0.533333, 0.533333, 1)
-border_width_left = 16
-border_width_top = 16
-border_width_right = 16
-border_width_bottom = 16
 border_color = Color(0.533333, 0.533333, 0.533333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ni84v"]
+color = Color(0.302062, 0.176557, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o07la"]
+bg_color = Color(0.548985, 0.444144, 0.402237, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgxx5"]
 bg_color = Color(0, 0, 0, 0)
 border_width_bottom = 2
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0ty6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wryy4"]
+bg_color = Color(0.768627, 0.215686, 0.133333, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofq22"]
+content_margin_left = 2.0
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+anti_aliasing = false
+
 [resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/font_sizes/font_size = 24
-Button/fonts/font = ExtResource("1_rkeei")
+Button/fonts/font = ExtResource("1_0hrtr")
 Button/styles/normal = SubResource("StyleBoxFlat_8imu7")
+HSeparator/styles/separator = SubResource("StyleBoxLine_ni84v")
+ItemList/colors/font_color = Color(0.89059, 0.89059, 0.89059, 1)
+ItemList/constants/h_separation = 16
+ItemList/constants/icon_margin = 8
+ItemList/constants/v_separation = 16
+ItemList/font_sizes/font_size = 20
+ItemList/fonts/font = ExtResource("1_0hrtr")
+ItemList/styles/panel = SubResource("StyleBoxFlat_o07la")
 Label/fonts/font = ExtResource("1_0hrtr")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_mgxx5")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_w0ty6")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_wryy4")
 TabBar/fonts/font = ExtResource("1_0hrtr")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_ofq22")

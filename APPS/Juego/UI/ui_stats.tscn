@@ -1,12 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnqjv6pu1vmb1"]
+[gd_scene load_steps=11 format=3 uid="uid://dnqjv6pu1vmb1"]
 
 [ext_resource type="Script" path="res://UI/ui_stats.gd" id="1_hrxvr"]
 [ext_resource type="Script" path="res://addons/radial_progress/RadialProgress.gd" id="2_hkrfk"]
 [ext_resource type="Texture2D" uid="uid://glurfepsn88p" path="res://assets/player_face.png" id="3_hcomi"]
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="4_g3id7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5yvj"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.560784, 0.490196, 0.356863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.258824, 0.258824, 0.258824, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cengh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4fb7h"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cvfdt"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srej2"]
-bg_color = Color(0.17642, 0.176419, 0.176419, 0.65098)
+bg_color = Color(0.559008, 0.488416, 0.355078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.259294, 0.259294, 0.259294, 1)
 corner_radius_top_left = 64
 corner_radius_top_right = 64
 corner_radius_bottom_right = 64
@@ -20,27 +47,98 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
+theme = ExtResource("4_g3id7")
 script = ExtResource("1_hrxvr")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -128.0
-offset_right = 175.0
+offset_right = 160.0
 grow_vertical = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c5yvj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_cengh")
+expand_mode = 3
+
+[node name="Money" type="Label" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "0"
+
+[node name="Unit" type="Label" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "$"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_4fb7h")
+expand_mode = 3
+
+[node name="Exp" type="Label" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "0"
+
+[node name="Unit" type="Label" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "exp"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_cvfdt")
+expand_mode = 3
+
+[node name="Lvl" type="Label" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "0"
+
+[node name="Unit" type="Label" parent="VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "lvl"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_bottom = 0
 
-[node name="Control" type="Panel" parent="MarginContainer"]
+[node name="Control" type="Panel" parent="VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_srej2")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,7 +152,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/Control/MarginContainer"]
 custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -62,7 +160,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_hcomi")
 expand_mode = 2
 
-[node name="HealthBar" type="Control" parent="MarginContainer/Control"]
+[node name="HealthBar" type="Control" parent="VBoxContainer/MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -80,7 +178,7 @@ bg_color = Color(0.334475, 0.51, 0.3315, 1)
 bar_color = Color(0.1826, 0.83, 0.1826, 1)
 ring = true
 
-[node name="StaminaBar" type="Control" parent="MarginContainer/Control"]
+[node name="StaminaBar" type="Control" parent="VBoxContainer/MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -98,10 +196,11 @@ bg_color = Color(0.2208, 0.4368, 0.48, 1)
 bar_color = Color(0.1204, 0.736733, 0.86, 1)
 ring = true
 
-[node name="Health" type="Label" parent="MarginContainer"]
+[node name="Health" type="Label" parent="VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
 size_flags_vertical = 8
 theme = ExtResource("4_g3id7")
 theme_override_font_sizes/font_size = 24

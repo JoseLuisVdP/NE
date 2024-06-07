@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwo60wwu0mejl"]
+[gd_scene load_steps=12 format=3 uid="uid://bwo60wwu0mejl"]
 
 [ext_resource type="Script" path="res://UI/scripts/UI.gd" id="1_6i1en"]
 [ext_resource type="PackedScene" uid="uid://dln6olp76eqyc" path="res://UI/PickableItems.tscn" id="2_3ghm4"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://8ey71yiinm4b" path="res://UI/player/inventory/toolbar.tscn" id="7_gsmag"]
 [ext_resource type="PackedScene" uid="uid://dnqjv6pu1vmb1" path="res://UI/ui_stats.tscn" id="8_okq0i"]
 [ext_resource type="PackedScene" uid="uid://dyrcqut4wgdxo" path="res://UI/quests.tscn" id="9_lxf1x"]
+[ext_resource type="PackedScene" uid="uid://cuyb7guni0jes" path="res://UI/temperature.tscn" id="10_aq5ix"]
+[ext_resource type="PackedScene" uid="uid://bijinu7w0cxxf" path="res://UI/clock.tscn" id="11_2pvij"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_6i1en")
@@ -62,3 +64,27 @@ mouse_filter = 2
 
 [node name="Quests" parent="NonCloseable" instance=ExtResource("9_lxf1x")]
 unique_name_in_owner = true
+
+[node name="Temperature" parent="NonCloseable" instance=ExtResource("10_aq5ix")]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -220.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Clock" parent="NonCloseable" instance=ExtResource("11_2pvij")]
+unique_name_in_owner = true
+
+[node name="UpdateClock" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="UpdateClock" to="." method="update_time"]

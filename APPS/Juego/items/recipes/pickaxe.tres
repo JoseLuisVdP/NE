@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://bwt4inu8f2w3a"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_ei5ee"]
+[ext_resource type="Script" path="res://items/global/recipe.gd" id="2_04i2o"]
+[ext_resource type="Resource" uid="uid://kla65kc6sxhb" path="res://items/items/stick.tres" id="2_rjq3s"]
+[ext_resource type="Resource" uid="uid://boiab13xxa0va" path="res://items/items/stone.tres" id="3_sf6s3"]
+[ext_resource type="Resource" uid="uid://u6nbb668rmnp" path="res://items/items/pickaxe.tres" id="4_tix36"]
+
+[resource]
+script = ExtResource("2_04i2o")
+name = "Pico"
+ingredients = Array[ExtResource("1_ei5ee")]([ExtResource("2_rjq3s"), ExtResource("2_rjq3s"), ExtResource("3_sf6s3"), ExtResource("3_sf6s3"), ExtResource("3_sf6s3")])
+results = Array[ExtResource("1_ei5ee")]([ExtResource("4_tix36")])

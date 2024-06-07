@@ -9,6 +9,9 @@ class_name UI extends CanvasLayer
 @onready var toolbar: Toolbar = %Toolbar
 @onready var stats: UIStats = %Stats
 @onready var quests: UIQuests = %Quests
+@onready var temperature: Control = %Temperature
+@onready var clock: Control = %Clock
+@onready var update_clock: Timer = %UpdateClock
 
 @onready var closeable: Node = $Closeable
 @onready var non_closeable: Node = $NonCloseable
@@ -44,3 +47,10 @@ func crafting() -> void:
 		inventory()
 		_crafting.open(game.RECIPES, player.inventory)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func update_temp(temp:float):
+	temperature.set_temp(temp)
+
+func update_time():
+	clock.set_time(GlobalTime.day_time)
+	update_clock.start()

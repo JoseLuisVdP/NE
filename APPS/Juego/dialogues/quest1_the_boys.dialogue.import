@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cb2sfjndk0uaa"
+path="res://.godot/imported/quest1_the_boys.dialogue-9892d70243f7b779ef33253ebc288187.tres"
+
+[deps]
+
+source_file="res://dialogues/quest1_the_boys.dialogue"
+dest_files=["res://.godot/imported/quest1_the_boys.dialogue-9892d70243f7b779ef33253ebc288187.tres"]
+
+[params]
+
+defaults=true

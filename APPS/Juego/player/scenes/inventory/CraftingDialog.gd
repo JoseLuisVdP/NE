@@ -29,6 +29,7 @@ func open(recipes:Array[Recipe], inventory:Inventory):
 
 	for r in recipes:
 		var index = recipe_list.add_item(r.name)
+		recipe_list.set_item_icon(index, r.results[0].icon)
 		recipe_list.set_item_metadata(index, r)
 	
 func close():

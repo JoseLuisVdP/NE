@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://8pw74wgvnq72"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_vq10g"]
+[ext_resource type="Resource" uid="uid://jlnmudbnm2q4" path="res://items/items/flour.tres" id="2_n8mc5"]
+[ext_resource type="Script" path="res://items/global/recipe.gd" id="2_x1i4w"]
+[ext_resource type="Resource" uid="uid://bbywprosq5tjp" path="res://items/items/bread.tres" id="3_0llls"]
+
+[resource]
+script = ExtResource("2_x1i4w")
+name = "Pan"
+ingredients = Array[ExtResource("1_vq10g")]([ExtResource("2_n8mc5"), ExtResource("2_n8mc5")])
+results = Array[ExtResource("1_vq10g")]([ExtResource("3_0llls")])

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://bd73wtfhhgv6d"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_15u4y"]
+[ext_resource type="Script" path="res://items/global/recipe.gd" id="2_8wxhr"]
+[ext_resource type="Resource" uid="uid://cmxj5rlotmc48" path="res://items/items/turnip.tres" id="2_whwd1"]
+[ext_resource type="Resource" uid="uid://wuuu4gmqqev1" path="res://items/items/bowl.tres" id="3_naua2"]
+[ext_resource type="Resource" uid="uid://dc643h51htoy4" path="res://items/items/turnip_soup.tres" id="4_rt16d"]
+
+[resource]
+script = ExtResource("2_8wxhr")
+name = "Sopa de rábano"
+ingredients = Array[ExtResource("1_15u4y")]([ExtResource("2_whwd1"), ExtResource("2_whwd1"), ExtResource("3_naua2")])
+results = Array[ExtResource("1_15u4y")]([ExtResource("4_rt16d")])

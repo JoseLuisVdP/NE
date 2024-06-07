@@ -30,6 +30,16 @@ func _ready():
 	MyQuestManager.load_quests(self)
 	GlobalTime.iniciar(Server.data["SaveFiles"]["time"], $"3D/Lights/Sunlight", $"3D/Lights/Moonlight")
 	
+	for i in ITEMS:
+		var s = i.scene.instantiate()
+		var parent = load("res://items/global/pickup.tscn").instantiate()
+		s.position = Vector3(-441, 100, 0)
+		parent.add_child(s)
+		add_child(parent)
+	
+	# Obtener los datos del clima (un clima por cada isla)
+	Server.get_clima(2023, 1, {"pradollano":"MALAGA-MARBELLA", "sandy":"ALMERIA-CABO DE GATA", "monmonty":"PONTEVEDRA-A LAMA"})
+	
 
 func pre_load():
 	print("Pre carga")
@@ -45,5 +55,6 @@ func load_saved_data():
 				i.loaddata(Server.data)
 		if Server.data["SaveFiles"].keys().has("quests") and Server.data["SaveFiles"]["quests"] != null:
 			MyQuestManager.loaddata(Server.data)
+		
 	else:
 		print("No se ha encontrado un archivo de guardado, creando nueva partida")

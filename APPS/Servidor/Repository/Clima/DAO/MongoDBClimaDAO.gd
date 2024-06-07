@@ -20,6 +20,15 @@ func create(data:Dictionary, collection:String, docName:String = "-1") -> Dictio
 	col.InsertDocument(data, docName)
 	return data
 
+func read(collection:String, id:String, args:String = ""):
+	if !DB.GetCollectionsNameList().has(collection):
+		print("No existe la colección " + collection)
+	var col = DB.GetCollection(collection)
+	var docs = col.GetDocuments()
+	if docs.is_empty():
+		return {}
+	return docs[0]
+
 func has_data(collection:String, docName:String) -> bool:
 	if !DB.GetCollectionsNameList().has(collection):
 		print("No existe la colección " + collection)

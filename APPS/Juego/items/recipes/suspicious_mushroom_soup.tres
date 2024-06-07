@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://dstslb0esgm1k"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_4lppu"]
+[ext_resource type="Resource" uid="uid://88ytfh7qbl0e" path="res://items/items/poisonous_mushroom.tres" id="2_m74fc"]
+[ext_resource type="Script" path="res://items/global/recipe.gd" id="2_y66xx"]
+[ext_resource type="Resource" uid="uid://wuuu4gmqqev1" path="res://items/items/bowl.tres" id="3_fowyn"]
+[ext_resource type="Resource" uid="uid://dnkgr3o7um23d" path="res://items/items/posionous_mushroom_soup.tres" id="4_pmiw8"]
+
+[resource]
+script = ExtResource("2_y66xx")
+name = "Sopa de setas sospechosa"
+ingredients = Array[ExtResource("1_4lppu")]([ExtResource("2_m74fc"), ExtResource("2_m74fc"), ExtResource("3_fowyn")])
+results = Array[ExtResource("1_4lppu")]([ExtResource("4_pmiw8")])

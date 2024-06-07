@@ -6,6 +6,8 @@ class_name Quest
 @export var quest_name: String
 @export_multiline var quest_description: String
 @export_multiline var quest_objective: String
+@export var quest_xp : int = 0
+@export var quest_money : int = 0
 
 var objective_completed: bool = false:
 	set(value):

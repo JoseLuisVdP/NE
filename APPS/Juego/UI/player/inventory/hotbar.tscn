@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dslac3a3ddyoo"]
+[gd_scene load_steps=6 format=3 uid="uid://dslac3a3ddyoo"]
 
 [ext_resource type="Script" path="res://UI/player/inventory/ordered_items_grid.gd" id="1_c1nb3"]
 [ext_resource type="Script" path="res://UI/player/inventory/hotbar.gd" id="1_l4pds"]
+[ext_resource type="Texture2D" uid="uid://cfwd8hnncumrs" path="res://UI/inventory_background.png" id="2_1pghk"]
 [ext_resource type="PackedScene" uid="uid://p2fuew7akfjn" path="res://UI/player/inventory/item_slot.tscn" id="2_d41os"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_40gp1"]
+texture = ExtResource("2_1pghk")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [node name="Hotbar" type="Control"]
 auto_translate_mode = 1
@@ -19,22 +27,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -8.0
-offset_right = 36.0
-offset_bottom = 8.0
+offset_left = -204.0
+offset_top = -50.0
+offset_right = 204.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_bottom = 40
 
-[node name="ColorRect" type="ColorRect" parent="Margin"]
+[node name="PanelContainer" type="PanelContainer" parent="Margin"]
 layout_mode = 2
-color = Color(0, 0, 0, 0.192157)
+theme_override_styles/panel = SubResource("StyleBoxTexture_40gp1")
 
-[node name="Content" type="GridContainer" parent="Margin"]
+[node name="MarginContainer" type="MarginContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="Content" type="GridContainer" parent="Margin/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 8
@@ -42,33 +57,33 @@ columns = 8
 script = ExtResource("1_c1nb3")
 _item_slot_size = 40
 
-[node name="ItemSlot" parent="Margin/Content" instance=ExtResource("2_d41os")]
+[node name="ItemSlot" parent="Margin/MarginContainer/Content" instance=ExtResource("2_d41os")]
 layout_mode = 2
 
-[node name="ItemSlot2" parent="Margin/Content" instance=ExtResource("2_d41os")]
+[node name="ItemSlot2" parent="Margin/MarginContainer/Content" instance=ExtResource("2_d41os")]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ItemSlot3" parent="Margin/Content" instance=ExtResource("2_d41os")]
+[node name="ItemSlot3" parent="Margin/MarginContainer/Content" instance=ExtResource("2_d41os")]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ItemSlot4" parent="Margin/Content" instance=ExtResource("2_d41os")]
+[node name="ItemSlot4" parent="Margin/MarginContainer/Content" instance=ExtResource("2_d41os")]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ItemSlot5" parent="Margin/Content" instance=ExtResource("2_d41os")]
+[node name="ItemSlot5" parent="Margin/MarginContainer/Content" instance=ExtResource("2_d41os")]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ItemSlot6" parent="Margin/Content" instance=ExtResource("2_d41os")]
+[node name="ItemSlot6" parent="Margin/MarginContainer/Content" instance=ExtResource("2_d41os")]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ItemSlot7" parent="Margin/Content" instance=ExtResource("2_d41os")]
+[node name="ItemSlot7" parent="Margin/MarginContainer/Content" instance=ExtResource("2_d41os")]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ItemSlot8" parent="Margin/Content" instance=ExtResource("2_d41os")]
+[node name="ItemSlot8" parent="Margin/MarginContainer/Content" instance=ExtResource("2_d41os")]
 auto_translate_mode = 1
 layout_mode = 2

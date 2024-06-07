@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1b2iwglru5t5"]
+[gd_scene load_steps=9 format=3 uid="uid://d1b2iwglru5t5"]
 
 [ext_resource type="Script" path="res://NPCs/npc_scene.gd" id="1_ugt4q"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_38gad"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_fby7d"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="3_ot0jf"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_i0oq5"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_nq6vs"]
+[ext_resource type="SpriteFrames" uid="uid://n4yjtprspwi3" path="res://animated_icons/spriteframes/exclamation.tres" id="7_r707m"]
+[ext_resource type="SpriteFrames" uid="uid://damkejs0xw3f1" path="res://animated_icons/spriteframes/thinking.tres" id="8_ghbpk"]
 
 [node name="NPC" type="Node3D"]
 script = ExtResource("1_ugt4q")
@@ -13,24 +16,92 @@ script = ExtResource("1_ugt4q")
 script = ExtResource("2_38gad")
 
 [node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("3_ot0jf")
+
+[node name="MovementState" type="Node" parent="StateChart/Root"]
 script = ExtResource("3_fby7d")
 initial_state = NodePath("Walk")
 
-[node name="Idle" type="Node" parent="StateChart/Root"]
+[node name="Idle" type="Node" parent="StateChart/Root/MovementState"]
 script = ExtResource("4_i0oq5")
 
-[node name="ToWalking" type="Node" parent="StateChart/Root/Idle"]
+[node name="ToWalking" type="Node" parent="StateChart/Root/MovementState/Idle"]
 script = ExtResource("5_nq6vs")
 to = NodePath("../../Walk")
 event = &"walk"
 
-[node name="Walk" type="Node" parent="StateChart/Root"]
+[node name="Walk" type="Node" parent="StateChart/Root/MovementState"]
 script = ExtResource("4_i0oq5")
 
-[node name="ToIdle" type="Node" parent="StateChart/Root/Walk"]
+[node name="ToIdle" type="Node" parent="StateChart/Root/MovementState/Walk"]
 script = ExtResource("5_nq6vs")
 to = NodePath("../../Idle")
 event = &"stop"
 
-[connection signal="state_physics_processing" from="StateChart/Root/Idle" to="." method="_on_idle_state_physics_processing"]
-[connection signal="state_physics_processing" from="StateChart/Root/Walk" to="." method="_on_walk_state_physics_processing"]
+[node name="QuestState" type="Node" parent="StateChart/Root"]
+script = ExtResource("3_fby7d")
+initial_state = NodePath("Available")
+
+[node name="Available" type="Node" parent="StateChart/Root/QuestState"]
+script = ExtResource("4_i0oq5")
+
+[node name="ToActive" type="Node" parent="StateChart/Root/QuestState/Available"]
+script = ExtResource("5_nq6vs")
+to = NodePath("../../Active")
+event = &"activate"
+
+[node name="ToAvailable" type="Node" parent="StateChart/Root/QuestState/Available"]
+script = ExtResource("5_nq6vs")
+to = NodePath("../../Available")
+event = &"available"
+
+[node name="Active" type="Node" parent="StateChart/Root/QuestState"]
+script = ExtResource("4_i0oq5")
+
+[node name="ToCompleted" type="Node" parent="StateChart/Root/QuestState/Active"]
+script = ExtResource("5_nq6vs")
+to = NodePath("../../Completed")
+event = &"complete"
+
+[node name="ToAvailable" type="Node" parent="StateChart/Root/QuestState/Active"]
+script = ExtResource("5_nq6vs")
+to = NodePath("../../Available")
+event = &"available"
+
+[node name="Completed" type="Node" parent="StateChart/Root/QuestState"]
+script = ExtResource("4_i0oq5")
+
+[node name="ToAvailable" type="Node" parent="StateChart/Root/QuestState/Completed"]
+script = ExtResource("5_nq6vs")
+to = NodePath("../../Available")
+event = &"available"
+
+[node name="Icons" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="available" type="AnimatedSprite3D" parent="Icons"]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.75, 0)
+visible = false
+sprite_frames = ExtResource("7_r707m")
+animation = &"exclamation"
+frame_progress = 0.367267
+speed_scale = 0.8
+
+[node name="active" type="AnimatedSprite3D" parent="Icons"]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.75, 0)
+visible = false
+sprite_frames = ExtResource("8_ghbpk")
+animation = &"thinking"
+frame_progress = 0.891431
+speed_scale = 0.8
+
+[connection signal="state_physics_processing" from="StateChart/Root/MovementState/Idle" to="." method="_on_idle_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/MovementState/Walk" to="." method="_on_walk_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/Root/QuestState/Available" to="." method="_on_available_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/Root/QuestState/Available" to="." method="_on_available_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/Root/QuestState/Active" to="." method="_on_active_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/Root/QuestState/Active" to="." method="_on_active_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/Root/QuestState/Completed" to="." method="_on_completed_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/Root/QuestState/Completed" to="." method="_on_completed_state_physics_processing"]

@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://p2fuew7akfjn"]
+[gd_scene load_steps=5 format=3 uid="uid://p2fuew7akfjn"]
 
 [ext_resource type="Script" path="res://UI/player/inventory/ItemSlot.gd" id="1_3jwae"]
+[ext_resource type="Theme" uid="uid://da7b4g6cwj08y" path="res://default_theme_big_btn.tres" id="1_vc2yr"]
 [ext_resource type="PackedScene" uid="uid://d1jv6n3omnwt8" path="res://UI/player/inventory/item.tscn" id="2_hkol5"]
+[ext_resource type="Texture2D" uid="uid://wxxbdmf62x16" path="res://UI/inventory_container.png" id="3_y0xsa"]
 
 [node name="ItemSlot" type="PanelContainer"]
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_vc2yr")
 script = ExtResource("1_3jwae")
 item_scene = ExtResource("2_hkol5")
+
+[node name="MarginContainer" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_y0xsa")
 
 [node name="IconContainer" type="MarginContainer" parent="."]
 unique_name_in_owner = true
@@ -17,12 +25,5 @@ theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
-
-[node name="ReferenceRect" type="ReferenceRect" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-border_color = Color(0.82776, 0.631852, 0.50429, 1)
-border_width = 4.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

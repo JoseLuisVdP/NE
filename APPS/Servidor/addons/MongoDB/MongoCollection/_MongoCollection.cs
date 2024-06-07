@@ -47,7 +47,7 @@ public partial class _MongoCollection : Node
 		return documents;
 	}
 
-	// ESTO ES MIO :D
+	// ESTO ES MIO
 
 	public Godot.Collections.Array<String> GetDocumentsName()
 	{

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://0fxsyuefs44d"]
+
+[ext_resource type="PackedScene" uid="uid://lq5elq40s4b2" path="res://items/meshes/Bow.fbx" id="1_rjw8n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mideh"]
+size = Vector3(1.35352, 9.76758, 0.224365)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kvxkc"]
+size = Vector3(5, 14, 2)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="Bow" parent="." instance=ExtResource("1_rjw8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37532, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.0478516, -0.026001)
+shape = SubResource("BoxShape3D_mideh")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.0478516, -0.026001)
+shape = SubResource("BoxShape3D_kvxkc")

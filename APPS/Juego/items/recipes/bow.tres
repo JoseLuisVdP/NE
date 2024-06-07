@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://cuhnyj384f5e8"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_tlnag"]
+[ext_resource type="Resource" uid="uid://kla65kc6sxhb" path="res://items/items/stick.tres" id="2_litmx"]
+[ext_resource type="Resource" uid="uid://dmrx13x3d25xt" path="res://items/items/rope.tres" id="3_4upam"]
+[ext_resource type="Resource" uid="uid://dctg8522q7vum" path="res://items/items/arrow.tres" id="4_ryagd"]
+[ext_resource type="Script" path="res://items/global/recipe.gd" id="5_x1517"]
+
+[resource]
+script = ExtResource("5_x1517")
+name = "Arco"
+ingredients = Array[ExtResource("1_tlnag")]([ExtResource("2_litmx"), ExtResource("2_litmx"), ExtResource("2_litmx"), ExtResource("3_4upam")])
+results = Array[ExtResource("1_tlnag")]([ExtResource("4_ryagd")])

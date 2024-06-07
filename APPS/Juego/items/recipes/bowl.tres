@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://bsebc1uo0es1d"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_nngtj"]
+[ext_resource type="Resource" uid="uid://kla65kc6sxhb" path="res://items/items/stick.tres" id="2_5ccvd"]
+[ext_resource type="Script" path="res://items/global/recipe.gd" id="2_oup1l"]
+[ext_resource type="Resource" uid="uid://wuuu4gmqqev1" path="res://items/items/bowl.tres" id="3_mkc05"]
+
+[resource]
+script = ExtResource("2_oup1l")
+name = "Bol"
+ingredients = Array[ExtResource("1_nngtj")]([ExtResource("2_5ccvd"), ExtResource("2_5ccvd"), ExtResource("2_5ccvd")])
+results = Array[ExtResource("1_nngtj")]([ExtResource("3_mkc05"), ExtResource("3_mkc05")])

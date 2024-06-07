@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://coi4u634i10b2"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_ihjkm"]
+[ext_resource type="Script" path="res://items/global/recipe.gd" id="2_kuoeb"]
+[ext_resource type="Resource" uid="uid://n7gbaidt5jh7" path="res://items/items/mushroom.tres" id="2_kxq2w"]
+[ext_resource type="Resource" uid="uid://wuuu4gmqqev1" path="res://items/items/bowl.tres" id="3_5etmg"]
+[ext_resource type="Resource" uid="uid://ccb0qs67q3nv4" path="res://items/items/mushroom_soup.tres" id="4_40xlv"]
+
+[resource]
+script = ExtResource("2_kuoeb")
+name = "Sopa de setas"
+ingredients = Array[ExtResource("1_ihjkm")]([ExtResource("2_kxq2w"), ExtResource("2_kxq2w"), ExtResource("3_5etmg")])
+results = Array[ExtResource("1_ihjkm")]([ExtResource("4_40xlv")])

@@ -11,5 +11,5 @@ scene = ExtResource("2_mynqt")
 icon = ExtResource("1_i0m44")
 stack_size = 20
 description = "¿No era verde?"
-type = ""
+type = "food"
 damage = -15

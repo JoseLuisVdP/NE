@@ -1,0 +1,41 @@
+~ before_quest
+
+Abel: [[Hey|Hola]], ¿eres el chico nuevo?
+- Así es
+	Abel: Bien bien, espero que estes disfrutando del pueblo, yo la verdad estoy un poco nervioso
+	- ¿Y eso?
+		Abel: Pues resulta que mis niños se fueron a jugar al bosque, pero me tienen super preocupado, porque no vuelven desde hace horas...
+		- ¿Te puedo echar un cable?
+			Abel: ¿En serio podrías? ¿Seguro que no te importa?
+			Abel: ¡Muchas gracias chico!
+			do MyQuestManager.accept()
+			do ConversationManager.end_chat()
+			=> END
+		- ¿Me dejas que busque un hueco en el horario?
+			Abel: No te preocupes, seguro que aparecen[speed=0.3]...[/speed] ¿No?
+			do ConversationManager.end_chat()
+			=> END
+- Nos vemos
+	Abel: ¡Entendido!
+	=> END
+
+
+~ during_quest
+
+Abel: [[Oye|Chico]], ¿qué tal va eso? ¿Les encuentras?
+- Aún nada
+	Abel: Oh...
+	do ConversationManager.end_chat()
+	=> END
+- ¡Los encontré!
+	Abel: ¿¡En serio!? ¡Gracias gracias gracias!
+	Abel: Que feliz estoy de que hayan vuelto a casa, muchas gracias de verdad, toma una recompensa
+	do MyQuestManager.complete()
+	do ConversationManager.end_chat()
+	=> END
+
+
+~ post_quest
+
+Abel: En cuanto termine mi paseo, me voy con mis hijos a jugar a casa, ¡Gracias de nuevo!
+=> END

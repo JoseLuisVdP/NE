@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://ucq0q01w0j7g"]
+[gd_scene load_steps=12 format=3 uid="uid://ucq0q01w0j7g"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_rl4y1"]
+[ext_resource type="Theme" uid="uid://da7b4g6cwj08y" path="res://default_theme_big_btn.tres" id="1_xct3s"]
 [ext_resource type="PackedScene" uid="uid://runwpsrl2d0l" path="res://UI/loading_screen.tscn" id="2_sidb5"]
 [ext_resource type="Resource" uid="uid://ej5lr02jesgq" path="res://scenes/game_scenes.tres" id="3_ydq08"]
 [ext_resource type="Resource" uid="uid://pstbl4c6svrt" path="res://assets/sounds/sounds_rg.tres" id="4_pjwy0"]
@@ -29,6 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_xct3s")
 script = ExtResource("1_rl4y1")
 loading_scene = ExtResource("2_sidb5")
 game_scenes_rg = ExtResource("3_ydq08")
@@ -68,7 +70,6 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("5_70e15")
 theme_override_constants/separation = 32
 
 [node name="Play" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]

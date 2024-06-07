@@ -12,6 +12,7 @@ signal data_retrieved
 
 var data_loaded : bool
 var data : Dictionary
+var clima_data : Dictionary = {}
 var auto_save_scene : PackedScene
 var auto_save
 
@@ -39,6 +40,22 @@ func _on_connection_failed():
 		remove_child(auto_save)
 		auto_save.queue_free()
 		auto_save = null
+
+
+@rpc("any_peer", "reliable")
+func get_clima(year:int, month:int, places:Dictionary):
+	rpc_id(1, "get_clima_data", year, month, places)
+
+
+@rpc("any_peer", "reliable")
+func get_clima_data(year:int, month:int, places:Dictionary):
+	pass
+
+
+@rpc("any_peer", "reliable")
+func clima_data_received(data:Dictionary, player_id:int):
+	clima_data = data
+
 
 @rpc("any_peer", "reliable")
 func _on_data_retrieved(_data:Dictionary):
@@ -92,6 +109,7 @@ func data_saved(result:bool, player_id:int = 1) -> void:
 func _get_data(savefile:String):
 	print("Getting data")
 	rpc_id(1, "_get_data", savefile)
+
 
 @rpc("any_peer", "reliable")
 func return_savefile(savefile_data:Dictionary, player_id:int, exito:bool) -> void:

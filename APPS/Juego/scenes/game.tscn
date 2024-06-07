@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ccjphh7g0mi4u"]
+[gd_scene load_steps=31 format=3 uid="uid://ccjphh7g0mi4u"]
 
 [ext_resource type="PackedScene" uid="uid://ekqort30etdn" path="res://player/scenes/player.tscn" id="1_heepr"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hunv4"]
@@ -15,13 +15,10 @@
 [ext_resource type="Script" path="res://items/global/pickup_scene.gd" id="8_do68a"]
 [ext_resource type="Resource" uid="uid://b0764rp2ij34j" path="res://items/items/axe.tres" id="10_gmjmf"]
 [ext_resource type="Resource" uid="uid://boiab13xxa0va" path="res://items/items/stone.tres" id="11_vwmnj"]
-[ext_resource type="PackedScene" uid="uid://21571wtspmwm" path="res://clima_particles.tscn" id="14_mgvbu"]
 [ext_resource type="PackedScene" uid="uid://n5ueuwthm41b" path="res://models/map/my_island.tscn" id="15_slwqk"]
 [ext_resource type="Shader" path="res://shaders/water_shader.gdshader" id="16_cd60u"]
 [ext_resource type="PackedScene" uid="uid://cfyjxurc0ivue" path="res://models/map/map.tscn" id="17_waklr"]
 [ext_resource type="PackedScene" uid="uid://bpuu0kfmq0shv" path="res://models/map/sandy.tscn" id="18_8y4qg"]
-[ext_resource type="PackedScene" uid="uid://d1b2iwglru5t5" path="res://NPCs/npc.tscn" id="19_43oac"]
-[ext_resource type="Resource" uid="uid://irlg4fnxqtje" path="res://NPCs/npcs/test_npc.tres" id="20_t85iw"]
 [ext_resource type="PackedScene" uid="uid://b2hjptlfsaqcn" path="res://models/animals/mouse.tscn" id="22_whmyh"]
 [ext_resource type="PackedScene" uid="uid://du670kym6je6s" path="res://scenes/pause.tscn" id="24_0duiu"]
 
@@ -165,9 +162,6 @@ transform = Transform3D(-0.922538, 0, 0.385906, 0, 1, 0, -0.385906, 0, -0.922538
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.317, 77.4182, 150)
 RUN_MULTIPLIER = 20.0
 
-[node name="ClimaParticles" parent="3D" instance=ExtResource("14_mgvbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -189.728, 14.1372, -787.254)
-
 [node name="Pickups" type="Node3D" parent="3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -189.728, 14.1372, -787.254)
 
@@ -271,12 +265,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 623.29, -14.603, 0)
 
 [node name="sandy" parent="3D/World" instance=ExtResource("18_8y4qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.3857, -774.079)
-
-[node name="NPCs" type="Node3D" parent="3D"]
-
-[node name="NPC" parent="3D/NPCs" instance=ExtResource("19_43oac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -702.913, 58, 240)
-npc = ExtResource("20_t85iw")
 
 [node name="W_hlmaus" parent="3D" instance=ExtResource("22_whmyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -458.947, 74.2325, 146.646)

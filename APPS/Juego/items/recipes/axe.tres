@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://dygbrpwblbgl3"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://dygbrpwblbgl3"]
 
 [ext_resource type="Resource" uid="uid://kla65kc6sxhb" path="res://items/items/stick.tres" id="1_3rn40"]
 [ext_resource type="Script" path="res://items/global/recipe.gd" id="1_i2ffr"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_t67tw"]
 [ext_resource type="Resource" uid="uid://boiab13xxa0va" path="res://items/items/stone.tres" id="2_lpslu"]
 [ext_resource type="Resource" uid="uid://b0764rp2ij34j" path="res://items/items/axe.tres" id="3_utmgj"]
 
 [resource]
 script = ExtResource("1_i2ffr")
-name = "Test Axe"
-ingredients = Array[Resource("res://items/global/pickup.gd")]([ExtResource("1_3rn40"), ExtResource("2_lpslu")])
-results = Array[Resource("res://items/global/pickup.gd")]([ExtResource("3_utmgj")])
+name = "Hacha"
+ingredients = Array[ExtResource("1_t67tw")]([ExtResource("1_3rn40"), ExtResource("1_3rn40"), ExtResource("2_lpslu"), ExtResource("2_lpslu")])
+results = Array[ExtResource("1_t67tw")]([ExtResource("3_utmgj")])

@@ -2511,7 +2511,7 @@ skin = SubResource("Skin_ksrdx")
 
 [node name="ToolsAttatchment" type="BoneAttachment3D" parent="AnimatedHuman/Human Armature/Skeleton3D"]
 unique_name_in_owner = true
-transform = Transform3D(0.50117, -0.0994447, -0.859615, -0.681026, 0.567544, -0.462706, 0.533883, 0.817316, 0.216712, 1.13258, 0.648722, -2.57091)
+transform = Transform3D(0.50117, -0.0994449, -0.859615, -0.681026, 0.567544, -0.462706, 0.533883, 0.817316, 0.216712, 1.13258, 0.648722, -2.57091)
 bone_name = "LeftHand"
 bone_idx = 10
 

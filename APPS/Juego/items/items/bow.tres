@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://dge00ml4abct2"]
+
+[ext_resource type="Texture2D" uid="uid://otybir17asoi" path="res://items/icons/bow.png" id="1_tea5l"]
+[ext_resource type="PackedScene" uid="uid://0fxsyuefs44d" path="res://items/scenes/bow.tscn" id="2_18o6a"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="3_ca8by"]
+
+[resource]
+script = ExtResource("3_ca8by")
+name = "Arco"
+scene = ExtResource("2_18o6a")
+icon = ExtResource("1_tea5l")
+stack_size = 1
+description = "¡Un arma a distancia! Perfecto para combatir a la hormiga"
+type = "tool"
+damage = 0

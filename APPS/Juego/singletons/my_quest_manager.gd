@@ -18,7 +18,17 @@ func add_quest(quest:Quest):
 
 func accept():
 	var quest : Quest = player.chatting_npc.npc.quest
+	player.chatting_npc.accept_mission()
 	QuestSystem.start_quest(quest)
+	
+	remove_quest(quest)
+
+
+func remove_quest(quest:Quest):
+	var temp = QuestSystem.available.quests.filter(func (i): return i.quest_name == quest.quest_name)
+	if temp.is_empty():
+		return
+	QuestSystem.available.remove_quest(temp[0])
 
 
 func accept_quest(quest:Quest):
@@ -27,6 +37,7 @@ func accept_quest(quest:Quest):
 
 func complete():
 	var quest : Quest = player.chatting_npc.npc.quest
+	player.chatting_npc.complete_mission()
 	quest.objective_completed = true
 	QuestSystem.complete_quest(quest)
 
@@ -43,6 +54,7 @@ func load_quests(game:GAME):
 		"""
 		#add_quest(quest)
 		pass
+
 
 
 func savedata(data:Dictionary) -> Dictionary:
@@ -69,25 +81,27 @@ func loaddata(data:Dictionary) -> Dictionary:
 	quests["completed"] = quests_completed
 	
 	var npc_paths : Array = data["SaveFiles"]["NPCs"].keys().map(func (i): return i.erase(i.rfind("/"), 999))
+	for i in npc_paths:
+		if get_node(i) == null:
+			npc_paths.erase(i)
 	var npc_quests : Array = npc_paths.map(func (i): return get_node(i).npc.quest)
 	var npc_quest_names : Array = npc_quests.map(func (i): return i.quest_name)
 
 	for i in quests:
 		var pool : Array[Quest] = quests[i]
 		for j in pool:
+			add_quest(j)
 			var idx : int = npc_quest_names.find(j.quest_name)
 			if idx != -1:
-				get_node(npc_paths[idx]).npc.quest = j
-			add_quest(j)
-	
-	var temp : Array = quests_active
-	temp.append_array(quests_completed)
-	
-	for i in temp:
-		accept_quest(i)
-	
-	for i in quests_completed:
-		i.objective_completed = true
-		QuestSystem.complete_quest(i)
+				var npc : NPCScene = get_node_or_null(npc_paths[idx])
+				if npc != null:
+					npc.state_chart.send_event("available")
+					if i == "active" or i == "completed":
+						npc.accept_mission()
+						remove_quest(j)
+						
+					if i == "completed":
+						npc.complete_mission()
+						remove_quest(j)
 	
 	return data

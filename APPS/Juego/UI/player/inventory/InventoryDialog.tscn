@@ -1,14 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://bidvnf66c1udv"]
+[gd_scene load_steps=7 format=3 uid="uid://bidvnf66c1udv"]
 
 [ext_resource type="Script" path="res://UI/player/inventory/InventoryDialog.gd" id="1_5u1oj"]
+[ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="1_ordp0"]
 [ext_resource type="PackedScene" uid="uid://c8u4jrpaltv85" path="res://UI/player/inventory/InventoryGrid.tscn" id="2_ox3v5"]
-[ext_resource type="Texture2D" uid="uid://cu4ww2b3rgw3x" path="res://icon.svg" id="3_iwa3o"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wfbft"]
-blend_mode = 1
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwqaq"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.680689, 0.581993, 0.467027, 1)
+border_width_left = 8
+border_color = Color(0.537877, 0.477694, 0.374085, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_832d8"]
-bg_color = Color(0.605674, 1.66051e-06, 3.85046e-07, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw4nd"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysrvg"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.197514, 0.464725, 0.284687, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -21,6 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_ordp0")
 script = ExtResource("1_5u1oj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -30,14 +60,15 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -20.0
-offset_bottom = 20.0
+offset_left = -448.0
+offset_top = -202.0
+offset_bottom = 202.0
 grow_horizontal = 0
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fwqaq")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -55,22 +86,11 @@ size_flags_vertical = 0
 alignment = 2
 
 [node name="CloseBtn" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-material = SubResource("CanvasItemMaterial_wfbft")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_qw4nd")
 text = "X"
-
-[node name="Panel" type="Panel" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseBtn"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_832d8")
 
 [node name="InventoryContent" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_ox3v5")]
 unique_name_in_owner = true
@@ -85,15 +105,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ysrvg")
 text = "Craft
 "
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("3_iwa3o")
-expand_mode = 4
+theme_override_constants/margin_right = 128
 
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseBtn" to="." method="_on_close_btn_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/BtnCrafting" to="." method="_on_btn_crafting_pressed"]

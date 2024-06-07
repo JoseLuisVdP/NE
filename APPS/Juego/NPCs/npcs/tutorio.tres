@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://bwtahqjjevu8k"]
+
+[ext_resource type="Resource" uid="uid://bf5wlxqnuhhpq" path="res://dialogues/quest0.dialogue" id="1_2pdgi"]
+[ext_resource type="Resource" uid="uid://por5orf4546n" path="res://quests/Quests/axe_quest.tres" id="2_apx0v"]
+[ext_resource type="PackedScene" uid="uid://d4kowe2pwwuoj" path="res://NPCs/scenes/man.tscn" id="3_cixmu"]
+[ext_resource type="Script" path="res://NPCs/npc.gd" id="4_d1ux8"]
+
+[resource]
+script = ExtResource("4_d1ux8")
+name = "Tutorio The Rock"
+dialogue = ExtResource("1_2pdgi")
+scene = ExtResource("3_cixmu")
+quest = ExtResource("2_apx0v")

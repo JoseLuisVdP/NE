@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqe4i4yjk1u1l"]
+
+[ext_resource type="ArrayMesh" uid="uid://0gkp1okigv4b" path="res://items/meshes/holsterbag.obj" id="1_ichcc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rkrgx"]
+size = Vector3(0.344971, 0.526917, 0.237579)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2la4h"]
+size = Vector3(1, 1.46204, 1)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="Holsterbag" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.340268, -0.102546)
+mesh = ExtResource("1_ichcc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00183105, 0.256195, -0.00520325)
+shape = SubResource("BoxShape3D_rkrgx")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231018, 0)
+shape = SubResource("BoxShape3D_2la4h")

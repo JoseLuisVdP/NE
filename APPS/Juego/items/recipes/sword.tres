@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://dt2jip10lcitm"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_d8hxq"]
+[ext_resource type="Resource" uid="uid://kla65kc6sxhb" path="res://items/items/stick.tres" id="2_0degf"]
+[ext_resource type="Script" path="res://items/global/recipe.gd" id="2_kttj5"]
+[ext_resource type="Resource" uid="uid://boiab13xxa0va" path="res://items/items/stone.tres" id="3_nuvc0"]
+[ext_resource type="Resource" uid="uid://cd0qq76w68wg4" path="res://items/items/sword.tres" id="4_thmyk"]
+
+[resource]
+script = ExtResource("2_kttj5")
+name = "Espada"
+ingredients = Array[ExtResource("1_d8hxq")]([ExtResource("2_0degf"), ExtResource("2_0degf"), ExtResource("3_nuvc0"), ExtResource("3_nuvc0")])
+results = Array[ExtResource("1_d8hxq")]([ExtResource("4_thmyk")])

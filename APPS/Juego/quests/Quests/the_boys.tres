@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://ds40kwkisgcnm"]
+
+[ext_resource type="Script" path="res://addons/quest_system/quest_resource.gd" id="1_q8be2"]
+
+[resource]
+script = ExtResource("1_q8be2")
+id = 1
+quest_name = "Ay los niños..."
+quest_description = "Los dos hijos de abel se han escondido en el bosque y llevan sin aparecer un tiempo"
+quest_objective = "Encuentra a los niños"

@@ -3,14 +3,15 @@
 [ext_resource type="ArrayMesh" uid="uid://bvl0mg4latcyy" path="res://items/meshes/bowl.obj" id="1_hgi7v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhanf"]
-size = Vector3(1.22272, 0.486755, 1.2229)
+size = Vector3(0.4, 0.15, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3pavc"]
-size = Vector3(1.7218, 1.14648, 1.77173)
+size = Vector3(0.6, 0.4, 0.6)
 
 [node name="Node3D" type="RigidBody3D"]
 
 [node name="Bowl" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 mesh = ExtResource("1_hgi7v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

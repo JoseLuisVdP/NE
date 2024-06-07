@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://du670kym6je6s"]
+[gd_scene load_steps=7 format=3 uid="uid://du670kym6je6s"]
 
+[ext_resource type="Theme" uid="uid://da7b4g6cwj08y" path="res://default_theme_big_btn.tres" id="1_7cojn"]
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_q50f4"]
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="2_ff075"]
 [ext_resource type="Script" path="res://UI/save.gd" id="3_58hf4"]
@@ -30,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7cojn")
 script = ExtResource("1_q50f4")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
@@ -41,7 +43,6 @@ color = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("2_ff075")
 theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="PauseMenu/VBoxContainer"]

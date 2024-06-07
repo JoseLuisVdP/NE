@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://irlg4fnxqtje"]
 
+[ext_resource type="Resource" uid="uid://ds40kwkisgcnm" path="res://quests/Quests/the_boys.tres" id="1_fydm7"]
 [ext_resource type="Script" path="res://NPCs/npc.gd" id="1_mfnfr"]
-[ext_resource type="Resource" uid="uid://bf5wlxqnuhhpq" path="res://dialogues/quest0.dialogue" id="1_ohhl7"]
-[ext_resource type="Resource" uid="uid://por5orf4546n" path="res://quests/Quests/axe_quest.tres" id="2_vbmaa"]
+[ext_resource type="Resource" uid="uid://cb2sfjndk0uaa" path="res://dialogues/quest1_the_boys.dialogue" id="1_oqtuc"]
 [ext_resource type="PackedScene" uid="uid://d4kowe2pwwuoj" path="res://NPCs/scenes/man.tscn" id="3_y8mkk"]
 
 [resource]
 script = ExtResource("1_mfnfr")
-name = "Test NPC"
-dialogue = ExtResource("1_ohhl7")
+name = "Abel"
+dialogue = ExtResource("1_oqtuc")
 scene = ExtResource("3_y8mkk")
-quest = ExtResource("2_vbmaa")
+quest = ExtResource("1_fydm7")

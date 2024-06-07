@@ -1,12 +1,22 @@
 {
   "hidden_columns": {
+    "res://": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
     "res://items/items/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
+    "res://items/recipes/": {
       "resource_local_to_scene": true,
       "resource_name": true
     }
   },
   "recent_paths": [
-    "res://items/items/"
+    "res://items/items/",
+    "res://",
+    "res://items/recipes/"
   ],
   "table_functions": {
     "filter": [

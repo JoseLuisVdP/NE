@@ -9,6 +9,9 @@ var is_chatting: bool = false
 func is_moving():
 	return _player.mvmtKeysPressed > 0 and not is_hitting and not is_working and not is_chatting
 
+func is_walking():
+	return is_moving() and _player.is_on_floor()
+
 func _ready() -> void:
 	super._ready()
 	_player = find_parent("Player")

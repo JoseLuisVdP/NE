@@ -1,0 +1,26 @@
+# Material file for holsterbag.obj
+
+newmtl camo
+	Ns 0
+	d 1
+	illum 2
+	Kd 0.12 0.36 0.08
+	Ks 0.0 0.0 0.0
+	Ka 0.2 0.2 0.2
+
+newmtl steel
+	Ns 0
+	d 1
+	illum 2
+	Kd 0.38 0.54 0.54
+	Ks 0.0 0.0 0.0
+	Ka 0.2 0.2 0.2
+
+newmtl ribbon
+	Ns 0
+	d 1
+	illum 2
+	Kd 0.27 0.21 0.16
+	Ks 0.0 0.0 0.0
+	Ka 0.2 0.2 0.2
+

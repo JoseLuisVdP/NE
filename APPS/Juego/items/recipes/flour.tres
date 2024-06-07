@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://bcmnk6x5f82xt"]
+
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_84kua"]
+[ext_resource type="Resource" uid="uid://d2cybs13svf62" path="res://items/items/wheat.tres" id="2_303l4"]
+[ext_resource type="Script" path="res://items/global/recipe.gd" id="2_vsew3"]
+[ext_resource type="Resource" uid="uid://jlnmudbnm2q4" path="res://items/items/flour.tres" id="3_256o8"]
+
+[resource]
+script = ExtResource("2_vsew3")
+name = "Harina"
+ingredients = Array[ExtResource("1_84kua")]([ExtResource("2_303l4"), ExtResource("2_303l4")])
+results = Array[ExtResource("1_84kua")]([ExtResource("3_256o8")])
