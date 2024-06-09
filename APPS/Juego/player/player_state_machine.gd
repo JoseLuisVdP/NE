@@ -5,12 +5,16 @@ class_name PlayerStateMachine extends StateChart
 var is_hitting : bool = false
 var is_working : bool = false
 var is_chatting: bool = false
+var is_running : bool = false
 
 func is_moving():
 	return _player.mvmtKeysPressed > 0 and not is_hitting and not is_working and not is_chatting
 
 func is_walking():
 	return is_moving() and _player.is_on_floor()
+
+func is_player_running():
+	return is_walking() and is_running
 
 func _ready() -> void:
 	super._ready()
@@ -51,9 +55,11 @@ func _on_stop_hitting() -> void:
 
 func _on_start_running():
 	_player.cur_speed = _player.RUN_SPEED
+	is_running = true
 	
 func _on_stop_running():
 	_player.cur_speed = _player.SPEED
+	is_running = false
 
 func _while_jumping(delta: float) -> void:
 	_player.animation_player.play("Jump")

@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://df7e30binq4dt"]
+
+[ext_resource type="Texture2D" uid="uid://dm6f6qpc6lr5i" path="res://assets/Smoke30Frames.png" id="1_4lfe3"]
+
+[sub_resource type="Curve" id="Curve_qbaxp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.693251, 0.574029), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_50u06"]
+curve = SubResource("Curve_qbaxp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nnnyu"]
+inherit_velocity_ratio = 10.0
+direction = Vector3(0, 1, 0)
+spread = 7.5
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, 3, 0)
+scale_curve = SubResource("CurveTexture_50u06")
+turbulence_enabled = true
+turbulence_noise_strength = 0.01
+turbulence_noise_scale = 0.01
+turbulence_influence_min = 0.025
+turbulence_influence_max = 0.025
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8wlk"]
+transparency = 2
+alpha_scissor_threshold = 0.25
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 0.3
+shading_mode = 0
+albedo_texture = ExtResource("1_4lfe3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cgpvu"]
+lightmap_size_hint = Vector2i(6, 6)
+material = SubResource("StandardMaterial3D_e8wlk")
+size = Vector2(0.85, 0.85)
+orientation = 2
+
+[node name="Chimney" type="Node3D" groups=["chimney"]]
+visible = false
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20798, 5.20238, -3.10666)
+amount = 15
+lifetime = 3.0
+randomness = 0.5
+fixed_fps = 60
+visibility_aabb = AABB(0, 0, 0, 0.3, 0.3, 0.3)
+local_coords = true
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_nnnyu")
+draw_pass_1 = SubResource("PlaneMesh_cgpvu")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.20798, 5.20238, -3.10666)
+amount = 15
+lifetime = 3.0
+randomness = 0.5
+fixed_fps = 60
+visibility_aabb = AABB(0, 0, 0, 0.3, 0.3, 0.3)
+local_coords = true
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_nnnyu")
+draw_pass_1 = SubResource("PlaneMesh_cgpvu")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.20798, 5.20238, -3.10666)
+amount = 15
+lifetime = 3.0
+randomness = 0.5
+fixed_fps = 60
+visibility_aabb = AABB(0, 0, 0, 0.3, 0.3, 0.3)
+local_coords = true
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_nnnyu")
+draw_pass_1 = SubResource("PlaneMesh_cgpvu")
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 1.20798, 5.20238, -3.10666)
+amount = 15
+lifetime = 3.0
+randomness = 0.5
+fixed_fps = 60
+visibility_aabb = AABB(0, 0, 0, 0.3, 0.3, 0.3)
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_nnnyu")
+draw_pass_1 = SubResource("PlaneMesh_cgpvu")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://dciha161re0ms"]
+
+[ext_resource type="Resource" uid="uid://dvp22hjl4mbft" path="res://dialogues/quest2_gimme_bread.dialogue" id="1_r6rnt"]
+[ext_resource type="Resource" uid="uid://n3p0ckivnov4" path="res://quests/Quests/gimme_bread.tres" id="2_gssfm"]
+[ext_resource type="PackedScene" uid="uid://d4kowe2pwwuoj" path="res://NPCs/scenes/man.tscn" id="3_rgr3s"]
+[ext_resource type="Script" path="res://NPCs/npc.gd" id="4_efk6p"]
+
+[resource]
+script = ExtResource("4_efk6p")
+name = "Dona"
+dialogue = ExtResource("1_r6rnt")
+scene = ExtResource("3_rgr3s")
+quest = ExtResource("2_gssfm")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://rsn2rdumm6ap"
+path="res://.godot/imported/quest6_oh_no_a_rat.dialogue-99d800a35a1aa421f71aca7a671adec1.tres"
+
+[deps]
+
+source_file="res://dialogues/quest6_oh_no_a_rat.dialogue"
+dest_files=["res://.godot/imported/quest6_oh_no_a_rat.dialogue-99d800a35a1aa421f71aca7a671adec1.tres"]
+
+[params]
+
+defaults=true

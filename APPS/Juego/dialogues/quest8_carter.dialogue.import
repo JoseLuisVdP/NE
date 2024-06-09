@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dmwqhloww1qyk"
+path="res://.godot/imported/quest8_carter.dialogue-c202c17d6874d3b5d2fc1a354d16eb67.tres"
+
+[deps]
+
+source_file="res://dialogues/quest8_carter.dialogue"
+dest_files=["res://.godot/imported/quest8_carter.dialogue-c202c17d6874d3b5d2fc1a354d16eb67.tres"]
+
+[params]
+
+defaults=true

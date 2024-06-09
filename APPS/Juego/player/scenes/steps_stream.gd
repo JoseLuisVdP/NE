@@ -2,15 +2,16 @@ extends AudioStreamPlayer
 
 
 @export var step_sounds : Array[AudioStreamWAV] = []
-@export var cooldown : int = 1
 
 
 @onready var state_chart: PlayerStateMachine = %StateChart
 @onready var timer: Timer = $Timer
 
+var cooldown : float
+
 
 func _ready():
-	timer.wait_time = cooldown
+	cooldown = timer.wait_time
 	timer.start()
 	randomize()
 
@@ -22,5 +23,11 @@ func play_step_sound():
 
 
 func _on_timer_timeout() -> void:
+	play_step_sound()
 	if state_chart.is_walking():
-		play_step_sound()
+		timer.start()
+	elif state_chart.is_player_running():
+		timer.start(cooldown/2)
+	else:
+		timer.stop()
+	

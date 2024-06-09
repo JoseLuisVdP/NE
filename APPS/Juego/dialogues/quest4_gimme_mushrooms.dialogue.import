@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bhylkag8ny52g"
+path="res://.godot/imported/quest4_gimme_mushrooms.dialogue-0e100b82d88227d44120ac236015ccaf.tres"
+
+[deps]
+
+source_file="res://dialogues/quest4_gimme_mushrooms.dialogue"
+dest_files=["res://.godot/imported/quest4_gimme_mushrooms.dialogue-0e100b82d88227d44120ac236015ccaf.tres"]
+
+[params]
+
+defaults=true

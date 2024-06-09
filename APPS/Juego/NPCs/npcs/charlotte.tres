@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://cscf5et3ouy7d"]
+
+[ext_resource type="Resource" uid="uid://rsn2rdumm6ap" path="res://dialogues/quest6_oh_no_a_rat.dialogue" id="1_6yuka"]
+[ext_resource type="Resource" uid="uid://dugytfn8por66" path="res://quests/Quests/oh_no_a_rat.tres" id="2_o51nn"]
+[ext_resource type="PackedScene" uid="uid://d4kowe2pwwuoj" path="res://NPCs/scenes/man.tscn" id="3_fvomo"]
+[ext_resource type="Script" path="res://NPCs/npc.gd" id="4_3o0kp"]
+
+[resource]
+script = ExtResource("4_3o0kp")
+name = "Charlotte"
+dialogue = ExtResource("1_6yuka")
+scene = ExtResource("3_fvomo")
+quest = ExtResource("2_o51nn")

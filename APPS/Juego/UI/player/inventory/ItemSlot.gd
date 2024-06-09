@@ -4,7 +4,6 @@ var _item : Item
 @onready var margin_container = %IconContainer
 @onready var icon_container = %IconContainer
 @onready var grid: OrderedItemsGrid = $".."
-@onready var reference_rect: ReferenceRect = %ReferenceRect
 
 @export var item_scene:PackedScene
 

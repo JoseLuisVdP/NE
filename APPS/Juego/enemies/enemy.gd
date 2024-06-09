@@ -13,6 +13,8 @@ func _ready() -> void:
 	var enemy = scene.instantiate()
 	add_child(enemy)
 	animation_player = enemy.find_child("AnimationPlayer")
+	if animation_player == null:
+		return
 	animation_player.animation_finished.connect(_on_animation_player_animation_finished)
 
 func take_damage(dmg:int):
@@ -24,10 +26,14 @@ func take_damage(dmg:int):
 		die()
 
 func die():
-	if animation_player.has_animation("death"):
+	if animation_player != null and animation_player.has_animation("death"):
 		animation_player.play("death")
 	else:
 		printerr("El enemigo no tiene animacion death")
+		await get_tree().create_timer(0.5).timeout
+		call_deferred("drop_items")
+		get_parent().call_deferred("remove_child", self)
+		queue_free()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "death":

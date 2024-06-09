@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://1pfc84cs2ph4"
+path="res://.godot/imported/quest9_in_gods_name.dialogue-7eef8a56168fea20e38cf531e5949046.tres"
+
+[deps]
+
+source_file="res://dialogues/quest9_in_gods_name.dialogue"
+dest_files=["res://.godot/imported/quest9_in_gods_name.dialogue-7eef8a56168fea20e38cf531e5949046.tres"]
+
+[params]
+
+defaults=true

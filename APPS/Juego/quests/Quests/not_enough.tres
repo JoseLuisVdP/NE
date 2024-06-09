@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://tokncbvjfpgw"]
+
+[ext_resource type="Script" path="res://addons/quest_system/quest_resource.gd" id="1_cfx4e"]
+
+[resource]
+script = ExtResource("1_cfx4e")
+id = 7
+quest_name = "Problemas de abastecimiento"
+quest_description = "Parece que el proveedor del señor Tom Nook se ha atrasado, y ahora no puede vender sus productos básicos"
+quest_objective = "Consigue 10 unidades de trigo
+Consigue 10 rábanos
+Consigue 10 zanahorias
+Dáselo todo a Tom Nook"
+quest_xp = 200
+quest_money = 40

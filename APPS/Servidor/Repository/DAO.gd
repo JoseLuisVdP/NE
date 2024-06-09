@@ -9,6 +9,10 @@ func read(collection:String, docName:String, args:String = "[*]") -> Dictionary:
 	printerr("NO HAS IMPLEMENTADO ESTA FUNCION")
 	return {}
 
+func read_month(collection:String, month:String) -> Array:
+	printerr("NO HAS IMPLEMENTADO ESTA FUNCION")
+	return [{}]
+
 func read_first_data(collection:String) -> Dictionary:
 	printerr("NO HAS IMPLEMENTADO ESTA FUNCION")
 	return {}

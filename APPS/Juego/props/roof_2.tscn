@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn1o8jhb8wpox"]
+
+[ext_resource type="PackedScene" uid="uid://cmgf4m8lpn0ue" path="res://models/FantasyVillage/Props/Market_Roof_02.fbx" id="1_4k70d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lln75"]
+size = Vector3(0.112, 2, 0.117)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5s4x"]
+size = Vector3(2.60767, 0.315369, 2.05615)
+
+[node name="roof" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22391, 0.925247, -0.889896)
+shape = SubResource("BoxShape3D_lln75")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17522, 0.925247, -0.889896)
+shape = SubResource("BoxShape3D_lln75")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20143, 0.925247, 0.918867)
+shape = SubResource("BoxShape3D_lln75")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24957, 0.925247, 0.918867)
+shape = SubResource("BoxShape3D_lln75")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0159912, 1.84439, 0.0246582)
+shape = SubResource("BoxShape3D_e5s4x")
+
+[node name="Market_Roof_02" parent="." instance=ExtResource("1_4k70d")]

@@ -8,3 +8,5 @@ id = 0
 quest_name = "axe_quest"
 quest_description = "axe_quest_description"
 quest_objective = "axe_quest_objective"
+quest_xp = 100
+quest_money = 10

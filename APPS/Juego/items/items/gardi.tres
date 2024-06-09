@@ -10,6 +10,6 @@ name = "Gardi"
 scene = ExtResource("2_5rtjf")
 icon = ExtResource("1_87xlg")
 stack_size = 10
-description = "Un pesado de agua dulce."
+description = "Un pescado de agua dulce. Riquísimo"
 type = "tool"
 damage = -120

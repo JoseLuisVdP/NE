@@ -2,6 +2,9 @@ class_name NPCScene extends Node3D
 
 
 @export var npc : NPC
+@export var path_scene : PackedScene
+
+
 var npc_scene : Node3D
 var path : Path3D
 var path_follow : PathFollow3D
@@ -22,11 +25,19 @@ var is_talking : bool = false
 @onready var icons: Node3D = %Icons
 
 
-func _ready() -> void:
+func inicializar() -> void:
+	var p = path_scene.instantiate()
+	npc_paths.add_child(p)
+	path = p
 	npc_scene = npc.scene.instantiate()
 	add_child(npc_scene)
-	path = npc_paths.get_child(get_index())
 	path_follow = path.get_child(0)
+	if path.curve.point_count == 1:
+		state_chart.send_event("stop")
+		npc_scene.global_position = path_follow.global_position
+		npc_scene.animated_human.rotation = Vector3.ZERO
+		npc_scene.rotation = Vector3(npc_scene.rotation.x, lerp_angle(npc_scene.rotation.y, path_follow.rotation.y, 0.3), npc_scene.rotation.z)
+		icons.position = npc_scene.position
 
 
 func talk(_player_mesh:Node3D):
@@ -38,7 +49,8 @@ func talk(_player_mesh:Node3D):
 
 func stop_talking():
 	is_talking = false
-	state_chart.send_event("walk")
+	if path.curve.point_count != 1:
+		state_chart.send_event("walk")
 
 
 func accept_mission():
@@ -65,8 +77,10 @@ func complete_mission():
 func _on_idle_state_physics_processing(delta: float) -> void:
 	if npc_scene.has_method("play_animation"):
 		npc_scene.play_animation("Idle")
-	npc_scene.animated_human.look_at(player.global_transform.origin, Vector3.UP)
-	npc_scene.rotation = Vector3(npc_scene.rotation.x, lerp_angle(npc_scene.rotation.y, player.rotation.y + PI, 0.3), npc_scene.rotation.z)
+	if npc_scene != null and player != null:
+		if is_talking:
+			npc_scene.animated_human.look_at(player.global_transform.origin, Vector3.UP)
+			npc_scene.rotation = Vector3(npc_scene.rotation.x, lerp_angle(npc_scene.rotation.y, player.rotation.y + PI, 0.3), npc_scene.rotation.z)
 
 
 func _on_walk_state_physics_processing(delta: float) -> void:
@@ -78,7 +92,8 @@ func _on_walk_state_physics_processing(delta: float) -> void:
 		
 		if npc_scene.has_method("play_animation"):
 			npc_scene.play_animation("Walk")
-	icons.position = npc_scene.position
+	if npc_scene != null:
+		icons.position = npc_scene.position
 
 
 func _on_available_state_entered() -> void:

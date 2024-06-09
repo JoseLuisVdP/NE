@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://b1ru36qwensq5"]
+
+[ext_resource type="Resource" uid="uid://dmwqhloww1qyk" path="res://dialogues/quest8_carter.dialogue" id="1_3al7u"]
+[ext_resource type="Resource" uid="uid://ciuue0umq7p30" path="res://quests/Quests/carter.tres" id="2_e22wp"]
+[ext_resource type="PackedScene" uid="uid://d4kowe2pwwuoj" path="res://NPCs/scenes/man.tscn" id="3_se5br"]
+[ext_resource type="Script" path="res://NPCs/npc.gd" id="4_i5f22"]
+
+[resource]
+script = ExtResource("4_i5f22")
+name = "Carretero"
+dialogue = ExtResource("1_3al7u")
+scene = ExtResource("3_se5br")
+quest = ExtResource("2_e22wp")

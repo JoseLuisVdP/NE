@@ -5,11 +5,12 @@ class_name MyIsland extends StaticBody3D
 @onready var grass: ProceduralGrass = $Grass
 @onready var bass_paths: Node3D = %BassPaths
 @onready var general_grass: ProceduralGrass = %GeneralGrass
+@onready var mushrooms: ProceduralForest = $Mushrooms
+@onready var suspicious_mushrooms: ProceduralForest = $SuspiciousMushrooms
 
 @export var bass_scene : PackedScene
 @export var enemy_scene : PackedScene
 @export var bass_properties : Enemy
-@onready var grass_2: ProceduralGrass = $Grass2
 
 var mdt : MeshDataTool
 
@@ -17,13 +18,23 @@ func generate():
 	add_bass()
 	Scenes.update_loading_sreen_title("Generando bosques...")
 	Scenes.update_loading_sreen_progress(0.1)
+	await get_tree().process_frame
 	await forest.generate()
+	await mushrooms.generate()
+	await suspicious_mushrooms.generate()
 	Scenes.update_loading_sreen_title("Generando detalles...")
 	Scenes.update_loading_sreen_progress(0.5)
+	await get_tree().process_frame
 	await grass.generate()
 	Scenes.update_loading_sreen_title("Unos retoques finales...")	
 	Scenes.update_loading_sreen_progress(0.7)
+	await get_tree().process_frame
 	await general_grass.generate()
+	Scenes.update_loading_sreen_title("¡Listo!")
+	Scenes.update_loading_sreen_progress(1)
+	await get_tree().create_timer(1).timeout
+	for i in $NPCs.get_children():
+		i.inicializar()
 
 func add_bass():
 	for i in bass_paths.get_children():

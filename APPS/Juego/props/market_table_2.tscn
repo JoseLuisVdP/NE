@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7s108jhuoysg"]
+
+[ext_resource type="PackedScene" uid="uid://dhxd3aaqpiqmt" path="res://models/FantasyVillage/Props/Market_Table_02.fbx" id="1_hld23"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lln75"]
+size = Vector3(2.01331, 0.979889, 1.17163)
+
+[node name="market_table" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017395, 0.487564, 0.06604)
+shape = SubResource("BoxShape3D_lln75")
+
+[node name="Market_Table_02" parent="." instance=ExtResource("1_hld23")]

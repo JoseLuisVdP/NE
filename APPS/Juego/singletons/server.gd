@@ -13,6 +13,7 @@ signal data_retrieved
 var data_loaded : bool
 var data : Dictionary
 var clima_data : Dictionary = {}
+const clima_places : Dictionary = {"pradollano":"MALAGA-MARBELLA", "sandy":"ALMERIA-CABO DE GATA", "monmonty":"PONTEVEDRA-A LAMA"}
 var auto_save_scene : PackedScene
 var auto_save
 
@@ -24,8 +25,11 @@ func _ready() -> void:
 	pass
 
 func connect_to_server():
-	multiplayer.connected_to_server.connect(_on_connected)
-	multiplayer.connection_failed.connect(_on_connection_failed)
+	if not multiplayer.connected_to_server.is_connected(_on_connected):
+		multiplayer.connected_to_server.connect(_on_connected)
+	
+	if not multiplayer.connection_failed.is_connected(_on_connection_failed):
+		multiplayer.connection_failed.connect(_on_connection_failed)
 	
 	client = ENetMultiplayerPeer.new()
 	client.create_client(ip, port)

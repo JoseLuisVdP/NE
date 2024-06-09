@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://cnageidmtbpkn"]
+
+[ext_resource type="Script" path="res://addons/quest_system/quest_resource.gd" id="1_pn180"]
+
+[resource]
+script = ExtResource("1_pn180")
+id = 5
+quest_name = "El otro tipo de seta"
+quest_description = "El señor sospechoso de la zona comercial parece interesado en conseguir su dosis, ¡y paga bien!"
+quest_objective = "Dale 5 setas sospechosas al señor sospechoso"
+quest_xp = 400
+quest_money = 50

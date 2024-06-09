@@ -42,7 +42,7 @@ var temperature : float = -99
 
 @export_category("Características")
 @export var SPEED : float = 6.0
-@export var RUN_MULTIPLIER : float = 1.7
+@export var RUN_MULTIPLIER : float = 1.2
 @export var JUMP_VELOCITY : float = 25.0
 @export var MAX_HEALTH : float = 100.0
 @export var MAX_STAMINA : float = 100.0
@@ -123,7 +123,7 @@ func _physics_process(delta):
 	# DEBUG
 	var tool : Array[Node] = tools_attatchment.get_children()
 	if not tool.is_empty():
-		tool[0].position = Vector3.ZERO
+		tool[0].global_position = Vector3(200, 200, 200)
 		tool[0].collision_layer = 0
 		tool[0].collision_mask = 0
 		
@@ -183,15 +183,13 @@ func pickup_item():
 	var body : PickupScene = pickable_objects.pop_front()
 	if body == null: return
 	var item = body.item
-	#pickup_item(body.item)
-	body.queue_free()
+	
+	body.picked()
 	print("He pillado " + item.name)
 	add_item(item, 1)
 	
-	#TODO
-	#var next : PickupScene = pickable_objects.pop_front()
-	#if next.item == body.item:
-	#	pickup_item()
+	if not body.should_despawn:
+		pickable_objects.push_front(body)
 	
 	enable_movement(true)
 
@@ -256,7 +254,6 @@ func remove_item(item:Pickup, qty:int):
 	var response : Array = hotbar.remove_item(item, qty)
 	# remain and index of removal
 	if response[0] != 0:
-		print("AQUI")
 		if response[1] != -1:
 			var slot : ItemSlot = ui.hotbar.content.get_child(response[1])
 			slot.icon_container.remove_child(slot._item)
@@ -272,7 +269,6 @@ func remove_item(item:Pickup, qty:int):
 			slot._item = null
 			slot.display(null)
 	else:
-		print("AQUI")
 		var slot : ItemSlot = ui.hotbar.content.get_child(response[1])
 		if hotbar._content.has(response[1]):
 			slot._item._qty = hotbar._content[response[1]][1]
@@ -294,14 +290,15 @@ func has_all_items(items:Array[Pickup]):
 	var items_dict : Dictionary = array_of_pairs_to_dict(items.map(func (i): return [i, 1]))
 	
 	for i in items_dict:
-		if inventory_dict.keys().filter(func (j): return j.name == i.name).size() > 0:
-			var inventory_idx = inventory_dict.keys().filter(func (j): return j.name == i.name)
-			if inventory_idx.is_empty():
+		for qty in items_dict[i]:
+			var coincident = inventory_dict.keys().filter(func (j): return j == i)
+			if coincident.size() > 0:
+				items_dict[i] -= 1
+				inventory_dict[i] -= 1
+				if inventory_dict[i] == 0:
+					inventory_dict.erase(i)
+			else:
 				return false
-			items_dict[i] -= 1
-			inventory_dict[inventory_idx[0]] -= 1
-			if inventory_dict[i] == 0:
-				inventory_dict.erase(i)
 	
 	return items_dict.values().filter(func (i): return i > 0).is_empty()
 
@@ -399,51 +396,3 @@ func set_player_full_inventory(data:Dictionary) -> void:
 		toolbar.store_item(item, qty, slot)
 	"""
 
-
-# Calcula el clima, y devuelve la temperatura
-func update_clima():
-	if Server.clima_data.is_empty():
-		print("Aun no hay datos")
-		return
-	
-	var data = Server.clima_data[location][0]["ALMERIA"]["CABO DE GATA"]
-	var time : int = GlobalTime.day_time
-	
-	var hora_max = data["hora_max"].split(":")
-	hora_max = int(hora_max[0]) * 60 + int(hora_max[1])
-	hora_max *= 60
-	
-	var hora_min = data["hora_min"].split(":")
-	hora_min = int(hora_min[0]) * 60 + int(hora_min[1])
-	hora_min *= 60
-	
-	var hora_avg = hora_min + (hora_max - hora_min/2)
-	
-	var temp_max : float = float(data["temp_max"])
-	var temp_min : float = float(data["temp_min"])
-	var temp_avg : float = float(data["temp_avg"])
-	
-	var hora_avg_end_in_s = hora_max - 180 * 60
-	var hora_min_end_in_s = hora_min - 180 * 60
-	var hora_media = hora_min + (hora_max - hora_min)/2
-	
-	if GlobalTime.is_between(hora_avg_end_in_s, hora_media):
-		temperature = temp_avg
-	elif GlobalTime.is_between(hora_min_end_in_s, hora_min):
-		temperature = temp_min
-	elif GlobalTime.is_between(hora_min_end_in_s, hora_max):
-		temperature = calculate_temp(hora_min_end_in_s, hora_max, temp_min, temp_max)
-	elif GlobalTime.is_between(hora_max, hora_media):
-		temperature = calculate_temp(hora_max, hora_media, temp_max, temp_avg)
-	elif GlobalTime.is_between(hora_avg_end_in_s, hora_min):
-		temperature = calculate_temp(hora_avg_end_in_s, hora_min, temp_avg, temp_min)
-	
-	ui.update_temp(temperature)
-
-
-func calculate_temp(begin, end, temp_min, temp_max):
-	var progress = end - GlobalTime.time
-	var total = end - begin
-	progress = progress/total
-	var temp_diff = temp_max - temp_min
-	return end - temp_diff * progress

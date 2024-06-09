@@ -57,8 +57,8 @@ unique_name_in_owner = true
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = 410.0
-offset_bottom = 410.0
+offset_top = 380.0
+offset_bottom = 380.0
 grow_vertical = 2
 mouse_filter = 2
 
@@ -81,10 +81,3 @@ grow_vertical = 0
 
 [node name="Clock" parent="NonCloseable" instance=ExtResource("11_2pvij")]
 unique_name_in_owner = true
-
-[node name="UpdateClock" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.5
-autostart = true
-
-[connection signal="timeout" from="UpdateClock" to="." method="update_time"]

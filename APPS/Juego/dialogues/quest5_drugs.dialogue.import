@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://buvj0uamlthu8"
+path="res://.godot/imported/quest5_drugs.dialogue-897d6d8fa240378348a49f03a2a08a0c.tres"
+
+[deps]
+
+source_file="res://dialogues/quest5_drugs.dialogue"
+dest_files=["res://.godot/imported/quest5_drugs.dialogue-897d6d8fa240378348a49f03a2a08a0c.tres"]
+
+[params]
+
+defaults=true

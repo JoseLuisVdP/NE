@@ -105,4 +105,5 @@ Nathan: Por último, también debes equiparte, y mi consejo, es que lleves al me
 Nathan: Aunque deberías llevar todo lo posible, vaya a ser que no salga todo como esperas y necesites dar un último golpe con la espada o el hacha
 Nathan: Cuando estes preparado y tengas el dinero suficiente, dirigete al puerto, ¡y toma el barco hacia tu destino!
 Nathan: Habla conmigo cuando tengas dudas, o cuando no tengas nada que hacer, ¡suerte!
+do ConversationManager.end_chat()
 => END

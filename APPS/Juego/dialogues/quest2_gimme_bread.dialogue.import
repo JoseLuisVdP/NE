@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dvp22hjl4mbft"
+path="res://.godot/imported/quest2_gimme_bread.dialogue-68de053eacf4bf4266a402e1aeb93b83.tres"
+
+[deps]
+
+source_file="res://dialogues/quest2_gimme_bread.dialogue"
+dest_files=["res://.godot/imported/quest2_gimme_bread.dialogue-68de053eacf4bf4266a402e1aeb93b83.tres"]
+
+[params]
+
+defaults=true

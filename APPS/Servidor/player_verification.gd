@@ -41,7 +41,9 @@ func create_player_container(player_id:int) -> void:
 	var player_container = player_container_scene.instantiate()
 	player_container.name = str(player_id)
 	get_parent().add_child(player_container, true)
-	player_container = get_node("../" + str(player_id))
+	player_container = get_node_or_null("../" + str(player_id))
+	if player_container == null:
+		return
 	fill_player_container(player_container)
 	print("Contenedor creado para " + str(player_id))
 	
@@ -68,4 +70,4 @@ func _on_verification_expiration_timeout() -> void:
 			var connected_peers : Array = Array(server.multiplayer.get_peers())
 			if connected_peers.has(i):
 				server.return_token_verification_result(i, false)
-			server.server.disconnect_peer(i)
+				server.server.disconnect_peer(i)

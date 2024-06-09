@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://hdi1hd7i5qm3"]
+[gd_scene load_steps=3 format=3 uid="uid://hdi1hd7i5qm3"]
 
 [ext_resource type="Script" path="res://items/global/pickup_scene.gd" id="1_slsbg"]
+[ext_resource type="AudioStream" uid="uid://dkc5odmmb4jhi" path="res://assets/sounds/pop.wav" id="2_apcka"]
 
 [node name="Item" type="Node3D"]
 script = ExtResource("1_slsbg")
+picked_up_audio = ExtResource("2_apcka")
 
 [node name="Despawn" type="Timer" parent="."]
 wait_time = 300.0
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]

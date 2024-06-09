@@ -1,0 +1,36 @@
+~ before_quest
+Dana: ¡Hola! Perdona, ¿puedo pedirte un favor?
+- Soy todo oídos
+	Dana: Oh, ¡gracias! Verás, me encantaría probar una buena sopa de rábano
+	Dana: He oído que es maravillosa, pero nunca he tenido el valor de hacerla yo misma... ¿Podrías traerme una?
+	- No me importaría hacerla
+		Dana: ¿En serio?
+		Dana: ¡Eres tan amable! De verdad, gracias. Estaré esperando con ansias.
+		do MyQuestManager.accept()
+		do ConversationManager.end_chat()
+		=> END
+    - Buah, me pasa igual, ni idea de como se hace
+		Dana: Oh, está bien... lo entiendo. Gracias de todas formas. Que tengas un buen día.
+		do ConversationManager.end_chat()
+      - => END
+- En otro momento
+	Dana: Oh, vale... Hasta luego, cuídate.
+	=> END
+
+~ during_quest
+Dana: Hola..., ¿cómo va la sopa de rábano?
+- Aún nada
+	Dana: Oh, bueno, no te preocupes. Tampoco me corre mucha prisa, a tu ritmo
+	do ConversationManager.end_chat()
+	=> END
+- Adivina que traigo
+	Dana: ¡De verdad! No puedo creerlo...
+	Dana: ¡Gracias, gracias, gracias! Eres increíble.
+	do MyQuestManager.complete()
+	do ConversationManager.end_chat()
+	=> END
+
+~ post_quest
+Dana: ¡Hola! Gracias de nuevo por la sopa de rábano. Estaba deliciosa. ¡Espero que tengas un gran día!
+do ConversationManager.end_chat()
+=> END

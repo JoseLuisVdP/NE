@@ -9,7 +9,7 @@ var port : int = 1912
 var game_server : Server
 
 func _ready() -> void:
-	game_server = get_node("/root/Server")
+	game_server = get_node_or_null("/root/Server")
 	start_server()
 
 func start_server():

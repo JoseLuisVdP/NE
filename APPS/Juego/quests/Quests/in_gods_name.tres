@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://buxpi8he4r0mo"]
+
+[ext_resource type="Script" path="res://addons/quest_system/quest_resource.gd" id="1_fwvpm"]
+
+[resource]
+script = ExtResource("1_fwvpm")
+id = 9
+quest_name = "Los jardines de Dios"
+quest_description = "Puede que Dios sea inmutable, pero sus jardines no. Ayuda al padre a reparar los desperfectos de los jardines de la iglesia."
+quest_objective = "Dale 20 piedras al padre"
+quest_xp = 200
+quest_money = 30

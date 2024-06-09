@@ -7,4 +7,4 @@ script = ExtResource("1_4u8xh")
 base_folder = "res://items/recipes"
 includes = Array[String](["*.tres"])
 excludes = Array[String]([])
-paths = Array[String](["res://items/recipes/arrow.tres", "res://items/recipes/axe.tres", "res://items/recipes/bow.tres", "res://items/recipes/bowl.tres", "res://items/recipes/bread.tres", "res://items/recipes/flour.tres", "res://items/recipes/mushroom_soup.tres", "res://items/recipes/pickaxe.tres", "res://items/recipes/rope.tres", "res://items/recipes/suspicious_mushroom_soup.tres", "res://items/recipes/sword.tres", "res://items/recipes/turnip_soup.tres"])
+paths = Array[String](["res://items/recipes/axe.tres", "res://items/recipes/bowl.tres", "res://items/recipes/bread.tres", "res://items/recipes/flour.tres", "res://items/recipes/mushroom_soup.tres", "res://items/recipes/rope.tres", "res://items/recipes/suspicious_mushroom_soup.tres", "res://items/recipes/sword.tres", "res://items/recipes/turnip_soup.tres"])

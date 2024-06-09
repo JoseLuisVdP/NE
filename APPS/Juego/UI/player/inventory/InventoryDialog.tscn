@@ -22,7 +22,7 @@ content_margin_left = 8.0
 content_margin_top = 6.0
 content_margin_right = 8.0
 content_margin_bottom = 6.0
-bg_color = Color(1, 0, 0, 1)
+bg_color = Color(0.699195, 2.08165e-06, 6.73831e-07, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -89,6 +89,7 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_qw4nd")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qw4nd")
 text = "X"
 

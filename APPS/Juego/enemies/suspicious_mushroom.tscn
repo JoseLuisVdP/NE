@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk8qw0uescetf"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgnli5knihgj4" path="res://models/mushrooms/mushroom_redGroup.obj" id="1_yjexa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nenxb"]
+size = Vector3(0.291992, 0.270142, 0.284424)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eoame"]
+size = Vector3(2.82196, 2.54068, 2.46948)
+
+[node name="Tree0" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 1.49012e-08, 0, -1.49012e-08, 5, 0, 0, 0)
+mesh = ExtResource("1_yjexa")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 1.49012e-08, 0, -1.49012e-08, 5, 0.012207, 0.669861, -0.0482178)
+shape = SubResource("BoxShape3D_nenxb")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0365906, 0.77034, 0.0762939)
+shape = SubResource("BoxShape3D_eoame")

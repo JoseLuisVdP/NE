@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ccjphh7g0mi4u"]
+[gd_scene load_steps=27 format=3 uid="uid://ccjphh7g0mi4u"]
 
 [ext_resource type="PackedScene" uid="uid://ekqort30etdn" path="res://player/scenes/player.tscn" id="1_heepr"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hunv4"]
@@ -11,10 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://c1j5euwpsk1wf" path="res://props/plant2.tscn" id="4_ul2l7"]
 [ext_resource type="PackedScene" uid="uid://bwo60wwu0mejl" path="res://UI/UI.tscn" id="5_g5unb"]
 [ext_resource type="Texture2D" uid="uid://b8o0ijxaev86n" path="res://shaders/textures/stars.png" id="5_ih4x5"]
-[ext_resource type="Resource" uid="uid://kla65kc6sxhb" path="res://items/items/stick.tres" id="7_vmuqs"]
-[ext_resource type="Script" path="res://items/global/pickup_scene.gd" id="8_do68a"]
-[ext_resource type="Resource" uid="uid://b0764rp2ij34j" path="res://items/items/axe.tres" id="10_gmjmf"]
-[ext_resource type="Resource" uid="uid://boiab13xxa0va" path="res://items/items/stone.tres" id="11_vwmnj"]
 [ext_resource type="PackedScene" uid="uid://n5ueuwthm41b" path="res://models/map/my_island.tscn" id="15_slwqk"]
 [ext_resource type="Shader" path="res://shaders/water_shader.gdshader" id="16_cd60u"]
 [ext_resource type="PackedScene" uid="uid://cfyjxurc0ivue" path="res://models/map/map.tscn" id="17_waklr"]
@@ -160,70 +156,7 @@ transform = Transform3D(-0.922538, 0, 0.385906, 0, 1, 0, -0.385906, 0, -0.922538
 
 [node name="Player" parent="3D" groups=["save_and_load"] instance=ExtResource("1_heepr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.317, 77.4182, 150)
-RUN_MULTIPLIER = 20.0
-
-[node name="Pickups" type="Node3D" parent="3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -189.728, 14.1372, -787.254)
-
-[node name="PickupScene2" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.37597, 0.987823, 0)
-script = ExtResource("8_do68a")
-item = ExtResource("10_gmjmf")
-
-[node name="PickupScene3" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.69253, 1.53754, 0)
-script = ExtResource("8_do68a")
-item = ExtResource("10_gmjmf")
-
-[node name="PickupScene4" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93899, 1.66339, 0)
-script = ExtResource("8_do68a")
-item = ExtResource("10_gmjmf")
-
-[node name="PickupScene5" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50502, 1.39627, -0.633683)
-script = ExtResource("8_do68a")
-item = ExtResource("10_gmjmf")
-
-[node name="PickupScene6" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39655, 0.406433, 1.63013)
-script = ExtResource("8_do68a")
-item = ExtResource("7_vmuqs")
-
-[node name="PickupScene7" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05112, 1.59888, 1.25907)
-script = ExtResource("8_do68a")
-item = ExtResource("7_vmuqs")
-
-[node name="PickupScene8" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63656, 1.26053, 2.59367)
-script = ExtResource("8_do68a")
-item = ExtResource("7_vmuqs")
-
-[node name="PickupScene9" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.79097, 0.383698, 0.716442)
-script = ExtResource("8_do68a")
-item = ExtResource("7_vmuqs")
-
-[node name="PickupScene10" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73061, 0.841919, 1.51894)
-script = ExtResource("8_do68a")
-item = ExtResource("11_vwmnj")
-
-[node name="PickupScene11" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94246, 0.693054, 2.39216)
-script = ExtResource("8_do68a")
-item = ExtResource("11_vwmnj")
-
-[node name="PickupScene12" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72179, 0.529419, 0)
-script = ExtResource("8_do68a")
-item = ExtResource("11_vwmnj")
-
-[node name="PickupScene13" type="Node3D" parent="3D/Pickups"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49597, 0.381744, 0)
-script = ExtResource("8_do68a")
-item = ExtResource("11_vwmnj")
+RUN_MULTIPLIER = 1.5
 
 [node name="World" type="Node3D" parent="3D"]
 
@@ -272,3 +205,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -458.947, 74.2325, 146.646)
 [node name="UI" parent="." instance=ExtResource("5_g5unb")]
 
 [node name="Pause" parent="." instance=ExtResource("24_0duiu")]
+
+[node name="ClimaUpdateClock" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="ClimaUpdateClock" to="." method="update_clima"]

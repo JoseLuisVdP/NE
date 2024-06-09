@@ -4,6 +4,12 @@ class_name MongoDBClimaDAO
 var CLIENT
 var DB
 
+# La colección sale fuera debido a que, por el funcionamiento del conector, trata de cargar totalmente la colección en lugar de permitir filtrar.
+# Esto deberá ser adaptado si en un futuro se pretende introducir más climas además del español, pero implicaría el desarrollo de un conector personalizado más óptimo en C++ o C#
+# Dado que se sale del alcance del proyecto, optaré por esta forma de optimizar el proceso
+var col = null
+var docs : Array = []
+
 ## Day in unix time
 const UNIX_DAY : int = 86400
 
@@ -20,14 +26,37 @@ func create(data:Dictionary, collection:String, docName:String = "-1") -> Dictio
 	col.InsertDocument(data, docName)
 	return data
 
+
 func read(collection:String, id:String, args:String = ""):
 	if !DB.GetCollectionsNameList().has(collection):
 		print("No existe la colección " + collection)
-	var col = DB.GetCollection(collection)
-	var docs = col.GetDocuments()
+	if col == null:
+		col = DB.GetCollection(collection)
 	if docs.is_empty():
+		docs = col.GetDocuments()
+	var result : Array = docs.duplicate(true)
+	if result == null or result.is_empty():
 		return {}
-	return docs[0]
+	return result.filter(func (doc): return doc["_id"] == id)[0]
+
+
+func read_month(collection:String, month:String) -> Array:
+	if !DB.GetCollectionsNameList().has(collection):
+		print("No existe la colección " + collection)
+	if col == null:
+		col = DB.GetCollection(collection)
+	if docs.is_empty():
+		docs = col.GetDocuments()
+	var result : Array = docs.duplicate(true)
+	if result == null or result.is_empty():
+		return [{}]
+		var a : String = ""
+		a.erase(0, a.length()-3)
+
+	result = result.filter(func (doc): return doc["_id"].erase(doc["_id"].length()-3, 3).ends_with("2023-"+month))
+	result.sort_custom(func (a, b): return a["_id"].erase(0, a["_id"].length()-3) < b["_id"].erase(0, b["_id"].length()-3))
+	return result
+
 
 func has_data(collection:String, docName:String) -> bool:
 	if !DB.GetCollectionsNameList().has(collection):

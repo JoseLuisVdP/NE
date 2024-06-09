@@ -1,0 +1,32 @@
+~ before_quest
+Cura: ¡Hola, viajero! La catedral necesita de tu ayuda.
+- ¡Cuéntame más!
+	Cura: El jardín de la catedral ha sufrido daños con el paso del tiempo, y necesitamos 20 piedras para repararlo. ¿Podrías ayudarnos?
+	- Claro
+		Cura: ¡Muchas gracias! Con esas piedras podremos restaurar la paz y la belleza de nuestro jardín. Te estaré esperando.
+		do MyQuestManager.accept()
+		do ConversationManager.end_chat()
+		=> END
+	- Me viene un poco mal...
+		Cura: Entiendo, quizás en otro momento. Que tengas un buen día.
+		do ConversationManager.end_chat()
+		=> END
+- Nos vemos
+	Cura: Que la luz te acompañe en tu camino. Hasta pronto.
+	=> END
+
+~ during_quest
+Cura: ¿Has conseguido ya las 20 piedras para el jardín?
+- Aún nada
+   Cura: No te preocupes, seguiré esperando tu regreso. Que la paz esté contigo.
+   do ConversationManager.end_chat()
+- ¡Así es!
+	Cura: ¡Bendito seas! Con estas piedras, el jardín de la catedral volverá a su antiguo esplendor. Gracias por tu ayuda.
+	do MyQuestManager.complete()
+	do ConversationManager.end_chat()
+	=> END
+
+~ post_quest
+Cura: El jardín de la catedral luce hermoso gracias a ti. Que la luz te guíe siempre.
+do ConversationManager.end_chat()
+=> END

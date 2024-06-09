@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Pickup" load_steps=4 format=3 uid="uid://u6nbb668rmnp"]
+
+[ext_resource type="Texture2D" uid="uid://bask04dn7u5ga" path="res://items/icons/pico.png" id="1_2hv5y"]
+[ext_resource type="Script" path="res://items/global/pickup.gd" id="1_br2u7"]
+[ext_resource type="PackedScene" uid="uid://ef4i8o3mhfkd" path="res://items/scenes/pickaxe.tscn" id="2_q0437"]
+
+[resource]
+script = ExtResource("1_br2u7")
+name = "Pico"
+scene = ExtResource("2_q0437")
+icon = ExtResource("1_2hv5y")
+stack_size = 20
+description = "La herramienta correcta para obtener piedra"
+type = "tool"
+damage = 20

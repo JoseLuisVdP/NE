@@ -875,10 +875,10 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wyaf2"]
-size = Vector3(3.6131, 7.76236, 2.86676)
+size = Vector3(28.904, 62.096, 22.936)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ikgam"]
-size = Vector3(7.1331, 2.98376, 8.92253)
+size = Vector3(57.064, 23.872, 80.183)
 
 [node name="Ant" type="CharacterBody3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -887,6 +887,7 @@ collision_mask = 9
 script = ExtResource("1_8s5wb")
 
 [node name="Armature_003" type="Node3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 
 [node name="Thorax" type="Node3D" parent="Armature_003"]
 
@@ -1480,7 +1481,7 @@ shape = SubResource("BoxShape3D_wyaf2")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313382, -0.302374, -1.15042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313382, -0.302374, -4.14236)
 shape = SubResource("BoxShape3D_ikgam")
 
 [node name="StateChart" type="Node" parent="."]

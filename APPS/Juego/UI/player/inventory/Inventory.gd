@@ -13,7 +13,6 @@ func add_item(item:Pickup, qty:int) -> int:
 		for i in _content:
 			if _content[i][0].name == item.name:
 				var result = _content[i][1] + qty -  _content[i][0].stack_size
-				print(result)
 				if result <= 0:
 					_content[i][1] += qty
 					return i
@@ -43,7 +42,7 @@ func remove_item(item:Pickup, qty:int) -> Array:
 	var remain : int = qty
 	var index : int = -1
 	for i in _content:
-		if _content[i][0] == item:
+		if _content[i][0].name == item.name:
 			if _content[i][1] - qty >= 0:
 				remain = 0
 				_content[i][1] -= qty

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://ciuue0umq7p30"]
+
+[ext_resource type="Script" path="res://addons/quest_system/quest_resource.gd" id="1_0wbu8"]
+
+[resource]
+script = ExtResource("1_0wbu8")
+id = 8
+quest_name = "El accidentado carretero"
+quest_description = "El carro del carretero se ha descarrilado, ¿quién lo encarrilará? Aquel encarrilador que lo encarrile, buen encarrilador será"
+quest_objective = "Obten 2 cuerdas
+Obten 10 palos
+Dáselos al carretero"
+quest_xp = 150
+quest_money = 20

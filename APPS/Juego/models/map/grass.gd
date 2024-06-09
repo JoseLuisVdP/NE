@@ -33,6 +33,7 @@ func add_grass(tris:Array):
 		else:
 			pos_divided[0] = pos
 		var multi : MultiMeshInstance3D = get_multimesh_3d(meshes[i], pos_divided[i].size(), grass_material)
+		multi.layers = 2
 		await allocate_grass(multi, pos_divided[i])
 
 func get_multimesh_3d(mesh:ArrayMesh, count:int, material:Material) -> MultiMeshInstance3D:

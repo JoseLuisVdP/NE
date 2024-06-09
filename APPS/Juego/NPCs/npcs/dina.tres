@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://gcp8lfn6e70v"]
+
+[ext_resource type="Resource" uid="uid://bhylkag8ny52g" path="res://dialogues/quest4_gimme_mushrooms.dialogue" id="1_u1rjr"]
+[ext_resource type="Resource" uid="uid://b34cfcse68n2e" path="res://quests/Quests/gimme_mushroom.tres" id="2_pfrq8"]
+[ext_resource type="PackedScene" uid="uid://d4kowe2pwwuoj" path="res://NPCs/scenes/man.tscn" id="3_knpcg"]
+[ext_resource type="Script" path="res://NPCs/npc.gd" id="4_bwhj8"]
+
+[resource]
+script = ExtResource("4_bwhj8")
+name = "Dina"
+dialogue = ExtResource("1_u1rjr")
+scene = ExtResource("3_knpcg")
+quest = ExtResource("2_pfrq8")

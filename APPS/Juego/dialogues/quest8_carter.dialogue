@@ -1,0 +1,33 @@
+~ before_quest
+Carretero: ¡Eh, forastero! ¡Necesito un favor!
+- ¡A sus órdenes!
+	Carretero: Mi carreta se ha roto del uso y no puedo seguir con mi camino. Necesitaría algo de cuerda y unos 10 palos para repararla. ¿Podrías ayudarme?
+	- ¡Faltaría más!
+		Carretero: ¡Gracias, majo! Estaré aquí esperando.
+		Carretero: Voy a necesitar exactamente 2 cuerdas y 10 palos, ¡ya sabes donde encontrarme cuando los tengas!
+		do MyQuestManager.accept()
+		do ConversationManager.end_chat()
+		=> END
+	- Ahora me pillas en mal momento...
+		Carretero: Una lástima, habrá que buscar otra solución. ¡Buen día!
+		=> END
+- En otro momento
+	Carretero: Cuídate, forastero.
+	do ConversationManager.end_chat()
+	=> END
+
+~ during_quest
+Carretero: ¿Lograste conseguir las cuerdas y los palos que te pedí?
+- Aún nada
+   Carretero: No te preocupes, tomaré un descanso mientras tanto. Nos vemos luego.
+   do ConversationManager.end_chat()
+- ¡Aquí están!
+	Carretero: ¡Olé! Ya de arreglar la carreta me encargo yo, que has hecho ya bastante. ¡Muchas gracias, amigo!
+	do MyQuestManager.complete()
+	do ConversationManager.end_chat()
+	=> END
+
+~ post_quest
+Carretero: Gracias por tu ayuda, forastero. ¡Cuídate y buen viaje!
+do ConversationManager.end_chat()
+=> END

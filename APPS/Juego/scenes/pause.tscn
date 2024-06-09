@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://du670kym6je6s"]
+[gd_scene load_steps=11 format=3 uid="uid://du670kym6je6s"]
 
 [ext_resource type="Theme" uid="uid://da7b4g6cwj08y" path="res://default_theme_big_btn.tres" id="1_7cojn"]
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_q50f4"]
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="2_ff075"]
 [ext_resource type="Script" path="res://UI/save.gd" id="3_58hf4"]
+[ext_resource type="Theme" uid="uid://dcvvk2xc6q74x" path="res://default_theme_blue.tres" id="3_dq870"]
+[ext_resource type="Theme" uid="uid://t6ho18bl80ht" path="res://default_theme_brown.tres" id="5_g8spl"]
+[ext_resource type="PackedScene" uid="uid://d4fqihswvxudj" path="res://volume_slider.tscn" id="7_jc6lk"]
+[ext_resource type="Script" path="res://scenes/opciones.gd" id="7_wlhoe"]
 
 [sub_resource type="Shader" id="Shader_hpixs"]
 code = "shader_type canvas_item;
@@ -56,10 +60,12 @@ theme_override_constants/margin_top = 32
 
 [node name="Continue" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_7cojn")
 text = "Continuar"
 
 [node name="Options" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_dq870")
 text = "Opciones"
 
 [node name="Save" type="Button" parent="PauseMenu/VBoxContainer"]
@@ -69,6 +75,7 @@ script = ExtResource("3_58hf4")
 
 [node name="Exit" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("5_g8spl")
 text = "Salir"
 
 [node name="Opciones" type="MarginContainer" parent="."]
@@ -81,6 +88,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("2_ff075")
+script = ExtResource("7_wlhoe")
 
 [node name="ColorRect" type="ColorRect" parent="Opciones"]
 material = SubResource("ShaderMaterial_yhqf6")
@@ -99,12 +108,62 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Opciones"
 
+[node name="MarginContainer2" type="MarginContainer" parent="Opciones/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+
+[node name="Label2" type="Label" parent="Opciones/VBoxContainer"]
+layout_mode = 2
+text = "Volumen general
+"
+
+[node name="Volume" parent="Opciones/VBoxContainer" instance=ExtResource("7_jc6lk")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Opciones/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Opciones/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label3" type="Label" parent="Opciones/VBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Interfaz
+"
+
+[node name="Volume2" parent="Opciones/VBoxContainer/MarginContainer3/VBoxContainer" instance=ExtResource("7_jc6lk")]
+layout_mode = 2
+bus_name = "UI"
+
+[node name="Label4" type="Label" parent="Opciones/VBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Efectos de sonido
+"
+
+[node name="Volume3" parent="Opciones/VBoxContainer/MarginContainer3/VBoxContainer" instance=ExtResource("7_jc6lk")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="Label6" type="Label" parent="Opciones/VBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Ambiente
+"
+
+[node name="Volume5" parent="Opciones/VBoxContainer/MarginContainer3/VBoxContainer" instance=ExtResource("7_jc6lk")]
+layout_mode = 2
+bus_name = "AMBIENCE"
+
 [node name="MarginContainer" type="MarginContainer" parent="Opciones/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 32
 
 [node name="Exit" type="Button" parent="Opciones/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_g8spl")
 text = "Salir"
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Continue" to="PauseMenu" method="toggle_pause"]

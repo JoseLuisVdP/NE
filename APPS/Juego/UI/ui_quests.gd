@@ -38,6 +38,12 @@ func complete_quest(quest : Quest):
 	update_text()
 
 func update_text():
+	var dont_remove_first : bool = true
+	for i in active.get_children():
+		if dont_remove_first:
+			dont_remove_first = false
+			continue
+		active.remove_child(i)
 	for i in QuestSystem.get_active_quests():
 		var quest : Quest = i
 		

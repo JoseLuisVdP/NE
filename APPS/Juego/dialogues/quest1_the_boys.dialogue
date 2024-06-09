@@ -17,6 +17,7 @@ Abel: [[Hey|Hola]], ¿eres el chico nuevo?
 			=> END
 - Nos vemos
 	Abel: ¡Entendido!
+	do ConversationManager.end_chat()
 	=> END
 
 
@@ -38,4 +39,5 @@ Abel: [[Oye|Chico]], ¿qué tal va eso? ¿Les encuentras?
 ~ post_quest
 
 Abel: En cuanto termine mi paseo, me voy con mis hijos a jugar a casa, ¡Gracias de nuevo!
+do ConversationManager.end_chat()
 => END

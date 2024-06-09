@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://d4ii67sx7gf2h"]
+
+[ext_resource type="Resource" uid="uid://cg1208n6fx2ue" path="res://dialogues/quest3_gimme_turnip.dialogue" id="1_exq12"]
+[ext_resource type="Script" path="res://NPCs/npc.gd" id="1_kachb"]
+[ext_resource type="Resource" uid="uid://dx1vvlkivp88n" path="res://quests/Quests/gimme_turnip.tres" id="2_dplox"]
+[ext_resource type="PackedScene" uid="uid://d4kowe2pwwuoj" path="res://NPCs/scenes/man.tscn" id="3_yj02y"]
+
+[resource]
+script = ExtResource("1_kachb")
+name = "Dana"
+dialogue = ExtResource("1_exq12")
+scene = ExtResource("3_yj02y")
+quest = ExtResource("2_dplox")

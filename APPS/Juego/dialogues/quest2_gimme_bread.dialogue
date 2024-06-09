@@ -1,0 +1,37 @@
+~ before_quest
+Dona: ¡Hola! ¡Qué alegría verte! [speed=0.7]Tengo un favor muy importante que pedirte...[/speed]
+- ¿Qué es tan importante?
+	Dona: Verás, me muero por probar un pan casero, uno de esos de verdad, con olor a hogar y sabor auténtico.
+	Dona: ¿Podrías traérmelo? Porfa porfa...
+	- Bueno, supongo que si que puedo
+		Dona: ¡Gracias, gracias, gracias! Sabía que podía contar contigo. [wave amp=25 freq=5]¡No tardes![/wave]
+		do MyQuestManager.accept()
+		do ConversationManager.end_chat()
+		=> END
+	- Yo no se hacer pan
+		Dona: Oh... qué pena. Bueno, otra vez será. ¡Cuídate!
+		do ConversationManager.end_chat()
+		=> END
+- Mejor luego
+	Dona: ¡Adiós! Espero verte pronto.
+	do ConversationManager.end_chat()
+	=> END
+
+~ during_quest
+Dona: ¿Cómo va ese pan casero? ¡Estoy tan emocionada!
+- Aún nada
+	Dona: Entiendo, no pasa nada. Pero por favor, ¡no te olvides!
+	Dona: [wave amp=25 freq=5]¡Hasta luego![/wave]
+	do ConversationManager.end_chat()
+	=> END
+- ¡Aquí lo traigo!
+	Dona: ¡Lo conseguiste!
+	Dona: Mmmmmmm... ¡El pan huele delicioso! ¡Eres el mejor!
+	do MyQuestManager.complete()
+	do ConversationManager.end_chat()
+	=> END
+
+~ post_quest
+Dona: ¡Gracias de nuevo por el pan! ¡Fue perfecto!
+do ConversationManager.end_chat()
+=> END

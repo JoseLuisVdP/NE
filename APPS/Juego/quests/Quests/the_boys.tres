@@ -8,3 +8,5 @@ id = 1
 quest_name = "Ay los niños..."
 quest_description = "Los dos hijos de abel se han escondido en el bosque y llevan sin aparecer un tiempo"
 quest_objective = "Encuentra a los niños"
+quest_xp = 200
+quest_money = 30

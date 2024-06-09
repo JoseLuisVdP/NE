@@ -30,7 +30,7 @@ func load_game(savefile:String, player_id:int, server_id:int) -> void:
 		printerr("Ha fallado el guardado por email, requiere revisar DB")
 		exito = false
 	
-	if savefile_data["NPCs"] != null and not savefile_data["NPCs"].is_empty():
+	if savefile_data.keys().has("NPCs") and savefile_data["NPCs"] != null and not savefile_data["NPCs"].is_empty():
 		savefile_data["NPCs"] = JSON.parse_string(savefile_data["NPCs"])
 	
 	GameServer.return_player_savefile(savefile_data, player_id, server_id, exito)

@@ -10,6 +10,6 @@ name = "Cuerda"
 scene = ExtResource("2_b5lhr")
 icon = ExtResource("1_1gbso")
 stack_size = 5
-description = "Una cuerda, perfecta para hacer un arco"
+description = "Una cuerda, perfecta para hacer cualquier apaño"
 type = "material"
 damage = 0

@@ -21,5 +21,8 @@ func get_last_data_name(collection:String) -> String:
 func get_data(collection:String, id:String) -> Dictionary:
 	return _DAO.read(collection, id)
 
+func get_month_data(collection:String, month:String):
+	return _DAO.read_month(collection, month)
+
 func exists(collection:String, id:String) -> bool:
 	return _DAO.has_data(collection, id)

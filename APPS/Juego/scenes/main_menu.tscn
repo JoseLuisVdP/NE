@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ucq0q01w0j7g"]
+[gd_scene load_steps=18 format=3 uid="uid://ucq0q01w0j7g"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_rl4y1"]
 [ext_resource type="Theme" uid="uid://da7b4g6cwj08y" path="res://default_theme_big_btn.tres" id="1_xct3s"]
@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://pstbl4c6svrt" path="res://assets/sounds/sounds_rg.tres" id="4_pjwy0"]
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="5_70e15"]
 [ext_resource type="Texture2D" uid="uid://cu4ww2b3rgw3x" path="res://icon.svg" id="5_ju1hb"]
+[ext_resource type="Theme" uid="uid://dcvvk2xc6q74x" path="res://default_theme_blue.tres" id="7_gahct"]
+[ext_resource type="Theme" uid="uid://t6ho18bl80ht" path="res://default_theme_brown.tres" id="7_gtsxa"]
 [ext_resource type="Material" uid="uid://qape7yijpgtb" path="res://shaders/blur.tres" id="7_sm41k"]
 
 [sub_resource type="Gradient" id="Gradient_ymjhh"]
@@ -23,6 +25,35 @@ fill_to = Vector2(0.487179, 0)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k2dsm"]
 texture = SubResource("GradientTexture2D_q81b3")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5lwr"]
+bg_color = Color(0.43, 0.391013, 0.2924, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omtvk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwsf0"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(0.699195, 2.08165e-06, 6.73831e-07, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jl4s"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -36,28 +67,29 @@ loading_scene = ExtResource("2_sidb5")
 game_scenes_rg = ExtResource("3_ydq08")
 sounds_rg = ExtResource("4_pjwy0")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Main" type="MarginContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 432.0
 grow_vertical = 2
 theme_override_constants/margin_left = 228
-theme_override_constants/margin_top = 64
+theme_override_constants/margin_top = 96
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="Main"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_constants/margin_top = 96
+theme_override_constants/margin_top = 128
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer3"]
+[node name="TextureRect" type="TextureRect" parent="Main/MarginContainer3"]
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 texture = ExtResource("5_ju1hb")
 expand_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Main"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -66,40 +98,44 @@ theme_override_constants/margin_top = 224
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/MarginContainer"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 32
 
-[node name="Play" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="Main/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_xct3s")
 theme_override_font_sizes/font_size = 32
 text = "Jugar"
 
-[node name="Settings" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="Tutorial" type="Button" parent="Main/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("7_gahct")
 theme_override_font_sizes/font_size = 32
-text = "Opciones"
+text = "Tutorial"
 
-[node name="Quit" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="Main/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("7_gtsxa")
 theme_override_font_sizes/font_size = 32
 text = "Salir"
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Main"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/margin_top = 280
 
-[node name="Panel" type="PanelContainer" parent="MarginContainer/MarginContainer2"]
+[node name="Panel" type="PanelContainer" parent="Main/MarginContainer2"]
 material = ExtResource("7_sm41k")
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_k2dsm")
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer2/Panel"]
+[node name="Label" type="Label" parent="Main/MarginContainer2/Panel"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("5_70e15")
@@ -107,6 +143,84 @@ theme_override_font_sizes/font_size = 128
 text = "NoEarth"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Tutorial" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1183.0
+offset_top = -301.0
+offset_right = -455.0
+offset_bottom = 301.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 64
+
+[node name="PanelContainer" type="PanelContainer" parent="Tutorial"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_l5lwr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="PanelContainer" parent="Tutorial/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_omtvk")
+
+[node name="CloseBtn" type="Button" parent="Tutorial/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_hwsf0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5jl4s")
+text = "X"
+
+[node name="MarginContainer" type="MarginContainer" parent="Tutorial/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tutorial/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Tutorial"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Tutorial/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="Tutorial/PanelContainer/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/line_spacing = 8
+theme_override_font_sizes/font_size = 32
+text = "- Muévete con los botones WASD
+- Salta con la barra espaciadora
+- Haz click para atacar o pasar diálogos
+- Usa ALT para sacar el ratón y poder clicar elementos de la interfaz de usuario
+- Usa CTRL para correr
+-Usa F para interactuar con objetos y personas
+
+Si mueres, el juego se acaba, y tendrás que volver al último guardado, ¡así que recuerda guardar a menudo!
+
+CONSEJO: cuando empieces a jugar, busca al señor junto a la roca, él te guiará"
+autowrap_mode = 2
+
+[connection signal="pressed" from="Main/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Main/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Tutorial/PanelContainer/VBoxContainer/MarginContainer2/CloseBtn" to="." method="_on_tutorial_pressed"]

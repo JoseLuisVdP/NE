@@ -82,7 +82,7 @@ func loaddata(data:Dictionary) -> Dictionary:
 	
 	var npc_paths : Array = data["SaveFiles"]["NPCs"].keys().map(func (i): return i.erase(i.rfind("/"), 999))
 	for i in npc_paths:
-		if get_node(i) == null:
+		if get_node_or_null(i) == null:
 			npc_paths.erase(i)
 	var npc_quests : Array = npc_paths.map(func (i): return get_node(i).npc.quest)
 	var npc_quest_names : Array = npc_quests.map(func (i): return i.quest_name)

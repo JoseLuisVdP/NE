@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1jv6n3omnwt8"]
+[gd_scene load_steps=4 format=3 uid="uid://d1jv6n3omnwt8"]
 
 [ext_resource type="Script" path="res://UI/player/inventory/item.gd" id="1_ooksr"]
 [ext_resource type="FontFile" uid="uid://lymf1a4fbtdv" path="res://assets/fonts/inconsolata/Inconsolata-Bold.ttf" id="3_ixdj4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37cp0"]
 
 [node name="Item" type="Panel"]
 auto_translate_mode = 1
@@ -9,6 +11,7 @@ z_index = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_37cp0")
 script = ExtResource("1_ooksr")
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -26,13 +29,6 @@ expand_mode = 2
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -16.0
-grow_horizontal = 0
-grow_vertical = 0
+offset_right = 16.0
+offset_bottom = 18.0
 theme_override_fonts/font = ExtResource("3_ixdj4")

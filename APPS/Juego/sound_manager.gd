@@ -11,7 +11,7 @@ func load_sounds() -> void:
 	
 	print(sounds_array)
 	
-	install_sounds(get_node("/root"))
+	install_sounds(get_node_or_null("/root"))
 
 
 func assign_sound(name:StringName, audio:AudioStream):

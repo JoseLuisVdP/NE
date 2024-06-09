@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://drx1bhf182kes"]
+
+[ext_resource type="Resource" uid="uid://1pfc84cs2ph4" path="res://dialogues/quest9_in_gods_name.dialogue" id="1_443mb"]
+[ext_resource type="Resource" uid="uid://buxpi8he4r0mo" path="res://quests/Quests/in_gods_name.tres" id="2_hhw34"]
+[ext_resource type="PackedScene" uid="uid://d4kowe2pwwuoj" path="res://NPCs/scenes/man.tscn" id="3_86jpe"]
+[ext_resource type="Script" path="res://NPCs/npc.gd" id="4_hiae5"]
+
+[resource]
+script = ExtResource("4_hiae5")
+name = "Cura"
+dialogue = ExtResource("1_443mb")
+scene = ExtResource("3_86jpe")
+quest = ExtResource("2_hhw34")

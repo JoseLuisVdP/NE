@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://dldcdueh6wytd"]
+
+[ext_resource type="Resource" uid="uid://buvj0uamlthu8" path="res://dialogues/quest5_drugs.dialogue" id="1_oh2jo"]
+[ext_resource type="Resource" uid="uid://cnageidmtbpkn" path="res://quests/Quests/drugs.tres" id="2_wqsa1"]
+[ext_resource type="PackedScene" uid="uid://d4kowe2pwwuoj" path="res://NPCs/scenes/man.tscn" id="3_ycvnx"]
+[ext_resource type="Script" path="res://NPCs/npc.gd" id="4_30om8"]
+
+[resource]
+script = ExtResource("4_30om8")
+name = "Hombre misterioso"
+dialogue = ExtResource("1_oh2jo")
+scene = ExtResource("3_ycvnx")
+quest = ExtResource("2_wqsa1")

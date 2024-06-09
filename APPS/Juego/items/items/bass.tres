@@ -10,6 +10,6 @@ name = "Lubina"
 scene = ExtResource("1_ijja4")
 icon = ExtResource("1_pcfc1")
 stack_size = 10
-description = "Un pesado corriente. Si lo equipas y lo comes, recuperarás vida."
+description = "Un pesado corriente. Si lo comes, recuperarás mucha vida."
 type = "tool"
 damage = -100

@@ -1,11 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfls2i2q4lt4a"]
+[gd_scene load_steps=10 format=3 uid="uid://cfls2i2q4lt4a"]
 
 [ext_resource type="PackedScene" uid="uid://b4y24io4vab86" path="res://models/FantasyVillage/Houses/House_02.fbx" id="1_b02bl"]
 [ext_resource type="PackedScene" uid="uid://fplhluovbqvs" path="res://models/FantasyVillage/HouseParts/Door2_02.fbx" id="2_ghikt"]
 [ext_resource type="PackedScene" uid="uid://cnolirp5tprxm" path="res://props/farola2.tscn" id="3_eupog"]
+[ext_resource type="Shader" path="res://shaders/grass.gdshader" id="4_frfvg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ggjb5"]
 size = Vector3(5.27838, 5.52643, 6.27039)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g6luc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bylew"]
+noise = SubResource("FastNoiseLite_g6luc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcluk"]
+render_priority = 0
+shader = ExtResource("4_frfvg")
+shader_parameter/color = Color(0.593134, 0.593134, 0.593134, 1)
+shader_parameter/color2 = Color(0.347817, 0.347817, 0.347817, 1)
+shader_parameter/noiseScale = 20.0
+shader_parameter/noise = SubResource("NoiseTexture2D_bylew")
+
+[sub_resource type="BoxMesh" id="BoxMesh_70q8p"]
+material = SubResource("ShaderMaterial_bcluk")
+size = Vector3(5.5, 1, 6.5)
 
 [node name="House_02" type="StaticBody3D"]
 
@@ -20,5 +38,9 @@ shape = SubResource("BoxShape3D_ggjb5")
 
 [node name="Farola" parent="." instance=ExtResource("3_eupog")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80713, 1.33335, 3.10347)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00795269, -0.485716, 0.0139206)
+mesh = SubResource("BoxMesh_70q8p")
 
 [editable path="House_02"]

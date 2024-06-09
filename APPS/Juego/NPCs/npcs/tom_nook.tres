@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://bu10yjxqfhhll"]
+
+[ext_resource type="Resource" uid="uid://b1b5vwq3ca5lo" path="res://dialogues/quest7_not_enough.dialogue" id="1_a27m2"]
+[ext_resource type="Resource" uid="uid://tokncbvjfpgw" path="res://quests/Quests/not_enough.tres" id="2_aplwk"]
+[ext_resource type="PackedScene" uid="uid://d4kowe2pwwuoj" path="res://NPCs/scenes/man.tscn" id="3_lg5a3"]
+[ext_resource type="Script" path="res://NPCs/npc.gd" id="4_2c6mw"]
+
+[resource]
+script = ExtResource("4_2c6mw")
+name = "Tom Nook"
+dialogue = ExtResource("1_a27m2")
+scene = ExtResource("3_lg5a3")
+quest = ExtResource("2_aplwk")

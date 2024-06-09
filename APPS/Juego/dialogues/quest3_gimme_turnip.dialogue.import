@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cg1208n6fx2ue"
+path="res://.godot/imported/quest3_gimme_turnip.dialogue-15214cc15caf3752df70c075a3d46e8d.tres"
+
+[deps]
+
+source_file="res://dialogues/quest3_gimme_turnip.dialogue"
+dest_files=["res://.godot/imported/quest3_gimme_turnip.dialogue-15214cc15caf3752df70c075a3d46e8d.tres"]
+
+[params]
+
+defaults=true

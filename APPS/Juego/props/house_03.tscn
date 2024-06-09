@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c65po2tfkkxrs"]
+[gd_scene load_steps=15 format=3 uid="uid://c65po2tfkkxrs"]
 
 [ext_resource type="PackedScene" uid="uid://fplhluovbqvs" path="res://models/FantasyVillage/HouseParts/Door2_02.fbx" id="1_dx4g2"]
 [ext_resource type="PackedScene" uid="uid://dy185t4amuuvx" path="res://models/FantasyVillage/Houses/House_03.fbx" id="2_qmiob"]
 [ext_resource type="PackedScene" uid="uid://cnolirp5tprxm" path="res://props/farola2.tscn" id="3_32xco"]
+[ext_resource type="Shader" path="res://shaders/grass.gdshader" id="4_gkksd"]
+[ext_resource type="PackedScene" uid="uid://df7e30binq4dt" path="res://chimney_smoke.tscn" id="5_dx01w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ggjb5"]
 size = Vector3(5.27838, 5.52643, 6.27039)
@@ -12,6 +14,31 @@ size = Vector3(3.09875, 4.11401, 3.80176)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ps5f"]
 size = Vector3(1.37988, 0.754944, 1.10883)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_85er3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v6yv0"]
+noise = SubResource("FastNoiseLite_85er3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86okg"]
+render_priority = 0
+shader = ExtResource("4_gkksd")
+shader_parameter/color = Color(0.593134, 0.593134, 0.593134, 1)
+shader_parameter/color2 = Color(0.347817, 0.347817, 0.347817, 1)
+shader_parameter/noiseScale = 20.0
+shader_parameter/noise = SubResource("NoiseTexture2D_v6yv0")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ul7d5"]
+material = SubResource("ShaderMaterial_86okg")
+size = Vector3(5.5, 1, 6.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qx1un"]
+material = SubResource("ShaderMaterial_86okg")
+size = Vector3(4.335, 1, 4.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w1xqg"]
+material = SubResource("ShaderMaterial_86okg")
+size = Vector3(1.525, 1, 1.045)
 
 [node name="House_03" type="StaticBody3D"]
 
@@ -37,3 +64,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80713, 1.33335, 3.07206)
 
 [node name="Farola2" parent="." instance=ExtResource("3_32xco")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.57039, 1.33335, 2.17747)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00795269, -0.485716, 0.0139206)
+mesh = SubResource("BoxMesh_ul7d5")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7433, -0.485716, 0.0139206)
+mesh = SubResource("BoxMesh_qx1un")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88915, -0.485716, 2.35811)
+mesh = SubResource("BoxMesh_w1xqg")
+
+[node name="Chimney" parent="." instance=ExtResource("5_dx01w")]
+unique_name_in_owner = true

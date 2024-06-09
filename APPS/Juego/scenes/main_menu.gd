@@ -4,6 +4,9 @@ extends Control
 @export var game_scenes_rg : ResourceGroup
 @export var sounds_rg : ResourceGroup
 
+@onready var main: MarginContainer = %Main
+@onready var tutorial: MarginContainer = %Tutorial
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Scenes.loading_screen_scene = loading_scene
@@ -13,22 +16,13 @@ func _ready() -> void:
 	SoundManager.load_sounds()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_play_pressed() -> void:
 	Scenes.load_scene("login")
 
 
-func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+func _on_tutorial_pressed() -> void:
+	tutorial.visible = not tutorial.visible
 
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-
-
-func _on_button_pressed() -> void:
-	pass

@@ -1,14 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwhjecu10qm15"]
+[gd_scene load_steps=12 format=3 uid="uid://bwhjecu10qm15"]
 
 [ext_resource type="PackedScene" uid="uid://fplhluovbqvs" path="res://models/FantasyVillage/HouseParts/Door2_02.fbx" id="1_3gsf3"]
 [ext_resource type="PackedScene" uid="uid://brrskc6ovtkhr" path="res://models/FantasyVillage/Houses/House_07.fbx" id="2_1ajko"]
 [ext_resource type="PackedScene" uid="uid://cnolirp5tprxm" path="res://props/farola2.tscn" id="3_u3bjf"]
+[ext_resource type="Shader" path="res://shaders/grass.gdshader" id="4_wnie2"]
+[ext_resource type="PackedScene" uid="uid://df7e30binq4dt" path="res://chimney_smoke.tscn" id="5_o6xpc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ggjb5"]
 size = Vector3(5.27838, 5.52643, 6.27039)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tn07r"]
 size = Vector3(1.11969, 5.28583, 0.390991)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1hp4o"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kxp4u"]
+noise = SubResource("FastNoiseLite_1hp4o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6h2ek"]
+render_priority = 0
+shader = ExtResource("4_wnie2")
+shader_parameter/color = Color(0.593134, 0.593134, 0.593134, 1)
+shader_parameter/color2 = Color(0.347817, 0.347817, 0.347817, 1)
+shader_parameter/noiseScale = 20.0
+shader_parameter/noise = SubResource("NoiseTexture2D_kxp4u")
+
+[sub_resource type="BoxMesh" id="BoxMesh_00k6t"]
+material = SubResource("ShaderMaterial_6h2ek")
+size = Vector3(5.5, 1, 6.5)
 
 [node name="House_07" type="StaticBody3D"]
 
@@ -27,3 +46,10 @@ shape = SubResource("BoxShape3D_tn07r")
 
 [node name="Farola" parent="." instance=ExtResource("3_u3bjf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80713, 1.33335, 3.08968)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00795269, -0.485716, 0.0139206)
+mesh = SubResource("BoxMesh_00k6t")
+
+[node name="Chimney" parent="." instance=ExtResource("5_o6xpc")]
+unique_name_in_owner = true

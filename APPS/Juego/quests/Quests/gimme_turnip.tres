@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://dx1vvlkivp88n"]
+
+[ext_resource type="Script" path="res://addons/quest_system/quest_resource.gd" id="1_ua5hj"]
+
+[resource]
+script = ExtResource("1_ua5hj")
+id = 3
+quest_name = "Deliciosa sopa de rábano"
+quest_description = "Dana, de las trillizas del pueblo, te ha pedido una buena sopa de rábano. ¿Qué tendrán estas hermanas con la comida?"
+quest_objective = "Dale una sopa de rábano a Dana"
+quest_xp = 100
+quest_money = 10

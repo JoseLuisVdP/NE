@@ -1,0 +1,34 @@
+~ before_quest
+Dina: ¡Oh, pero mira a quién tenemos aquí! Tú, sí, tú, el aventurero. Necesito que me traigas una buena sopa de setas. ¿Entendido?
+- Bueno, supongo que lo haré...
+	Dina: ¡Por supuesto que lo harás! La sopa de setas es esencial para mi dieta. No puedo imaginar mi día sin ella...
+	Dina: Así que ponte en marcha y hazme una sopa con las mejores setas que encuentres, ¿vale?
+	- Que remedio...
+		do MyQuestManager.accept()
+		do ConversationManager.end_chat()
+		=> END
+	- Oye, pero no me lo pidas así
+		Dina: ¡Cómo te atreves a negarte! No tengo tiempo para tus excusas. Ahora, lárgate.
+		do ConversationManager.end_chat()
+		=> END
+- Estoy liado
+	Dina: Qué desilusión, esperaba más de ti.
+	do ConversationManager.end_chat()
+	=> END
+
+~ during_quest
+Dina: ¿Dónde está mi sopa de setas? ¿Acaso no te dije que era urgente?
+- Aún no la tengo...
+   Dina: Pues date prisa, no puedo esperar todo el día.
+   do ConversationManager.end_chat()
+- Y aquí esta la sopa
+	do MyQuestManager.complete()
+	Dina: ¡Finalmente! Era hora de que hicieras algo útil. Veamos si esta sopa es tan buena como dices[speed=0.1]...[/speed]
+	Dina: Bueno, no está mal
+	do ConversationManager.end_chat()
+	=> END
+
+~ post_quest
+Dina: ¿Qué haces aquí? Ya me trajiste la sopa de setas. No tengo tiempo para charlar.
+do ConversationManager.end_chat()
+=> END

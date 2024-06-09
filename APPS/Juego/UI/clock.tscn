@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bijinu7w0cxxf"]
+[gd_scene load_steps=5 format=3 uid="uid://bijinu7w0cxxf"]
 
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="1_4ntix"]
 [ext_resource type="Script" path="res://UI/clock.gd" id="2_tm4l1"]
@@ -19,6 +19,9 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ldblo"]
+color = Color(1, 1, 1, 0.415686)
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -38,10 +41,30 @@ theme_override_constants/margin_top = 32
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u3hak")
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
 text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ldblo")
+
+[node name="Date" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00/00"
+horizontal_alignment = 1
+
+[node name="UpdateClock" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="timeout" from="UpdateClock" to="." method="set_time"]

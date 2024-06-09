@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://n3p0ckivnov4"]
+
+[ext_resource type="Script" path="res://addons/quest_system/quest_resource.gd" id="1_w0q52"]
+
+[resource]
+script = ExtResource("1_w0q52")
+id = 2
+quest_name = "Dame un buen pan"
+quest_description = "Dona, de las trillizas del pueblo, te ha pedido un pan casero. Todo sea por la misión, supongo..."
+quest_objective = "Entrégale un pan a Dona"
+quest_xp = 100
+quest_money = 10

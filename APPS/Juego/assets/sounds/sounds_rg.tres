@@ -7,4 +7,4 @@ script = ExtResource("1_3beu2")
 base_folder = "res://assets/sounds"
 includes = Array[String](["*.wav", "*.mp3", "*.ogg", "*.avi"])
 excludes = Array[String]([])
-paths = Array[String](["res://assets/sounds/church_bells.wav", "res://assets/sounds/eat.wav", "res://assets/sounds/mouse_click.wav", "res://assets/sounds/mouse_hover.wav"])
+paths = Array[String](["res://assets/sounds/church_bells.wav", "res://assets/sounds/eat.wav", "res://assets/sounds/mouse_click.wav", "res://assets/sounds/mouse_hover.wav", "res://assets/sounds/pop.wav", "res://assets/sounds/step_0.wav", "res://assets/sounds/step_1.wav", "res://assets/sounds/step_2.wav", "res://assets/sounds/step_3.wav"])
