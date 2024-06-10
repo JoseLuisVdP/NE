@@ -8,8 +8,10 @@ var sounds : Dictionary
 func load_sounds() -> void:
 	assign_sound(&"ui_btn_click", sounds_array[2])
 	assign_sound(&"ui_btn_hover", sounds_array[3])
-	
-	print(sounds_array)
+	ConversationManager.sea_song = AudioStreamPlayer.new()
+	ConversationManager.sea_song.volume_db = -3
+	ConversationManager.sea_song.stream = sounds_array[5]
+	ConversationManager.add_child(ConversationManager.sea_song)
 	
 	install_sounds(get_node_or_null("/root"))
 

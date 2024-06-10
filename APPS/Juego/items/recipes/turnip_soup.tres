@@ -8,6 +8,6 @@
 
 [resource]
 script = ExtResource("2_8wxhr")
-name = "Sopa de rábano"
+name = "Sopa de rabano"
 ingredients = Array[ExtResource("1_15u4y")]([ExtResource("2_whwd1"), ExtResource("2_whwd1"), ExtResource("3_naua2")])
 results = Array[ExtResource("1_15u4y")]([ExtResource("4_rt16d")])

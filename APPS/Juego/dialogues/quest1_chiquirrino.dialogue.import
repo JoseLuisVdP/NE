@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://caiqaws4maby4"
+path="res://.godot/imported/quest1_chiquirrino.dialogue-6718517e2c32ece36cc8c434f7360ace.tres"
+
+[deps]
+
+source_file="res://dialogues/quest1_chiquirrino.dialogue"
+dest_files=["res://.godot/imported/quest1_chiquirrino.dialogue-6718517e2c32ece36cc8c434f7360ace.tres"]
+
+[params]
+
+defaults=true

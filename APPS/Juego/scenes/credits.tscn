@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://cupifaloohykn"]
+
+[ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="1_42hff"]
+[ext_resource type="Texture2D" uid="uid://cu4ww2b3rgw3x" path="res://icon.svg" id="2_jt05o"]
+[ext_resource type="Material" uid="uid://qape7yijpgtb" path="res://shaders/blur.tres" id="3_tft57"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ach03"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r512o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymbm5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hskxj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03goq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbjyi"]
+content_margin_top = 256.0
+
+[sub_resource type="Gradient" id="Gradient_j6oyw"]
+offsets = PackedFloat32Array(0, 0.371429, 0.64127, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3dbxs"]
+gradient = SubResource("Gradient_j6oyw")
+fill_from = Vector2(0.513514, 1)
+fill_to = Vector2(0.506757, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ef1wk"]
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = SubResource("GradientTexture2D_3dbxs")
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_42hff")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/scroll = SubResource("StyleBoxEmpty_ach03")
+theme_override_styles/scroll_focus = SubResource("StyleBoxEmpty_r512o")
+theme_override_styles/grabber = SubResource("StyleBoxEmpty_ymbm5")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxEmpty_hskxj")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxEmpty_03goq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VScrollBar"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -377.5
+offset_top = -27.5
+offset_right = 377.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="VBoxContainer" type="PanelContainer" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fbjyi")
+
+[node name="TextureRect" type="TextureRect" parent="VScrollBar/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_jt05o")
+expand_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="VScrollBar/VBoxContainer/VBoxContainer"]
+material = ExtResource("3_tft57")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_ef1wk")
+
+[node name="Label" type="Label" parent="VScrollBar/VBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
+text = "CONTINUARÁ"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Gracias por jugar a este juego. Este ha sido el proyecto integrado de DAM de Jose Luis Vallejo del Pozo
+
+La aplicación se cerrará en unos segundos"
+horizontal_alignment = 1
+autowrap_mode = 2

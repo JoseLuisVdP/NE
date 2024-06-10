@@ -1,8 +1,11 @@
-extends Control
+class_name ClockUI extends Control
 
 
 @onready var time: Label = %Time
 @onready var date: Label = %Date
+
+
+@onready var skip_night: Button = %SkipNight
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,3 +20,8 @@ func set_time():
 	
 	time.text = h + ":" + m
 	date.text = str(GlobalTime.cur_day) + "/" + str(GlobalTime.cur_month)
+	
+	skip_night.visible = GlobalTime.day_time > 40000
+
+func _on_skip_night_pressed() -> void:
+	GlobalTime.skip_night()

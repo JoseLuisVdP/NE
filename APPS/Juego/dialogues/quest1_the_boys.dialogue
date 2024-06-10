@@ -9,6 +9,7 @@ Abel: [[Hey|Hola]], ¿eres el chico nuevo?
 			Abel: ¿En serio podrías? ¿Seguro que no te importa?
 			Abel: ¡Muchas gracias chico!
 			do MyQuestManager.accept()
+			do MyQuestManager.spawn_children()
 			do ConversationManager.end_chat()
 			=> END
 		- ¿Me dejas que busque un hueco en el horario?
@@ -28,12 +29,13 @@ Abel: [[Oye|Chico]], ¿qué tal va eso? ¿Les encuentras?
 	Abel: Oh...
 	do ConversationManager.end_chat()
 	=> END
-- ¡Los encontré!
-	Abel: ¿¡En serio!? ¡Gracias gracias gracias!
-	Abel: Que feliz estoy de que hayan vuelto a casa, muchas gracias de verdad, toma una recompensa
-	do MyQuestManager.complete()
-	do ConversationManager.end_chat()
-	=> END
+if ConversationManager.are_the_boys_found:
+	- ¡Los encontré!
+		Abel: ¿¡En serio!? ¡Gracias gracias gracias!
+		Abel: Que feliz estoy de que hayan vuelto a casa, muchas gracias de verdad, toma una recompensa
+		do MyQuestManager.complete()
+		do ConversationManager.end_chat()
+		=> END
 
 
 ~ post_quest

@@ -1,29 +1,29 @@
 ~ before_quest
-Hombre Misterioso: [speed=0.1]Psst, aventurero. ¿Tienes un minuto?[/speed]
+Hombre Misterioso: [speed=0.2]Psst, aventurero. ¿Tienes un minuto?[/speed]
 
 - Si, cuéntame
-	Hombre Misterioso: [speed=0.2]He oído que eres alguien que no teme adentrarse en lugares peligrosos. Y tienes cara de haber jugado a super mario...[/speed]
-	Hombre Misterioso: [speed=0.2]¿Recuerdas las setas rojas que te hacían invencible?[/speed]
+	Hombre Misterioso: [speed=0.3]He oído que eres alguien que no teme adentrarse en lugares peligrosos. Y tienes cara de haber jugado a super mario...[/speed]
+	Hombre Misterioso: [speed=0.3]¿Recuerdas las setas rojas que te hacían invencible?[/speed]
 	- Aha...
-		Hombre Misterioso: [speed=0.2]Bien...[/speed]
+		Hombre Misterioso: [speed=0.3]Bien...[/speed]
 	- Te hacían grande, no invencible
 		Hombre Misterioso: Si bueno, eso, lo que sea
-	Hombre Misterioso: [speed=0.3]La cuestión es que las hay en el bosque de al lado. Son rojas con puntos blancos, como las de Super Mario[/speed]
-	Hombre Misterioso: [speed=0.3]Necesito cinco de ellas, ¿me las traes?[/speed]
+	Hombre Misterioso: [speed=0.4]La cuestión es que las hay en el bosque de al lado. Son rojas con puntos blancos, como las de Super Mario[/speed]
+	Hombre Misterioso: [speed=0.4]Necesito cinco de ellas, ¿me las traes?[/speed]
 	- Claro
 		Hombre Misterioso: Anda, que majo.
-		Hombre Misterioso: [speed=0.3]Pero ten cuidado, son bastante... peculiares.[/speed]
+		Hombre Misterioso: [speed=0.4]Pero ten cuidado, son bastante... peculiares.[/speed]
 		Hombre Misterioso: Tú no las pruebes, por si acaso...
 		do MyQuestManager.accept()
 		do ConversationManager.end_chat()
 		=> END
 	- Me preocupa tu salud
-		Hombre Misterioso: [speed=0.3]He he he...[/speed]
-		Hombre Misterioso: [speed=0.3]No eres el primero que me lo dice[/speed]
+		Hombre Misterioso: [speed=0.4]He he he...[/speed]
+		Hombre Misterioso: [speed=0.4]No eres el primero que me lo dice[/speed]
 		Hombre Misterioso: Pero tranquilo, las uso de analgésico
 		Hombre Misterioso: Demasiados años arrastrando la carreta, menos mal que vino el nuevo, tu sabes...
-		Hombre Misterioso: [speed=0.3]Bueno, me lo tomaré como un sí[/speed]
-		Hombre Misterioso: [speed=0.3]Eso sí, tú no pruebes las setas, por si acaso...[/speed]
+		Hombre Misterioso: [speed=0.4]Bueno, me lo tomaré como un sí[/speed]
+		Hombre Misterioso: [speed=0.4]Eso sí, tú no pruebes las setas, por si acaso...[/speed]
 		do MyQuestManager.accept()
 		do ConversationManager.end_chat()
 		=> END
@@ -36,17 +36,23 @@ Hombre Misterioso: [speed=0.1]Psst, aventurero. ¿Tienes un minuto?[/speed]
 	=> END
 
 ~ during_quest
-Hombre Misterioso: [speed=0.3]¿Cómo va la búsqueda de las setas?[/speed]
-
-- Aún nada
-	Hombre Misterioso: [speed=0.3]No te preocupes, seguro que las encuentras pronto. Vuelve cuando las tengas.[/speed]
-	do ConversationManager.end_chat()
-- Cumplí el objetivo
-	Hombre Misterioso: [speed=0.3]Oh chico, eres de gran ayuda...[/speed]
-	Hombre Misterioso: [speed=0.3]Mil gracias[/speed]
-	do MyQuestManager.complete()
-	do ConversationManager.end_chat()
-	=> END
+Hombre Misterioso: [speed=0.4]¿Cómo va la búsqueda de las setas?[/speed]
+if ConversationManager.has_5_suspicious_mushrooms:
+	- Cumplí el objetivo
+		Hombre Misterioso: [speed=0.4]Oh chico, eres de gran ayuda...[/speed]
+		Hombre Misterioso: [speed=0.4]Mil gracias[/speed]
+		do MyQuestManager.complete()
+		do ConversationManager.end_chat()
+		=> END
+	- Aún nada
+		Hombre Misterioso: [speed=0.4]No te preocupes, seguro que las encuentras pronto. Vuelve cuando las tengas.[/speed]
+		do ConversationManager.end_chat()
+		=> END
+else:
+	- Aún nada
+		Hombre Misterioso: [speed=0.4]No te preocupes, seguro que las encuentras pronto. Vuelve cuando las tengas.[/speed]
+		do ConversationManager.end_chat()
+		=> END
 
 ~ post_quest
 Hombre Misterioso: [speed=0.4]Gracias de nuevo por lo de las setas...[/speed]

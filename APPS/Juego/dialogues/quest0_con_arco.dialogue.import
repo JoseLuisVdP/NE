@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bvogud3oguy0x"
+path="res://.godot/imported/quest0_con_arco.dialogue-d46450396727a3b596e794522d777a80.tres"
+
+[deps]
+
+source_file="res://dialogues/quest0_con_arco.dialogue"
+dest_files=["res://.godot/imported/quest0_con_arco.dialogue-d46450396727a3b596e794522d777a80.tres"]
+
+[params]
+
+defaults=true

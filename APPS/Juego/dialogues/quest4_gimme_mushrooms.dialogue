@@ -18,15 +18,24 @@ Dina: ¡Oh, pero mira a quién tenemos aquí! Tú, sí, tú, el aventurero. Nece
 
 ~ during_quest
 Dina: ¿Dónde está mi sopa de setas? ¿Acaso no te dije que era urgente?
-- Aún no la tengo...
-   Dina: Pues date prisa, no puedo esperar todo el día.
-   do ConversationManager.end_chat()
-- Y aquí esta la sopa
-	do MyQuestManager.complete()
-	Dina: ¡Finalmente! Era hora de que hicieras algo útil. Veamos si esta sopa es tan buena como dices[speed=0.1]...[/speed]
-	Dina: Bueno, no está mal
-	do ConversationManager.end_chat()
-	=> END
+
+if ConversationManager.has_mushroom_soup:
+	- Y aquí esta la sopa
+		do MyQuestManager.complete()
+		Dina: ¡Finalmente! Era hora de que hicieras algo útil. Veamos si esta sopa es tan buena como dices[speed=0.1]...[/speed]
+		Dina: Bueno, no está mal
+		do MyQuestManager.complete()
+		do ConversationManager.end_chat()
+		=> END
+	- Aún no la tengo...
+		Dina: Pues date prisa, no puedo esperar todo el día.
+		do ConversationManager.end_chat()
+		=> END
+else:
+	- Aún no la tengo...
+		Dina: Pues date prisa, no puedo esperar todo el día.
+		do ConversationManager.end_chat()
+		=> END
 
 ~ post_quest
 Dina: ¿Qué haces aquí? Ya me trajiste la sopa de setas. No tengo tiempo para charlar.

@@ -20,6 +20,7 @@ func play_step_sound():
 	var random_index = randi() % step_sounds.size()
 	stream = step_sounds[random_index]
 	play()
+	timer.start()
 
 
 func _on_timer_timeout() -> void:

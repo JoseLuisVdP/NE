@@ -6,10 +6,10 @@
 
 [resource]
 script = ExtResource("1_mj0lb")
-name = "Rábano"
+name = "Rabano"
 scene = ExtResource("2_gi00w")
 icon = ExtResource("1_210ie")
 stack_size = 20
-description = "Puedes comerlo. O cocinarlo. O no."
+description = "Puedes comerlo. O cocinarlo. O ponerle tilde."
 type = "food"
 damage = -15

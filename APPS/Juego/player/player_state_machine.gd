@@ -91,3 +91,7 @@ func _on_stop_chatting() -> void:
 	_player.enable_movement()
 	_player.end_conversation()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _on_start_walking() -> void:
+	_player.steps_stream.play()

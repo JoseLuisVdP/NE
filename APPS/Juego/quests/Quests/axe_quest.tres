@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_xvj6s")
 id = 0
-quest_name = "axe_quest"
-quest_description = "axe_quest_description"
-quest_objective = "axe_quest_objective"
+quest_name = "A por el hacha"
+quest_description = "Tutorio te ha pedido un hacha, así que prueba a darle la que tienes en el inventario"
+quest_objective = "Dale un hacha a tutorio"
 quest_xp = 100
 quest_money = 10

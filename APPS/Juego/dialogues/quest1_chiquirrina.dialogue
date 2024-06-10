@@ -1,0 +1,23 @@
+~ title
+
+Chiquirrina: ¡Oye! ¡Qué haces aquí? ¿No ves que me estoy escondiendo?
+- Precisamente por eso estoy aquí
+- Es que veras...
+Chiquirrina: ¿Mi papá nos está buscando? ¡Pero si nisiquiera es de noche!
+Chiquirrina: ¿Y por qué tendría que hacerle caso a un desconocido?
+- Porque soy un heroe
+	Chiquirrina: [shake rate=20 level=10]¿¡Quéeeee?![/shake]
+	Chiquirrina: ¿Como los de la tele?
+	- Así es
+	- Mejor
+		Chiquirrina: [shake rate=20 level=10]¿¡TAN BUENO?![/shake]
+	Chiquirrina: ¡Wow!
+	Chiquirrina: Bueno, esta bien, ¡pero ven a verme cuando hayas hecho alguna heroicidad!
+	do ConversationManager.end_chat_and_despawn()
+	=> END
+- Porque soy amigo de tu padre
+	Chiquirrina: Hmmmm...
+	Chiquirrina: Bueno, en ese caso, está bien
+	Chiquirrina: Pero si le pregunto y es mentira, no te vuelvo a hablar nunca, ¿te enteras?
+	do ConversationManager.end_chat_and_despawn()
+	=> END

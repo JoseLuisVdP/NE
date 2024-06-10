@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ccjphh7g0mi4u"]
+[gd_scene load_steps=26 format=3 uid="uid://ccjphh7g0mi4u"]
 
 [ext_resource type="PackedScene" uid="uid://ekqort30etdn" path="res://player/scenes/player.tscn" id="1_heepr"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_hunv4"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b8o0ijxaev86n" path="res://shaders/textures/stars.png" id="5_ih4x5"]
 [ext_resource type="PackedScene" uid="uid://n5ueuwthm41b" path="res://models/map/my_island.tscn" id="15_slwqk"]
 [ext_resource type="Shader" path="res://shaders/water_shader.gdshader" id="16_cd60u"]
-[ext_resource type="PackedScene" uid="uid://cfyjxurc0ivue" path="res://models/map/map.tscn" id="17_waklr"]
 [ext_resource type="PackedScene" uid="uid://bpuu0kfmq0shv" path="res://models/map/sandy.tscn" id="18_8y4qg"]
 [ext_resource type="PackedScene" uid="uid://b2hjptlfsaqcn" path="res://models/animals/mouse.tscn" id="22_whmyh"]
 [ext_resource type="PackedScene" uid="uid://du670kym6je6s" path="res://scenes/pause.tscn" id="24_0duiu"]
@@ -156,7 +155,7 @@ transform = Transform3D(-0.922538, 0, 0.385906, 0, 1, 0, -0.385906, 0, -0.922538
 
 [node name="Player" parent="3D" groups=["save_and_load"] instance=ExtResource("1_heepr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.317, 77.4182, 150)
-RUN_MULTIPLIER = 1.5
+RUN_MULTIPLIER = 20.0
 
 [node name="World" type="Node3D" parent="3D"]
 
@@ -192,9 +191,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -47, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="3D/World/Water"]
 mesh = SubResource("BoxMesh_3eq3q")
-
-[node name="map" parent="3D/World" instance=ExtResource("17_waklr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 623.29, -14.603, 0)
 
 [node name="sandy" parent="3D/World" instance=ExtResource("18_8y4qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.3857, -774.079)

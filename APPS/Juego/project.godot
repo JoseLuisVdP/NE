@@ -38,6 +38,7 @@ SoundManager="*res://sound_manager.gd"
 GlobalTime="*res://singletons/time.gd"
 GlobalClima="*res://scenes/clima.gd"
 ConversationManager="*res://singletons/conversation_manager.gd"
+Commons="*res://singletons/commons.gd"
 
 [display]
 
@@ -411,7 +412,7 @@ confirm={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/test_dialogue.dialogue", "res://dialogues/quest0.dialogue", "res://dialogues/quest1_the_boys.dialogue", "res://dialogues/quest9_in_gods_name.dialogue", "res://dialogues/quest8_carter.dialogue", "res://dialogues/quest5_drugs.dialogue", "res://dialogues/quest2_gimme_bread.dialogue", "res://dialogues/quest4_gimme_mushrooms.dialogue", "res://dialogues/quest3_gimme_turnip.dialogue", "res://dialogues/quest7_not_enough.dialogue", "res://dialogues/quest6_oh_no_a_rat.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogues/test_dialogue.dialogue", "res://dialogues/quest0.dialogue", "res://dialogues/quest1_the_boys.dialogue", "res://dialogues/quest9_in_gods_name.dialogue", "res://dialogues/quest8_carter.dialogue", "res://dialogues/quest5_drugs.dialogue", "res://dialogues/quest2_gimme_bread.dialogue", "res://dialogues/quest4_gimme_mushrooms.dialogue", "res://dialogues/quest3_gimme_turnip.dialogue", "res://dialogues/quest7_not_enough.dialogue", "res://dialogues/quest6_oh_no_a_rat.dialogue", "res://dialogues/quest0_con_arco.dialogue", "res://dialogues/quest1_chiquirrino.dialogue", "res://dialogues/quest1_chiquirrina.dialogue")
 
 [layer_names]
 

@@ -11,8 +11,6 @@ func save_game(data:Dictionary, player_id:int, server_id:int) -> void:
 		exito = false
 	else:
 		data["SaveFiles"]["NPCs"] = JSON.stringify(data["SaveFiles"]["NPCs"])
-		print(data["SaveFiles"]["NPCs"])
-		print()
 		var savefile_data : Dictionary = data["SaveFiles"]
 		var temp = repositories.GAME_REPOSITORY.save_savefile(str(player_db_id), savefile_data)
 		if temp.size() == 0:

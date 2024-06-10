@@ -14,6 +14,7 @@ var id
 @onready var jump_timer: Timer = %JumpTimer
 @onready var floor_collider: Array[RayCast3D] = [$RayCast3D,$RayCast3D2,$RayCast3D3,$RayCast3D4,$RayCast3D5]
 @onready var hit_area: Area3D = %HitArea
+@onready var steps_stream: AudioStreamPlayer = %StepsStream
 
 var mvmtKeysPressed : int = 0
 
@@ -42,7 +43,7 @@ var temperature : float = -99
 
 @export_category("Características")
 @export var SPEED : float = 6.0
-@export var RUN_MULTIPLIER : float = 1.2
+@export var RUN_MULTIPLIER : float = 1.5
 @export var JUMP_VELOCITY : float = 25.0
 @export var MAX_HEALTH : float = 100.0
 @export var MAX_STAMINA : float = 100.0
@@ -81,6 +82,7 @@ func chat():
 	if npc.quest == null:
 		DialogueManager.show_example_dialogue_balloon(npc.dialogue)
 	else:
+		ConversationManager.update_objectives()
 		if QuestSystem.is_quest_completed(npc.quest):
 			DialogueManager.show_example_dialogue_balloon(npc.dialogue, "post_quest")
 		elif QuestSystem.is_quest_active(npc.quest):
@@ -116,6 +118,7 @@ func start_conversation():
 
 func end_conversation():
 	chatting_npc = null
+	ConversationManager.cur_talker == null
 
 
 func _physics_process(delta):
@@ -280,7 +283,6 @@ func remove_item(item:Pickup, qty:int):
 
 
 func has_all_items(items:Array[Pickup]):
-	# ARREGLAR TODO
 	var hotbar_array = hotbar._content.values()
 	var inventory_array = inventory._content.values()
 
@@ -396,3 +398,10 @@ func set_player_full_inventory(data:Dictionary) -> void:
 		toolbar.store_item(item, qty, slot)
 	"""
 
+func receive_damage(dmg:float):
+	cur_health -= dmg
+	ui.stats.add_health(-dmg)
+	if cur_health <= 0:
+		Scenes.load_scene("death_scene")
+	elif cur_health >= MAX_HEALTH:
+		cur_health = MAX_HEALTH

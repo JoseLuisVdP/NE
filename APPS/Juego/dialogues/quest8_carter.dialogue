@@ -10,6 +10,7 @@ Carretero: ¡Eh, forastero! ¡Necesito un favor!
 		=> END
 	- Ahora me pillas en mal momento...
 		Carretero: Una lástima, habrá que buscar otra solución. ¡Buen día!
+		do ConversationManager.end_chat()
 		=> END
 - En otro momento
 	Carretero: Cuídate, forastero.
@@ -18,14 +19,21 @@ Carretero: ¡Eh, forastero! ¡Necesito un favor!
 
 ~ during_quest
 Carretero: ¿Lograste conseguir las cuerdas y los palos que te pedí?
-- Aún nada
-   Carretero: No te preocupes, tomaré un descanso mientras tanto. Nos vemos luego.
-   do ConversationManager.end_chat()
-- ¡Aquí están!
-	Carretero: ¡Olé! Ya de arreglar la carreta me encargo yo, que has hecho ya bastante. ¡Muchas gracias, amigo!
-	do MyQuestManager.complete()
-	do ConversationManager.end_chat()
-	=> END
+if ConversationManager.has_2_rope_10_stick:
+	- ¡Aquí están!
+		Carretero: ¡Olé! Ya de arreglar la carreta me encargo yo, que has hecho ya bastante. ¡Muchas gracias, amigo!
+		do MyQuestManager.complete()
+		do ConversationManager.end_chat()
+		=> END
+	- Aún nada
+		Carretero: No te preocupes, tomaré un descanso mientras tanto. Nos vemos luego.
+		do ConversationManager.end_chat()
+		=> END
+else:
+	- Aún nada
+		Carretero: No te preocupes, tomaré un descanso mientras tanto. Nos vemos luego.
+		do ConversationManager.end_chat()
+		=> END
 
 ~ post_quest
 Carretero: Gracias por tu ayuda, forastero. ¡Cuídate y buen viaje!

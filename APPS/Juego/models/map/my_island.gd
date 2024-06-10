@@ -12,6 +12,10 @@ class_name MyIsland extends StaticBody3D
 @export var enemy_scene : PackedScene
 @export var bass_properties : Enemy
 
+@onready var npc_11: NPCScene = $NPCs/NPC11
+@onready var npc_12: NPCScene = $NPCs/NPC12
+
+
 var mdt : MeshDataTool
 
 func generate():
@@ -35,6 +39,8 @@ func generate():
 	await get_tree().create_timer(1).timeout
 	for i in $NPCs.get_children():
 		i.inicializar()
+	MyQuestManager.children.append(npc_11)
+	MyQuestManager.children.append(npc_12)
 
 func add_bass():
 	for i in bass_paths.get_children():

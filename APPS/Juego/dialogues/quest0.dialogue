@@ -14,13 +14,13 @@ Nathan: [[Hey|Hola|Buenas]], ¿qué tal te va desde que llegaste? ¿Te quedó cl
 	do ConversationManager.end_chat()
 	=> END
 Nathan: Bueno, como sea, ¡tengo un primer encargo que pedirte!
-Nathan: Resulta que perdí mi hacha en el bosque hace un tiempo, y me gustaría que la recuperases
-- ¿No puedes ir tú?
-	Nathan: [speed=0.3]...[/speed] Bueno, si es así, dificilmente vas a ganar dinero para el barco de ida a la isla de la hormiga
+Nathan: Resulta que perdí mi hacha en el bosque hace un tiempo, y me gustaría tener una nueva
+- ¿No puedes hacertela tú?
+	Nathan: [speed=0.3]...[/speed] Bueno, si es así, dificilmente vas a ganar dinero para el barco de ida a la isla de la monstruo
 - Si, claro
 	Nathan: ¡Gracias!
-Nathan: Tengo que asegurarme de que ese hacha no se pierda, pero tengo que estar en cierto reposo desde la última vez que me lesioné. [speed=0.8]Ya sabes, la edad...[/speed]
-Nathan: En fin, creo que puedo confiar en tí entonces. Si no puedes ahora, cuando puedas, solo asegúrate de traerla, ¿vale?
+Nathan: Tengo que asegurarme de tener un hacha, pero tengo que estar en cierto reposo desde la última vez que me lesioné. [speed=0.8]Ya sabes, la edad...[/speed]
+Nathan: En fin, creo que puedo confiar en tí entonces. Si no puedes ahora, cuando puedas, solo asegúrate de traermela, ¿vale?
 do MyQuestManager.accept()
 do ConversationManager.end_chat()
 => END
@@ -28,42 +28,89 @@ do ConversationManager.end_chat()
 ~ during_quest
 
 Nathan: [[Hey|Hola|Buenas]], ¿qué tal va esa búsqueda?
-- Aún nada
+if ConversationManager.has_axe:
+	- ¡La encontré!
+		Nathan: ¡Hombre, que alegría!
+		Nathan: Muchas gracias, ¡eres un cielo!
+		(Le vas a dar el hacha a Nathan, pero...)
+		Nathan: De hecho, ¿sabes qué? Quédatela, así te echo un cable con tu misión
+		do MyQuestManager.complete()
+		do ConversationManager.end_chat()
+		=> END
+	- Aún nada
 	Nathan: Qué pena...
 	Nathan: En fin, a ver si para la próxima hay suerte. ¡Ánimo!
 	do ConversationManager.end_chat()
 	=> END
-- ¡La encontré!
-	Nathan: ¡Hombre, que alegría!
-	Nathan: Muchas gracias, ¡eres un cielo!
-	(Le das el hacha a Nathan)
-- Aquí tienes (dar tu propia hacha)
-	Nathan: Oye joven, puede que sea viejo, pero no ciego...
-	Nathan: Esta no es mi hacha[speed=0.5]...[/speed] ¿Tenías una de reserva y me la has querido regalar, eh?
-	Nathan: Bueno, no te preocupes, me sirve esta por ahora. ¡Ya buscaré la mía cuando me recupere!
-Nathan: De hecho, ¿sabes qué? Quédatela, así te echo un cable con tu misión
-do MyQuestManager.complete()
-do ConversationManager.end_chat()
-=> END
-
-~ post_quest
-Nathan: ¿Necesitas algo?
-- ¿Puedes recordarme mi misión?
-	Nathan: Ay la memoria...
-	Nathan: Bueno, no te preocupes, tengo tiempo libre[speed=0.3]...[/speed]
-	- Resumen de la situación
-		=> resumen
-	- Cuéntame todo en detalle
-		=> historia
-- Nada nada
-	Nathan: Entonces nos [[vamos viendo|vemos]], joven
+else:
+	- Aún nada
+	Nathan: Qué pena...
+	Nathan: En fin, a ver si para la próxima hay suerte. ¡Ánimo!
 	do ConversationManager.end_chat()
 	=> END
 
+~ post_quest
+Nathan: ¿Necesitas algo?
+if MyQuestManager.has_won:
+	Nathan: Espera espera espera...
+	Nathan: ¿No esta como que muy tranquilo el pueblo?
+	- Adivina quien es el responsable
+	Nathan: ¿En serio has cumplido todos los encargos del pueblo?
+	Nathan: ¡Wow! Eso es impresionante, chico...
+	- ¿Ahora tengo el dinero suficiente, verdad?
+		Nathan: He he he, si, tienes suficiente...
+	- ¿Dónde está el señor del barco?
+		Nathan: He he he... buena pregunta
+	Nathan: Te preguntaras como es que, despues de haber hablado con todos los pueblerinos, nadie haya dicho nada de un barco...
+	- Espera...
+	- ¿Algo que admitir, señor tutorio?
+	do ConversationManager.play_sea_song()
+	Nathan: ¡Ha ha ha! Así es, grumete
+	Nathan: ¡Yo era el marinero desde el principio!
+	Nathan: ¿Sorprendido?
+	- ...
+	- ¿En serio?
+	- ¿Y ENTONCES POR QUÉ HE HECHO TODO ESTO?
+		Nathan: ¡Por diversion, chaval!
+		Nathan: ¿Por qué si no estarías jugando a un videojuego?
+		- ¿Cómo?
+			Nathan: [speed=0.1]...[/speed]
+		- ¿Qué juego?
+			Nathan: [speed=0.1]...[/speed]
+	Nathan: ...
+	Nathan: ¡Bueno, espero que esto no te haya sacado de tus arquebuses!
+	- Eso ni siquiera es una parte de un barco
+	- ¿Qué se supone que significa eso?
+	- Que chaval
+	Nathan: ¡Ha ha ha!
+	Nathan: ¿Vayamos a lo importante, sí?
+	Nathan: Gracias a todo este paseito, imagino que estarás preparado para el monstruo, ¿no?
+	- ¡Sí!
+	- A estas alturas del cuento no me fío ni de mi mismo...
+	Nathan: ¡Perfecto, eso es que sí!
+	Nathan: ¡Vámonos!
+	do ConversationManager.end_chat()
+	do ConversationManager.force_save()
+	do ConversationManager.teleport()
+	=> END
+	
+else:
+	- ¿Puedes recordarme mi misión?
+		Nathan: Ay la memoria...
+		Nathan: Bueno, no te preocupes, tengo tiempo libre[speed=0.3]...[/speed]
+		- Resumen de la situación
+			=> resumen
+		- Cuéntame todo en detalle
+			=> historia
+	- Nada nada
+		Nathan: Entonces nos [[vamos viendo|vemos]], joven
+		do ConversationManager.end_chat()
+		=> END
+
 ~ historia
-Nathan: Hay una hormiga gigante en la isla de al lado, y resulta que nadie del pueblo puede hacer nada
+Nathan: Hay un insecto gigante en la isla de al lado, y resulta que nadie del pueblo puede hacer nada
 Nathan: Si le echamos matabichos, nos dice que buen desodorante
-Nathan: Si le damos comida envenenada, nos dice que le gusta el picante
+Nathan: Si le tiramos una roca, nos hace una vuelta al mundo
 Nathan: Si le[speed=0.6]...[/speed] bueno, creo que me has entendido[speed=0.1]...[/speed]
 Nathan: La cuestión es que solo podemos derrotarla en combate, porque es muy resistente
 Nathan: Sin embargo, nadie de este pueblo pasa por debajo de los 60 años...
@@ -89,8 +136,8 @@ Nathan: Con estas misiones, ganaras dinero y experiencia, que representa tu prog
 Nathan: Y por cierto, aunque tengas suficiente dinero para el ticket, no te aconsejo ir de primeras a por la hormiga
 Nathan: Piensa que es un monstruo capaz de usar insecticida como desodorante, si vas sin nada, y le tiras un libro en mitad del pánico, a lo mejor te lo resume
 Nathan: No es un monstruo de poca monda, así que te aconsejo que, al menos, tengas un arma decente
-Nathan: Si me preguntas a mi, llevaría algún arma a distancia, como un arco con bastantes flechas, no veo muerto a ese monstruo si no es con, al menos, 20 flechas clavadas en él
-Nathan: ¡Pero lleva todas las que puedas, por si acaso! ¡Y una espada incluso!
+Nathan: Si me preguntas a mi, llevaría algun arma, como una espada
+Nathan: ¡Y lleva comida, por si acaso!
 Nathan: Buah[speed=0.1]...[/speed] Se me ha quedado la boca seca con la charla...
 Nathan: Habla conmigo cuando tengas dudas, o cuando no tengas nada que hacer, ¡suerte!
 do ConversationManager.end_chat()
@@ -101,7 +148,7 @@ Nathan: Hay una hormiga gigante en la isla de al lado
 Nathan: Tenemos tiempo, pero hay que matarla, y eres el único capaz de hacerlo
 Nathan: Así que tendrás que ganarte un dinero haciendo encargos en este pueblo para pagar al ávaro encargado del puerto
 Nathan: Con estas misiones, experiencia, que representa tu progreso para tenerlo como referencia.
-Nathan: Por último, también debes equiparte, y mi consejo, es que lleves al menos un arco y 20 flechas
+Nathan: Por último, también debes equiparte, y mi consejo, es que lleves al menos una espada
 Nathan: Aunque deberías llevar todo lo posible, vaya a ser que no salga todo como esperas y necesites dar un último golpe con la espada o el hacha
 Nathan: Cuando estes preparado y tengas el dinero suficiente, dirigete al puerto, ¡y toma el barco hacia tu destino!
 Nathan: Habla conmigo cuando tengas dudas, o cuando no tengas nada que hacer, ¡suerte!

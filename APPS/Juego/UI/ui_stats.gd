@@ -4,6 +4,8 @@ var game : GAME
 @onready var health_bar: RadialProgress = %HealthBar
 @onready var stamina_bar: RadialProgress = %StaminaBar
 @onready var health: Label = %Health
+@onready var money: Label = %Money
+@onready var exp: Label = %Exp
 
 func _ready() -> void:
 	game = find_parent("Game")
@@ -30,3 +32,7 @@ func add(qty:float, bar:RadialProgress) -> void:
 		bar.progress = 0
 	elif bar.progress > bar.max_value:
 		bar.progress = bar.max_value
+
+func update_stats(_money, _exp):
+	money.text = str(_money)
+	exp.text = str(_exp)

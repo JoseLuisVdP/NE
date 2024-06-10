@@ -77,15 +77,12 @@ _item_slot_size = 40
 
 [node name="ItemSlot" parent="VBoxContainer/MarginContainer2/MarginContainer/Content" instance=ExtResource("2_jxnc2")]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
 [node name="ItemSlot2" parent="VBoxContainer/MarginContainer2/MarginContainer/Content" instance=ExtResource("2_jxnc2")]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
 [node name="ItemSlot3" parent="VBoxContainer/MarginContainer2/MarginContainer/Content" instance=ExtResource("2_jxnc2")]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(40, 40)
 layout_mode = 2

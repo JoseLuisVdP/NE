@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_356nj")
-name = "Sopa de rábano"
+name = "Sopa de rabano"
 scene = ExtResource("2_mrgyq")
 icon = ExtResource("1_4o74j")
 stack_size = 1

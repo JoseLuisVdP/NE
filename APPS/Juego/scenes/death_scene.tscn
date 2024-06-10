@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5bgrwb5nu7et"]
+
+[ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="1_5kyac"]
+[ext_resource type="Script" path="res://scenes/death_scene.gd" id="2_5o3g4"]
+[ext_resource type="Texture2D" uid="uid://dgbehw8hf543x" path="res://assets/asleep.png" id="2_erpna"]
+[ext_resource type="SpriteFrames" uid="uid://s82a83jvia76" path="res://animated_icons/spriteframes/stunned.tres" id="3_h541s"]
+[ext_resource type="Theme" uid="uid://dcvvk2xc6q74x" path="res://default_theme_blue.tres" id="4_0upoo"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l01fj"]
+color = Color(1, 1, 1, 1)
+
+[node name="DeathScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5kyac")
+script = ExtResource("2_5o3g4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -11.5
+offset_right = 45.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(288, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_erpna")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+position = Vector2(-712, -582)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("3_h541s")
+animation = &"stunned"
+frame_progress = 0.673898
+centered = false
+offset = Vector2(1750, 810)
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Has muerto"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_l01fj")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Y eso que es fácil el juego..."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "A continuación el juego terminará, y lo retomarás desde el último archivo de guardado"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_0upoo")
+text = "Aceptar"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

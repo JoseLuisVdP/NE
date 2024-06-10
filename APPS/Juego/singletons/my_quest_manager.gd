@@ -2,6 +2,8 @@ class_name MY_QUEST_MANAGER extends Node
 
 static var player : Player
 var quests : Dictionary
+var has_won : bool = false
+var children : Array[NPCScene] = []
 
 """
 func a():
@@ -20,7 +22,6 @@ func accept():
 	var quest : Quest = player.chatting_npc.npc.quest
 	player.chatting_npc.accept_mission()
 	QuestSystem.start_quest(quest)
-	
 	remove_quest(quest)
 
 
@@ -35,11 +36,52 @@ func accept_quest(quest:Quest):
 	QuestSystem.start_quest(quest)
 
 
+func spawn_children():
+	for i in children:
+		i.show()
+
+
 func complete():
 	var quest : Quest = player.chatting_npc.npc.quest
 	player.chatting_npc.complete_mission()
 	quest.objective_completed = true
+	player.money += quest.quest_money
+	player.exp += quest.quest_xp
+	player.ui.stats.update_stats(player.money, player.xp)
 	QuestSystem.complete_quest(quest)
+	check_win_condition()
+	match quest.quest_name:
+		"El accidentado carretero":
+			var temp : Pickup = Commons.ITEMS.filter(func (i): return i.name == "Cuerda")[0]
+			player.remove_item(temp, 2)
+			temp = Commons.ITEMS.filter(func (i): return i.name == "Trigo")[0]
+			player.remove_item(temp, 10)
+		"El otro tipo de seta":
+			var temp : Pickup = Commons.ITEMS.filter(func (i): return i.name == "Seta sospechosa")[0]
+			player.remove_item(temp, 5)
+		"Dame un buen pan":
+			var temp : Pickup = Commons.ITEMS.filter(func (i): return i.name == "Pan")[0]
+			player.remove_item(temp, 1)
+		"Caldo de setas":
+			var temp : Pickup = Commons.ITEMS.filter(func (i): return i.name == "Sopa de seta")[0]
+			player.remove_item(temp, 1)
+		"Deliciosa sopa de rabano":
+			var temp : Pickup = Commons.ITEMS.filter(func (i): return i.name == "Sopa de rabano")[0]
+			player.remove_item(temp, 1)
+		"Los jardines de Dios":
+			var temp : Pickup = Commons.ITEMS.filter(func (i): return i.name == "Piedra")[0]
+			player.remove_item(temp, 20)
+		"Problemas de abastecimiento":
+			var temp : Pickup = Commons.ITEMS.filter(func (i): return i.name == "Trigo")[0]
+			player.remove_item(temp, 10)
+			temp = Commons.ITEMS.filter(func (i): return i.name == "Rabano")[0]
+			player.remove_item(temp, 10)
+			temp = Commons.ITEMS.filter(func (i): return i.name == "Zanahoria")[0]
+			player.remove_item(temp, 10)
+
+
+func check_win_condition():
+	has_won = Commons.QUESTS.size() == QuestSystem.get_completed_quests().size()
 
 
 func load_quests(game:GAME):
@@ -84,7 +126,7 @@ func loaddata(data:Dictionary) -> Dictionary:
 	for i in npc_paths:
 		if get_node_or_null(i) == null:
 			npc_paths.erase(i)
-	var npc_quests : Array = npc_paths.map(func (i): return get_node(i).npc.quest)
+	var npc_quests : Array = npc_paths.map(func (i): return get_node(i).npc.quest).filter(func (i): return i != null)
 	var npc_quest_names : Array = npc_quests.map(func (i): return i.quest_name)
 
 	for i in quests:
@@ -94,7 +136,7 @@ func loaddata(data:Dictionary) -> Dictionary:
 			var idx : int = npc_quest_names.find(j.quest_name)
 			if idx != -1:
 				var npc : NPCScene = get_node_or_null(npc_paths[idx])
-				if npc != null:
+				if npc != null and npc.npc.quest != null:
 					npc.state_chart.send_event("available")
 					if i == "active" or i == "completed":
 						npc.accept_mission()
@@ -103,5 +145,5 @@ func loaddata(data:Dictionary) -> Dictionary:
 					if i == "completed":
 						npc.complete_mission()
 						remove_quest(j)
-	
+	check_win_condition()
 	return data

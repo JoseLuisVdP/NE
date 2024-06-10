@@ -30,8 +30,11 @@ func _on_game_server_disconnected(id):
 	print("Game server " + str(id) + " disconnected")
 
 func distribute_login_token(token:String, game_server:String) -> void:
-	var gameserver_peer_id : int = gameserverlist[game_server]
-	rpc_id(gameserver_peer_id, "receive_login_token", token)
+	if gameserverlist.keys().has(game_server):
+		var gameserver_peer_id : int = gameserverlist[game_server]
+		rpc_id(gameserver_peer_id, "receive_login_token", token)
+	else:
+		printerr("No se encuentra el game server")
 
 @rpc("any_peer", "reliable")
 func receive_login_token(token:String) -> void:

@@ -2,7 +2,7 @@ class_name NPCScene extends Node3D
 
 
 @export var npc : NPC
-@export var path_scene : PackedScene
+#@export var path_scene : PackedScene
 
 
 var npc_scene : Node3D
@@ -26,9 +26,13 @@ var is_talking : bool = false
 
 
 func inicializar() -> void:
-	var p = path_scene.instantiate()
-	npc_paths.add_child(p)
-	path = p
+	if npc.name == "Chiquirrina" or npc.name == "Chiquirrino":
+		if QuestSystem.is_quest_completed((get_parent().get_child(1) as NPCScene).npc.quest):
+			return
+	#var p = path_scene.instantiate()
+	#npc_paths.add_child(p)
+	#path = p
+	path = npc_paths.get_child(get_index())
 	npc_scene = npc.scene.instantiate()
 	add_child(npc_scene)
 	path_follow = path.get_child(0)
@@ -38,6 +42,10 @@ func inicializar() -> void:
 		npc_scene.animated_human.rotation = Vector3.ZERO
 		npc_scene.rotation = Vector3(npc_scene.rotation.x, lerp_angle(npc_scene.rotation.y, path_follow.rotation.y, 0.3), npc_scene.rotation.z)
 		icons.position = npc_scene.position
+	
+	if npc.name == "Chiquirrina" or npc.name == "Chiquirrino":
+		if not QuestSystem.is_quest_active((get_parent().get_child(1) as NPCScene).npc.quest):
+			hide()
 
 
 func talk(_player_mesh:Node3D):

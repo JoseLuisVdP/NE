@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bijinu7w0cxxf"]
+[gd_scene load_steps=6 format=3 uid="uid://bijinu7w0cxxf"]
 
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="1_4ntix"]
 [ext_resource type="Script" path="res://UI/clock.gd" id="2_tm4l1"]
+[ext_resource type="Theme" uid="uid://dcvvk2xc6q74x" path="res://default_theme_blue.tres" id="3_geetl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3hak"]
 content_margin_left = 16.0
@@ -37,14 +38,17 @@ offset_bottom = 40.0
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u3hak")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Time" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -53,18 +57,28 @@ text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_ldblo")
 
-[node name="Date" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+[node name="Date" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00/00"
 horizontal_alignment = 1
 
+[node name="SkipNight" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("3_geetl")
+theme_override_font_sizes/font_size = 20
+text = "Pasar la noche"
+autowrap_mode = 2
+
 [node name="UpdateClock" type="Timer" parent="."]
 unique_name_in_owner = true
 autostart = true
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SkipNight" to="." method="_on_skip_night_pressed"]
 [connection signal="timeout" from="UpdateClock" to="." method="set_time"]

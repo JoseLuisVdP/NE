@@ -11,6 +11,8 @@ func _unhandled_input(event):
 		_player.mvmtKeysPressed += 1
 	if event.is_action_released("up") || event.is_action_released("down") || event.is_action_released("left") || event.is_action_released("right"):
 		_player.mvmtKeysPressed -= 1
+		if _player.mvmtKeysPressed < 0:
+			_player.mvmtKeysPressed = 0
 	if event.is_action_pressed("pick_up"):
 		if _player.pickable_objects.size() > 0:
 			_player.change_state("pickingUpAnItem")
@@ -22,9 +24,9 @@ func _unhandled_input(event):
 	if event.is_action_pressed("atack"):
 		_player.change_state("hitting")
 		
-	#Pequeña correccion en las teclas de movimiento en casos en los que se suele romper
-	if event.is_action_pressed("pause") or event.is_action_pressed("camera_toggle") or event.is_action_pressed("atack") or event.is_action_pressed("pick_up"):
-		_player.mvmtKeysPressed = int(event.is_action_pressed("up")) + int(event.is_action_pressed("down")) + int(event.is_action_pressed("left")) + int(event.is_action_pressed("right"))
+	# Pequeña correccion en las teclas de movimiento en caso de que se rompa
+	if event.is_action_pressed("pause"):
+		_player.mvmtKeysPressed = 0
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("run"):

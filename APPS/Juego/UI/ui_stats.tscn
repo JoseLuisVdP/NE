@@ -76,6 +76,7 @@ texture = ExtResource("3_wwlei")
 expand_mode = 3
 
 [node name="Money" type="Label" parent="MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "0"
@@ -94,6 +95,7 @@ texture = ExtResource("4_lvthf")
 expand_mode = 3
 
 [node name="Exp" type="Label" parent="MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "0"

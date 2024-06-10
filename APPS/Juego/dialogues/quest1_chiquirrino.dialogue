@@ -1,0 +1,10 @@
+~ title
+
+Chiquirrino: [speed=0.6]¡Sssssh! No hagas ruido, o me encontrará...[/speed]
+- Tu papá os está buscando
+Chiquirrino: ¿Mi papá nos está buscando? Pero estábamos jugando tan bien...
+Chiquirrino: Además, ¿cómo se que no es una trampa para que mi hermana gane?
+- Tienen que volver a casa de inmediato
+Chiquirrino: [speed=0.8]Vaaaaale... está bien, volveré a casa. No quiero que papá esté triste[/speed]
+do ConversationManager.end_chat_and_despawn()
+=> END

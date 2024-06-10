@@ -5,7 +5,7 @@ var time : int
 
 var timer : Timer
 const DAY : int = 86400
-const SECOND_SCALE : int = 5
+var SECOND_SCALE : int = 5
 var day_time : int
 var day_time_formated : int
 
@@ -48,7 +48,7 @@ func second():
 
 func update():
 	day_time = time % DAY
-	day_time_formated = int(time + DAY/2) % DAY
+	day_time_formated = int(time + DAY/3) % DAY
 	update_astrals()
 	update_lights()
 	if day_time == 8640 or day_time == 40000:
@@ -68,6 +68,7 @@ func update():
 func update_lights():
 	match day_time:
 		0:
+			SECOND_SCALE = 5
 			sun.light_energy = sun_energy * 0.2
 			moon.light_energy = moon_energy * 0.8
 		100:
@@ -152,3 +153,6 @@ func is_between(t0:int, t1:int):
 		return t0 < day_time or day_time < t1
 	else:
 		return t0 < day_time and day_time < t1
+
+func skip_night():
+	SECOND_SCALE = 100

@@ -2737,8 +2737,10 @@ collision_mask = 5
 unique_name_in_owner = true
 
 [node name="ClimaParticles" parent="." instance=ExtResource("8_anhci")]
+visible = false
 
 [node name="StepsStream" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 volume_db = -6.0
 pitch_scale = 0.7
 bus = &"SFX"
@@ -2747,6 +2749,7 @@ step_sounds = Array[AudioStreamWAV]([ExtResource("10_uc6mt"), ExtResource("11_8s
 
 [node name="Timer" type="Timer" parent="StepsStream"]
 wait_time = 0.55
+autostart = true
 
 [connection signal="area_entered" from="InteractionArea" to="InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="InteractionArea" method="_on_area_exited"]

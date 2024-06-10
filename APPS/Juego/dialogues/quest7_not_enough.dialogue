@@ -4,7 +4,7 @@ Tom Nook: ¡Hola, aventurero! ¿Te importaría echarme una mano?
 	Tom Nook: Resulta que mi proveedor me ha dejado tirado y me encuentro corto de mercancía.
 	Tom Nook: Normalmente te ofrecería arcos, flechas, libros, y mil cosas más
 	Tom Nook: Pero esta vez ni siquiera me han traido los bienes básicos para la gente, ¿qué voy a hacer?
-  - ¿Te podría traer esos bienes básicos al menos?
+	- ¿Te podría traer esos bienes básicos al menos?
 		Tom Nook: ¿En serio harías eso por mí? ¡Sería increible!
 		Tom Nook: Necesito desesperadamente 10 manojos de trigo, 10 rábanos y 10 zanahorias. Con eso al menos la gente podrá comprar lo básico...
 		Tom Nook: ¡Muchas gracias por el favor, te espero por aquí!
@@ -19,15 +19,21 @@ Tom Nook: ¡Hola, aventurero! ¿Te importaría echarme una mano?
 
 ~ during_quest
 Tom Nook: ¿Cómo va la búsqueda de la mercancía?
-- Aún no he conseguido todo.
-	Tom Nook: Entiendo, no te preocupes, son muchas cosas. ¡Buena suerte en tu búsqueda!
-	do ConversationManager.end_chat()
-	=> END
-- He reunido todo lo que necesitabas.
-	do MyQuestManager.complete()
-	Tom Nook: ¡Fantástico! Muchísimas gracias, aventurero. Aquí tienes tu recompensa.
-	do ConversationManager.end_chat()
-	=> END
+if ConversationManager.has_10_wheat_10_turnip_10_carrot:
+	- He reunido todo lo que necesitabas.
+		Tom Nook: ¡Fantástico! Muchísimas gracias, aventurero. Aquí tienes tu recompensa.
+		do MyQuestManager.complete()
+		do ConversationManager.end_chat()
+		=> END
+	- Aún no he conseguido todo.
+		Tom Nook: Entiendo, no te preocupes, son muchas cosas. ¡Buena suerte en tu búsqueda!
+		do ConversationManager.end_chat()
+		=> END
+else:
+	- Aún no he conseguido todo.
+		Tom Nook: Entiendo, no te preocupes, son muchas cosas. ¡Buena suerte en tu búsqueda!
+		do ConversationManager.end_chat()
+		=> END
 
 ~ post_quest
 Tom Nook: Hola de nuevo, amigo. Gracias otra vez por tu ayuda. ¡Te prometo que la próxima vez que nos veamos, te venderé productos de calidad!

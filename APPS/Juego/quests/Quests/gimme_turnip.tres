@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_ua5hj")
 id = 3
-quest_name = "Deliciosa sopa de rábano"
+quest_name = "Deliciosa sopa de rabano"
 quest_description = "Dana, de las trillizas del pueblo, te ha pedido una buena sopa de rábano. ¿Qué tendrán estas hermanas con la comida?"
 quest_objective = "Dale una sopa de rábano a Dana"
 quest_xp = 100

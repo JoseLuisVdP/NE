@@ -16,7 +16,7 @@ var loaded : bool
 
 
 func _ready():
-	# POR AHORA, EL NOMBRE VA A SER EL CORREO
+	# El nombre será el correo, pero el sistema admite nombres personalizados para tener más de una partida
 	var savefile = Server.player_email
 	Server._get_data(savefile)
 	
@@ -24,24 +24,25 @@ func _ready():
 
 	load_saved_data()
 	player = find_child("Player")
-	_all_recipes_rg.load_all_into(RECIPES)
 	_all_items_rg.load_all_into(ITEMS)
+	_all_recipes_rg.load_all_into(RECIPES)
 	_all_quests_rg.load_all_into(QUESTS)
+	Commons.ITEMS = ITEMS
+	Commons.RECIPES = RECIPES
+	Commons.QUESTS = QUESTS
 	MyQuestManager.load_quests(self)
 	if not Server.data["SaveFiles"].keys().has("time"):
 		GlobalTime.iniciar(0, $"3D/Lights/Sunlight", $"3D/Lights/Moonlight")
 	else:
 		GlobalTime.iniciar(Server.data["SaveFiles"]["time"], $"3D/Lights/Sunlight", $"3D/Lights/Moonlight")
-	"""
+	
 	for i in ITEMS:
 		var s = i.scene.instantiate()
 		var parent = load("res://items/global/pickup.tscn").instantiate()
-		s.position = Vector3(-441, 100, 0)
+		parent.position = Vector3(-441, 100, 0)
 		parent.add_child(s)
 		add_child(parent)
-	"""
-	# Obtener los datos del clima (un clima por cada isla)
-	
+
 
 func pre_load():
 	print("Pre carga")
@@ -69,7 +70,7 @@ func update_clima():
 		return
 	
 	var data = Server.clima_data[player.location][GlobalTime.cur_day - 1]["ALMERIA"]["CABO DE GATA"]
-	var time : int = GlobalTime.day_time
+	var time : int = GlobalTime.day_time_formated
 	
 	var hora_max = data["hora_max"].split(":")
 	if hora_max.size() != 2:

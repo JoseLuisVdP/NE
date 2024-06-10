@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=4 format=3 uid="uid://dt33ak5ogyv8a"]
+
+[ext_resource type="Resource" uid="uid://caiqaws4maby4" path="res://dialogues/quest1_chiquirrino.dialogue" id="1_rhq7f"]
+[ext_resource type="PackedScene" uid="uid://cuniv0quumnau" path="res://NPCs/scenes/child.tscn" id="2_blfud"]
+[ext_resource type="Script" path="res://NPCs/npc.gd" id="4_wk5f6"]
+
+[resource]
+script = ExtResource("4_wk5f6")
+name = "Chiquirrino"
+dialogue = ExtResource("1_rhq7f")
+scene = ExtResource("2_blfud")

@@ -2506,6 +2506,7 @@ bones/40/scale = Vector3(1, 1, 1)
 
 [node name="Human_Mesh" type="MeshInstance3D" parent="AnimatedHuman/Human Armature/Skeleton3D"]
 unique_name_in_owner = true
+layers = 2
 mesh = SubResource("ArrayMesh_00ulo")
 skin = SubResource("Skin_ksrdx")
 

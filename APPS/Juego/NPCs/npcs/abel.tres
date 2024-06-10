@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://irlg4fnxqtje"]
+[gd_resource type="Resource" script_class="NPC" load_steps=5 format=3 uid="uid://c05vjo1183m0i"]
 
 [ext_resource type="Resource" uid="uid://ds40kwkisgcnm" path="res://quests/Quests/the_boys.tres" id="1_fydm7"]
 [ext_resource type="Script" path="res://NPCs/npc.gd" id="1_mfnfr"]

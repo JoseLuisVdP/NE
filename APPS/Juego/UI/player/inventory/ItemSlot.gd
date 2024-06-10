@@ -129,3 +129,10 @@ func _on_gui_input(event: InputEvent) -> void:
 							grid.inventory.store_item(_item._item, _item._qty, index)
 			elif _item != null:
 				pickItem()
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			if _item != null:
+				if _item._item.type == "food":
+					ui.player.receive_damage(_item._item.damage)
+					ui.player.remove_item(_item._item, 1)
+					# _item.add_qty(-1)
+					# Curar y luego eliminar 1

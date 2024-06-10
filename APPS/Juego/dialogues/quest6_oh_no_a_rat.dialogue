@@ -5,9 +5,10 @@ Charlotte: ¡Oh, buen día! ¿Podrías echarme una mano?
 	Charlotte: Vale que este es un pueblo rústico, pero hay niños en este vecindario. ¿Es que ya nadie piensa en los niños?
 	Charlotte: ¿Podrías ir hasta donde los ratones están y dar unos golpes en el aire para asustarlos? Creo que eso los hará huir
 	- Por supuesto, iré a espantar a esos ratones.
+		Charlotte: ¡Fantástico!
 		do MyQuestManager.accept()
 		do ConversationManager.end_chat()
-	    => END
+		=> END
 	- Lo siento, no puedo ayudarte en este momento.
 		Charlotte: Ay hijo, si yo te entiendo, si soy la primera que se asusta de los ratones, no te preocupes
 		do ConversationManager.end_chat()
@@ -19,16 +20,23 @@ Charlotte: ¡Oh, buen día! ¿Podrías echarme una mano?
 
 ~ during_quest
 Charlotte: ¿Cómo va la misión de ahuyentar a los ratones?
-- Aún nada.
-	Charlotte: Entiendo, tómate tu tiempo. ¡Buena suerte!
-	do ConversationManager.end_chat()
-- Cumplí el objetivo.
-	Charlotte: ¿De verdad? ¡Ay, que alegría!
-	Charlotte: ¡Fantástico! ¡Gracias por ayudarnos a deshacernos de esos ratones! No sabría que hacer si no...
-	Charlotte: Toma, una recompensa de parte de todo el vecindario
-	do MyQuestManager.complete()
-	do ConversationManager.end_chat()
-	=> END
+if ConversationManager.is_village_free_of_rats:
+	- Cumplí el objetivo.
+		Charlotte: ¿De verdad? ¡Ay, que alegría!
+		Charlotte: ¡Fantástico! ¡Gracias por ayudarnos a deshacernos de esos ratones! No sabría que hacer si no...
+		Charlotte: Toma, una recompensa de parte de todo el vecindario
+		do MyQuestManager.complete()
+		do ConversationManager.end_chat()
+		=> END
+	- Aún nada.
+		Charlotte: Entiendo, tómate tu tiempo. ¡Buena suerte!
+		do ConversationManager.end_chat()
+		=> END
+else:
+	- Aún nada.
+		Charlotte: Entiendo, tómate tu tiempo. ¡Buena suerte!
+		do ConversationManager.end_chat()
+		=> END
 
 ~ post_quest
 Charlotte: ¡Hola de nuevo! ¡Gracias por haber ayudado a espantar a esos ratones! Siempre serás bienvenido en nuestro vecindario.
