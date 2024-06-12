@@ -12,10 +12,10 @@ script = ExtResource("1_7g8yt")
 
 [node name="SpringArm" type="SpringArm3D" parent="horizontalRotation"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1, 0)
+collision_mask = 5
 shape = SubResource("CapsuleShape3D_rxy51")
 spring_length = 15.0
 
 [node name="Camera" type="Camera3D" parent="horizontalRotation/SpringArm"]
 fov = 40.0
 size = 17.265
-far = 400.0

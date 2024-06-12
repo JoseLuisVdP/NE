@@ -4,7 +4,7 @@ var client : ENetMultiplayerPeer
 
 var gateway_api = MultiplayerAPI.create_default_interface()
 
-var ip = "127.0.0.1"
+var ip = "54.243.133.143"
 var port = 1910
 
 var cert : X509Certificate = load("res://certs/X509.crt")
@@ -74,10 +74,12 @@ func return_create_account_request(result:bool, message:int) -> void:
 				print("No se pudo crear la cuenta, inténtalo de nuevo")
 			2:
 				print("El correo especificado ya tiene una cuenta, inténtalo con otro correo o inicia sesión")
+				login_node.mail_already_exists.show()
 			3:
 				print("Todo ha ido bien, no deberías estar viendo este mensaje")
 			4:
 				print("Ha ocurrido un error en la base de datos, inténtalo de nuevo")
+				login_node.generic_error.show()
 		
 		login_node.confirm_btn.disabled = false
 		login_node.back_btn.disabled = false

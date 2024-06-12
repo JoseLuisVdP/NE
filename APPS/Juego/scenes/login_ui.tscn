@@ -103,9 +103,6 @@ layout_mode = 2
 theme = ExtResource("6_lhe8m")
 text = "Regístrate"
 
-[node name="TestLogin" type="Button" parent="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-
 [node name="Register" type="MarginContainer" parent="MarginContainer"]
 unique_name_in_owner = true
 visible = false
@@ -185,8 +182,136 @@ layout_mode = 2
 theme = ExtResource("7_wxx8g")
 text = "Atrás"
 
+[node name="WrongLogin" type="Window" parent="."]
+unique_name_in_owner = true
+initial_position = 4
+size = Vector2i(300, 150)
+visible = false
+
+[node name="Label" type="Label" parent="WrongLogin"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -17.5
+offset_right = 98.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Inicio de sesión incorrecto
+¿Estás registrado?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="EmptyLogin" type="Window" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+initial_position = 4
+size = Vector2i(300, 150)
+visible = false
+
+[node name="Label" type="Label" parent="EmptyLogin"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -17.5
+offset_right = 98.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rellena los campos del inicio de sesión"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="WrongRegister" type="Window" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+initial_position = 4
+size = Vector2i(500, 150)
+visible = false
+
+[node name="Label" type="Label" parent="WrongRegister"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.5
+offset_top = -27.0
+offset_right = 235.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Datos incorrectos para el registro.
+Recuerda que el correo debe ser válido (test@test.test).
+Recuerda que la contraseña debe tener, al menos, 8 caracteres"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MailAlreadyExists" type="Window" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+initial_position = 4
+size = Vector2i(500, 150)
+visible = false
+
+[node name="Label" type="Label" parent="MailAlreadyExists"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.5
+offset_top = -27.0
+offset_right = 235.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "El correo especificado ya existe
+Prueba a iniciar sesión o usa otro correo"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="GenericError" type="Window" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+initial_position = 4
+size = Vector2i(500, 150)
+visible = false
+
+[node name="Label" type="Label" parent="GenericError"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.5
+offset_top = -27.0
+offset_right = 235.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Algo ha ido mal
+Inténtalo de nuevo más tarde, o reinicia"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer2/LoginBtn" to="." method="_on_login_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer2/RegisterBtn" to="." method="_on_register_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/Login/MarginContainer/VBoxContainer/VBoxContainer2/TestLogin" to="." method="_on_test_login_pressed"]
 [connection signal="pressed" from="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer2/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/Register/MarginContainer/VBoxContainer/VBoxContainer2/BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="close_requested" from="WrongLogin" to="." method="_on_wrong_login_close_requested"]
+[connection signal="close_requested" from="EmptyLogin" to="." method="_on_empty_login_close_requested"]
+[connection signal="close_requested" from="WrongRegister" to="." method="_on_wrong_register_close_requested"]
+[connection signal="close_requested" from="MailAlreadyExists" to="." method="_on_mail_already_exists_close_requested"]
+[connection signal="close_requested" from="GenericError" to="." method="_on_generic_error_close_requested"]

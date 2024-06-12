@@ -186,7 +186,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_bottom = 32
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Tutorial/PanelContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -200,6 +200,7 @@ text = "Tutorial"
 [node name="MarginContainer3" type="MarginContainer" parent="Tutorial/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 48
+theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 32
 
 [node name="Label" type="Label" parent="Tutorial/PanelContainer/VBoxContainer/MarginContainer3"]
@@ -207,13 +208,14 @@ custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/line_spacing = 8
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "- Muévete con los botones WASD
 - Salta con la barra espaciadora
 - Haz click para atacar o pasar diálogos
-- Usa ALT para sacar el ratón y poder clicar elementos de la interfaz de usuario
+- Usa ALT para deshabilitar la cámara. Asi sacarás el ratón, y podrás clicar elementos de la interfaz de usuario
 - Usa CTRL para correr
--Usa F para interactuar con objetos y personas
+- Usa F para interactuar con objetos y personas
+- Usa E para abrir tu inventario, y usa C o el botón para \"craftear\" para crear nuevos objetos
 
 Si mueres, el juego se acaba, y tendrás que volver al último guardado, ¡así que recuerda guardar a menudo!
 

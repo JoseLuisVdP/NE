@@ -16,6 +16,7 @@ size = Vector3(0.83, 0.5, 0.186445)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 0, 0, 0.000947438)
+visibility_parent = NodePath(".")
 material_override = SubResource("StandardMaterial3D_ddcxt")
 mesh = ExtResource("2_0cf7k")
 

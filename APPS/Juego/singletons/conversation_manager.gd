@@ -91,6 +91,14 @@ func play_sea_song():
 	sea_song.play()
 
 
+func pause_sea_song():
+	sea_song.stream_paused = true
+
+
+func resume_sea_song():
+	sea_song.stream_paused = false
+
+
 func stop_sea_song():
 	sea_song.stop()
 
@@ -101,7 +109,6 @@ func force_save():
 
 func teleport():
 	Scenes.load_scene("credits")
-	pass
 
 
 func end_chat_and_despawn():

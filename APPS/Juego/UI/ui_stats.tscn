@@ -180,6 +180,7 @@ ring = true
 
 [node name="StaminaBar" type="Control" parent="MarginContainer/Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

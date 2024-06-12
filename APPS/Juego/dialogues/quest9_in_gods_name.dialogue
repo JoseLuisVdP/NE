@@ -24,15 +24,10 @@ if ConversationManager.has_20_stones:
 		do MyQuestManager.complete()
 		do ConversationManager.end_chat()
 		=> END
-	- Aún nada
-		Cura: No te preocupes, seguiré esperando tu regreso. Que la paz esté contigo.
-		do ConversationManager.end_chat()
-		=> END
-else:
-	- Aún nada
-		Cura: No te preocupes, seguiré esperando tu regreso. Que la paz esté contigo.
-		do ConversationManager.end_chat()
-		=> END
+- Aún nada
+	Cura: No te preocupes, seguiré esperando tu regreso. Que la paz esté contigo.
+	do ConversationManager.end_chat()
+	=> END
 
 ~ post_quest
 Cura: El jardín de la iglesia luce hermoso gracias a ti. Que la luz te guíe siempre.

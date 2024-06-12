@@ -25,15 +25,10 @@ if ConversationManager.has_2_rope_10_stick:
 		do MyQuestManager.complete()
 		do ConversationManager.end_chat()
 		=> END
-	- Aún nada
-		Carretero: No te preocupes, tomaré un descanso mientras tanto. Nos vemos luego.
-		do ConversationManager.end_chat()
-		=> END
-else:
-	- Aún nada
-		Carretero: No te preocupes, tomaré un descanso mientras tanto. Nos vemos luego.
-		do ConversationManager.end_chat()
-		=> END
+- Aún nada
+	Carretero: No te preocupes, tomaré un descanso mientras tanto. Nos vemos luego.
+	do ConversationManager.end_chat()
+	=> END
 
 ~ post_quest
 Carretero: Gracias por tu ayuda, forastero. ¡Cuídate y buen viaje!

@@ -22,6 +22,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Crafting" type="Control"]
+z_index = 4000
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0

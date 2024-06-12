@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://8ey71yiinm4b"]
+[gd_scene load_steps=8 format=3 uid="uid://8ey71yiinm4b"]
 
 [ext_resource type="Script" path="res://UI/player/inventory/ordered_items_grid.gd" id="1_0lfvp"]
 [ext_resource type="Script" path="res://UI/player/inventory/toolbar.gd" id="1_fawjh"]
+[ext_resource type="Texture2D" uid="uid://dldrpgrdmto06" path="res://addons/awesome_input_icons/assets/keyboard and mouse vector/keyboard_tab_icon_outline.svg" id="2_3scpf"]
 [ext_resource type="PackedScene" uid="uid://p2fuew7akfjn" path="res://UI/player/inventory/item_slot.tscn" id="2_jxnc2"]
 [ext_resource type="FontFile" uid="uid://7hqhpammf0hp" path="res://assets/fonts/nord/Nord Regular.otf" id="2_k3e7s"]
 [ext_resource type="Texture2D" uid="uid://cfwd8hnncumrs" path="res://UI/inventory_background.png" id="3_b58u2"]
@@ -40,9 +41,22 @@ grow_vertical = 0
 layout_mode = 2
 theme_override_constants/margin_left = 12
 
-[node name="ActiveItem" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="RotateTool" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+icon = ExtResource("2_3scpf")
+expand_icon = true
+
+[node name="ActiveItem" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/outline_size = 2
 theme_override_fonts/normal_font = ExtResource("2_k3e7s")
 theme_override_font_sizes/normal_font_size = 24
@@ -86,3 +100,5 @@ layout_mode = 2
 [node name="ItemSlot3" parent="VBoxContainer/MarginContainer2/MarginContainer/Content" instance=ExtResource("2_jxnc2")]
 auto_translate_mode = 1
 layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/RotateTool" to="." method="_on_rotate_tool_pressed"]

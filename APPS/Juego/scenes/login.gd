@@ -11,6 +11,12 @@ class_name LoginScreen extends Control
 @onready var new_email_input: LineEdit = %NewEmailInput
 @onready var new_password_input: LineEdit = %NewPasswordInput
 @onready var repeat_new_password_input: LineEdit = %RepeatNewPasswordInput
+@onready var wrong_login: Window = %WrongLogin
+@onready var wrong_register: Window = %WrongRegister
+@onready var empty_login: Window = %EmptyLogin
+@onready var mail_already_exists: Window = %MailAlreadyExists
+@onready var generic_error: Window = %GenericError
+
 
 @export var auto_save : PackedScene
 
@@ -24,10 +30,9 @@ func _ready() -> void:
 
 func _on_login_btn_pressed() -> void:
 	if email_input.text == "" or password_input.text == "":
-		print("LOGIN: Rellena ambos campos para continuar")
+		empty_login.show()
 		return
 	else:
-		print("LOGIN: intentar login")
 		login_btn.disabled = true
 		register_btn.disabled = true
 		print("Attempting to login")
@@ -43,17 +48,19 @@ func _on_back_btn_pressed() -> void:
 func _on_register_btn_pressed() -> void:
 	login.hide()
 	register.show()
+	confirm_btn.disabled = false
+	back_btn.disabled = false
 
 
 func _on_confirm_btn_pressed() -> void:
 	var regex : RegEx = RegEx.new()
 	regex.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
 	if not regex.search(new_email_input.text):
-		print("Correo inválido")
+		wrong_register.show()
 	elif new_password_input.text.length() < 8:
-		print("La contraseña debe tener al menos 8 caracteres")
+		wrong_register.show()
 	elif new_password_input.text != repeat_new_password_input.text:
-		print("Las contraseñas no coinciden")
+		wrong_register.show()
 	else:
 		confirm_btn.disabled = true
 		back_btn.disabled = true
@@ -65,3 +72,23 @@ func _on_test_login_pressed() -> void:
 	email_input.text = "a@a.com"
 	password_input.text = "aaaaaaaa"
 	_on_login_btn_pressed()
+
+
+func _on_wrong_login_close_requested() -> void:
+	wrong_login.hide()
+
+
+func _on_wrong_register_close_requested() -> void:
+	wrong_register.hide()
+
+
+func _on_empty_login_close_requested() -> void:
+	empty_login.hide()
+
+
+func _on_mail_already_exists_close_requested() -> void:
+	mail_already_exists.hide()
+
+
+func _on_generic_error_close_requested() -> void:
+	generic_error.hide()

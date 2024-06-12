@@ -28,12 +28,14 @@ func _ready():
 	ui = find_parent("UI")
 
 func display(item:Pickup, qty:int = 1) -> void:
-	"""
 	if is_active:
-		add_theme_stylebox_override("normal", active_stylebox)
+		scale = Vector2(1.2, 1.2)
+		scale = Vector2.ONE
+		for i in ["margin_bottom","margin_top","margin_left","margin_right"]:
+			margin_container.add_theme_constant_override(i, 0)
 	else:
-		add_theme_stylebox_override("normal", default_stylebox)
-	"""
+		for i in ["margin_bottom","margin_top","margin_left","margin_right"]:
+			margin_container.add_theme_constant_override(i, size_icon / 10)
 	if item != null:
 		if _item == null:
 			var scene : Item = item_scene.instantiate()
@@ -63,6 +65,7 @@ func pickItem() -> void:
 	display(null)
 	
 	grid.inventory.delete_item(index)
+	ui.controller.rotate_tool(0)
 
 func putItem() -> void:
 	if _item != null:
@@ -79,6 +82,7 @@ func putItem() -> void:
 	display(_item._item, _item._qty)
 	
 	grid.inventory.store_item(_item._item, _item._qty, index)
+	ui.controller.rotate_tool(0)
 
 func interchange_item():
 	if _item == null || ui.picked_item == null:
@@ -96,11 +100,14 @@ func interchange_item():
 	display(_item._item, _item._qty)
 	
 	grid.inventory.store_item(temp._item, temp._qty, index)
+	ui.controller.rotate_tool(0)
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.pressed:
 		print("CLICK")
 		if event.button_index == MOUSE_BUTTON_LEFT:
+			#ui.toolbar.update_active_item_lbl()
+			ui.controller.rotate_tool(0)
 			if ui.picked_item != null:
 				if _item == null:
 					putItem()

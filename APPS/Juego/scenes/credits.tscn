@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cupifaloohykn"]
+[gd_scene load_steps=15 format=3 uid="uid://cupifaloohykn"]
 
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="1_42hff"]
+[ext_resource type="Script" path="res://scenes/credits.gd" id="1_jws2l"]
 [ext_resource type="Texture2D" uid="uid://cu4ww2b3rgw3x" path="res://icon.svg" id="2_jt05o"]
 [ext_resource type="Material" uid="uid://qape7yijpgtb" path="res://shaders/blur.tres" id="3_tft57"]
+[ext_resource type="Theme" uid="uid://dcvvk2xc6q74x" path="res://default_theme_blue.tres" id="5_g2ity"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ach03"]
 
@@ -31,16 +33,23 @@ content_margin_top = 8.0
 content_margin_bottom = 8.0
 texture = SubResource("GradientTexture2D_3dbxs")
 
-[node name="Credits" type="Control"]
+[node name="Credits" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_jws2l")
+
+[node name="Opacity" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="Panel" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_42hff")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,20 +58,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="VScrollBar" type="VScrollBar" parent="."]
+[node name="VScrollBar" type="VScrollBar" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_42hff")
 theme_override_styles/scroll = SubResource("StyleBoxEmpty_ach03")
 theme_override_styles/scroll_focus = SubResource("StyleBoxEmpty_r512o")
 theme_override_styles/grabber = SubResource("StyleBoxEmpty_ymbm5")
 theme_override_styles/grabber_highlight = SubResource("StyleBoxEmpty_hskxj")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxEmpty_03goq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VScrollBar"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VScrollBar"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -76,35 +86,47 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 64
 
-[node name="VBoxContainer" type="PanelContainer" parent="VScrollBar/VBoxContainer"]
+[node name="VBoxContainer" type="PanelContainer" parent="Panel/VScrollBar/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fbjyi")
 
-[node name="TextureRect" type="TextureRect" parent="VScrollBar/VBoxContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/VScrollBar/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_jt05o")
 expand_mode = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="VScrollBar/VBoxContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Panel/VScrollBar/VBoxContainer/VBoxContainer"]
 material = ExtResource("3_tft57")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxTexture_ef1wk")
 
-[node name="Label" type="Label" parent="VScrollBar/VBoxContainer/VBoxContainer/PanelContainer"]
+[node name="Label" type="Label" parent="Panel/VScrollBar/VBoxContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 64
 text = "CONTINUARÁ"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="VScrollBar/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VScrollBar/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "Gracias por jugar a este juego. Este ha sido el proyecto integrado de DAM de Jose Luis Vallejo del Pozo
+text = "Gracias por jugar a mi juego.
+Este ha sido el proyecto integrado de DAM de Jose Luis Vallejo del Pozo
 
-La aplicación se cerrará en unos segundos"
+Cierra la aplicación cuando quieras"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Panel/VScrollBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_g2ity")
+text = "Cerrar"
+
+[node name="End" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="pressed" from="Panel/VScrollBar/VBoxContainer/Button" to="." method="_on_button_pressed"]

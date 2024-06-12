@@ -59,6 +59,8 @@ func stop_talking():
 	is_talking = false
 	if path.curve.point_count != 1:
 		state_chart.send_event("walk")
+	if npc.name == "Chiquirrino" or npc.name == "Chiquirrina":
+		ConversationManager.add_boy_founded()
 
 
 func accept_mission():

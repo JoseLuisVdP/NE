@@ -285,7 +285,7 @@ tracks/12/keys = PackedFloat32Array(0, 1, -0.707107, 0, 0, 0.707107, 0.2, 1, -0.
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_57e8n"]
 _data = {
 "Idle": SubResource("Animation_3dyot"),
-"swim": SubResource("Animation_7ktbt")
+"walk": SubResource("Animation_7ktbt")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vc2a3"]

@@ -44,15 +44,10 @@ if ConversationManager.has_5_suspicious_mushrooms:
 		do MyQuestManager.complete()
 		do ConversationManager.end_chat()
 		=> END
-	- Aún nada
-		Hombre Misterioso: [speed=0.4]No te preocupes, seguro que las encuentras pronto. Vuelve cuando las tengas.[/speed]
-		do ConversationManager.end_chat()
-		=> END
-else:
-	- Aún nada
-		Hombre Misterioso: [speed=0.4]No te preocupes, seguro que las encuentras pronto. Vuelve cuando las tengas.[/speed]
-		do ConversationManager.end_chat()
-		=> END
+- Aún nada
+	Hombre Misterioso: [speed=0.4]No te preocupes, seguro que las encuentras pronto. Vuelve cuando las tengas.[/speed]
+	do ConversationManager.end_chat()
+	=> END
 
 ~ post_quest
 Hombre Misterioso: [speed=0.4]Gracias de nuevo por lo de las setas...[/speed]

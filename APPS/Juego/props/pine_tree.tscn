@@ -6,6 +6,7 @@
 size = Vector3(0.297241, 1.93948, 0.223389)
 
 [node name="PineTree" type="StaticBody3D"]
+collision_layer = 2
 
 [node name="TreePineDefaultA3" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

@@ -30,18 +30,15 @@ func _ready():
 	Commons.ITEMS = ITEMS
 	Commons.RECIPES = RECIPES
 	Commons.QUESTS = QUESTS
+	MyQuestManager.check_win_condition()
 	MyQuestManager.load_quests(self)
 	if not Server.data["SaveFiles"].keys().has("time"):
 		GlobalTime.iniciar(0, $"3D/Lights/Sunlight", $"3D/Lights/Moonlight")
 	else:
 		GlobalTime.iniciar(Server.data["SaveFiles"]["time"], $"3D/Lights/Sunlight", $"3D/Lights/Moonlight")
+	if not Server.data_loaded:
+		player.add_item(ITEMS.filter(func (i:Pickup): return i.name == "Hacha")[0], 1)
 	
-	for i in ITEMS:
-		var s = i.scene.instantiate()
-		var parent = load("res://items/global/pickup.tscn").instantiate()
-		parent.position = Vector3(-441, 100, 0)
-		parent.add_child(s)
-		add_child(parent)
 
 
 func pre_load():

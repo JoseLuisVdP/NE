@@ -130,3 +130,13 @@ func get_clima(year:int, month:int, places:Dictionary):
 @rpc("any_peer", "reliable")
 func clima_data_received(data:Dictionary, player_id:int):
 	rpc_id(player_id, "clima_data_received", data, player_id)
+
+
+@rpc("any_peer", "reliable")
+func test_connection():
+	rpc_id(multiplayer.get_remote_sender_id(), "test_connection_result")
+
+
+@rpc("any_peer", "reliable")
+func test_connection_result():
+	pass

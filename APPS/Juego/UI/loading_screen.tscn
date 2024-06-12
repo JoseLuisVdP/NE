@@ -102,6 +102,6 @@ position = Vector2(-900.08, -603.555)
 scale = Vector2(0.6, 0.6)
 sprite_frames = ExtResource("5_3g3i0")
 animation = &"sleeping_0_R"
-frame_progress = 0.93829
+frame_progress = 0.203579
 centered = false
 offset = Vector2(1750, 810)

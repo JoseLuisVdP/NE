@@ -9,7 +9,6 @@ emission_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxn03"]
 resource_name = "Feather"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 roughness = 0.555118
 emission_enabled = true
 
@@ -106,6 +105,7 @@ size = Vector3(0.103271, 0.311874, 2.43738)
 size = Vector3(1.6, 1.8, 4)
 
 [node name="Arrow" type="RigidBody3D"]
+visibility_parent = NodePath("Arrow2")
 
 [node name="Arrow2" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.65165, 0, 0, 0, 3, -4.33515e-06, 0, 1.31134e-07, 99.1768, 0, 0, 0)

@@ -44,6 +44,7 @@ _surfaces = [{
 }]
 
 [node name="RigidBody3D" type="RigidBody3D"]
+visibility_parent = NodePath("Node3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00616455, -0.00302124, -0.000341803)

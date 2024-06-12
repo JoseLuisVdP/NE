@@ -117,6 +117,10 @@ _all_quests_rg = ExtResource("4_211pj")
 
 [node name="3D" type="Node3D" parent="."]
 
+[node name="Player" parent="3D" instance=ExtResource("1_heepr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -387.601, 77.2217, 38.8116)
+RUN_MULTIPLIER = 2.0
+
 [node name="Lights" type="Node3D" parent="3D"]
 
 [node name="Sunlight" type="DirectionalLight3D" parent="3D/Lights"]
@@ -152,10 +156,6 @@ transform = Transform3D(-0.922538, 0, 0.385906, 0, 1, 0, -0.385906, 0, -0.922538
 
 [node name="Plant6" parent="3D/Vegetacion" instance=ExtResource("4_ul2l7")]
 transform = Transform3D(-0.922538, 0, 0.385906, 0, 1, 0, -0.385906, 0, -0.922538, 6.19553, -2.68152, 0)
-
-[node name="Player" parent="3D" groups=["save_and_load"] instance=ExtResource("1_heepr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.317, 77.4182, 150)
-RUN_MULTIPLIER = 20.0
 
 [node name="World" type="Node3D" parent="3D"]
 

@@ -34,6 +34,7 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(300, 250)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_e1tw6")
 
@@ -48,7 +49,19 @@ theme_override_constants/margin_bottom = 24
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Active" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 8
+
+[node name="Active" type="VBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/ScrollContainer2/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -81,5 +94,5 @@ layout_mode = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-text = "¡Has cumplido todos los encargos!
+text = "¡Vaya, has cumplido muchos encargos!
 Habla con el hombre de la roca"

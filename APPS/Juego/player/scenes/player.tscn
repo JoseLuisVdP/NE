@@ -2311,7 +2311,7 @@ states/Working/node = SubResource("AnimationNodeAnimation_lama3")
 states/Working/position = Vector2(854, 175)
 transitions = ["Idle", "Death", SubResource("AnimationNodeStateMachineTransition_opm8q"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_lcnms"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_rkhek"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_cnyg2"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_10rvb"), "Walk", "Death", SubResource("AnimationNodeStateMachineTransition_nu4ng"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_m3t8i"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_lhkqg"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_j3eo3"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_unpwx"), "Idle", "Punch", SubResource("AnimationNodeStateMachineTransition_7gfc8"), "Punch", "Idle", SubResource("AnimationNodeStateMachineTransition_dlach"), "Walk", "Punch", SubResource("AnimationNodeStateMachineTransition_863t8"), "Run", "Punch", SubResource("AnimationNodeStateMachineTransition_djroj"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_wg8w5"), "Punch", "Death", SubResource("AnimationNodeStateMachineTransition_v4i1t"), "Jump", "Death", SubResource("AnimationNodeStateMachineTransition_suiye"), "Idle", "Working", SubResource("AnimationNodeStateMachineTransition_s7cbm"), "Working", "Idle", SubResource("AnimationNodeStateMachineTransition_xcqu7"), "Working", "Death", SubResource("AnimationNodeStateMachineTransition_8e806")]
 
-[node name="Player" type="RigidBody3D"]
+[node name="Player" type="RigidBody3D" groups=["save_and_load"]]
 visibility_parent = NodePath("AnimatedHuman/Human Armature/Skeleton3D/Human_Mesh")
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -2627,10 +2627,10 @@ mesh = SubResource("ArrayMesh_00ulo")
 skin = SubResource("Skin_ksrdx")
 
 [node name="ToolsAttatchment" type="BoneAttachment3D" parent="AnimatedHuman/Human Armature/Skeleton3D"]
-transform = Transform3D(0.715082, 0.0276307, -0.698494, -0.273663, 0.930532, -0.243352, 0.643247, 0.365168, 0.672968, 0.954875, 0.976751, -2.51048)
+unique_name_in_owner = true
+transform = Transform3D(0.715082, 0.0276308, -0.698495, -0.273663, 0.930531, -0.243352, 0.643247, 0.365168, 0.672967, 0.954875, 0.976751, -2.51048)
 bone_name = "LeftHand"
 bone_idx = 10
-override_pose = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedHuman"]
 unique_name_in_owner = true
@@ -2658,6 +2658,7 @@ shape = SubResource("CylinderShape3D_4bfyk")
 
 [node name="Monitor" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("5_kavyw")
@@ -2741,7 +2742,7 @@ visible = false
 
 [node name="StepsStream" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-volume_db = -6.0
+volume_db = -9.0
 pitch_scale = 0.7
 bus = &"SFX"
 script = ExtResource("9_0tylo")

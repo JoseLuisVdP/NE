@@ -27,15 +27,10 @@ if ConversationManager.has_mushroom_soup:
 		do MyQuestManager.complete()
 		do ConversationManager.end_chat()
 		=> END
-	- Aún no la tengo...
-		Dina: Pues date prisa, no puedo esperar todo el día.
-		do ConversationManager.end_chat()
-		=> END
-else:
-	- Aún no la tengo...
-		Dina: Pues date prisa, no puedo esperar todo el día.
-		do ConversationManager.end_chat()
-		=> END
+- Aún no la tengo...
+	Dina: Pues date prisa, no puedo esperar todo el día.
+	do ConversationManager.end_chat()
+	=> END
 
 ~ post_quest
 Dina: ¿Qué haces aquí? Ya me trajiste la sopa de setas. No tengo tiempo para charlar.

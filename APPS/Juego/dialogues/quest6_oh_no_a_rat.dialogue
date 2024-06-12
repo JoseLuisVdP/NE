@@ -1,44 +1,39 @@
 ~ before_quest
-Charlotte: ¡Oh, buen día! ¿Podrías echarme una mano?
+Hamelín: ¡Oh, buen día! ¿Podrías echarme una mano?
 - Claro, ¿en qué puedo ayudarte?
-	Charlotte: ¡Gracias a los cielos! Verás, ¡hay ratones por todas partes en nuestro querido vecindario! ¡Es terrible!
-	Charlotte: Vale que este es un pueblo rústico, pero hay niños en este vecindario. ¿Es que ya nadie piensa en los niños?
-	Charlotte: ¿Podrías ir hasta donde los ratones están y dar unos golpes en el aire para asustarlos? Creo que eso los hará huir
+	Hamelín: ¡Gracias a los cielos! Verás, ¡hay ratones por todas partes en nuestro querido vecindario! ¡Es terrible!
+	Hamelín: Vale que este es un pueblo rústico, pero hay niños en este vecindario. ¿Es que ya nadie piensa en los niños?
+	Hamelín: ¿Podrías ir hasta donde los ratones están y dar alguna voz? Creo que eso los hará huir
 	- Por supuesto, iré a espantar a esos ratones.
-		Charlotte: ¡Fantástico!
+		Hamelín: ¡Fantástico!
 		do MyQuestManager.accept()
 		do ConversationManager.end_chat()
 		=> END
 	- Lo siento, no puedo ayudarte en este momento.
-		Charlotte: Ay hijo, si yo te entiendo, si soy la primera que se asusta de los ratones, no te preocupes
+		Hamelín: Ay hijo, si yo te entiendo, si soy el primero que se asusta de los ratones, no te preocupes
 		do ConversationManager.end_chat()
 		=> END
 - Hablamos luego
-	Charlotte: ¡Hasta luego! Que tengas un buen día. Ay...
+	Hamelín: ¡Hasta luego! Que tengas un buen día. Ay...
 	do ConversationManager.end_chat()
 	=> END
 
 ~ during_quest
-Charlotte: ¿Cómo va la misión de ahuyentar a los ratones?
-if ConversationManager.is_village_free_of_rats:
-	- Cumplí el objetivo.
-		Charlotte: ¿De verdad? ¡Ay, que alegría!
-		Charlotte: ¡Fantástico! ¡Gracias por ayudarnos a deshacernos de esos ratones! No sabría que hacer si no...
-		Charlotte: Toma, una recompensa de parte de todo el vecindario
-		do MyQuestManager.complete()
-		do ConversationManager.end_chat()
-		=> END
-	- Aún nada.
-		Charlotte: Entiendo, tómate tu tiempo. ¡Buena suerte!
-		do ConversationManager.end_chat()
-		=> END
-else:
-	- Aún nada.
-		Charlotte: Entiendo, tómate tu tiempo. ¡Buena suerte!
-		do ConversationManager.end_chat()
-		=> END
+Hamelín: ¿Cómo va la misión de ahuyentar a los ratones?
+- No encuentro ratones...
+	Hamelín: ¿De verdad?
+	Hamelín: Juraría que habían bastantes...
+	Hamelín: Oh espera
+	Hamelín: Voy a matar a mi marido
+	do MyQuestManager.complete()
+	do ConversationManager.end_chat()
+	=> END
+- Aún nada.
+	Hamelín: Entiendo, tómate tu tiempo. ¡Buena suerte!
+	do ConversationManager.end_chat()
+	=> END
 
 ~ post_quest
-Charlotte: ¡Hola de nuevo! ¡Gracias por haber ayudado a espantar a esos ratones! Siempre serás bienvenido en nuestro vecindario.
+Hamelín: ¡Hola de nuevo! ¡Gracias por haberte ofrecido para los ratones! Siempre serás bienvenido en nuestro vecindario.
 do ConversationManager.end_chat()
 => END

@@ -4,6 +4,7 @@ class_name MyIsland extends StaticBody3D
 @onready var forest: ProceduralForest = $Forest
 @onready var grass: ProceduralGrass = $Grass
 @onready var bass_paths: Node3D = %BassPaths
+@onready var gardi_paths: Node3D = %GardiPaths
 @onready var general_grass: ProceduralGrass = %GeneralGrass
 @onready var mushrooms: ProceduralForest = $Mushrooms
 @onready var suspicious_mushrooms: ProceduralForest = $SuspiciousMushrooms
@@ -11,6 +12,8 @@ class_name MyIsland extends StaticBody3D
 @export var bass_scene : PackedScene
 @export var enemy_scene : PackedScene
 @export var bass_properties : Enemy
+@export var gardi_scene : PackedScene
+@export var gardi_properties : Enemy
 
 @onready var npc_11: NPCScene = $NPCs/NPC11
 @onready var npc_12: NPCScene = $NPCs/NPC12
@@ -19,7 +22,7 @@ class_name MyIsland extends StaticBody3D
 var mdt : MeshDataTool
 
 func generate():
-	add_bass()
+	add_fish()
 	Scenes.update_loading_sreen_title("Generando bosques...")
 	Scenes.update_loading_sreen_progress(0.1)
 	await get_tree().process_frame
@@ -41,14 +44,31 @@ func generate():
 		i.inicializar()
 	MyQuestManager.children.append(npc_11)
 	MyQuestManager.children.append(npc_12)
+	
+		
+	for i in Commons.ITEMS:
+		var s = i.scene.instantiate()
+		var parent = load("res://items/global/pickup.tscn").instantiate()
+		parent.position = Vector3(-441, 100, 0)
+		parent.add_child(s)
+		add_child(parent)
 
-func add_bass():
+func add_fish():
 	for i in bass_paths.get_children():
 		for j in i.get_children():
 			var enemy_inst : EnemyScene = enemy_scene.instantiate()
 			enemy_inst.scene = bass_scene
 			add_child(enemy_inst)
 			enemy_inst.instance_properties = bass_properties
+			enemy_inst.get_child(0).path_follow = j
+			enemy_inst.get_child(0)._ready()
+			await get_tree().process_frame
+	for i in gardi_paths.get_children():
+		for j in i.get_children():
+			var enemy_inst : EnemyScene = enemy_scene.instantiate()
+			enemy_inst.scene = gardi_scene
+			add_child(enemy_inst)
+			enemy_inst.instance_properties = gardi_properties
 			enemy_inst.get_child(0).path_follow = j
 			enemy_inst.get_child(0)._ready()
 			await get_tree().process_frame

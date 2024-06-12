@@ -9,7 +9,7 @@ func load_sounds() -> void:
 	assign_sound(&"ui_btn_click", sounds_array[2])
 	assign_sound(&"ui_btn_hover", sounds_array[3])
 	ConversationManager.sea_song = AudioStreamPlayer.new()
-	ConversationManager.sea_song.volume_db = -3
+	ConversationManager.sea_song.volume_db = -6
 	ConversationManager.sea_song.stream = sounds_array[5]
 	ConversationManager.add_child(ConversationManager.sea_song)
 	

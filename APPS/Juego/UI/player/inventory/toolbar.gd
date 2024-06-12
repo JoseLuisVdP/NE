@@ -23,3 +23,7 @@ func open(hotbar:Inventory) -> void:
 	print("open hotbar")
 	content.display(hotbar.get_content())
 	show()
+
+
+func _on_rotate_tool_pressed() -> void:
+	ui.controller.rotate_tool()

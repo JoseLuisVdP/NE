@@ -25,10 +25,10 @@ func play_step_sound():
 
 func _on_timer_timeout() -> void:
 	play_step_sound()
-	if state_chart.is_walking():
-		timer.start()
-	elif state_chart.is_player_running():
+	if state_chart.is_player_running():
 		timer.start(cooldown/2)
+	elif state_chart.is_walking():
+		timer.start(cooldown)
 	else:
 		timer.stop()
 	

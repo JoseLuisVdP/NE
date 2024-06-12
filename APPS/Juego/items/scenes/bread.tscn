@@ -9,6 +9,7 @@ size = Vector3(0.174333, 0.0919232, 0.176155)
 size = Vector3(0.269648, 0.2, 0.26)
 
 [node name="Node3D" type="RigidBody3D"]
+visibility_parent = NodePath("Bread")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00379517, 0.0447366, 0.00251342)

@@ -9,6 +9,7 @@ size = Vector3(0.192383, 0.661018, 0.227478)
 size = Vector3(1, 1.48828, 1)
 
 [node name="Node3D" type="RigidBody3D"]
+visibility_parent = NodePath("CropTurnip")
 
 [node name="CropTurnip" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_vcrig")

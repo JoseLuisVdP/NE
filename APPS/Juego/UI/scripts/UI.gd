@@ -11,6 +11,7 @@ class_name UI extends CanvasLayer
 @onready var quests: UIQuests = %Quests
 @onready var temperature: Control = %Temperature
 @onready var clock: Control = %Clock
+@onready var controller: Node = $Controller
 
 @onready var closeable: Node = $Closeable
 @onready var non_closeable: Node = $NonCloseable
@@ -30,6 +31,9 @@ func _ready() -> void:
 	
 	hotbar.open(player.hotbar)
 	toolbar.open(player.toolbar)
+	
+	# Posiciona por primera vez el cursor
+	controller.rotate_tool(0)
 
 func _on_player_in_area(item):
 	_pickable_items.draw_player_pickable_items(item)
@@ -49,3 +53,7 @@ func crafting() -> void:
 
 func update_temp():
 	temperature.set_temp(player.temperature)
+
+
+func update_stats():
+	stats.update_stats(player.money, player.xp)

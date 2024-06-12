@@ -32,13 +32,13 @@ func _input(event: InputEvent) -> void:
 				#Drop item
 				pass
 
-func rotate_tool():
-	var prev_index : int = ui.player.toolbar.active_slot
+func rotate_tool(step:int = 1):
+	var prev_index : int = ui.player.toolbar.active_slot	
 	var max : int = ui.player.toolbar._max_size
-	if ui.player.toolbar.active_slot + 1 >= max:
+	if ui.player.toolbar.active_slot + step >= max:
 		ui.player.toolbar.active_slot = 0
 	else:
-		ui.player.toolbar.active_slot += 1
+		ui.player.toolbar.active_slot += step
 	var index : int = ui.player.toolbar.active_slot
 	var slot : ItemSlot = ui.toolbar.content.get_child(index)
 	var prev_slot : ItemSlot = ui.toolbar.content.get_child(prev_index)
@@ -59,7 +59,10 @@ func rotate_tool():
 		slot.display(item._item, item._qty)
 		var tool : RigidBody3D = item._item.scene.instantiate()
 		tool.collision_mask = 0
+		tool.collision_layer = 0
+		tool.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
 		hand.add_child(tool)
+		tool.global_transform = hand.global_transform
 		ui.player.equip_tool(item._item)
 	else:
 		slot.display(null)

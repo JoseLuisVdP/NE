@@ -9,6 +9,7 @@ size = Vector3(0.344971, 0.526917, 0.237579)
 size = Vector3(1, 1.46204, 1)
 
 [node name="RigidBody3D" type="RigidBody3D"]
+visibility_parent = NodePath("Holsterbag")
 
 [node name="Holsterbag" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.340268, -0.102546)

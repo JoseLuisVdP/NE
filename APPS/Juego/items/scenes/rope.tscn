@@ -6,7 +6,6 @@ albedo_color = Color(0.577893, 0.463298, 0.334208, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7qsp"]
 resource_name = "Material_2"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5kane"]
@@ -50,6 +49,7 @@ size = Vector3(0.190186, 0.020874, 0.189148)
 size = Vector3(0.567322, 0.298508, 0.530846)
 
 [node name="RigidBody3D" type="RigidBody3D"]
+visibility_parent = NodePath("Object_1")
 
 [node name="Object_1" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.0867744, 0)

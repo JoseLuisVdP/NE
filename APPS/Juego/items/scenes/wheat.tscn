@@ -9,6 +9,7 @@ size = Vector3(0.5, 0.5, 0.5)
 size = Vector3(1.44763, 1.49109, 1)
 
 [node name="Wheat" type="RigidBody3D"]
+visibility_parent = NodePath("CropsWheatStageB")
 
 [node name="CropsWheatStageB" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_l7w2x")

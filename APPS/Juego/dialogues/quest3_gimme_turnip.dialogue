@@ -9,7 +9,7 @@ Dana: ¡Hola! Perdona, ¿puedo pedirte un favor?
 		do MyQuestManager.accept()
 		do ConversationManager.end_chat()
 		=> END
-    - Buah, me pasa igual, ni idea de como se hace
+	- Buah, me pasa igual, ni idea de como se hace
 		Dana: Oh, está bien... lo entiendo. Gracias de todas formas. Que tengas un buen día.
 		do ConversationManager.end_chat()
 		=> END
@@ -26,15 +26,10 @@ if ConversationManager.has_turnip_soup:
 		do MyQuestManager.complete()
 		do ConversationManager.end_chat()
 		=> END
-	- Aún nada
-		Dana: Oh, bueno, no te preocupes. Tampoco me corre mucha prisa, a tu ritmo
-		do ConversationManager.end_chat()
-		=> END
-else:
-	- Aún nada
-		Dana: Oh, bueno, no te preocupes. Tampoco me corre mucha prisa, a tu ritmo
-		do ConversationManager.end_chat()
-		=> END
+- Aún nada
+	Dana: Oh, bueno, no te preocupes. Tampoco me corre mucha prisa, a tu ritmo
+	do ConversationManager.end_chat()
+	=> END
 
 ~ post_quest
 Dana: ¡Hola! Gracias de nuevo por la sopa de rábano. Estaba deliciosa. ¡Espero que tengas un gran día!

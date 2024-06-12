@@ -12,6 +12,7 @@ size = Vector3(0.165527, 0.0908813, 1.05127)
 size = Vector3(1.06964, 2.35602, 1.6954)
 
 [node name="RigidBody3D" type="RigidBody3D"]
+visibility_parent = NodePath("Pickaxe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105133, 0.640586, -0.00012207)

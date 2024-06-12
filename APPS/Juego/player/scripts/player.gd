@@ -3,7 +3,7 @@ class_name Player extends RigidBody3D
 var id
 
 @onready var mesh : Node3D = %AnimatedHuman
-@onready var tools_attatchment: BoneAttachment3D = $"AnimatedHuman/Human Armature/Skeleton3D/ToolsAttatchment"
+@onready var tools_attatchment: BoneAttachment3D = %ToolsAttatchment
 @onready var monitor : Label = %Monitor
 @onready var camera: Node3D = %Camera
 @onready var floor_angle: RayCast3D = %FloorAngle
@@ -102,14 +102,17 @@ func _ready():
 	Input.set_default_cursor_shape(Input.CURSOR_CROSS)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	enable_movement()
-	in_area.connect(ui._on_player_in_area)
-	not_in_area.connect(ui._on_player_not_in_area)
 	
 	DialogueManager.dialogue_ended.connect(_on_dialogue_end)
 	
 	MyQuestManager.player = self
 	
 	email = Server.player_email
+	
+	await get_tree().create_timer(0.2).timeout
+	
+	in_area.connect(ui._on_player_in_area)
+	not_in_area.connect(ui._on_player_not_in_area)
 
 
 func start_conversation():
@@ -119,18 +122,16 @@ func start_conversation():
 func end_conversation():
 	chatting_npc = null
 	ConversationManager.cur_talker == null
+	mvmtKeysPressed = 0
 
 
 func _physics_process(delta):
 	if _should_move: move(delta)
 	# DEBUG
-	var tool : Array[Node] = tools_attatchment.get_children()
-	if not tool.is_empty():
-		tool[0].global_position = Vector3(200, 200, 200)
-		tool[0].collision_layer = 0
-		tool[0].collision_mask = 0
-		
 	monitor.set_monitor_values()
+	
+
+	
 
 
 func move(delta):
@@ -175,7 +176,6 @@ func is_on_floor() -> bool:
 
 func enable_movement(enabled:bool = true) -> void:
 	_should_move = enabled
-
 
 func is_jumping():
 	return !can_jump
@@ -356,6 +356,7 @@ func loaddata(data:Dictionary) -> Dictionary:
 		print(inventory)
 		print(hotbar)
 		print(toolbar)
+	ui.update_stats()
 	return data
 
 

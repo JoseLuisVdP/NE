@@ -25,15 +25,10 @@ if ConversationManager.has_10_wheat_10_turnip_10_carrot:
 		do MyQuestManager.complete()
 		do ConversationManager.end_chat()
 		=> END
-	- Aún no he conseguido todo.
-		Tom Nook: Entiendo, no te preocupes, son muchas cosas. ¡Buena suerte en tu búsqueda!
-		do ConversationManager.end_chat()
-		=> END
-else:
-	- Aún no he conseguido todo.
-		Tom Nook: Entiendo, no te preocupes, son muchas cosas. ¡Buena suerte en tu búsqueda!
-		do ConversationManager.end_chat()
-		=> END
+- Aún no he conseguido todo.
+	Tom Nook: Entiendo, no te preocupes, son muchas cosas. ¡Buena suerte en tu búsqueda!
+	do ConversationManager.end_chat()
+	=> END
 
 ~ post_quest
 Tom Nook: Hola de nuevo, amigo. Gracias otra vez por tu ayuda. ¡Te prometo que la próxima vez que nos veamos, te venderé productos de calidad!

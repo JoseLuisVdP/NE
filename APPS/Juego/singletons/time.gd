@@ -5,7 +5,7 @@ var time : int
 
 var timer : Timer
 const DAY : int = 86400
-var SECOND_SCALE : int = 5
+var SECOND_SCALE : int = 10
 var day_time : int
 var day_time_formated : int
 
@@ -155,4 +155,4 @@ func is_between(t0:int, t1:int):
 		return t0 < day_time and day_time < t1
 
 func skip_night():
-	SECOND_SCALE = 100
+	SECOND_SCALE = 200

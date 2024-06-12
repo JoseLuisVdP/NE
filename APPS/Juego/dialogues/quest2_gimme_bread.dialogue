@@ -26,17 +26,11 @@ if ConversationManager.has_bread:
 		do MyQuestManager.complete()
 		do ConversationManager.end_chat()
 		=> END
-	- Aún nada
-		Dona: Entiendo, no pasa nada. Pero por favor, ¡no te olvides!
-		Dona: [wave amp=25 freq=5]¡Hasta luego![/wave]
-		do ConversationManager.end_chat()
-		=> END
-else:
-	- Aún nada
-		Dona: Entiendo, no pasa nada. Pero por favor, ¡no te olvides!
-		Dona: [wave amp=25 freq=5]¡Hasta luego![/wave]
-		do ConversationManager.end_chat()
-		=> END
+- Aún nada
+	Dona: Entiendo, no pasa nada. Pero por favor, ¡no te olvides!
+	Dona: [wave amp=25 freq=5]¡Hasta luego![/wave]
+	do ConversationManager.end_chat()
+	=> END
 
 ~ post_quest
 Dona: ¡Gracias de nuevo por el pan! ¡Fue perfecto!

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_q50f4"]
 [ext_resource type="Theme" uid="uid://cjguujtn3sfeg" path="res://default_theme.tres" id="2_ff075"]
 [ext_resource type="Script" path="res://UI/save.gd" id="3_58hf4"]
-[ext_resource type="Theme" uid="uid://dcvvk2xc6q74x" path="res://default_theme_blue.tres" id="3_dq870"]
+[ext_resource type="Theme" uid="uid://dcvvk2xc6q74x" path="res://default_theme_blue.tres" id="4_yksfj"]
 [ext_resource type="Theme" uid="uid://t6ho18bl80ht" path="res://default_theme_brown.tres" id="5_g8spl"]
 [ext_resource type="PackedScene" uid="uid://d4fqihswvxudj" path="res://volume_slider.tscn" id="7_jc6lk"]
 [ext_resource type="Script" path="res://scenes/opciones.gd" id="7_wlhoe"]
@@ -64,12 +64,14 @@ theme = ExtResource("1_7cojn")
 text = "Continuar"
 
 [node name="Options" type="Button" parent="PauseMenu/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme = ExtResource("3_dq870")
+theme = ExtResource("4_yksfj")
 text = "Opciones"
 
 [node name="Save" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_yksfj")
 text = "Guardar"
 script = ExtResource("3_58hf4")
 

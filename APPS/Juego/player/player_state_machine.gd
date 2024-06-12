@@ -94,4 +94,5 @@ func _on_stop_chatting() -> void:
 
 
 func _on_start_walking() -> void:
-	_player.steps_stream.play()
+	is_running = false
+	_player.steps_stream.play_step_sound()

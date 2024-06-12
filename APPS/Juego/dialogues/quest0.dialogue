@@ -1,94 +1,123 @@
 ~ before_quest
 
-Nathan: [[Hey|Hola|Buenas]], ¿qué tal te va desde que llegaste? ¿Te quedó claro lo que tenías que hacer?
+Tutorio: [[Hey|Hola|Buenas]], ¿qué tal te va desde que llegaste? ¿Te quedó claro lo que tenías que hacer?
 - No se de que me hablas
-	Nathan: Entiendo... Bueno, te lo contaré desde el principio
+	Tutorio: Entiendo... Bueno, te lo contaré desde el principio
 	=> historia
-- Bueno, me vendría bien un resumen
-	Nathan: [speed=0.1]...[/speed] Bueno, vale, pero intenta atender
+- Bueno, me vendría bien un resumen rápido...
+	Tutorio: [speed=0.1]...[/speed] Bueno, vale, pero intenta atender
 	=> resumen
 - Si, me enteré a la primera
-	Nathan: ¡Perfecto!
+	Tutorio: ¡Perfecto!
 - Adiós
-	Nathan: Vaya, pareces que no estas muy animado[speed=0.1]...[/speed] Bueno, ya hablaremos
+	Tutorio: Vaya, pareces que no estas muy animado[speed=0.1]...[/speed] Bueno, ya hablaremos
 	do ConversationManager.end_chat()
 	=> END
-Nathan: Bueno, como sea, ¡tengo un primer encargo que pedirte!
-Nathan: Resulta que perdí mi hacha en el bosque hace un tiempo, y me gustaría tener una nueva
+Tutorio: Bueno, como sea, ¡tengo un primer encargo que pedirte!
+Tutorio: Resulta que perdí mi hacha en el bosque hace un tiempo, y me gustaría tener una nueva
 - ¿No puedes hacertela tú?
-	Nathan: [speed=0.3]...[/speed] Bueno, si es así, dificilmente vas a ganar dinero para el barco de ida a la isla de la monstruo
+	Tutorio: [speed=0.3]...[/speed] Bueno, si es así, dificilmente vas a ganar dinero para el barco de ida a la isla de la monstruo
 - Si, claro
-	Nathan: ¡Gracias!
-Nathan: Tengo que asegurarme de tener un hacha, pero tengo que estar en cierto reposo desde la última vez que me lesioné. [speed=0.8]Ya sabes, la edad...[/speed]
-Nathan: En fin, creo que puedo confiar en tí entonces. Si no puedes ahora, cuando puedas, solo asegúrate de traermela, ¿vale?
+	Tutorio: ¡Gracias!
+Tutorio: Tengo que asegurarme de tener un hacha, pero tengo que estar en cierto reposo desde la última vez que me lesioné. [speed=0.8]Ya sabes, la edad...[/speed]
+Tutorio: Además, mira mi nombre, ¿a qué crees que me dedico? ¿A navegar?
+Tutorio: En fin, esto te servirá para aprender a cumplir nuestros encargos. Tráeme tu hacha.
 do MyQuestManager.accept()
 do ConversationManager.end_chat()
 => END
 
 ~ during_quest
 
-Nathan: [[Hey|Hola|Buenas]], ¿qué tal va esa búsqueda?
+Tutorio: [[Hey|Hola|Buenas]], ¿qué tal va la misión?
 if ConversationManager.has_axe:
-	- ¡La encontré!
-		Nathan: ¡Hombre, que alegría!
-		Nathan: Muchas gracias, ¡eres un cielo!
-		(Le vas a dar el hacha a Nathan, pero...)
-		Nathan: De hecho, ¿sabes qué? Quédatela, así te echo un cable con tu misión
+	- ¡Aquí la traigo!
+		Tutorio: ¡Hombre, que alegría!
+		Tutorio: Muchas gracias, ¡eres un cielo!
+		(Le vas a dar el hacha a Tutorio, pero...)
+		Tutorio: De hecho, ¿sabes qué? Quédatela, así te echo un cable con tu misión
 		do MyQuestManager.complete()
 		do ConversationManager.end_chat()
 		=> END
 	- Aún nada
-	Nathan: Qué pena...
-	Nathan: En fin, a ver si para la próxima hay suerte. ¡Ánimo!
+	Tutorio: Qué pena...
+	Tutorio: En fin, a ver si para la próxima hay suerte. ¡Ánimo!
 	do ConversationManager.end_chat()
 	=> END
 else:
 	- Aún nada
-	Nathan: Qué pena...
-	Nathan: En fin, a ver si para la próxima hay suerte. ¡Ánimo!
+	Tutorio: Qué pena...
+	Tutorio: En fin, a ver si para la próxima hay suerte. ¡Ánimo!
 	do ConversationManager.end_chat()
 	=> END
 
 ~ post_quest
-Nathan: ¿Necesitas algo?
+Tutorio: ¿Necesitas algo?
 if MyQuestManager.has_won:
-	Nathan: Espera espera espera...
-	Nathan: ¿No esta como que muy tranquilo el pueblo?
+	Tutorio: Espera espera espera...
+	Tutorio: ¿No esta como que muy tranquilo el pueblo?
 	- Adivina quien es el responsable
-	Nathan: ¿En serio has cumplido todos los encargos del pueblo?
-	Nathan: ¡Wow! Eso es impresionante, chico...
-	- ¿Ahora tengo el dinero suficiente, verdad?
-		Nathan: He he he, si, tienes suficiente...
+	Tutorio: ¿En serio has cumplido todos los encargos del pueblo?
+	Tutorio: ¡Wow! Eso es impresionante, chico...
+	- ¿Ahora tengo el dinero suficiente para el barco, verdad?
 	- ¿Dónde está el señor del barco?
-		Nathan: He he he... buena pregunta
-	Nathan: Te preguntaras como es que, despues de haber hablado con todos los pueblerinos, nadie haya dicho nada de un barco...
+	Tutorio: Ah, sí, en cuanto a eso...
+	Tutorio: Quiero preguntarte algo antes
+	Tutorio: ¿Qué es más importante para tí?
+	- El camino
+	- El destino
+	Tutorio: ... Entiendo
+	Tutorio: Yo pienso que ambos son realmente importantes, porque uno no puede existir sin el otro
+	Tutorio: Al final lo que más dura y menos olvidas es el camino, sea agradable o no
+	Tutorio: Puede que empezases tu camino por una promesa, dinero, fama...
+	Tutorio: ¡Incluso por obligación!
+	Tutorio: Pero al final, el motivo es lo menos importante
+	Tutorio: Al final, lo importante era que habia destino, y eso te hizo andar
+	Tutorio: ¿Ves? Ambos van de la mano
+	- ... (¿y esto a que viene?)
+	- Entiendo...
+	- ¿Y el barco?
+	Tutorio: Bueno, chico
+	Tutorio: Parece que has estado disfrutando tanto del camino
+	Tutorio: Que ni te has fijado en que nadie del pueblo parece un marinero
+	Tutorio: ¡De hecho, son igualitos los unos a los otros! ¡Deberías haber notado algo!
+	Tutorio: Una gorra, un traje, un barco al menos...
+	Tutorio: Y si no te lo habias preguntado aún
+	Tutorio: Te preguntaras como es que, despues de haber hablado con todos los pueblerinos, nadie haya dicho nada de un barco...
 	- Espera...
 	- ¿Algo que admitir, señor tutorio?
+	Tutorio: Bueno...
 	do ConversationManager.play_sea_song()
-	Nathan: ¡Ha ha ha! Así es, grumete
-	Nathan: ¡Yo era el marinero desde el principio!
-	Nathan: ¿Sorprendido?
+	Tutorio: [wave amp=25 freq=5]¡Ha ha ha![/wave] Así es, grumete
+	Tutorio: ¡Yo era el marinero desde el principio!
+	Tutorio: [shake rate=20 level=10]¿Sorprendido?[/shake]
+	Tutorio: ¡Y no, no te iba a cobrar por el ticket de barco!
 	- ...
 	- ¿En serio?
 	- ¿Y ENTONCES POR QUÉ HE HECHO TODO ESTO?
-		Nathan: ¡Por diversion, chaval!
-		Nathan: ¿Por qué si no estarías jugando a un videojuego?
+		Tutorio: ¡Me quería asegurar de de que te preparases bien! Y no solo eso, hay otro motivo...
+		Tutorio: ¡Por diversion, chaval!
+		Tutorio: ¿Por qué si no estarías jugando a un videojuego?
 		- ¿Cómo?
-			Nathan: [speed=0.1]...[/speed]
+			do ConversationManager.pause_sea_song()
+			Tutorio: [speed=0.1]...[/speed]
 		- ¿Qué juego?
-			Nathan: [speed=0.1]...[/speed]
-	Nathan: ...
-	Nathan: ¡Bueno, espero que esto no te haya sacado de tus arquebuses!
-	- Eso ni siquiera es una parte de un barco
+			do ConversationManager.pause_sea_song()
+			Tutorio: [speed=0.1]...[/speed]
+	Tutorio: ... he he
+	do ConversationManager.resume_sea_song()
+	Tutorio: ¡Bueno, espero que esto no te haya sacado de tus arquebuses!
+	- Eso ni siquiera es parte de un barco
 	- ¿Qué se supone que significa eso?
 	- Que chaval
-	Nathan: ¡Ha ha ha!
-	Nathan: ¿Vayamos a lo importante, sí?
-	Nathan: Gracias a todo este paseito, imagino que estarás preparado para el monstruo, ¿no?
+	Tutorio: [wave amp=25 freq=5]¡Ha ha ha![/wave]
+	Tutorio: ¿Vayamos a lo importante, sí?
+	Tutorio: Gracias a todo este paseito, imagino que estarás preparado para el monstruo, ¿no?
 	- ¡Sí!
+		Tutorio: ¡Qué actitud!
 	- A estas alturas del cuento no me fío ni de mi mismo...
-	Nathan: ¡Perfecto, eso es que sí!
-	Nathan: ¡Vámonos!
+		Tutorio: ¡Perfecto, eso es que sí!
+	Tutorio: ¡Pues siendo ahora un marinero, y un nuevo grumete...!
+	Tutorio: ¡Vámonos!
 	do ConversationManager.end_chat()
 	do ConversationManager.force_save()
 	do ConversationManager.teleport()
@@ -96,61 +125,61 @@ if MyQuestManager.has_won:
 	
 else:
 	- ¿Puedes recordarme mi misión?
-		Nathan: Ay la memoria...
-		Nathan: Bueno, no te preocupes, tengo tiempo libre[speed=0.3]...[/speed]
+		Tutorio: Ay la memoria...
+		Tutorio: Bueno, no te preocupes, tengo tiempo libre[speed=0.3]...[/speed]
 		- Resumen de la situación
 			=> resumen
+			do ConversationManager.end_chat()
+			=> END
 		- Cuéntame todo en detalle
 			=> historia
+			do ConversationManager.end_chat()
+			=> END
 	- Nada nada
-		Nathan: Entonces nos [[vamos viendo|vemos]], joven
+		Tutorio: Entonces nos [[vamos viendo|vemos]], joven
 		do ConversationManager.end_chat()
 		=> END
 
 ~ historia
-Nathan: Hay un insecto gigante en la isla de al lado, y resulta que nadie del pueblo puede hacer nada
-Nathan: Si le echamos matabichos, nos dice que buen desodorante
-Nathan: Si le tiramos una roca, nos hace una vuelta al mundo
-Nathan: Si le[speed=0.6]...[/speed] bueno, creo que me has entendido[speed=0.1]...[/speed]
-Nathan: La cuestión es que solo podemos derrotarla en combate, porque es muy resistente
-Nathan: Sin embargo, nadie de este pueblo pasa por debajo de los 60 años...
+Tutorio: Hay un insecto gigante en la isla de al lado, y resulta que nadie del pueblo puede hacer nada
+- ¿Insecticida?
+	Tutorio: Con lo grande que es, si le echamos matabichos nos dice que buen desodorante
+- Oh no
+Tutorio: La cuestión es que solo podemos derrotarla en combate, porque es muy resistente
+Tutorio: Sin embargo, nadie de este pueblo pasa por debajo de los 60 años...
 - ¿En serio?
-	Nathan: ¿Conque me has visto cara de joven? Que majo eres chaval
+	Tutorio: ¿Conque me has visto cara de joven? Que majo eres chaval
 - Pero si estas igual que yo
-	Nathan: [speed=0.5]Haces demasiadas preguntas,[speed=0.1] [/speed] si sigues así no te pagamos por lo de la hormiga[/speed]
-Nathan: Lo bueno del asunto es que la hormiga está en la isla de al lado, así que no nos corre demasiada prisa
-Nathan: Claro que eso es bueno para nosotros, pero tu no solo vas a tener que equiparte, sino que además tendras que comprar un ticket de barco
+	Tutorio: [speed=0.5]Haces demasiadas preguntas,[speed=0.1] [/speed] si sigues así no te pagamos por lo del monstruo
+Tutorio: Lo bueno del asunto es que el monstruo está en la isla de al lado, así que no nos corre extrema prisa, pero tarde o temprano, tendremos que ir a por provisiones a islas vecinas
+Tutorio: Claro que eso es bueno para tí, ya que tendrás tiempo no solo para equiparte, sino tambien para comprar un ticket de barco
 - Entiendo
-	Nathan: ¡Así me gusta chico, con decisión!
-	Nathan: Es importante que le lleves el dinero suficiente al encargado del puerto, si no, tendrás problemas
+	Tutorio: ¡Así me gusta chico, con decisión!
+	Tutorio: Es importante que le lleves el dinero suficiente al encargado del puerto, si no, tendrás problemas
 - ¿Tanto cuesta el ticket que no me lo vais a pagar?
-	Nathan: Bueno, es algo caro, si
-	Nathan: Pero el mayor problema es el encargado del puerto[speed=0.3]...[/speed]
-Nathan: Verás, no solo es la persona más anciana del pueblo, sino que además es muy muy avaricioso
-Nathan: Es decir, si le propones que te lleve, y no le llevas el dinero, suerte sería que te vuelva a hablar
-Nathan: Por lo tanto, te recomiendo lo siguiente
-Nathan: Ya que necesitas dinero, y se te ve un chico sano, podrías ayudarnos a nosotros, los pueblerinos
-Nathan: La mayoría no sabe siquiera lo de la hormiga porque no queríamos asustarlos, pero si les ofreces tu ayuda, ¡te recompensarán sin duda!
-Nathan: No somos gente de mucho dinero, pero seguro que si ayudas a suficientes personas, acabas formando una pequeña bolsa de monedas que te sirva para pagar el ticket
-Nathan: Con estas misiones, ganaras dinero y experiencia, que representa tu progreso para tenerlo como referencia.
-Nathan: Y por cierto, aunque tengas suficiente dinero para el ticket, no te aconsejo ir de primeras a por la hormiga
-Nathan: Piensa que es un monstruo capaz de usar insecticida como desodorante, si vas sin nada, y le tiras un libro en mitad del pánico, a lo mejor te lo resume
-Nathan: No es un monstruo de poca monda, así que te aconsejo que, al menos, tengas un arma decente
-Nathan: Si me preguntas a mi, llevaría algun arma, como una espada
-Nathan: ¡Y lleva comida, por si acaso!
-Nathan: Buah[speed=0.1]...[/speed] Se me ha quedado la boca seca con la charla...
-Nathan: Habla conmigo cuando tengas dudas, o cuando no tengas nada que hacer, ¡suerte!
-do ConversationManager.end_chat()
-=> END
+	Tutorio: Bueno, es algo caro, si
+	Tutorio: Pero el mayor problema es el encargado del puerto[speed=0.3]...[/speed]
+Tutorio: Verás, no solo es la persona más anciana del pueblo, sino que además es muy muy avaricioso
+Tutorio: Es decir, si le propones que te lleve, y no le llevas el dinero, suerte sería que te vuelva a hablar
+Tutorio: Por lo tanto, te recomiendo lo siguiente
+Tutorio: Ya que necesitas dinero, y se te ve un chico sano, podrías ayudarnos a nosotros, los pueblerinos
+Tutorio: La mayoría no sabe siquiera lo del monstruo porque no queríamos asustarlos, pero si les ofreces tu ayuda, ¡te recompensarán sin duda!
+Tutorio: No somos gente de mucho dinero, pero seguro que si ayudas a suficientes personas, acabas formando una pequeña bolsa de monedas que te sirva para pagar el ticket
+Tutorio: Con estas misiones, ganaras dinero y experiencia, que representa tu progreso para tenerlo como referencia.
+Tutorio: Y por cierto, aunque tengas suficiente dinero para el ticket, no te aconsejo ir de primeras a por el monstruo
+Tutorio: Piensa que es un monstruo capaz de usar insecticida como desodorante, si vas sin nada, y le tiras un libro en mitad del pánico, a lo mejor te lo resume
+Tutorio: No es un monstruo de poca monda, así que te aconsejo que, al menos, tengas un arma decente
+Tutorio: Si me preguntas a mi, llevaría algun arma, como una espada
+Tutorio: ¡Y lleva comida, por si acaso!
+Tutorio: Buah[speed=0.1]...[/speed] Se me ha quedado la boca seca con la charla...
+Tutorio: Habla conmigo cuando tengas dudas, o cuando no tengas nada que hacer, ¡suerte!
+
 
 ~ resumen
-Nathan: Hay una hormiga gigante en la isla de al lado
-Nathan: Tenemos tiempo, pero hay que matarla, y eres el único capaz de hacerlo
-Nathan: Así que tendrás que ganarte un dinero haciendo encargos en este pueblo para pagar al ávaro encargado del puerto
-Nathan: Con estas misiones, experiencia, que representa tu progreso para tenerlo como referencia.
-Nathan: Por último, también debes equiparte, y mi consejo, es que lleves al menos una espada
-Nathan: Aunque deberías llevar todo lo posible, vaya a ser que no salga todo como esperas y necesites dar un último golpe con la espada o el hacha
-Nathan: Cuando estes preparado y tengas el dinero suficiente, dirigete al puerto, ¡y toma el barco hacia tu destino!
-Nathan: Habla conmigo cuando tengas dudas, o cuando no tengas nada que hacer, ¡suerte!
-do ConversationManager.end_chat()
-=> END
+Tutorio: Hay un monstruo gigante en la isla de al lado
+Tutorio: Tenemos tiempo, pero hay que matarlo, y eres el único capaz de hacerlo
+Tutorio: Así que tendrás que ganarte un dinero haciendo encargos en este pueblo para pagar al ávaro encargado del puerto
+Tutorio: Con estas misiones, experiencia, que representa tu progreso para tenerlo como referencia.
+Tutorio: Por último, también debes equiparte, y mi consejo, es que lleves al menos una espada
+Tutorio: Cuando estes preparado y tengas el dinero suficiente, dirigete al puerto, ¡y toma el barco hacia tu destino!
+Tutorio: Habla conmigo cuando tengas dudas, o cuando no tengas nada que hacer, ¡suerte!

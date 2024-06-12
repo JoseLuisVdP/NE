@@ -4,7 +4,7 @@ var client
 
 var token
 
-var ip = "127.0.0.1"
+var ip = "54.243.133.143"
 var port = 1909
 
 signal is_data_saved
@@ -16,13 +16,18 @@ var clima_data : Dictionary = {}
 const clima_places : Dictionary = {"pradollano":"MALAGA-MARBELLA", "sandy":"ALMERIA-CABO DE GATA", "monmonty":"PONTEVEDRA-A LAMA"}
 var auto_save_scene : PackedScene
 var auto_save
+var connection_up : bool = false
+var test_connection_timer : Timer
 
 signal is_data_loaded
 
 var player_email : String
 
 func _ready() -> void:
-	pass
+	test_connection_timer = Timer.new()
+	test_connection_timer.wait_time = 20
+	test_connection_timer.timeout.connect(test_connection)
+	add_child(test_connection_timer)
 
 func connect_to_server():
 	if not multiplayer.connected_to_server.is_connected(_on_connected):
@@ -37,6 +42,8 @@ func connect_to_server():
 
 func _on_connected():
 	print("Conectado al servidor")
+	connection_up = true
+	test_connection()
 
 func _on_connection_failed():
 	print("Falló la conexión al servidor")
@@ -102,11 +109,11 @@ func save_data(data:Dictionary, player_id : int = 1) -> void:
 	player_id = multiplayer.get_unique_id()
 	rpc_id(1, "save_data", data, player_id)
 
+
 @rpc("any_peer", "reliable")
 func data_saved(result:bool, player_id:int = 1) -> void:
 	auto_save.saved = result
 	is_data_saved.emit()
-	#Manejar el resultado WIP
 
 
 @rpc("any_peer", "reliable")
@@ -122,3 +129,29 @@ func return_savefile(savefile_data:Dictionary, player_id:int, exito:bool) -> voi
 	data["SaveFiles"] = savefile_data
 	data["Players"] = {"mail":player_email}
 	is_data_loaded.emit()
+
+
+@rpc("any_peer", "reliable")
+func test_connection():
+	if connection_up:
+		connection_up = false
+		test_connection_timer.start()
+		rpc_id(1, "test_connection")
+	else:
+		var window : Window = Window.new()
+		window.always_on_top = true
+		window.close_requested.connect(func (): get_tree().quit())
+		window.size = Vector2(400, 250)
+		window.initial_position = Window.WINDOW_INITIAL_POSITION_CENTER_SCREEN_WITH_MOUSE_FOCUS
+		var lbl := Label.new()
+		lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		lbl.text = "La conexión con el servidor se ha perdido\nProcure guardar a menudo para evitar perder datos"
+		window.add_child(lbl)
+		add_child(window)
+		get_tree().paused = true
+
+
+@rpc("any_peer", "reliable")
+func test_connection_result():
+	connection_up = true

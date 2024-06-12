@@ -25,10 +25,6 @@ Abel: [[Hey|Hola]], ¿eres el chico nuevo?
 ~ during_quest
 
 Abel: [[Oye|Chico]], ¿qué tal va eso? ¿Les encuentras?
-- Aún nada
-	Abel: Oh...
-	do ConversationManager.end_chat()
-	=> END
 if ConversationManager.are_the_boys_found:
 	- ¡Los encontré!
 		Abel: ¿¡En serio!? ¡Gracias gracias gracias!
@@ -36,6 +32,10 @@ if ConversationManager.are_the_boys_found:
 		do MyQuestManager.complete()
 		do ConversationManager.end_chat()
 		=> END
+- Aún nada
+	Abel: Oh...
+	do ConversationManager.end_chat()
+	=> END
 
 
 ~ post_quest

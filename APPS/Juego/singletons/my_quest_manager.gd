@@ -46,7 +46,7 @@ func complete():
 	player.chatting_npc.complete_mission()
 	quest.objective_completed = true
 	player.money += quest.quest_money
-	player.exp += quest.quest_xp
+	player.xp += quest.quest_xp
 	player.ui.stats.update_stats(player.money, player.xp)
 	QuestSystem.complete_quest(quest)
 	check_win_condition()
@@ -54,7 +54,7 @@ func complete():
 		"El accidentado carretero":
 			var temp : Pickup = Commons.ITEMS.filter(func (i): return i.name == "Cuerda")[0]
 			player.remove_item(temp, 2)
-			temp = Commons.ITEMS.filter(func (i): return i.name == "Trigo")[0]
+			temp = Commons.ITEMS.filter(func (i): return i.name == "Palo")[0]
 			player.remove_item(temp, 10)
 		"El otro tipo de seta":
 			var temp : Pickup = Commons.ITEMS.filter(func (i): return i.name == "Seta sospechosa")[0]
@@ -78,10 +78,13 @@ func complete():
 			player.remove_item(temp, 10)
 			temp = Commons.ITEMS.filter(func (i): return i.name == "Zanahoria")[0]
 			player.remove_item(temp, 10)
+	Server.auto_save.save()
 
 
 func check_win_condition():
-	has_won = Commons.QUESTS.size() == QuestSystem.get_completed_quests().size()
+	has_won = Commons.QUESTS.size() - 1 <= QuestSystem.get_completed_quests().size()
+	player.ui.quests.update_text()
+
 
 
 func load_quests(game:GAME):
@@ -133,9 +136,9 @@ func loaddata(data:Dictionary) -> Dictionary:
 		var pool : Array[Quest] = quests[i]
 		for j in pool:
 			add_quest(j)
-			var idx : int = npc_quest_names.find(j.quest_name)
-			if idx != -1:
-				var npc : NPCScene = get_node_or_null(npc_paths[idx])
+			var path : Array = npc_paths.filter(func (i): return aux_filter_quest(i, j))
+			if not path.is_empty():
+				var npc : NPCScene = get_node(path[0])
 				if npc != null and npc.npc.quest != null:
 					npc.state_chart.send_event("available")
 					if i == "active" or i == "completed":
@@ -145,5 +148,11 @@ func loaddata(data:Dictionary) -> Dictionary:
 					if i == "completed":
 						npc.complete_mission()
 						remove_quest(j)
-	check_win_condition()
 	return data
+
+
+func aux_filter_quest(npc_path, quest):
+	var npc : NPCScene = get_node_or_null(npc_path)
+	if npc == null or npc.npc.quest == null:
+		return false
+	return npc.npc.quest.quest_name == quest.quest_name

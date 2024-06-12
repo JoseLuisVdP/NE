@@ -49,6 +49,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8h140")
 
 [node name="Node3D" type="StaticBody3D"]
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35492, 0)

@@ -15,6 +15,9 @@ func set_monitor_values():
 	toBeMonitored["Raycast (floor)"] = _player.floor_angle.is_colliding()
 	toBeMonitored["Time"] = GlobalTime.time
 	toBeMonitored["Day Time"] = GlobalTime.day_time
+	toBeMonitored["IsMoving"] = _player.state_machine.is_moving()
+	toBeMonitored["IsWalking"] = _player.state_machine.is_walking()
+	toBeMonitored["IsMoving"] = _player.state_machine.is_player_running()
 	
 	text = ""
 	
