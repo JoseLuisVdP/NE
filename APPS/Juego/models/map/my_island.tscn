@@ -19945,6 +19945,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 
 [node name="Patch2" type="Node3D" parent="Decoration/Crops/Wheat"]
 transform = Transform3D(0.999815, 0.0192492, 4.70579e-05, -0.0192438, 0.999472, 0.0261769, 0.000456851, -0.026173, 0.999657, 0.0341034, -1.05155, 30)
+visible = false
 
 [node name="GrassPatch" parent="Decoration/Crops/Wheat/Patch2" instance=ExtResource("10_wax50")]
 
@@ -20001,6 +20002,7 @@ transform = Transform3D(0.996909, 0.0785579, -0.00151346, -0.0785565, 0.99691, 0
 
 [node name="Patch2" type="Node3D" parent="Decoration/Crops/Corn"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170, 120, 135.957)
+visible = false
 
 [node name="Node3D" parent="Decoration/Crops/Corn/Patch2" instance=ExtResource("11_huhbl")]
 transform = Transform3D(0.999947, 0.0103524, -0.000558088, -0.010367, 0.998924, -0.0452059, 8.94888e-05, 0.0452093, 0.998977, 7.68243, -1.21892, 0)

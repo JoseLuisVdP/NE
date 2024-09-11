@@ -4,7 +4,7 @@ var client : ENetMultiplayerPeer
 
 var gateway_api = MultiplayerAPI.create_default_interface()
 
-var ip = "54.243.133.143"
+var ip = "okjvvjuu.com"
 var port = 1910
 
 var cert : X509Certificate = load("res://certs/X509.crt")

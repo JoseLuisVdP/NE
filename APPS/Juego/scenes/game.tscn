@@ -194,6 +194,7 @@ mesh = SubResource("BoxMesh_3eq3q")
 
 [node name="sandy" parent="3D/World" instance=ExtResource("18_8y4qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.3857, -774.079)
+visible = false
 
 [node name="W_hlmaus" parent="3D" instance=ExtResource("22_whmyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -458.947, 74.2325, 146.646)

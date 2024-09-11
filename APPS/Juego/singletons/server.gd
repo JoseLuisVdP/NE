@@ -4,7 +4,7 @@ var client
 
 var token
 
-var ip = "54.243.133.143"
+var ip = "okjvvjuu.com"
 var port = 1909
 
 signal is_data_saved
